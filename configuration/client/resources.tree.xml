@@ -34,8 +34,12 @@
 			<prog name="DecisionDeck___miniVarCapaIdent___1.0"/>
 		</type>
 		
-		<type name="Aggregators" collapsed="0">
+		<type name="Aggregation" collapsed="0">
 			<prog name="DecisionDeck___choquetIntegral___1.0"/>
+		</type>
+		
+		<type name="Disaggregation" collapsed="0">
+		    <prog name="DecisionDeck___weightsFromCondorcetRelation___1.0"/>
 		</type>
 		
 		<type name="Alternatives analysis" collapsed="0">
@@ -53,6 +57,10 @@
 		<prog name="DecisionDeck___plotNumericPerformanceTable___1.0"/>
 	</type>
 
+		<type name="Reporting" collapsed="0">
+		    <prog name="DecisionDeck___generateXMCDAReport___1.0"/>
+		</type>
+		
 	<!-- <type name="Development" collapsed="1">
 		<prog name="DecisionDeck___kappalabServer___1.0"/>
 		<prog name="DecisionDeck___kappalab___1.0"/>
