@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE program_description PUBLIC "-//ENSTBr//DTD Bioside Program Description 3//EN" "">
+
+<program_description export_date="2008-10-26 18:10:00" modification_date="2008-10-26 18:10:00">
+  <program provider="DecisionDeck" name="kappalabServer" version="1.0" />
+  <from desc_id="S9001" />
+  <description>kappalabServer: one entry (the whole xmcda.xml), one output</description>
+  <parameters>
+    <parameter id="kappalabServer" type="command" ismandatory="1">
+      <name>kappalabServer</name>
+      <description></description>
+      <position>0</position>
+      <code>kappalabServer.py -S </code>
+    </parameter>
+    
+    <parameter id="infile" ishidden="0" type="input">
+      <name>infile (XMCDA xml)</name>
+      <description>Input data file</description>
+      <position>1</position>
+      <code>-x %s </code>
+      <types>
+        <type>xmcda</type>
+      </types>
+      <vdef/>
+    </parameter>
+    
+    <parameter id="output" ishidden="0" type="output">
+      <name>output</name>
+      <description>output</description>
+      <position>100</position>
+      <code />
+      <types>
+        <type>xmcda</type>
+      </types>
+      <vdef>kappalabSolution.xml</vdef>
+    </parameter>
+
+    <parameter id="TIMEOUT" ishidden="0" type="int">
+      <name>Timeout? (0 for no timeout)</name>
+      <description>timeout</description>
+      <position>1</position>
+      <code>-t %s </code>
+      <constraint>
+        <description>value should be a positive or null integer</description>
+        <code>(%d &gt;= 0)</code>
+      </constraint>
+      <vdef>60</vdef>
+    </parameter>
+    
+    <parameter id="IdMeth" ishidden="0" type="enum">
+      <name>Identification method</name>
+      <description>Identification method</description>
+      <position>2</position>
+      <vlist>
+        <item id="T1">
+          <description>mini.var.capa.ident</description>
+          <code></code>
+        </item>
+        <item id="T2">
+          <description>lin.prog.capa.ident</description>
+          <code></code>
+        </item>
+        <item id="T3">
+          <description>least.squares.capa.ident</description>
+          <code></code>
+        </item>
+        <item id="T4">
+          <description>ls.ranking.capa.ident</description>
+          <code></code>
+        </item>
+      </vlist>
+      <vdef>T1</vdef>
+    </parameter>
+    <parameter id="D" ishidden="0" type="float">
+      <name> d? </name>
+      <description></description>
+      <position>3</position>
+      <code></code>
+      <constraint>
+        <description>value should be a positive float number, lesser than the maximum value in the performance table</description>
+        <code>(%f &gt; 0)</code>
+      </constraint>
+      <vdef>1</vdef>
+      <dep>(IdMeth:type="T4")</dep>
+    </parameter>
+
+    <parameter id="VERBOSE" ishidden="0" type="enum">
+      <name>Verbose mode</name>
+      <description></description>
+      <position>4</position>
+      <vlist>
+        <item id="T1">
+          <description>None</description>
+          <code></code>
+        </item>
+        <item id="T2">
+          <description>Moderately verbose</description>
+          <code>-v </code>
+        </item>
+        <item id="T3">
+          <description>Very verbose</description>
+          <code>-vv </code>
+        </item>
+      </vlist>
+      <vdef>T2</vdef>
+    </parameter>
+
+  </parameters>
+</program_description>
+

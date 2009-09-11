@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!DOCTYPE progTree [
+	<!ELEMENT progTree (type)+>
+	<!ELEMENT type (type|prog)*>
+	<!ELEMENT prog (#PCDATA)>
+	<!ATTLIST type
+	    name         CDATA    #REQUIRED
+      icon         CDATA    #IMPLIED
+      collapsed    CDATA    #IMPLIED
+      experimental (yes|no) "no"
+    >
+	<!ATTLIST prog
+    	name CDATA #REQUIRED
+        icon CDATA #IMPLIED
+    >
+]>
+<progTree>
+	
+	<type name="Calculation components" collapsed="0">
+		<type name="Capacity analysis" collapsed="0">
+			<prog name="DecisionDeck___capacityEntropy___1.0"/>
+			<prog name="DecisionDeck___capacityFavor___1.0"/>
+			<prog name="DecisionDeck___capacityInteraction___1.0"/>
+			<prog name="DecisionDeck___capacityOrness___1.0"/>
+			<prog name="DecisionDeck___capacityShapley___1.0"/>
+			<prog name="DecisionDeck___capacityVariance___1.0"/>
+			<prog name="DecisionDeck___capacityVeto___1.0"/>
+		</type>
+		
+		<type name="Capacity identification" collapsed="0">
+			<prog name="DecisionDeck___leastSquaresCapaIdent___1.0"/>
+			<prog name="DecisionDeck___linProgCapaIdent___1.0"/>
+			<prog name="DecisionDeck___lsRankingCapaIdent___1.0"/>
+			<prog name="DecisionDeck___miniVarCapaIdent___1.0"/>
+		</type>
+		
+		<type name="Aggregators" collapsed="0">
+			<prog name="DecisionDeck___choquetIntegral___1.0"/>
+		</type>
+		
+		<type name="Alternatives analysis" collapsed="0">
+			<prog name="DecisionDeck___alternativesValuesKendall___1.0"/>
+			<prog name="DecisionDeck___rankAlternativesValues___1.0"/>
+		</type>
+	</type>
+	<type name="Visualisation components" collapsed="0">
+		<prog name="DecisionDeck___plotAlternativesComparisons___1.0"/>
+		<prog name="DecisionDeck___plotAlternativesValues___1.0"/>
+		<prog name="DecisionDeck___plotAlternativesValuesPreorder___1.0"/>
+		<prog name="DecisionDeck___plotCriteriaComparisons___1.0"/>
+		<prog name="DecisionDeck___plotCriteriaValues___1.0"/>
+		<prog name="DecisionDeck___plotCriteriaValuesPreorder___1.0"/>
+		<prog name="DecisionDeck___plotNumericPerformanceTable___1.0"/>
+	</type>
+
+	<!-- <type name="Development" collapsed="1">
+		<prog name="DecisionDeck___kappalabServer___1.0"/>
+		<prog name="DecisionDeck___kappalab___1.0"/>
+		<prog name="DecisionDeck___splitXMCDA___1.0"/>
+		<prog name="DecisionDeck___normalize___1.0"/>
+		<prog name="DecisionDeck___kappalab_O2I___1.0"/>
+		<prog name="DecisionDeck___kappalabComponent___1.0"/>
+		<prog name="DecisionDeck___assembleXMCDA___1.0"/>
+	</type> -->
+
+</progTree>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE program_description PUBLIC "-//ENSTBr//DTD Bioside Program Description 3//EN" "">
+
+<program_description export_date="2008-10-26 18:10:00" modification_date="2008-10-26 18:10:00">
+  <program provider="DecisionDeck" name="kappalab_O2I" version="1.0" />
+  <from desc_id="S9005" />
+  <description>kappalab_O2I</description>
+  <parameters>
+    <parameter id="kappalab_O2I" type="command" ismandatory="1">
+      <name>kappalabServer</name>
+      <description></description>
+      <position>0</position>
+      <code>kappalab_utils.py </code>
+    </parameter>
+
+    <parameter id="input" ishidden="0" type="input">
+      <name>input</name>
+      <description>input</description>
+      <position>1</position>
+      <code>--transform-output-to-input %s </code>
+      <types>
+        <type>xmcda</type>
+      </types>
+      <vdef/>
+    </parameter>
+
+    <parameter id="output" ishidden="0" type="output">
+      <name>output</name>
+      <description>output</description>
+      <position>100</position>
+      <code>--output=%s </code>
+      <types>
+        <type>xmcda</type>
+      </types>
+      <vdef/>
+    </parameter>
+
+  </parameters>
+</program_description>
+

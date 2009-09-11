@@ -1,0 +1,571 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE program_description PUBLIC "-//ENSTBr//DTD Bioside Program Description 3//EN" "">
+
+<program_description export_date="2008-10-26 18:10:00" modification_date="2008-10-26 18:10:00">
+  <program provider="DecisionDeck" name="assembleXMCDA" version="1.0" />
+  <from desc_id="S9003" />
+  <description>assembleXMCDA</description>
+  <parameters>
+    <parameter id="assembleXMCDA" type="command" ismandatory="1">
+      <name>split XMCDA</name>
+      <description></description>
+      <position>0</position>
+      <code>assemble_xmcda.py</code>
+    </parameter>
+    <parameter id="outfile" ishidden="0" type="output">
+      <name>infile (XMCDA xml)</name>
+      <description>input (xmcda)</description>
+      <position>9999</position>
+      <code> xmcda.xml</code>
+      <types>
+        <type>xmcda</type>
+      </types>
+      <vdef>xmcda.xml</vdef>
+    </parameter>
+    
+    <parameter id="caseReference" ishidden="0" type="input">
+      <name>caseReference</name>
+      <description>caseReference</description>
+      <position>1</position>
+      <code> --case-reference %s</code>
+      <types>
+        <type>projectReference</type>
+      </types>
+      <vdef/>
+      <dep>(CR:value="1")</dep>
+    </parameter>
+
+    <parameter id="methodData" ishidden="0" type="input">
+      <name>methodData</name>
+      <description>methodData</description>
+      <position>2</position>
+      <code> --method-data %s</code>
+      <types>
+        <type>methodParameters</type>
+      </types>
+      <vdef/>
+      <dep>(MD:value="1")</dep>
+    </parameter>
+
+    <parameter id="criteria" ishidden="0" type="input">
+      <name>criteria</name>
+      <description>criteria</description>
+      <position>3</position>
+      <code> --criteria %s</code>
+      <types>
+        <type>criteria</type>
+      </types>
+      <vdef/>
+      <dep>(C:value="1")</dep>
+    </parameter>
+
+    <parameter id="alternatives" ishidden="0" type="input">
+      <name>alternatives</name>
+      <description>alternatives</description>
+      <position>4</position>
+      <code> --alternatives %s</code>
+      <types>
+        <type>alternatives</type>
+      </types>
+      <vdef/>
+      <dep>(ALT:value="1")</dep>
+    </parameter>
+
+    <parameter id="performanceTable" ishidden="0" type="input">
+      <name>performanceTable</name>
+      <description>performanceTable</description>
+      <position>5</position>
+      <code> --performance-table %s</code>
+      <types>
+        <type>performanceTable</type>
+      </types>
+      <vdef/>
+      <dep>(PERF:value="1")</dep>
+    </parameter>
+
+    <parameter id="CR" ishidden="0" type="boolean">
+      <name>Use case references as input?</name>
+      <description>Use case references as input?</description>
+      <position>10</position>
+      <code></code>
+      <vdef>1</vdef>
+    </parameter>
+    <parameter id="MD" ishidden="0" type="boolean">
+      <name>Use method data as input?</name>
+      <description>Use method data as input?</description>
+      <position>11</position>
+      <code></code>
+      <vdef>1</vdef>
+    </parameter>
+    <parameter id="C" ishidden="0" type="boolean">
+      <name>Use criteria as input?</name>
+      <description>Use criteria as input?</description>
+      <position>12</position>
+      <code></code>
+      <vdef>1</vdef>
+    </parameter>
+    <parameter id="ALT" ishidden="0" type="boolean">
+      <name>Use alternatives as input?</name>
+      <description>Use alternatives as input?</description>
+      <position>13</position>
+      <code></code>
+      <vdef>1</vdef>
+    </parameter>
+    <parameter id="PERF" ishidden="0" type="boolean">
+      <name>Use performance table?</name>
+      <description>Use performance table as input?</description>
+      <position>14</position>
+      <code></code>
+      <vdef>1</vdef>
+    </parameter>
+
+<!--
+    <parameter id="weights" ishidden="0" type="input">
+      <name>weights</name>
+      <description>input weight file</description>
+      <position>27</position>
+      <code>%s%n</code>
+      <types>
+        <type>weights</type>
+      </types>
+      <vdef>weights</vdef>
+      <dep>(W:value="1")</dep>
+    </parameter>
+    <parameter id="mixture" ishidden="0" type="input">
+      <name>mixture</name>
+      <description>Mixture input file </description>
+      <position>28</position>
+      <code>%s%n</code>
+      <types>
+        <type>mixture</type>
+      </types>
+      <vdef>mixture</vdef>
+      <dep>(X:value="1")</dep>
+    </parameter>
+    <parameter id="ancestors" ishidden="0" type="input">
+      <name>ancestors</name>
+      <description>Ancestors input file </description>
+      <position>30</position>
+      <code>%s%n</code>
+      <types>
+        <type>ancestors</type>
+      </types>
+      <vdef>ancestors</vdef>
+      <dep>(N:value="1")</dep>
+    </parameter>
+    <parameter id="categories" ishidden="0" type="input">
+      <name>categories</name>
+      <description>Categories input file </description>
+      <position>32</position>
+      <code>%s%n</code>
+      <types>
+        <type>categories</type>
+      </types>
+      <vdef>categories</vdef>
+      <dep>(C:value="1")</dep>
+    </parameter>
+    <parameter id="factors" ishidden="0" type="input">
+      <name>factors</name>
+      <description>Factors input file </description>
+      <position>34</position>
+      <code>%s%n</code>
+      <types>
+        <type>factors</type>
+      </types>
+      <vdef>factors</vdef>
+      <dep>(F:value="1")</dep>
+    </parameter>
+    <parameter id="outfile" ishidden="0" type="output">
+      <name>outfile</name>
+      <description>Output data file</description>
+      <position>2</position>
+      <code />
+      <types>
+        <type>alignment</type>
+        <type>weights</type>
+      </types>
+      <vdef>outfile</vdef>
+    </parameter>
+    <parameter id="outweights" ishidden="0" type="output">
+      <name>outweights</name>
+      <description>Weights output file</description>
+      <position>36</position>
+      <code />
+      <types>
+        <type>weights</type>
+      </types>
+      <vdef>outweights</vdef>
+      <dep>((J:type="T1") OR (J:type="T2")) AND (S:type="T2")</dep>
+    </parameter>
+    <parameter id="outmixture" ishidden="0" type="output">
+      <name>outmixture</name>
+      <description>Mixture output file</description>
+      <position>29</position>
+      <code />
+      <types>
+        <type>mixture</type>
+      </types>
+      <vdef>outmixture</vdef>
+      <dep>(X:value="1")</dep>
+    </parameter>
+    <parameter id="outancestors" ishidden="0" type="output">
+      <name>outancestors</name>
+      <description>Ancestors output file</description>
+      <position>31</position>
+      <code />
+      <types>
+        <type>ancestors</type>
+      </types>
+      <vdef>outancestors</vdef>
+      <dep>(N:value="1")</dep>
+    </parameter>
+    <parameter id="outcategories" ishidden="0" type="output">
+      <name>outcategories</name>
+      <description>Categories output file</description>
+      <position>33</position>
+      <code />
+      <types>
+        <type>categories</type>
+      </types>
+      <vdef>outcategories</vdef>
+      <dep>(C:value="1")</dep>
+    </parameter>
+    <parameter id="outfactors" ishidden="0" type="output">
+      <name>outfactors</name>
+      <description>Factors output file</description>
+      <position>35</position>
+      <code />
+      <types>
+        <type>factors</type>
+      </types>
+      <vdef>outfactors</vdef>
+      <dep>(F:value="1")</dep>
+    </parameter>
+    <parameter id="D" ishidden="0" type="enum">
+      <name>Input data type</name>
+      <description>Input data type</description>
+      <position>3</position>
+      <vlist>
+        <item id="T2">
+          <description>Discrete Morphology</description>
+          <code>d%n</code>
+        </item>
+        <item id="T4">
+          <description>Gene Frequencies</description>
+          <code>d%nd%nd%n</code>
+        </item>
+        <item id="T1">
+          <description>Molecular Sequences</description>
+          <code />
+        </item>
+        <item id="T3">
+          <description>Restriction Sites</description>
+          <code>d%nd%n</code>
+        </item>
+      </vlist>
+      <vdef>T1</vdef>
+    </parameter>
+    <parameter id="F" ishidden="0" type="boolean">
+      <name> Use factors information? </name>
+      <description> Use factors information? </description>
+      <position>4</position>
+      <code>f%n</code>
+      <vdef>0</vdef>
+      <dep>(D:type="T2")</dep>
+    </parameter>
+    <parameter id="E" ishidden="0" type="enum">
+      <name> Number of enzymes? (</name>
+      <description> Number of enzymes? (</description>
+      <position>5</position>
+      <vlist>
+        <item id="T1">
+          <description>Not present in input file</description>
+          <code />
+        </item>
+        <item id="T2">
+          <description>Present in input file</description>
+          <code>e%n</code>
+        </item>
+      </vlist>
+      <vdef>T1</vdef>
+      <dep>(D:type="T3")</dep>
+    </parameter>
+    <parameter id="A" ishidden="0" type="boolean">
+      <name> All alleles present at each locus? </name>
+      <description> All alleles present at each locus? </description>
+      <position>6</position>
+      <code>a%n</code>
+      <vdef>0</vdef>
+      <dep>(D:type="T4")</dep>
+    </parameter>
+    <parameter id="J" ishidden="0" type="enum">
+      <name>Resampling method</name>
+      <description>Resampling method</description>
+      <position>7</position>
+      <vlist>
+        <item id="T1">
+          <description>Bootstrap</description>
+          <code />
+        </item>
+        <item id="T2">
+          <description>Jackknife</description>
+          <code>j%n</code>
+        </item>
+        <item id="T4">
+          <description>Permute character order</description>
+          <code>j%nj%nj%n</code>
+        </item>
+        <item id="T3">
+          <description>Permute species for each character</description>
+          <code>j%nj%n</code>
+        </item>
+        <item id="T5">
+          <description>Permute within species</description>
+          <code>j%nj%nj%nj%n</code>
+        </item>
+        <item id="T6">
+          <description>Rewrite Data</description>
+          <code>j%nj%nj%nj%nj%n</code>
+        </item>
+      </vlist>
+      <vdef>T1</vdef>
+    </parameter>
+    <parameter id="POURCENT" ishidden="0" type="enum">
+      <name>Sampling fraction?</name>
+      <description>Sampling fraction?</description>
+      <position>11</position>
+      <vlist>
+        <item id="T2">
+          <description>Altered sampling fraction</description>
+          <code>%%%n</code>
+        </item>
+        <item id="T1">
+          <description>Regular sampling function</description>
+          <code />
+        </item>
+      </vlist>
+      <vdef>T1</vdef>
+      <dep>(J:type="T1") OR (J:type="T2")</dep>
+    </parameter>
+    <parameter id="NSAMPLES" ishidden="0" type="int">
+      <name> Samples as percentage of sites? </name>
+      <description> Samples as percentage of sites? </description>
+      <position>12</position>
+      <code>%s%n</code>
+      <constraint>
+        <description>value should be an integer between 1 and 100</description>
+        <code>(%d &gt; 0) &amp;&amp; (%d &lt; 101)</code>
+      </constraint>
+      <vdef>1</vdef>
+      <dep>(POURCENT:type="T2")</dep>
+    </parameter>
+    <parameter id="P" ishidden="0" type="enum">
+      <name>Output format?</name>
+      <description>Output format?</description>
+      <position>8</position>
+      <vlist>
+        <item id="T2">
+          <description>NEXUS</description>
+          <code>p%n</code>
+        </item>
+        <item id="T1">
+          <description>PHYLIP</description>
+          <code />
+        </item>
+        <item id="T3">
+          <description>XML</description>
+          <code>p%np%n</code>
+        </item>
+      </vlist>
+      <vdef>T1</vdef>
+      <dep>((J:type="T6") AND (D:type="T1"))</dep>
+    </parameter>
+    <parameter id="S" ishidden="0" type="enum">
+      <name> Type of input molecular sequences?</name>
+      <description> Type of input molecular sequences?</description>
+      <position>10</position>
+      <vlist>
+        <item id="T1">
+          <description>DNA</description>
+          <code />
+        </item>
+        <item id="T3">
+          <description>Protein</description>
+          <code>s%ns%n</code>
+        </item>
+        <item id="T2">
+          <description>RNA</description>
+          <code>s%n</code>
+        </item>
+      </vlist>
+      <vdef>T1</vdef>
+      <dep>(J:type="T6") AND (D:type="T1") AND ( (P:type="T2") OR (P:type="T3") )</dep>
+    </parameter>
+    <parameter id="Pbis" ishidden="0" type="enum">
+      <name>Output format?</name>
+      <description>Output format?</description>
+      <position>9</position>
+      <vlist>
+        <item id="T2">
+          <description>NEXUS</description>
+          <code>p%n</code>
+        </item>
+        <item id="T1">
+          <description>PHYLIP</description>
+          <code />
+        </item>
+      </vlist>
+      <vdef>T1</vdef>
+      <dep>((J:type="T6") AND (D:type="T2"))</dep>
+    </parameter>
+    <parameter id="B" ishidden="0" type="int">
+      <name> Block size for block-bootstrapping (1 is regular bootstrap) ?</name>
+      <description> Block size for block-bootstrapping (1 is regular bootstrap) ?</description>
+      <position>13</position>
+      <code>b%n%s%n</code>
+      <constraint>
+        <description>Value must be positive</description>
+        <code>(%d &gt; 0)</code>
+      </constraint>
+      <vdef>1</vdef>
+      <dep>(J:type="T1")</dep>
+    </parameter>
+    <parameter id="R" ishidden="0" type="int">
+      <name> How many replicates?</name>
+      <description> How many replicates?</description>
+      <position>14</position>
+      <code>r%n%s%n</code>
+      <constraint>
+        <description>Value must be positive</description>
+        <code>(%d &gt; 0)</code>
+      </constraint>
+      <vdef>100</vdef>
+      <dep>(J:type="T1") OR (J:type="T2") OR (J:type="T3") OR (J:type="T4") OR (J:type="T5")</dep>
+    </parameter>
+    <parameter id="W" ishidden="0" type="boolean">
+      <name> Read weights of characters?</name>
+      <description> Read weights of characters?</description>
+      <position>15</position>
+      <code>w%n</code>
+      <vdef>0</vdef>
+      <dep>((J:type="T1") OR (J:type="T2") OR (J:type="T3"))</dep>
+    </parameter>
+    <parameter id="X" ishidden="0" type="boolean">
+      <name>Read mixture file?</name>
+      <description>Read mixture file?</description>
+      <position>16</position>
+      <code>x%n</code>
+      <vdef>0</vdef>
+      <dep> ( (J:type="T1") OR (J:type="T2") OR (J:type="T3") )  AND (D:type="T2") </dep>
+    </parameter>
+    <parameter id="N" ishidden="0" type="boolean">
+      <name>Read ancestors file?</name>
+      <description>Read ancestors file?</description>
+      <position>17</position>
+      <code>n%n</code>
+      <vdef>0</vdef>
+      <dep>((J:type="T1") OR (J:type="T2") OR (J:type="T3"))  AND  (D:type="T2")</dep>
+    </parameter>
+    <parameter id="C" ishidden="0" type="boolean">
+      <name> Read categories of sites?</name>
+      <description> Read categories of sites?</description>
+      <position>18</position>
+      <code>c%n</code>
+      <vdef>0</vdef>
+      <dep>((J:type="T1") OR (J:type="T2") OR (J:type="T3")) AND (D:type="T1")</dep>
+    </parameter>
+    <parameter id="Sbis" ishidden="0" type="enum">
+      <name> Write out data sets or just weights?</name>
+      <description> Write out data sets or just weights?</description>
+      <position>19</position>
+      <vlist>
+        <item id="T1">
+          <description>Data sets</description>
+          <code />
+        </item>
+        <item id="T2">
+          <description>Just weights</description>
+          <code>s%n</code>
+        </item>
+      </vlist>
+      <vdef>T1</vdef>
+      <dep>(J:type="T1") OR (J:type="T2" )</dep>
+    </parameter>
+    <parameter id="I" ishidden="1" type="boolean">
+      <name> Input sequences interleaved?</name>
+      <description> Input sequences interleaved?</description>
+      <position>20</position>
+      <code>i%n</code>
+      <vdef>1</vdef>
+      <dep>( (D:type="T1") OR (D:type="T3")) </dep>
+    </parameter>
+    <parameter id="zero" ishidden="1" type="enum">
+      <name> Terminal type (IBM PC, ANSI, none)?</name>
+      <description> Terminal type (IBM PC, ANSI, none)?</description>
+      <position>21</position>
+      <vlist>
+        <item id="T1">
+          <description>ANSI</description>
+          <code />
+        </item>
+        <item id="T3">
+          <description>IBM PC</description>
+          <code>0%n0%n</code>
+        </item>
+        <item id="T2">
+          <description>none</description>
+          <code>0%n</code>
+        </item>
+      </vlist>
+      <vdef>T1</vdef>
+    </parameter>
+    <parameter id="one" ishidden="1" type="boolean">
+      <name> Print out the data at start of run</name>
+      <description> Print out the data at start of run</description>
+      <position>22</position>
+      <code>1%n</code>
+      <vdef>0</vdef>
+    </parameter>
+    <parameter id="dot" ishidden="0" type="boolean">
+      <name> Use dot-differencing to display then (Only if 1 is activated)</name>
+      <description> Use dot-differencing to display then (Only if 1 is activated)</description>
+      <position>23</position>
+      <code>.%n</code>
+      <vdef>1</vdef>
+      <dep>(one:value="1")</dep>
+    </parameter>
+    <parameter id="two" ishidden="1" type="boolean">
+      <name> Print indications of progress of run</name>
+      <description> Print indications of progress of run</description>
+      <position>24</position>
+      <code>2%n</code>
+      <vdef>1</vdef>
+    </parameter>
+    <parameter id="Y" ishidden="1" type="code">
+      <name />
+      <description />
+      <position>25</position>
+      <code>Y%n</code>
+    </parameter>
+    <parameter id="RANDOM" ishidden="0" type="int">
+      <name> Random Number Seed (must be odd)</name>
+      <description> Random Number Seed (must be odd)</description>
+      <position>26</position>
+      <code>%s%n</code>
+      <constraint>
+        <description>it must be like 4 x n + 1 and minor of 32767</description>
+        <code>(%d %%2 ==1) &amp;&amp; (%d &lt; 32767)</code>
+      </constraint>
+      <vdef>13577</vdef>
+      <dep>(J:type="T1") OR (J:type="T2") OR (J:type="T3") OR (J:type="T4") OR (J:type="T5")</dep>
+    </parameter>
+    <parameter id="EOF" ishidden="1" type="code">
+      <name />
+      <description />
+      <position>37</position>
+      <code>EOF%n</code>
+    </parameter>
+    -->
+  </parameters>
+</program_description>
+

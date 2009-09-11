@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE platform PUBLIC "-//ENSTBr//DTD Bioside Platform 1.0//EN" "http://perso.enst-bretagne.fr/~picouet/projets/genomer/bioside/platform.dtd">
+
+<platform type="shell">
+    <initialisation>setenv PYTHONUNBUFFERED 1
+setenv PATH /home/big/Projets/D2/python:${PATH}:
+    </initialisation>
+    <programs>
+      <program id="DecisionDeck___alternativesValuesKendall___1.0"/>
+      <program id="DecisionDeck___assembleXMCDA___1.0"/>
+      <program id="DecisionDeck___capacityEntropy___1.0"/>
+      <program id="DecisionDeck___capacityFavor___1.0"/>
+      <program id="DecisionDeck___capacityInteraction___1.0"/>
+      <program id="DecisionDeck___capacityOrness___1.0"/>
+      <program id="DecisionDeck___capacityShapley___1.0"/>
+      <program id="DecisionDeck___capacityVariance___1.0"/>
+      <program id="DecisionDeck___capacityVeto___1.0"/>
+      <program id="DecisionDeck___choquetIntegral___1.0"/>
+      <program id="DecisionDeck___kappalabComponent___1.0"/>
+      <program id="DecisionDeck___kappalabServer___1.0"/>
+      <program id="DecisionDeck___kappalab_O2I___1.0"/>
+      <program id="DecisionDeck___kappalab___1.0"/>
+      <program id="DecisionDeck___leastSquaresCapaIdent___1.0"/>
+      <program id="DecisionDeck___linProgCapaIdent___1.0"/>
+      <program id="DecisionDeck___lsRankingCapaIdent___1.0"/>
+      <program id="DecisionDeck___miniVarCapaIdent___1.0"/>
+      <program id="DecisionDeck___normalize___1.0"/>
+      <program id="DecisionDeck___plotAlternativesComparisons___1.0"/>
+      <program id="DecisionDeck___plotAlternativesValuesPreorder___1.0"/>
+      <program id="DecisionDeck___plotAlternativesValues___1.0"/>
+      <program id="DecisionDeck___plotCriteriaComparisons___1.0"/>
+      <program id="DecisionDeck___plotCriteriaValuesPreorder___1.0"/>
+      <program id="DecisionDeck___plotCriteriaValues___1.0"/>
+      <program id="DecisionDeck___plotNumericPerformanceTable___1.0"/>
+      <program id="DecisionDeck___rankAlternativesValues___1.0"/>
+      <program id="DecisionDeck___splitXMCDA___1.0"/>
+    </programs>
+</platform>
+
