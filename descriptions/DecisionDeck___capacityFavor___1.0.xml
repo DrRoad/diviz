@@ -1,83 +1,161 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 
+
+
 <!DOCTYPE program_description PUBLIC "-//ENSTBr//DTD Bioside Program Description 3//EN" "">
 
-<program_description export_date="2009-07-31 19:24:22 +0200">
+<program_description export_date="2009-09-11 17:56:03 +0200">
   <program provider="DecisionDeck" name="capacityFavor" version="1.0" />
   <from desc_id="S8888" />
-  <description>Computes the favor indices of a Choquet integral from the underlying normalised Mobius transform of a capacity.</description>
+  <description><![CDATA[Computes the favor indices of a Choquet integral from the underlying normalised Mobius transform of a capacity.]]></description>
   <parameters>
-    <parameter id="capacityFavor" type="command" ismandatory="1">
+    <parameter id="capacityFavor-cmdline" type="command" ismandatory="1">
       <name>capacityFavor</name>
       <description></description>
-      <position>100</position>
+      <position>100000</position>
       <code>genericXMCDAService.py capacityFavor -S </code>
     </parameter>
 
 
-
-    <parameter id="kAdditivity" ishidden="0" type="int">
+    <parameter id="kAdditivity" ishidden="0" type="input">
       <name>kAdditivity</name>
-      <description>Indicates the level of k-additivity of the Mobius capacity (the Mobius transform of subsets whose cardinal is superior to k vanishes).</description>
-      <position>2</position>
-      <code>#kAdditivity: %s
-cat &gt; kAdditivity.xml &lt;&lt;EOF 
-&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;?xml-stylesheet type="text/xsl" href="xmcdaKappalab.xsl"?&gt;
-&lt;xmcda:XMCDA xmlns:xmcda="http://www.decision-deck.org/2009/XMCDA-2.0.0"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.decision-deck.org/2009/XMCDA-2.0.0 file:/home/pat/Documents/currentResearch/DecisionDeck/svn-DecisionDeck/XMCDA/XMCDA-2.0.0.xsd"&gt;&lt;methodParameters&gt;
-  &lt;parameter
-    name="kAdditivity"&gt;
-      &lt;value&gt;
-        &lt;integer&gt;%s&lt;/integer&gt;
-      &lt;/value&gt;  &lt;/parameter&gt;
-&lt;/methodParameters&gt;
-&lt;/xmcda:XMCDA&gt;
-EOF
-</code>
-      <constraint>
-        <description>The value should be a positive integer, less than or equal to the number of criteria.</description>
-        <code>(%d &gt; 0)</code>   
-      </constraint>
-      <vdef>None</vdef>
+      <description><![CDATA[Indicates the level of k-additivity of the Mobius capacity (the Mobius transform of subsets whose cardinal is superior to k vanishes).]]></description>
+      <position>100003</position>
+      <code/> 
+      <types>
+        <type>methodParameters</type>
+      </types>
+      <vdef>kAdditivity.xml</vdef>
+      <dep>(kAdditivity-use-file-dep:value="1")</dep>
+
     </parameter>
 
-    <parameter id="kAdditivity_in-cmdline" ishidden="1" type="code">
+    <parameter id="kAdditivity-use-file-dep" ishidden="0" type="boolean">
+      <name>Supply kAdditivity as a file?</name>
+      <description>Supply kAdditivity as a file?</description>
+      <position>3003</position>
+      <code/>
+      <vdef>1</vdef>
+      <dep/>
+    </parameter>
+    
+
+
+
+    <parameter id="kAdditivity-gui" ishidden="1" type="code">
+      <name>kAdditivity</name>
+      <description><![CDATA[Indicates the level of k-additivity of the Mobius capacity (the Mobius transform of subsets whose cardinal is superior to k vanishes).]]></description>
+      <position>300</position>
+      <code><![CDATA[#kAdditivity: kAdditivity.xml
+cat > kAdditivity.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="xmcdaKappalab.xsl"?>
+<xmcda:XMCDA xmlns:xmcda="http://www.decision-deck.org/2009/XMCDA-2.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.decision-deck.org/2009/XMCDA-2.0.0 file:/home/pat/Documents/currentResearch/DecisionDeck/svn-DecisionDeck/XMCDA/XMCDA-2.0.0.xsd">]]></code>
+      <dep>(kAdditivity-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+
+    <parameter id="kAdditivity-gui-301" ishidden="1" type="code">
       <name />
       <description />
-      <position>102</position>
-      <code> kAdditivity:kAdditivity.xml</code>
+      <position>301</position>
+      <code><![CDATA[
+                
+                    <methodParameters>
+                        <parameter
+                             name="kAdditivity"> <!-- REQUIRED  -->
+                            <value>
+                                <integer>]]></code>
+      <dep>(kAdditivity-use-file-dep:value="0")</dep>
+
     </parameter>
+
+
+    <parameter id="kAdditivity-gui-302" ishidden="0" type="int">
+      <name>kAdditivity</name>
+      <description>TODO</description>
+      <position>302</position>
+      <code>%s</code>
+
+      <constraint>
+        <description>The value should be a positive integer, less than or equal to the number of criteria.</description>
+        <code><![CDATA[%d > 0]]></code>   
+      </constraint>
+      <vdef>1</vdef>
+      <dep>(kAdditivity-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+
+    <parameter id="kAdditivity-gui-303" ishidden="1" type="code">
+      <name />
+      <description />
+      <position>303</position>
+      <code><![CDATA[</integer>
+                            </value>
+                        </parameter>
+                    </methodParameters>
+                    
+            ]]></code>
+      <dep>(kAdditivity-use-file-dep:value="0")</dep>
+
+    </parameter>
+    <parameter id="kAdditivity-gui-EOF" ishidden="1" type="code">
+      <name>kAdditivity EOF</name>
+      <description></description>
+      <position>304</position>
+      <code><![CDATA[</xmcda:XMCDA>%nEOF%n]]></code>
+      <dep>(kAdditivity-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+    <parameter id="kAdditivity-cmdline" ishidden="1" type="code">
+      <name>kAdditivity insertion in cmd-line</name>
+      <description></description>
+      <position>100003</position>
+      <code> kAdditivity:kAdditivity.xml</code>
+      <dep/>
+    </parameter>
+
+
+
+
 
     <parameter id="criteria" ishidden="0" type="input">
       <name>criteria</name>
-      <description>A list of criteria.</description>
-      <position>103</position>
+      <description><![CDATA[A list of criteria. Criteria can be activated or desactivated via the <active> tag (true or false). By default (no <active> tag), criteria are considered as active.]]></description>
+      <position>100004</position>
       <code> criteria:%s</code>
       <types>
         <type>criteria</type>
       </types>
-      <vdef/>
+      <vdef>criteria.xml</vdef>
+      <dep/>
     </parameter>
+
 
 
     <parameter id="mobiusCapacity" ishidden="0" type="input">
       <name>mobiusCapacity</name>
-      <description>The Mobius transform of a capacity.</description>
-      <position>104</position>
+      <description><![CDATA[The Mobius transform of a capacity.]]></description>
+      <position>100005</position>
       <code> mobiusCapacity:%s</code>
       <types>
         <type>criteriaValues</type>
       </types>
-      <vdef/>
+      <vdef>mobiusCapacity.xml</vdef>
+      <dep/>
     </parameter>
 
 
-    <parameter id="messages-output" ishidden="0" type="output">
+
+
+    <parameter id="messages" ishidden="0" type="output">
       <name>messages</name>
-      <description>A list of messages generated by the algorithm.</description>
-      <position>205</position>
+      <description><![CDATA[A list of messages generated by the algorithm.]]></description>
+      <position>2006</position>
       <code/>
       <types>
         <type>methodMessages</type>
@@ -88,10 +166,11 @@ EOF
 
 
 
-    <parameter id="favorValues-output" ishidden="0" type="output">
+
+    <parameter id="favorValues" ishidden="0" type="output">
       <name>favorValues</name>
-      <description>A list of favour indices.</description>
-      <position>206</position>
+      <description><![CDATA[A list of favour indices. The favour indices are stored in a <criterionValue> for each criterion.]]></description>
+      <position>2007</position>
       <code/>
       <types>
         <type>criteriaValues</type>
@@ -104,7 +183,7 @@ EOF
     <parameter id="TIMEOUT" ishidden="0" type="int">
       <name>Timeout? (0 for no timeout)</name>
       <description>timeout</description>
-      <position>101</position>
+      <position>100001</position>
       <code>-t %s </code>
       <constraint>
         <description>value should be a positive or null integer</description>
@@ -116,7 +195,7 @@ EOF
     <parameter id="VERBOSE" ishidden="0" type="enum">
       <name>Verbose mode</name>
       <description></description>
-      <position>101</position>
+      <position>100002</position>
       <vlist>
         <item id="T1">
           <description>None</description>

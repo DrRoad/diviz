@@ -1,76 +1,165 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 
+
+
 <!DOCTYPE program_description PUBLIC "-//ENSTBr//DTD Bioside Program Description 3//EN" "">
 
-<program_description export_date="2009-07-31 19:24:22 +0200">
+<program_description export_date="2009-09-11 17:56:04 +0200">
   <program provider="DecisionDeck" name="plotAlternativesComparisons" version="1.0" />
   <from desc_id="S8888" />
-  <description>Generates a graph representing a partial preorder on the alternatives.</description>
+  <description><![CDATA[Generates a graph representing a partial preorder on the alternatives.]]></description>
   <parameters>
-    <parameter id="plotAlternativesComparisons" type="command" ismandatory="1">
+    <parameter id="plotAlternativesComparisons-cmdline" type="command" ismandatory="1">
       <name>plotAlternativesComparisons</name>
       <description></description>
-      <position>100</position>
+      <position>100000</position>
       <code>genericXMCDAService.py plotAlternativesComparisons -S </code>
     </parameter>
 
 
     <parameter id="cutLevel" ishidden="0" type="input">
       <name>cutLevel</name>
-      <description>A real value indicating above which level the valued relation (comparisons) should be considered as validated.</description>
-      <position>102</position>
-      <code> cutLevel:%s</code>
+      <description><![CDATA[A real value indicating above which level the valued relation (comparisons) should be considered as validated.]]></description>
+      <position>100003</position>
+      <code/> 
       <types>
         <type>methodParameters</type>
       </types>
-      <vdef/>
-      <dep>(cutLevel-dep:value="1")</dep>
+      <vdef>cutLevel.xml</vdef>
+      <dep>(cutLevel-dep:value="1") AND (cutLevel-use-file-dep:value="1")</dep>
+
     </parameter>
     <parameter id="cutLevel-dep" ishidden="0" type="boolean">
       <name>Use cutLevel as input?</name>
       <description>Use cutLevel as input?</description>
-      <position>302</position>
+      <position>3003</position>
       <code/>
       <vdef>1</vdef>
     </parameter>
+
+    <parameter id="cutLevel-use-file-dep" ishidden="0" type="boolean">
+      <name>Supply cutLevel as a file?</name>
+      <description>Supply cutLevel as a file?</description>
+      <position>3003</position>
+      <code/>
+      <vdef>0</vdef>
+      <dep>(cutLevel-dep:value="1")</dep>
+
+    </parameter>
+    
+
+
+
+    <parameter id="cutLevel-gui" ishidden="1" type="code">
+      <name>cutLevel</name>
+      <description><![CDATA[A real value indicating above which level the valued relation (comparisons) should be considered as validated.]]></description>
+      <position>300</position>
+      <code><![CDATA[#cutLevel: cutLevel.xml
+cat > cutLevel.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="xmcdaKappalab.xsl"?>
+<xmcda:XMCDA xmlns:xmcda="http://www.decision-deck.org/2009/XMCDA-2.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.decision-deck.org/2009/XMCDA-2.0.0 file:/home/pat/Documents/currentResearch/DecisionDeck/svn-DecisionDeck/XMCDA/XMCDA-2.0.0.xsd">]]></code>
+      <dep>(cutLevel-dep:value="1") AND (cutLevel-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+
+    <parameter id="cutLevel-gui-301" ishidden="1" type="code">
+      <name />
+      <description />
+      <position>301</position>
+      <code><![CDATA[
+                
+                    <methodParameters>
+                        <parameter
+                             name="cutlevel"><!-- REQUIRED  -->
+                            <value>
+                                <real>]]></code>
+      <dep>(cutLevel-dep:value="1") AND (cutLevel-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+
+    <parameter id="cutLevel-gui-302" ishidden="0" type="float">
+      <name>separationThreshold</name>
+      <description>TODO</description>
+      <position>302</position>
+      <code>%s</code>
+      <vdef></vdef>
+      <dep>(cutLevel-dep:value="1") AND (cutLevel-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+
+    <parameter id="cutLevel-gui-303" ishidden="1" type="code">
+      <name />
+      <description />
+      <position>303</position>
+      <code><![CDATA[</real>
+                            </value>
+                        </parameter>
+                    </methodParameters>
+                    
+            ]]></code>
+      <dep>(cutLevel-dep:value="1") AND (cutLevel-use-file-dep:value="0")</dep>
+
+    </parameter>
+    <parameter id="cutLevel-gui-EOF" ishidden="1" type="code">
+      <name>cutLevel EOF</name>
+      <description></description>
+      <position>304</position>
+      <code><![CDATA[</xmcda:XMCDA>%nEOF%n]]></code>
+      <dep>(cutLevel-dep:value="1") AND (cutLevel-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+    <parameter id="cutLevel-cmdline" ishidden="1" type="code">
+      <name>cutLevel insertion in cmd-line</name>
+      <description></description>
+      <position>100003</position>
+      <code> cutLevel:cutLevel.xml</code>
+      <dep>(cutLevel-dep:value="1")</dep>
+
+    </parameter>
+
+
+
 
 
     <parameter id="alternatives" ishidden="0" type="input">
       <name>alternatives</name>
-      <description>A list of alternatives. Alternatives can be activated or desactivated via the &lt;active&gt; tag.</description>
-      <position>103</position>
+      <description><![CDATA[A list of alternatives. Alternatives can be activated or desactivated via the <active> tag (true or false). By default (no <active> tag), alternatives are considered as active. ]]></description>
+      <position>100004</position>
       <code> alternatives:%s</code>
       <types>
         <type>alternatives</type>
       </types>
-      <vdef/>
+      <vdef>alternatives.xml</vdef>
+      <dep/>
     </parameter>
 
 
+
     <parameter id="alternativesComparisons" ishidden="0" type="input">
-      <name>alternativesComparisons</name>
-      <description>A valued relation relative to comparisons of the alternatives. A numeric &lt;value&gt; indicates a the valuation for each &lt;pair&gt; of the relation.</description>
-      <position>104</position>
+      <name>alternativesPreorder</name>
+      <description><![CDATA[A valued relation relative to comparisons of the alternatives. A numeric <value> indicates a the valuation for each <pair> of the relation.]]></description>
+      <position>100005</position>
       <code> alternativesComparisons:%s</code>
       <types>
         <type>alternativesComparisons</type>
       </types>
-      <vdef/>
-      <dep>(alternativesComparisons-dep:value="1")</dep>
-    </parameter>
-    <parameter id="alternativesComparisons-dep" ishidden="0" type="boolean">
-      <name>Use alternativesComparisons as input?</name>
-      <description>Use alternativesComparisons as input?</description>
-      <position>304</position>
-      <code/>
-      <vdef>1</vdef>
+      <vdef>alternativesComparisons.xml</vdef>
+      <dep/>
     </parameter>
 
 
-    <parameter id="messages-output" ishidden="0" type="output">
+
+
+    <parameter id="messages" ishidden="0" type="output">
       <name>messages</name>
-      <description>A list of messages generated by the algorithm.</description>
-      <position>205</position>
+      <description><![CDATA[A list of messages generated by the algorithm.]]></description>
+      <position>2006</position>
       <code/>
       <types>
         <type>methodMessages</type>
@@ -81,10 +170,11 @@
 
 
 
+
     <parameter id="alternativesComparisonsPlot" ishidden="0" type="output">
       <name>alternativesComparisonsPlot</name>
-      <description>A string containing the base64 representation of the png image of the graph generated by the R statistical software.</description>
-      <position>206</position>
+      <description><![CDATA[A string containing the base64 representation of the png image of the graph generated by the R statistical software.]]></description>
+      <position>2007</position>
       <code/>
       <types>
         <type>alternativeValue</type>
@@ -97,7 +187,7 @@
     <parameter id="TIMEOUT" ishidden="0" type="int">
       <name>Timeout? (0 for no timeout)</name>
       <description>timeout</description>
-      <position>101</position>
+      <position>100001</position>
       <code>-t %s </code>
       <constraint>
         <description>value should be a positive or null integer</description>
@@ -109,7 +199,7 @@
     <parameter id="VERBOSE" ishidden="0" type="enum">
       <name>Verbose mode</name>
       <description></description>
-      <position>101</position>
+      <position>100002</position>
       <vlist>
         <item id="T1">
           <description>None</description>
