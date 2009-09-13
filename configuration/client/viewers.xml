@@ -2,84 +2,37 @@
 <!DOCTYPE external_viewers PUBLIC "-//ENSTBr//DTD Bioside External Viewers 1.0//EN" "http://perso.enst-bretagne.fr/~picouet/projets/genomer/bioside/external_viewers.dtd">
 <external_viewers>
 
-  <viewer>
-    <name>gedit</name>
-    <type>local</type>
-    <path>/usr/bin/gedit</path>
-    <formats>
-      <format>defaut</format>
-      <format>tree</format>
-    </formats>
-    <parameters></parameters>
-  </viewer>
+	<viewer>
+		<name>gedit</name>
+		<type>local</type>
+		<path>gedit</path>
+		<formats>
+			<format>defaut</format>
+			<format>tree</format>
+		</formats>
+		<parameters></parameters>
+	</viewer>
 
-	<!--
-		<viewer>
-			<name>TreeView</name>
-			<type>local</type>
-			<path>$tool_home_dir$treev32.exe</path>
-			<formats>
-				<format>tree</format>
-			</formats>
-			<parameters></parameters>
-		</viewer>
-	
-		<viewer>
-			<name>NJplot</name>
-			<type>local</type>
-			<path>$tool_home_dir$njplot.exe</path>
-			<formats>
-				<format>tree</format>
-			</formats>
-			<parameters></parameters>
-		</viewer>
-	
-		<viewer>
-			<name>Unrooted</name>
-			<type>local</type>
-			<path>$tool_home_dir$unrooted.exe</path>
-			<formats>
-				<format>tree</format>
-			</formats>
-			<parameters></parameters>
-		</viewer>
-	
-	  <viewer>
-	    <name>Jalview</name>
-	    <type>local</type>
-			<path>$tool_home_dir$jalview.jar</path>
-	    <formats>
-	      <format>defaut</format>
-				<format>tree</format>
-	    </formats>
-	    <parameters></parameters>
-	  </viewer>
-	-->
-	
-	  <viewer>
-	    <name>oXygen</name>
-	    <type>local</type>
-			<path>/usr/local/bin/oxygen</path>
-	    <formats>
-	      <format>defaut</format>
-	      <format>xml</format>
-	    </formats>
-	    <parameters></parameters>
-	  </viewer>
+	<viewer>
+		<name>notepad</name>
+		<type>local</type>
+		<path>notepad</path>
+		<formats>
+			<format>defaut</format>
+			<format>tree</format>
+		</formats>
+		<parameters></parameters>
+	</viewer>
+
+	<viewer>
+		<name>oXygen</name>
+		<type>local</type>
+		<path>oxygen</path>
+		<formats>
+			<format>defaut</format>
+			<format>xml</format>
+		</formats>
+		<parameters></parameters>
+	</viewer>
  
-	<!--
-	
-	  GhostView est-il utile dans la version PHYLIP ?
-	
-  <viewer>
-    <name>gsview</name>
-    <type>local</type>
-    <path>gsview</path>
-    <formats>
-      <format>postscript</format>
-    </formats>
-    <parameters></parameters>
-  </viewer>
-	-->
-
 </external_viewers>
