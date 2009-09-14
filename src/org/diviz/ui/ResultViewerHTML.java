@@ -41,7 +41,7 @@ import org.lobobrowser.html.test.SimpleUserAgentContext;
 import org.xml.sax.SAXException;
 
 import eu.telecom_bretagne.praxis.client.ui.Common;
-import eu.telecom_bretagne.praxis.client.ui.results.viewers.BioFileFormat;
+import eu.telecom_bretagne.praxis.client.ui.results.viewers.FileFormat;
 import eu.telecom_bretagne.praxis.client.ui.results.viewers.FileViewer;
 import eu.telecom_bretagne.praxis.common.Base64Coder;
 import eu.telecom_bretagne.praxis.common.FileResources;
@@ -222,7 +222,7 @@ public class ResultViewerHTML
 		}
 		catch (Exception e)
 		{
-			e.printStackTrace();
+			//e.printStackTrace();
 			disableSwitchButtonAndDisplayRawText();
 			return;
 		}
@@ -401,13 +401,14 @@ public class ResultViewerHTML
 	{
 		if (panelAction == null)
 		{
-			panelAction = new JPanel();
-			panelAction.setLayout(null);
-			panelAction.setPreferredSize(new java.awt.Dimension(300, 40));
+			BorderLayout bl = new BorderLayout();
+			bl.setHgap(10);
+			panelAction = new JPanel(bl);
 			if (Common.RESULTS_EXTERNAL_VIEWER_COLOR_BG != null)
 				jPanel.setBackground(Common.RESULTS_EXTERNAL_VIEWER_COLOR_BG);
-			panelAction.add(getComboBoxVierversSelection(), null);
-			panelAction.add(getSwitchXmlHtmlViewButton(), null);
+			panelAction.add(getSwitchXmlHtmlViewButton(), BorderLayout.WEST);
+			panelAction.add(getComboBoxViewersSelection(), BorderLayout.EAST);
+			panelAction.revalidate();
 		}
 		return panelAction;
 	}
@@ -480,21 +481,20 @@ public class ResultViewerHTML
 	 * This method initializes comboBoxVierversSelection
 	 * @return javax.swing.JComboBox
 	 */
-	private JComboBox getComboBoxVierversSelection()
+	private JComboBox getComboBoxViewersSelection()
 	{
 		if (comboBoxViewersSelection == null)
 		{
 			String fileType = null;
 			try
 			{
-				fileType = BioFileFormat.getFileType(resultFile);
+				fileType = FileFormat.getFileType(resultFile);
 			}
 			catch (IOException e)
 			{
 				e.printStackTrace();
 			}
 			comboBoxViewersSelection = new JComboBox(FileViewer.getAvailableViewers(fileType));
-			comboBoxViewersSelection.setBounds(new java.awt.Rectangle(120, 10, 174, 21));
 			comboBoxViewersSelection.addActionListener(new java.awt.event.ActionListener() {
 				public void actionPerformed(java.awt.event.ActionEvent e)
 				{
@@ -534,7 +534,6 @@ public class ResultViewerHTML
 		if (switchXmlHtmlViewButton == null)
 		{
 			switchXmlHtmlViewButton = new JButton();
-			switchXmlHtmlViewButton.setBounds(new java.awt.Rectangle(20, 10, 91, 21));
 			switchXmlHtmlViewButton.setText("XML view");
 			switchXmlHtmlViewButton.addActionListener(new java.awt.event.ActionListener() {
 				public void actionPerformed(java.awt.event.ActionEvent e)
