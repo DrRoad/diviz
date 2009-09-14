@@ -17,7 +17,7 @@
         icon CDATA #IMPLIED
     >
 ]>
-<resourcesTree version="1">
+<resourcesTree version="2">
 	
 	<type name="Calculation components" collapsed="0">
 		<type name="Capacity analysis" collapsed="0">
@@ -39,6 +39,8 @@
 		
 		<type name="Aggregation" collapsed="0">
 			<resource name="DecisionDeck___choquetIntegral___1.0"/>
+			<resource name="DecisionDeck___weightedSum___1.0"/>
+			<resource name="DecisionDeck___RubisConcordanceRelation___1.0"/>
 		</type>
 		
 		<type name="Disaggregation" collapsed="0">
@@ -50,6 +52,11 @@
 			<resource name="DecisionDeck___rankAlternativesValues___1.0"/>
 		</type>
 	</type>
+
+	<type name="Methods" collapsed="0">
+		<resource name="DecisionDeck___jsmaa___1.0"/>
+	</type>
+
 	<type name="Visualisation components" collapsed="0">
 		<resource name="DecisionDeck___plotAlternativesComparisons___1.0"/>
 		<resource name="DecisionDeck___plotAlternativesValues___1.0"/>

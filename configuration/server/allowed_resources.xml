@@ -34,6 +34,9 @@
     <resource id="DecisionDeck___splitXMCDA___1.0"/>
     
     <resource id="DecisionDeck___weightsFromCondorcetRelation___1.0"/>
+    <resource id="DecisionDeck___weightedSum___1.0"/>
+    <resource id="DecisionDeck___RubisConcordanceRelation___1.0"/>
+    <resource id="DecisionDeck___jsmaa___1.0"/>
 
     <resource id="DecisionDeck___generateXMCDAReport___1.0"/>
 </resources_hierarchy>
