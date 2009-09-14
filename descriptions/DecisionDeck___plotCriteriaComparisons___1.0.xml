@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 
 
-
 <!DOCTYPE program_description PUBLIC "-//ENSTBr//DTD Bioside Program Description 3//EN" "">
 
-<program_description export_date="2009-09-11 17:56:07 +0200">
+<program_description export_date="2009-09-14 10:37:04 +0200">
   <program provider="DecisionDeck" name="plotCriteriaComparisons" version="1.0" />
   <from desc_id="S8888" />
   <description><![CDATA[Generates a graph representing a partial preorder on the criteria.]]></description>
@@ -131,7 +130,7 @@ cat > cutLevel.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <name>criteria</name>
       <description><![CDATA[A list of criteria. Criteria can be activated or desactivated via the <active> tag (true or false). By default (no <active> tag), criteria are considered as active.]]></description>
       <position>100004</position>
-      <code> criteria:%s</code>
+      <code> criteria:criteria.xml</code>
       <types>
         <type>criteria</type>
       </types>
@@ -145,7 +144,7 @@ cat > cutLevel.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <name>criteriaComparisons</name>
       <description><![CDATA[A valued relation relative to the partial preorder of the criteria. A numeric <value> indicates a the valuation for each <pair> of the relation.]]></description>
       <position>100005</position>
-      <code> criteriaComparisons:%s</code>
+      <code> criteriaComparisons:criteriaComparisons.xml</code>
       <types>
         <type>criteriaComparisons</type>
       </types>

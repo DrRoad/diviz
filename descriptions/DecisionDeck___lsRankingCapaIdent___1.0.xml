@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 
 
-
 <!DOCTYPE program_description PUBLIC "-//ENSTBr//DTD Bioside Program Description 3//EN" "">
 
-<program_description export_date="2009-09-11 17:56:07 +0200">
+<program_description export_date="2009-09-14 10:37:04 +0200">
   <program provider="DecisionDeck" name="lsRankingCapaIdent" version="1.0" />
   <from desc_id="S8888" />
   <description><![CDATA[Identifies a Mobius capacity by means of an approach called TOMASO in the particular ranking framework. More precisely, given a preorder on the alternatives, and possibly additional linear constraints expressing preferences, importance of criteria, etc., this algorithm determines, if it exists, a capacity minimising the  "gap" between the given ranking and the one derived from the Choquet integral, and compatible with the additional linear constraints. The problem is solved by quadratic programming. ]]></description>
@@ -233,7 +232,7 @@ cat > separationThreshold.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <name>criteria</name>
       <description><![CDATA[A list of criteria. Criteria can be activated or desactivated via the <active> tag (true or false). By default (no <active> tag), criteria are considered as active.]]></description>
       <position>100005</position>
-      <code> criteria:%s</code>
+      <code> criteria:criteria.xml</code>
       <types>
         <type>criteria</type>
       </types>
@@ -247,7 +246,7 @@ cat > separationThreshold.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <name>alternatives</name>
       <description><![CDATA[A list of alternatives. Alternatives can be activated or desactivated via the <active> tag (true or false). By default (no <active> tag), alternatives are considered as active. ]]></description>
       <position>100006</position>
-      <code> alternatives:%s</code>
+      <code> alternatives:alternatives.xml</code>
       <types>
         <type>alternatives</type>
       </types>
@@ -261,7 +260,7 @@ cat > separationThreshold.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <name>performanceTable</name>
       <description><![CDATA[A performance table. The evaluations should be numeric values, i.e. <real>, <integer> or <rational>.]]></description>
       <position>100007</position>
-      <code> performanceTable:%s</code>
+      <code> performanceTable:performanceTable.xml</code>
       <types>
         <type>performanceTable</type>
       </types>
@@ -275,7 +274,7 @@ cat > separationThreshold.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <name>shapleyPreorder</name>
       <description><![CDATA[A valued relation on criteria expressing importance constraints on the critera. A numeric <value> indicates a minimal preference threshold for each <pair>. One <pair> represents an affirmation of the type "the Shapley importance index of criterion g1 is greater than the Shapley importance index of criterion g2 with preference threshold delta".]]></description>
       <position>100008</position>
-      <code> shapleyPreorder:%s</code>
+      <code> shapleyPreorder:shapleyPreorder.xml</code>
       <types>
         <type>criteriaComparisons</type>
       </types>
@@ -297,7 +296,7 @@ cat > separationThreshold.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <name>shapleyInterval</name>
       <description><![CDATA[A list of <criterionValue> containing the constraints relative to the quantitative importance of the criteria. Each <criterionValue> contains an an <interval>. Each <criteriaValue> represents an affirmation of the type "the Shapley importance index of criterion g1 lies in the interval [a,b]".]]></description>
       <position>100009</position>
-      <code> shapleyInterval:%s</code>
+      <code> shapleyInterval:shapleyInterval.xml</code>
       <types>
         <type>criteriaValues</type>
       </types>
@@ -319,7 +318,7 @@ cat > separationThreshold.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <name>interactionPreorder</name>
       <description><![CDATA[A valued relation on pairs of criteria expressing constraints on value of the the Shapley interaction index. A numeric <value> indicates a minimal preference threshold for each <pair> of the relation. One <pair> represents a constraint of the type "the Shapley interaction index of the pair (g1,g2) of criteria is greater than the Shapley interaction index of the pair (g3,g4) of criteria with preference threshold delta".]]></description>
       <position>100010</position>
-      <code> interactionPreorder:%s</code>
+      <code> interactionPreorder:interactionPreorder.xml</code>
       <types>
         <type>criteriaComparisons</type>
       </types>
@@ -341,7 +340,7 @@ cat > separationThreshold.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <name>interactionInterval</name>
       <description><![CDATA[A list of <criterionValue> containing the constraints relative to the type and the magnitude of the Shapley interaction index for pairs of criteria. Each <criterionValue> contains an an <interval>. Each <criteriaValue> represents an affirmation of the type "the Shapley interaction index of the pair (g1,g2) of criteria lies in the interval [a,b]".]]></description>
       <position>100011</position>
-      <code> interactionInterval:%s</code>
+      <code> interactionInterval:interactionInterval.xml</code>
       <types>
         <type>criteriaValues</type>
       </types>
@@ -363,7 +362,7 @@ cat > separationThreshold.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <name>alternativesPreorder</name>
       <description><![CDATA[A valued relation relative to the preorder of the alternatives. A numeric <value> indicates a minimal preference threshold for each <pair> of the relation. One <pair> represents a constraint of the type "alternative a is preferred to alternative b with preference threshold delta".]]></description>
       <position>100012</position>
-      <code> alternativesPreorder:%s</code>
+      <code> alternativesPreorder:alternativesPreorder.xml</code>
       <types>
         <type>alternativesComparisons</type>
       </types>

@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 
 
-
 <!DOCTYPE program_description PUBLIC "-//ENSTBr//DTD Bioside Program Description 3//EN" "">
 
-<program_description export_date="2009-09-11 17:56:08 +0200">
+<program_description export_date="2009-09-14 10:37:05 +0200">
   <program provider="DecisionDeck" name="weightsFromCondorcetRelation" version="1.0" />
   <from desc_id="S8888" />
   <description><![CDATA[This web service allows to compute criteria significance weights from pairwise outranking comparisons, taking into account some robust properties. For ordered pairs a decision maker would ensure a strong outranking, the web service grants, if possible, that the outranking remains unchanged when changing the criteria weights, as long as the relative importance between all criteria weights don't change (a weight greater than another has to stay greater).]]></description>
@@ -127,7 +126,7 @@ cat > maxWeight.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <name>criteria</name>
       <description><![CDATA[A list of criteria. Criteria can be activated or desactivated via the <active> tag (true or false). By default (no <active> tag), criteria are considered as active.]]></description>
       <position>100004</position>
-      <code> criteria:%s</code>
+      <code> criteria:criteria.xml</code>
       <types>
         <type>criteria</type>
       </types>
@@ -141,7 +140,7 @@ cat > maxWeight.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <name>alternatives</name>
       <description><![CDATA[A list of alternatives. Alternatives can be activated or desactivated via the <active> tag (true or false). By default (no <active> tag), alternatives are considered as active. ]]></description>
       <position>100005</position>
-      <code> alternatives:%s</code>
+      <code> alternatives:alternatives.xml</code>
       <types>
         <type>alternatives</type>
       </types>
@@ -155,7 +154,7 @@ cat > maxWeight.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <name>performanceTable</name>
       <description><![CDATA[A performance table. The evaluations should be numeric values, i.e. <real>, <integer> or <rational>.]]></description>
       <position>100006</position>
-      <code> performanceTable:%s</code>
+      <code> performanceTable:performanceTable.xml</code>
       <types>
         <type>performanceTable</type>
       </types>
@@ -169,7 +168,7 @@ cat > maxWeight.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <name>condorcetDenotation</name>
       <description><![CDATA[The Condorcet denotation for some alternative comparisons. The value associated to each ordered pair (a,b) must be an integer between 3 and -3. Note that all pairs with a value of 3 or -3 will be ignored during the computation phase, as they are trivial constraints.]]></description>
       <position>100007</position>
-      <code> alternativesComparisons:%s</code>
+      <code> alternativesComparisons:alternativesComparisons.xml</code>
       <types>
         <type>alternativesComparisons</type>
       </types>

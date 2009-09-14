@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 
 
-
 <!DOCTYPE program_description PUBLIC "-//ENSTBr//DTD Bioside Program Description 3//EN" "">
 
-<program_description export_date="2009-09-11 17:56:04 +0200">
+<program_description export_date="2009-09-14 10:37:01 +0200">
   <program provider="DecisionDeck" name="capacityVariance" version="1.0" />
   <from desc_id="S8888" />
   <description><![CDATA[Computes the normalized variance of the Mobius transform of a capacity. ]]></description>
@@ -127,7 +126,7 @@ cat > kAdditivity.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <name>criteria</name>
       <description><![CDATA[A list of criteria. Criteria can be activated or desactivated via the <active> tag (true or false). By default (no <active> tag), criteria are considered as active.]]></description>
       <position>100004</position>
-      <code> criteria:%s</code>
+      <code> criteria:criteria.xml</code>
       <types>
         <type>criteria</type>
       </types>
@@ -141,7 +140,7 @@ cat > kAdditivity.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <name>mobiusCapacity</name>
       <description><![CDATA[The Mobius transform of a capacity.]]></description>
       <position>100005</position>
-      <code> mobiusCapacity:%s</code>
+      <code> mobiusCapacity:mobiusCapacity.xml</code>
       <types>
         <type>criteriaValues</type>
       </types>

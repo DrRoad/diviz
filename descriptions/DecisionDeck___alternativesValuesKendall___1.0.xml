@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 
 
-
 <!DOCTYPE program_description PUBLIC "-//ENSTBr//DTD Bioside Program Description 3//EN" "">
 
-<program_description export_date="2009-09-11 17:56:04 +0200">
+<program_description export_date="2009-09-14 10:37:02 +0200">
   <program provider="DecisionDeck" name="alternativesValuesKendall" version="1.0" />
   <from desc_id="S8888" />
   <description><![CDATA[Calculates the correlation index between two rankings of alternatives (represented by lists of ranks).]]></description>
@@ -21,7 +20,7 @@
       <name>alternatives</name>
       <description><![CDATA[A list of alternatives. Alternatives can be activated or desactivated via the <active> tag (true or false). By default (no <active> tag), alternatives are considered as active. ]]></description>
       <position>100003</position>
-      <code> alternatives:%s</code>
+      <code> alternatives:alternatives.xml</code>
       <types>
         <type>alternatives</type>
       </types>
@@ -35,7 +34,7 @@
       <name>alternativesValues</name>
       <description><![CDATA[A list of <alternativeValue> in an <alternativesValues> containing the rank of each alternative. The <value> should be a numeric value.]]></description>
       <position>100004</position>
-      <code> alternativesValues1:%s</code>
+      <code> alternativesValues1:alternativesValues1.xml</code>
       <types>
         <type>alternativesValues</type>
       </types>
@@ -49,7 +48,7 @@
       <name>alternativesValues</name>
       <description><![CDATA[A list of <alternativeValue> in an <alternativesValues> containing the rank of each alternative. The <value> should be a numeric value.]]></description>
       <position>100005</position>
-      <code> alternativesValues2:%s</code>
+      <code> alternativesValues2:alternativesValues2.xml</code>
       <types>
         <type>alternativesValues</type>
       </types>
