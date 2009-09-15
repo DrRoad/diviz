@@ -1,7 +1,8 @@
 
 table
 {
-	border: 1pt solid;
+	border: 1px solid;
+	border-collapse: collapse;
 	margin-bottom: 10pt;
 	padding: 0pt;
 }
@@ -14,7 +15,7 @@ table.tableList
 
 td
 {
-	border: 1pt solid;
+	border: 1px solid;
 	padding: 3pt 5pt 3pt 5pt;
 }
 
@@ -35,10 +36,10 @@ li
 	width: 95% ;
 	margin: 5pt auto ;
 	text-align: left ;
-	border-left : 1pt solid black;
+	/*border-left : 1pt solid black;
 	border-right: 3pt solid black;
 	border-top : 1pt solid black;
-	border-bottom: 3pt solid black;
+	border-bottom: 3pt solid black;*/
 	padding-bottom: 10pt;
 	font-size: 12pt;
 }
