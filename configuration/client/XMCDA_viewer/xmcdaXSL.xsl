@@ -12,8 +12,9 @@
 	<html>	
 		<head>
 			<title>XMCDA Scheme</title>
-                         <!-- <LINK REL="stylesheet" TYPE="text/css" HREF="cssStyle.css"/> -->
+                        <!-- <LINK REL="stylesheet" TYPE="text/css" HREF="cssStyle.css"/> -->
                         <style type="text/css">CSS_STYLES</style>
+
 		</head>
 		<body>
 			<div class="XMCDA">
@@ -359,6 +360,7 @@
 								</ul>
 							</xsl:when>
 						</xsl:choose>
+						<xsl:apply-templates select="criterionFunction"/>
 					</li>
 				</xsl:for-each>
 			</ul>
@@ -1282,7 +1284,7 @@
 
 
 <xsl:template match="criterionFunction">
-	Function associated to criterion <xsl:value-of select="criterionID"/> : <xsl:apply-templates select="function"/>
+	Criterion function <xsl:value-of select="criterionID"/> : <xsl:apply-templates/>
 </xsl:template>
 
 
@@ -1349,7 +1351,7 @@
 
 
 <xsl:template match="points">
-	Set : { <xsl:for-each select="point">(<xsl:value-of select="abscissa"/>,<xsl:value-of select="ordinate"/>) </xsl:for-each>}
+	Points : { <xsl:for-each select="point">(<xsl:value-of select="abscissa"/>,<xsl:value-of select="ordinate"/>) </xsl:for-each>}
 </xsl:template>
 
 
