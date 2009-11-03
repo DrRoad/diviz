@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE platform PUBLIC "-//ENSTBr//DTD Bioside Platform 1.0//EN" "http://perso.enst-bretagne.fr/~picouet/projets/genomer/bioside/platform.dtd">
+<!DOCTYPE platform PUBLIC "-//Telecom Bretagne/DTD XML Praxis Platform 1.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/platform.dtd">
 
 <platform type="shell">
     <initialisation>setenv PYTHONUNBUFFERED 1
