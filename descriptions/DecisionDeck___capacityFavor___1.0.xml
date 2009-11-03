@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 
 
-<!DOCTYPE program_description PUBLIC "-//ENSTBr//DTD Bioside Program Description 3//EN" "">
+<!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
 <program_description export_date="2009-09-14 10:37:01 +0200">
   <program provider="DecisionDeck" name="capacityFavor" version="1.0" />
