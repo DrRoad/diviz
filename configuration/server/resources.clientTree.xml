@@ -41,6 +41,10 @@
 			<resource name="DecisionDeck___choquetIntegral___1.0"/>
 			<resource name="DecisionDeck___weightedSum___1.0"/>
 			<resource name="DecisionDeck___RubisConcordanceRelation___1.0"/>
+			<type name="Weighted Sum" collapsed="0">
+				<resource name="DecisionDeck___weightedSum___1.0"/>
+				<resource name="DecisionDeck___generalWeightedSum___1.0"/>
+			</type>
 		</type>
 		
 		<type name="Disaggregation" collapsed="0">
