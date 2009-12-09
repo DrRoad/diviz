@@ -52,6 +52,9 @@
 			<resource name="DecisionDeck___alternativesValuesKendall___1.0"/>
 			<resource name="DecisionDeck___rankAlternativesValues___1.0"/>
 		</type>
+		<type name="Alternatives computations" collapsed="0">
+			<resource name="DecisionDeck___computeNormalisedPerformanceTable___1.0"/>
+		</type>
 	</type>
 
 	<type name="Methods" collapsed="0">
@@ -66,6 +69,8 @@
 		<resource name="DecisionDeck___plotCriteriaValues___1.0"/>
 		<resource name="DecisionDeck___plotCriteriaValuesPreorder___1.0"/>
 		<resource name="DecisionDeck___plotNumericPerformanceTable___1.0"/>
+		<resource name="DecisionDeck___XYPlotAlternativesValues___1.0"/>
+		<resource name="DecisionDeck___plotValueFunctions___1.0"/>
 	</type>
 
 		<type name="Reporting" collapsed="0">

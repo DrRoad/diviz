@@ -24,13 +24,17 @@
 	<resource id="DecisionDeck___normalize___1.0" />
 	<resource id="DecisionDeck___plotAlternativesComparisons___1.0" />
 	<resource id="DecisionDeck___plotAlternativesValuesPreorder___1.0" />
-	<resource id="DecisionDeck___plotAlternativesValues___1.0" />
 	<resource id="DecisionDeck___plotCriteriaComparisons___1.0" />
 	<resource id="DecisionDeck___plotCriteriaValuesPreorder___1.0" />
 	<resource id="DecisionDeck___plotCriteriaValues___1.0" />
 	<resource id="DecisionDeck___plotNumericPerformanceTable___1.0" />
+	<resource id="DecisionDeck___plotAlternativesValues___1.0" />
 	<resource id="DecisionDeck___rankAlternativesValues___1.0" />
 	<resource id="DecisionDeck___splitXMCDA___1.0" />
+
+	<resource id="DecisionDeck___XYPlotAlternativesValues___1.0" />
+	<resource id="DecisionDeck___plotValueFunctions___1.0" />
+	<resource id="DecisionDeck___computeNormalisedPerformanceTable___1.0" />
 
 	<resource id="DecisionDeck___weightsFromCondorcetRelation___1.0" />
 	<resource id="DecisionDeck___weightedSum___1.0" />

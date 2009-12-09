@@ -41,6 +41,10 @@ setenv PATH /home/big/Projets/D2/python:${PATH}:
       <program id="DecisionDeck___jsmaa___0.2"/>
       <program id="DecisionDeck___ACUTAR___1.0"/>
 
+      <program id="DecisionDeck___XYPlotAlternativesValues___1.0" />
+      <program id="DecisionDeck___plotValueFunctions___1.0" />
+      <program id="DecisionDeck___computeNormalisedPerformanceTable___1.0" />
+ 
       <program id="DecisionDeck___generateXMCDAReport___1.0"/>
     </programs>
 </platform>
