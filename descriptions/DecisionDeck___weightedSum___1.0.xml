@@ -3,7 +3,7 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2009-12-09 11:22:18 +0100">
+<program_description export_date="2009-12-09 12:45:16 +0100">
   <program provider="DecisionDeck" name="weightedSum" version="1.0" />
   <from desc_id="S8888" />
   <description><![CDATA[Computes the weighted sum of alternatives' evaluations.]]></description>
@@ -33,7 +33,7 @@
 
 
     <parameter id="norm" ishidden="0" type="input">
-      <name>normalized weights</name>
+      <name>normalised weights</name>
       <description><![CDATA[
 					Boolean for normalisation of the weights (true if the weights should be normalised).
 				]]></description>
@@ -47,16 +47,16 @@
 
     </parameter>
     <parameter id="norm-dep" ishidden="0" type="boolean">
-      <name>Use normalized weights as input?</name>
-      <description>Use normalized weights as input?</description>
+      <name>Use normalised weights as input?</name>
+      <description>Use normalised weights as input?</description>
       <position>3004</position>
       <code/>
       <vdef>1</vdef>
     </parameter>
 
     <parameter id="norm-use-file-dep" ishidden="0" type="boolean">
-      <name>Supply normalized weights as a file?</name>
-      <description>Supply normalized weights as a file?</description>
+      <name>Supply normalised weights as a file?</name>
+      <description>Supply normalised weights as a file?</description>
       <position>3004</position>
       <code/>
       <vdef>0</vdef>
@@ -68,7 +68,7 @@
 
 
     <parameter id="norm-gui" ishidden="1" type="code">
-      <name>normalized weights</name>
+      <name>normalised weights</name>
       <description><![CDATA[
 					Boolean for normalisation of the weights (true if the weights should be normalised).
 				]]></description>
@@ -91,7 +91,7 @@ cat > norm.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <code><![CDATA[
 				
 					<methodParameters>
-						<parameter>
+						<parameter name="normalisedWeights">
 							<value>
 								<label>]]></code>
       <dep>(norm-dep:value="1") AND (norm-use-file-dep:value="0")</dep>
@@ -100,7 +100,7 @@ cat > norm.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 
 
     <parameter id="norm-gui-402" ishidden="0" type="boolean">
-      <name>norm</name>
+      <name>normalised weights</name>
       <indent>1</indent>
       <description>TODO</description>
       <position>402</position>
@@ -126,7 +126,7 @@ cat > norm.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 
     </parameter>
     <parameter id="norm-gui-EOF" ishidden="1" type="code">
-      <name>normalized weights EOF</name>
+      <name>normalised weights EOF</name>
       <description></description>
       <position>404</position>
       <code><![CDATA[</xmcda:XMCDA>%nEOF%n]]></code>
@@ -135,7 +135,7 @@ cat > norm.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
     </parameter>
 
     <parameter id="norm-cmdline" ishidden="1" type="code">
-      <name>normalized weights insertion in cmd-line</name>
+      <name>normalised weights insertion in cmd-line</name>
       <description></description>
       <position>100004</position>
       <code> norm:norm.xml</code>
@@ -206,7 +206,7 @@ cat > avg.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <code><![CDATA[
 				
 					<methodParameters>
-						<parameter>
+						<parameter name="average">
 							<value>
             					<label>]]></code>
       <dep>(avg-dep:value="1") AND (avg-use-file-dep:value="0")</dep>
@@ -215,7 +215,7 @@ cat > avg.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 
 
     <parameter id="avg-gui-502" ishidden="0" type="boolean">
-      <name>avg</name>
+      <name>average</name>
       <indent>1</indent>
       <description>TODO</description>
       <position>502</position>
