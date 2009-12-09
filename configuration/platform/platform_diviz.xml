@@ -36,7 +36,7 @@ setenv PATH /home/big/Projets/D2/python:${PATH}:
       <program id="DecisionDeck___splitXMCDA___1.0"/>
 
       <program id="DecisionDeck___weightsFromCondorcetRelation___1.0"/>
-      <program id="DecisionDeck___weightsFromCondorcetRelationAndPreferences___1.0"/>
+      <program id="DecisionDeck___weightsFromCondorcetAndPreferences___1.0"/>
       <program id="DecisionDeck___weightedSum___1.0"/>
       <program id="DecisionDeck___RubisConcordanceRelation___1.0"/>
       <program id="DecisionDeck___jsmaa___0.2"/>

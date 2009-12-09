@@ -45,7 +45,7 @@
 		
 		<type name="Disaggregation" collapsed="0">
 		    <resource name="DecisionDeck___weightsFromCondorcetRelation___1.0"/>
-		    <resource name="DecisionDeck___weightsFromCondorcetRelationAndPreferences___1.0"/>
+		    <resource name="DecisionDeck___weightsFromCondorcetAndPreferences___1.0"/>
 		    <resource name="DecisionDeck___ACUTAR___1.0"/>
 		</type>
 		
