@@ -3,16 +3,16 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2009-12-09 11:22:17 +0100">
-  <program provider="DecisionDeck" name="computeNPT" version="1.0" />
+<program_description export_date="2009-12-09 13:23:59 +0100">
+  <program provider="DecisionDeck" name="computeNormalisedPerformanceTable" version="1.0" />
   <from desc_id="S8888" />
   <description><![CDATA[TODO]]></description>
   <parameters>
-    <parameter id="computeNPT-cmdline" type="command" ismandatory="1">
+    <parameter id="computeNormalisedPerformanceTable-cmdline" type="command" ismandatory="1">
       <name>computeNormalisedPerformanceTable</name>
       <description></description>
       <position>100000</position>
-      <code>genericXMCDAService.py computeNPT -S </code>
+      <code>genericXMCDAService.py computeNormalisedPerformanceTable -S </code>
     </parameter>
 
 
