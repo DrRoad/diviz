@@ -32,153 +32,22 @@
 
 
 
-    <parameter id="norm" ishidden="0" type="input">
-      <name>normalised weights</name>
-      <description><![CDATA[
-					Boolean for normalisation of the weights (true if the weights should be normalised).
-				]]></description>
-      <position>100004</position>
-      <code/> 
-      <types>
-        <type>methodParameters</type>
-      </types>
-      <vdef>norm.xml</vdef>
-      <dep>(norm-dep:value="1") AND (norm-use-file-dep:value="1")</dep>
-
-    </parameter>
-    <parameter id="norm-dep" ishidden="0" type="boolean">
-      <name>Use normalised weights as input?</name>
-      <description>Use normalised weights as input?</description>
-      <position>3004</position>
-      <code/>
-      <vdef>1</vdef>
-    </parameter>
-
-    <parameter id="norm-use-file-dep" ishidden="0" type="boolean">
-      <name>Supply normalised weights as a file?</name>
-      <description>Supply normalised weights as a file?</description>
-      <position>3004</position>
-      <code/>
-      <vdef>0</vdef>
-      <dep>(norm-dep:value="1")</dep>
-
-    </parameter>
-    
-
-
-
-    <parameter id="norm-gui" ishidden="1" type="code">
-      <name>normalised weights</name>
-      <description><![CDATA[
-					Boolean for normalisation of the weights (true if the weights should be normalised).
-				]]></description>
-      <position>400</position>
-      <code><![CDATA[#norm: norm.xml
-cat > norm.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="xmcdaKappalab.xsl"?>
-<xmcda:XMCDA xmlns:xmcda="http://www.decision-deck.org/2009/XMCDA-2.0.0"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.decision-deck.org/2009/XMCDA-2.0.0 http://www.decision-deck.org/xmcda/_downloads/XMCDA-2.0.0.xsd">]]></code>
-      <dep>(norm-dep:value="1") AND (norm-use-file-dep:value="0")</dep>
-
-    </parameter>
-
-
-    <parameter id="norm-gui-401" ishidden="1" type="code">
-      <name />
-      <description />
-      <position>401</position>
-      <code><![CDATA[
-				
-					<methodParameters>
-						<parameter name="normalisedWeights">
-							<value>
-								<label>]]></code>
-      <dep>(norm-dep:value="1") AND (norm-use-file-dep:value="0")</dep>
-
-    </parameter>
-
-
-    <parameter id="norm-gui-402" ishidden="0" type="boolean">
-      <name>normalised weights</name>
-      <indent>1</indent>
-      <description>TODO</description>
-      <position>402</position>
-
-      <code>%b</code>
-      <vdef></vdef>
-      <dep>(norm-dep:value="1") AND (norm-use-file-dep:value="0")</dep>
-
-    </parameter>
-
-
-    <parameter id="norm-gui-403" ishidden="1" type="code">
-      <name />
-      <description />
-      <position>403</position>
-      <code><![CDATA[</label>
-							</value>
-						</parameter>
-					</methodParameters>
-				
-			]]></code>
-      <dep>(norm-dep:value="1") AND (norm-use-file-dep:value="0")</dep>
-
-    </parameter>
-    <parameter id="norm-gui-EOF" ishidden="1" type="code">
-      <name>normalised weights EOF</name>
+    <parameter id="average_or_weightedSum" ishidden="0" type="enum">
+      <name>Aggregation operator</name>
       <description></description>
-      <position>404</position>
-      <code><![CDATA[</xmcda:XMCDA>%nEOF%n]]></code>
-      <dep>(norm-dep:value="1") AND (norm-use-file-dep:value="0")</dep>
-
+      <position>100002</position>
+      <vlist>
+        <item id="weightedSum">
+          <description>Weighted sum</description>
+          <code/>
+        </item>
+        <item id="average">
+          <description>Average</description>
+          <code/>
+        </item>
+      </vlist>
+      <vdef>weightedSum</vdef>
     </parameter>
-
-    <parameter id="norm-cmdline" ishidden="1" type="code">
-      <name>normalised weights insertion in cmd-line</name>
-      <description></description>
-      <position>100004</position>
-      <code> norm:norm.xml</code>
-      <dep>(norm-dep:value="1")</dep>
-
-    </parameter>
-
-
-
-
-
-    <parameter id="avg" ishidden="0" type="input">
-      <name>average operator</name>
-      <description><![CDATA[
-					Boolean for the average operator. (true if you want to evaluate the average value of an alternative, for all criteria).
-				]]></description>
-      <position>100005</position>
-      <code/> 
-      <types>
-        <type>methodParameters</type>
-      </types>
-      <vdef>avg.xml</vdef>
-      <dep>(avg-dep:value="1") AND (avg-use-file-dep:value="1")</dep>
-
-    </parameter>
-    <parameter id="avg-dep" ishidden="0" type="boolean">
-      <name>Use average operator as input?</name>
-      <description>Use average operator as input?</description>
-      <position>3005</position>
-      <code/>
-      <vdef>1</vdef>
-    </parameter>
-
-    <parameter id="avg-use-file-dep" ishidden="0" type="boolean">
-      <name>Supply average operator as a file?</name>
-      <description>Supply average operator as a file?</description>
-      <position>3005</position>
-      <code/>
-      <vdef>0</vdef>
-      <dep>(avg-dep:value="1")</dep>
-
-    </parameter>
-    
 
 
 
@@ -193,59 +62,16 @@ cat > avg.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="xmcdaKappalab.xsl"?>
 <xmcda:XMCDA xmlns:xmcda="http://www.decision-deck.org/2009/XMCDA-2.0.0"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.decision-deck.org/2009/XMCDA-2.0.0 http://www.decision-deck.org/xmcda/_downloads/XMCDA-2.0.0.xsd">]]></code>
-      <dep>(avg-dep:value="1") AND (avg-use-file-dep:value="0")</dep>
-
-    </parameter>
-
-
-    <parameter id="avg-gui-501" ishidden="1" type="code">
-      <name />
-      <description />
-      <position>501</position>
-      <code><![CDATA[
-				
+        xsi:schemaLocation="http://www.decision-deck.org/2009/XMCDA-2.0.0 http://www.decision-deck.org/xmcda/_downloads/XMCDA-2.0.0.xsd">
 					<methodParameters>
 						<parameter name="average">
 							<value>
-            					<label>]]></code>
-      <dep>(avg-dep:value="1") AND (avg-use-file-dep:value="0")</dep>
-
-    </parameter>
-
-
-    <parameter id="avg-gui-502" ishidden="0" type="boolean">
-      <name>average</name>
-      <indent>1</indent>
-      <description>TODO</description>
-      <position>502</position>
-
-      <code>%b</code>
-      <vdef></vdef>
-      <dep>(avg-dep:value="1") AND (avg-use-file-dep:value="0")</dep>
-
-    </parameter>
-
-
-    <parameter id="avg-gui-503" ishidden="1" type="code">
-      <name />
-      <description />
-      <position>503</position>
-      <code><![CDATA[</label>
+            					<label>true</label>
        						 </value>
 						</parameter>
 					</methodParameters>
-				
-			]]></code>
-      <dep>(avg-dep:value="1") AND (avg-use-file-dep:value="0")</dep>
-
-    </parameter>
-    <parameter id="avg-gui-EOF" ishidden="1" type="code">
-      <name>average operator EOF</name>
-      <description></description>
-      <position>504</position>
-      <code><![CDATA[</xmcda:XMCDA>%nEOF%n]]></code>
-      <dep>(avg-dep:value="1") AND (avg-use-file-dep:value="0")</dep>
+</xmcda:XMCDA>%nEOF%n]]></code>
+      <dep>(average_or_weightedSum:type="average")</dep>
 
     </parameter>
 
@@ -254,7 +80,7 @@ cat > avg.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <description></description>
       <position>100005</position>
       <code> avg:avg.xml</code>
-      <dep>(avg-dep:value="1")</dep>
+      <dep>(average_or_weightedSum:type="average")</dep>
 
     </parameter>
 
@@ -305,18 +131,40 @@ cat > avg.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
         <type>criteriaValues</type>
       </types>
       <vdef>weights.xml</vdef>
-      <dep>(criteriaWeights-dep:value="1")</dep>
+      <dep>(average_or_weightedSum:type="weightedSum")</dep>
 
     </parameter>
-    <parameter id="criteriaWeights-dep" ishidden="0" type="boolean">
-      <name>Use weights as input?</name>
-      <description>Use weights as input?</description>
-      <position>3008</position>
-      <code/>
-      <vdef>1</vdef>
+
+    <parameter id="weightedSum-normalized" ishidden="0" type="boolean">
+      <name>Normalize weights? </name>
+      <description>Normalize weights? </description>
+      <position>400</position>
+      <code><![CDATA[#norm: norm.xml
+cat > norm.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="xmcdaKappalab.xsl"?>
+<xmcda:XMCDA xmlns:xmcda="http://www.decision-deck.org/2009/XMCDA-2.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.decision-deck.org/2009/XMCDA-2.0.0 http://www.decision-deck.org/xmcda/_downloads/XMCDA-2.0.0.xsd">
+    <methodParameters>
+    	<parameter name="normalisedWeights">
+    		<value>
+    			<label>%s</label>
+    		</value>
+    	</parameter>
+    </methodParameters>
+</xmcda:XMCDA>%nEOF%n]]></code>
+      <vdef></vdef>
+      <dep>(average_or_weightedSum:type="weightedSum")</dep>
     </parameter>
 
+    <parameter id="norm-cmdline" ishidden="1" type="code">
+      <name>normalised weights insertion in cmd-line</name>
+      <description></description>
+      <position>100004</position>
+      <code> norm:norm.xml</code>
+      <dep>(average_or_weightedSum:type="weightedSum")</dep>
 
+    </parameter>
 
 
     <parameter id="alternativesValues" ishidden="0" type="output">
@@ -331,9 +179,6 @@ cat > avg.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       </types>
       <vdef>alternativesValues.xml</vdef>
     </parameter>
-
-
-
 
 
     <parameter id="messages" ishidden="0" type="output">
