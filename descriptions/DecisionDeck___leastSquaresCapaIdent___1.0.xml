@@ -3,7 +3,7 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2009-09-14 10:37:01 +0200">
+<program_description export_date="2009-12-09 11:22:13 +0100">
   <program provider="DecisionDeck" name="leastSquaresCapaIdent" version="1.0" />
   <from desc_id="S8888" />
   <description><![CDATA[Identifies a Mobius capacity by means of an approach grounded on least squares optimization. More precisely, given a set of overall values for each alternative, and possibly additional linear constraints expressing preferences, importance of criteria, etc., this algorithm determines, if it exists, a capacity minimising the sum of squared errors between overall scores as given by the data and the output of the Choquet integral for those data, and compatible with the additional linear constraints. The existence is ensured if no additional constraint is given. The problem is solved using quadratic programming. ]]></description>
@@ -50,7 +50,7 @@ cat > kAdditivity.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="xmcdaKappalab.xsl"?>
 <xmcda:XMCDA xmlns:xmcda="http://www.decision-deck.org/2009/XMCDA-2.0.0"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.decision-deck.org/2009/XMCDA-2.0.0 file:/home/pat/Documents/currentResearch/DecisionDeck/svn-DecisionDeck/XMCDA/XMCDA-2.0.0.xsd">]]></code>
+        xsi:schemaLocation="http://www.decision-deck.org/2009/XMCDA-2.0.0 http://www.decision-deck.org/xmcda/_downloads/XMCDA-2.0.0.xsd">]]></code>
       <dep>(kAdditivity-use-file-dep:value="0")</dep>
 
     </parameter>
@@ -74,8 +74,10 @@ cat > kAdditivity.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 
     <parameter id="kAdditivity-gui-302" ishidden="0" type="int">
       <name>kAdditivity</name>
+      <indent>1</indent>
       <description>TODO</description>
       <position>302</position>
+
       <code>%s</code>
 
       <constraint>

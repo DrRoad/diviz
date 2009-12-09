@@ -3,7 +3,7 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2009-09-14 10:37:02 +0200">
+<program_description export_date="2009-12-09 11:22:15 +0100">
   <program provider="DecisionDeck" name="capacityOrness" version="1.0" />
   <from desc_id="S8888" />
   <description><![CDATA[Computes the orness degree of a Choquet integral from the underlying normalized Mobius transform of a capacity.]]></description>
@@ -50,7 +50,7 @@ cat > kAdditivity.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="xmcdaKappalab.xsl"?>
 <xmcda:XMCDA xmlns:xmcda="http://www.decision-deck.org/2009/XMCDA-2.0.0"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.decision-deck.org/2009/XMCDA-2.0.0 file:/home/pat/Documents/currentResearch/DecisionDeck/svn-DecisionDeck/XMCDA/XMCDA-2.0.0.xsd">]]></code>
+        xsi:schemaLocation="http://www.decision-deck.org/2009/XMCDA-2.0.0 http://www.decision-deck.org/xmcda/_downloads/XMCDA-2.0.0.xsd">]]></code>
       <dep>(kAdditivity-use-file-dep:value="0")</dep>
 
     </parameter>
@@ -74,8 +74,10 @@ cat > kAdditivity.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 
     <parameter id="kAdditivity-gui-302" ishidden="0" type="int">
       <name>kAdditivity</name>
+      <indent>1</indent>
       <description>TODO</description>
       <position>302</position>
+
       <code>%s</code>
 
       <constraint>
