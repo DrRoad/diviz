@@ -45,6 +45,10 @@
           <description>Average</description>
           <code/>
         </item>
+        <item id="sum">
+          <description>Sum</description>
+          <code/>
+        </item>
       </vlist>
       <vdef>weightedSum</vdef>
     </parameter>
