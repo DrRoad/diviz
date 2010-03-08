@@ -457,10 +457,10 @@ public class ResultViewerHTML
 		if (viewFilePane == null)
 		{
 			viewFilePane = new JEditorPane();
-			// L'utilisation de "setPage(resultFile.toURI().toURL())" empêche (certaines
-			// fois...) de supprimer le résultat (descripteur de fichier qui reste ouvert).
-			// La méthode "getContentOfTextFile" lit le fichier, le referme puis renvoie
-			// le contenu sous la forme d'une String qui est ensuite affectée au JEditorPane.
+			// L'utilisation de "setPage(resultFile.toURI().toURL())" empÃªche (certaines
+			// fois...) de supprimer le rÃ©sultat (descripteur de fichier qui reste ouvert).
+			// La mÃ©thode "getContentOfTextFile" lit le fichier, le referme puis renvoie
+			// le contenu sous la forme d'une String qui est ensuite affectÃ©e au JEditorPane.
 			// viewFilePane.setPage(resultFile.toURI().toURL());
 			viewFilePane.setText(Utile.getContentOfTextFile(resultFile));
 			
@@ -494,7 +494,10 @@ public class ResultViewerHTML
 			{
 				e.printStackTrace();
 			}
-			comboBoxViewersSelection = new JComboBox(FileViewer.getAvailableViewers(fileType));
+			java.util.ArrayList<FileViewer> viewers = FileViewer.getAvailableViewers(fileType);
+			viewers.add(0, new FileViewer("Select an external viewer...", null, null, null, null));
+
+			comboBoxViewersSelection = new JComboBox(viewers.toArray(new FileViewer[viewers.size()]));
 			comboBoxViewersSelection.addActionListener(new java.awt.event.ActionListener() {
 				public void actionPerformed(java.awt.event.ActionEvent e)
 				{
