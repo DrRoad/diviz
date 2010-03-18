@@ -17,69 +17,68 @@
         icon CDATA #IMPLIED
     >
 ]>
-<resourcesTree version="2">
+<resourcesTree version="3">
 	
 	<type name="Calculation components" collapsed="0">
 		<type name="Capacity analysis" collapsed="0">
-			<resource name="DecisionDeck___capacityEntropy___1.0"/>
-			<resource name="DecisionDeck___capacityFavor___1.0"/>
-			<resource name="DecisionDeck___capacityInteraction___1.0"/>
-			<resource name="DecisionDeck___capacityOrness___1.0"/>
-			<resource name="DecisionDeck___capacityShapley___1.0"/>
-			<resource name="DecisionDeck___capacityVariance___1.0"/>
-			<resource name="DecisionDeck___capacityVeto___1.0"/>
+			<resource name="kappalab___capacityEntropy___1.0"/>
+			<resource name="kappalab___capacityFavor___1.0"/>
+			<resource name="kappalab___capacityInteraction___1.0"/>
+			<resource name="RXMCDA___capacityOrness___1.0"/>
+			<resource name="kappalab___capacityShapley___1.0"/>
+			<resource name="kappalab___capacityVariance___1.0"/>
+			<resource name="kappalab___capacityVeto___1.0"/>
 		</type>
 		
 		<type name="Capacity identification" collapsed="0">
-			<resource name="DecisionDeck___leastSquaresCapaIdent___1.0"/>
-			<resource name="DecisionDeck___linProgCapaIdent___1.0"/>
-			<resource name="DecisionDeck___lsRankingCapaIdent___1.0"/>
-			<resource name="DecisionDeck___miniVarCapaIdent___1.0"/>
+			<resource name="kappalab___leastSquaresCapaIdent___1.0"/>
+			<resource name="kappalab___linProgCapaIdent___1.0"/>
+			<resource name="kappalab___lsRankingCapaIdent___1.0"/>
+			<resource name="kappalab___miniVarCapaIdent___1.0"/>
 		</type>
 		
 		<type name="Aggregation" collapsed="0">
-			<resource name="DecisionDeck___choquetIntegral___1.0"/>
-			<resource name="DecisionDeck___weightedSum___1.0"/>
-			<resource name="DecisionDeck___RubisConcordanceRelation___1.0"/>
+			<resource name="kappalab___choquetIntegral___1.0"/>
+			<resource name="PyXMCDA___RubisConcordanceRelation___1.0"/>
 			<type name="Weighted Sum" collapsed="0">
-				<resource name="DecisionDeck___weightedSum___1.0"/>
-				<resource name="DecisionDeck___generalWeightedSum___1.0"/>
+				<resource name="PyXMCDA___weightedSum___1.0"/>
+				<resource name="UTAR___generalWeightedSum___1.0"/>
 			</type>
 		</type>
 		
 		<type name="Disaggregation" collapsed="0">
-		    <resource name="DecisionDeck___weightsFromCondorcetRelation___1.0"/>
-		    <resource name="DecisionDeck___weightsFromCondorcetAndPreferences___1.0"/>
-		    <resource name="DecisionDeck___ACUTAR___1.0"/>
+		    <resource name="PyXMCDA___weightsFromCondorcetRelation___1.0"/>
+		    <resource name="PyXMCDA___weightsFromCondorcetAndPreferences___1.0"/>
+		    <resource name="UTAR___ACUTA___1.0"/>
 		</type>
 		
 		<type name="Alternatives analysis" collapsed="0">
-			<resource name="DecisionDeck___alternativesValuesKendall___1.0"/>
-			<resource name="DecisionDeck___rankAlternativesValues___1.0"/>
+			<resource name="RXMCDA___alternativesValuesKendall___1.0"/>
+			<resource name="RXMCDA___rankAlternativesValues___1.0"/>
 		</type>
 		<type name="Alternatives computations" collapsed="0">
-			<resource name="DecisionDeck___computeNormalisedPerformanceTable___1.0"/>
+			<resource name="UTAR___computeNormalisedPerformanceTable___1.0"/>
 		</type>
 	</type>
 
 	<type name="Methods" collapsed="0">
-		<resource name="DecisionDeck___jsmaa___0.2"/>
+		<resource name="jsmaa___smaa2___0.2"/>
 	</type>
 
 	<type name="Visualisation components" collapsed="0">
-		<resource name="DecisionDeck___plotAlternativesComparisons___1.0"/>
-		<resource name="DecisionDeck___plotAlternativesValues___1.0"/>
-		<resource name="DecisionDeck___plotAlternativesValuesPreorder___1.0"/>
-		<resource name="DecisionDeck___plotCriteriaComparisons___1.0"/>
-		<resource name="DecisionDeck___plotCriteriaValues___1.0"/>
-		<resource name="DecisionDeck___plotCriteriaValuesPreorder___1.0"/>
-		<resource name="DecisionDeck___plotNumericPerformanceTable___1.0"/>
-		<resource name="DecisionDeck___XYPlotAlternativesValues___1.0"/>
-		<resource name="DecisionDeck___plotValueFunctions___1.0"/>
+		<resource name="RXMCDA___plotAlternativesComparisons___1.0"/>
+		<resource name="RXMCDA___plotAlternativesValues___1.0"/>
+		<resource name="RXMCDA___plotAlternativesValuesPreorder___1.0"/>
+		<resource name="RXMCDA___plotCriteriaComparisons___1.0"/>
+		<resource name="RXMCDA___plotCriteriaValues___1.0"/>
+		<resource name="RXMCDA___plotCriteriaValuesPreorder___1.0"/>
+		<resource name="RXMCDA___plotNumericPerformanceTable___1.0"/>
+		<resource name="UTAR___XYPlotAlternativesValues___1.0"/>
+		<resource name="UTAR___plotValueFunctions___1.0"/>
 	</type>
 
 		<type name="Reporting" collapsed="0">
-		    <resource name="DecisionDeck___generateXMCDAReport___1.0"/>
+		    <resource name="RXMCDA___generateXMCDAReport___1.0"/>
 		</type>
 		
 	<!-- <type name="Development" collapsed="1">

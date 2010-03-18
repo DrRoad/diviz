@@ -6,48 +6,47 @@
 setenv PATH /home/big/Projets/D2/python:${PATH}:
     </initialisation>
     <programs>
-      <program id="DecisionDeck___alternativesValuesKendall___1.0"/>
-      <program id="DecisionDeck___assembleXMCDA___1.0"/>
-      <program id="DecisionDeck___capacityEntropy___1.0"/>
-      <program id="DecisionDeck___capacityFavor___1.0"/>
-      <program id="DecisionDeck___capacityInteraction___1.0"/>
-      <program id="DecisionDeck___capacityOrness___1.0"/>
-      <program id="DecisionDeck___capacityShapley___1.0"/>
-      <program id="DecisionDeck___capacityVariance___1.0"/>
-      <program id="DecisionDeck___capacityVeto___1.0"/>
-      <program id="DecisionDeck___choquetIntegral___1.0"/>
+      <program id="RXMCDA___alternativesValuesKendall___1.0"/>
+      <program id="kappalab___capacityEntropy___1.0"/>
+      <program id="kappalab___capacityFavor___1.0"/>
+      <program id="kappalab___capacityInteraction___1.0"/>
+      <program id="RXMCDA___capacityOrness___1.0"/>
+      <program id="kappalab___capacityShapley___1.0"/>
+      <program id="kappalab___capacityVariance___1.0"/>
+      <program id="kappalab___capacityVeto___1.0"/>
+      <program id="kappalab___choquetIntegral___1.0"/>
+      <program id="kappalab___leastSquaresCapaIdent___1.0"/>
+      <program id="kappalab___linProgCapaIdent___1.0"/>
+      <program id="kappalab___lsRankingCapaIdent___1.0"/>
+      <program id="kappalab___miniVarCapaIdent___1.0"/>
+      <program id="RXMCDA___plotAlternativesComparisons___1.0"/>
+      <program id="RXMCDA___plotAlternativesValuesPreorder___1.0"/>
+      <program id="RXMCDA___plotAlternativesValues___1.0"/>
+      <program id="RXMCDA___plotCriteriaComparisons___1.0"/>
+      <program id="RXMCDA___plotCriteriaValuesPreorder___1.0"/>
+      <program id="RXMCDA___plotCriteriaValues___1.0"/>
+      <program id="RXMCDA___plotNumericPerformanceTable___1.0"/>
+      <program id="RXMCDA___rankAlternativesValues___1.0"/>
+      <program id="PyXMCDA___weightsFromCondorcetRelation___1.0"/>
+      <program id="PyXMCDA___weightsFromCondorcetAndPreferences___1.0"/>
+      <program id="PyXMCDA___weightedSum___1.0"/>
+      <program id="UTAR___generalWeightedSum___1.0"/>
+      <program id="PyXMCDA___RubisConcordanceRelation___1.0"/>
+      <program id="jsmaa___smaa2___0.2"/>
+      <program id="UTAR___ACUTA___1.0"/>
+      <program id="UTAR___XYPlotAlternativesValues___1.0" />
+      <program id="UTAR___plotValueFunctions___1.0" />
+      <program id="UTAR___computeNormalisedPerformanceTable___1.0" />
+      <program id="RXMCDA___generateXMCDAReport___1.0"/>
+<!--
+      <program id="DecisionDeck___assembleXMCDA___1.0"/> 
+      <program id="DecisionDeck___splitXMCDA___1.0"/>
+      <program id="DecisionDeck___normalize___1.0"/>
       <program id="DecisionDeck___kappalabComponent___1.0"/>
       <program id="DecisionDeck___kappalabServer___1.0"/>
       <program id="DecisionDeck___kappalab_O2I___1.0"/>
       <program id="DecisionDeck___kappalab___1.0"/>
-      <program id="DecisionDeck___leastSquaresCapaIdent___1.0"/>
-      <program id="DecisionDeck___linProgCapaIdent___1.0"/>
-      <program id="DecisionDeck___lsRankingCapaIdent___1.0"/>
-      <program id="DecisionDeck___miniVarCapaIdent___1.0"/>
-      <program id="DecisionDeck___normalize___1.0"/>
-      <program id="DecisionDeck___plotAlternativesComparisons___1.0"/>
-      <program id="DecisionDeck___plotAlternativesValuesPreorder___1.0"/>
-      <program id="DecisionDeck___plotAlternativesValues___1.0"/>
-      <program id="DecisionDeck___plotCriteriaComparisons___1.0"/>
-      <program id="DecisionDeck___plotCriteriaValuesPreorder___1.0"/>
-      <program id="DecisionDeck___plotCriteriaValues___1.0"/>
-      <program id="DecisionDeck___plotNumericPerformanceTable___1.0"/>
-      <program id="DecisionDeck___rankAlternativesValues___1.0"/>
-      <program id="DecisionDeck___splitXMCDA___1.0"/>
-
-      <program id="DecisionDeck___weightsFromCondorcetRelation___1.0"/>
-      <program id="DecisionDeck___weightsFromCondorcetAndPreferences___1.0"/>
-      <program id="DecisionDeck___weightedSum___1.0"/>
-      <program id="DecisionDeck___generalWeightedSum___1.0"/>
-      <program id="DecisionDeck___RubisConcordanceRelation___1.0"/>
-      <program id="DecisionDeck___jsmaa___0.2"/>
-      <program id="DecisionDeck___ACUTAR___1.0"/>
-
-      <program id="DecisionDeck___XYPlotAlternativesValues___1.0" />
-      <program id="DecisionDeck___plotValueFunctions___1.0" />
-      <program id="DecisionDeck___computeNormalisedPerformanceTable___1.0" />
- 
-      <program id="DecisionDeck___generateXMCDAReport___1.0"/>
+-->
     </programs>
 </platform>
 

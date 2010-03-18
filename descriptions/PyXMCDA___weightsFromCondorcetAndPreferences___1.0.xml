@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+
+<!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
+
+<program_description export_date="2010-03-18 14:53:47 +0100">
+  <program provider="PyXMCDA" name="weightsFromCondorcetAndPreferences" version="1.0" />
+  <from desc_id="S8888" />
+  <description><![CDATA[This web service allows to compute criteria significance weights from pairwise outranking comparisons, taking into account some robust properties. For ordered pairs a decision maker would ensure a strong outranking, the web service grants, if possible, that the outranking remains unchanged when changing the criteria weights, as long as the relative importance between all criteria weights don't change (a weight greater than another has to stay greater). In addition to weightsFromCondorcetRelation, it allows to model decision-maker's preferences on criteria, a for example constraints like w1 > w2, w3>w4+w5, w6=3, 2<w7<8, ...]]></description>
+  <parameters>
+    <parameter id="weightsFromCondorcetAndPreferences-cmdline" type="command" ismandatory="1">
+      <name>weightsFromCondorcetAndPreferences</name>
+      <description></description>
+      <position>100000</position>
+      <code>genericXMCDAService.py weightsFromCondorcetAndPreferences-PyXMCDA -S </code>
+    </parameter>
+
+
+    <parameter id="maxWeight" ishidden="0" type="input">
+      <name>maxWeight</name>
+      <description><![CDATA[Indicates the maximal value a weight can reach]]></description>
+      <position>100003</position>
+      <code/> 
+      <types>
+        <type>methodParameters</type>
+      </types>
+      <vdef>maxWeight.xml</vdef>
+      <dep>(maxWeight-use-file-dep:value="1")</dep>
+
+    </parameter>
+
+    <parameter id="maxWeight-use-file-dep" ishidden="0" type="boolean">
+      <name>Supply maxWeight as a file?</name>
+      <description>Supply maxWeight as a file?</description>
+      <position>3003</position>
+      <code/>
+      <vdef>1</vdef>
+      <dep/>
+    </parameter>
+    
+
+
+
+    <parameter id="maxWeight-gui" ishidden="1" type="code">
+      <name>maxWeight</name>
+      <description><![CDATA[Indicates the maximal value a weight can reach]]></description>
+      <position>300</position>
+      <code><![CDATA[#maxWeight: maxWeight.xml
+cat > maxWeight.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="xmcdaKappalab.xsl"?>
+<xmcda:XMCDA xmlns:xmcda="http://www.decision-deck.org/2009/XMCDA-2.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.decision-deck.org/2009/XMCDA-2.0.0 http://www.decision-deck.org/xmcda/_downloads/XMCDA-2.0.0.xsd">]]></code>
+      <dep>(maxWeight-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+
+    <parameter id="maxWeight-gui-301" ishidden="1" type="code">
+      <name />
+      <description />
+      <position>301</position>
+      <code><![CDATA[
+                            
+                                   <methodParameters>
+                                          <parameter
+                                                 name="maxWeight"> <!-- REQUIRED  -->
+                                                 <value>
+                                                        <integer>]]></code>
+      <dep>(maxWeight-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+
+    <parameter id="maxWeight-gui-302" ishidden="0" type="int">
+      <name>maxWeight</name>
+      <indent>1</indent>
+      <description>TODO</description>
+      <position>302</position>
+
+      <code>%s</code>
+
+      <constraint>
+        <description>The value should be a positive integer.</description>
+        <code><![CDATA[%d > 0]]></code>   
+      </constraint>
+      <vdef></vdef>
+      <dep>(maxWeight-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+
+    <parameter id="maxWeight-gui-303" ishidden="1" type="code">
+      <name />
+      <description />
+      <position>303</position>
+      <code><![CDATA[</integer>
+                                                 </value>
+                                          </parameter>
+                                   </methodParameters>
+                            
+                     ]]></code>
+      <dep>(maxWeight-use-file-dep:value="0")</dep>
+
+    </parameter>
+    <parameter id="maxWeight-gui-EOF" ishidden="1" type="code">
+      <name>maxWeight EOF</name>
+      <description></description>
+      <position>304</position>
+      <code><![CDATA[</xmcda:XMCDA>%nEOF%n]]></code>
+      <dep>(maxWeight-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+    <parameter id="maxWeight-cmdline" ishidden="1" type="code">
+      <name>maxWeight insertion in cmd-line</name>
+      <description></description>
+      <position>100003</position>
+      <code> maxWeight:maxWeight.xml</code>
+      <dep/>
+    </parameter>
+
+
+
+
+
+    <parameter id="criteria" ishidden="0" type="input">
+      <name>criteria</name>
+      <description><![CDATA[A list of criteria. Criteria can be activated or desactivated via the <active> tag (true or false). By default (no <active> tag), criteria are considered as active.
+                                   Using thresholds is optional, only the constant ones with mcdaConcept equals to "indifference", "preference" or "veto" will be considered.
+                            ]]></description>
+      <position>100004</position>
+      <code> criteria:criteria.xml</code>
+      <types>
+        <type>criteria</type>
+      </types>
+      <vdef>criteria.xml</vdef>
+      <dep/>
+    </parameter>
+
+
+
+    <parameter id="alternatives" ishidden="0" type="input">
+      <name>alternatives</name>
+      <description><![CDATA[A list of alternatives. Alternatives can be activated or desactivated via the <active> tag (true or false). By default (no <active> tag), alternatives are considered as active. ]]></description>
+      <position>100005</position>
+      <code> alternatives:alternatives.xml</code>
+      <types>
+        <type>alternatives</type>
+      </types>
+      <vdef>alternatives.xml</vdef>
+      <dep/>
+    </parameter>
+
+
+
+    <parameter id="performanceTable" ishidden="0" type="input">
+      <name>performanceTable</name>
+      <description><![CDATA[A performance table. The evaluations should be numeric values, i.e. <real>, <integer> or <rational>.]]></description>
+      <position>100006</position>
+      <code> performanceTable:performanceTable.xml</code>
+      <types>
+        <type>performanceTable</type>
+      </types>
+      <vdef>performanceTable.xml</vdef>
+      <dep/>
+    </parameter>
+
+
+
+    <parameter id="alternativesComparisons" ishidden="0" type="input">
+      <name>condorcetDenotation</name>
+      <description><![CDATA[The Condorcet denotation for some alternative comparisons. The value associated to each ordered pair (a,b) must be an integer between 3 and -3. Note that all pairs with a value of 3 or -3 will be ignored during the computation phase, as they are trivial constraints.]]></description>
+      <position>100007</position>
+      <code> alternativesComparisons:alternativesComparisons.xml</code>
+      <types>
+        <type>alternativesComparisons</type>
+      </types>
+      <vdef>alternativesComparisons.xml</vdef>
+      <dep/>
+    </parameter>
+
+
+
+    <parameter id="criteriaComparisons" ishidden="0" type="input">
+      <name>criteriaComparisons</name>
+      <description><![CDATA[Allows to model criteria weights preferences. For each defined pair in criteriaComparisons, we create a constraint indicating that the sum of the initial criterion (or set of criteria) weights must be greater than those of the terminal criterion (or also set of criteria)]]></description>
+      <position>100008</position>
+      <code> criteriaComparisons:criteriaComparisons.xml</code>
+      <types>
+        <type>criteriaComparisons</type>
+      </types>
+      <vdef>criteriaComparisons.xml</vdef>
+      <dep>(criteriaComparisons-dep:value="1")</dep>
+
+    </parameter>
+    <parameter id="criteriaComparisons-dep" ishidden="0" type="boolean">
+      <name>Use criteriaComparisons as input?</name>
+      <description>Use criteriaComparisons as input?</description>
+      <position>3008</position>
+      <code/>
+      <vdef>1</vdef>
+    </parameter>
+
+
+
+    <parameter id="criteriaLowerBounds" ishidden="0" type="input">
+      <name>criteriaLowerBounds</name>
+      <description><![CDATA[Allows to indicate some criteria lower bounds, i.e. constraints like w(g1) > 3.]]></description>
+      <position>100009</position>
+      <code> criteriaLowerBounds:criteriaLowerBounds.xml</code>
+      <types>
+        <type>criteriaValues</type>
+      </types>
+      <vdef>criteriaLowerBounds.xml</vdef>
+      <dep>(criteriaLowerBounds-dep:value="1")</dep>
+
+    </parameter>
+    <parameter id="criteriaLowerBounds-dep" ishidden="0" type="boolean">
+      <name>Use criteriaLowerBounds as input?</name>
+      <description>Use criteriaLowerBounds as input?</description>
+      <position>3009</position>
+      <code/>
+      <vdef>1</vdef>
+    </parameter>
+
+
+
+    <parameter id="criteriaUpperBounds" ishidden="0" type="input">
+      <name>criteriaUpperBounds</name>
+      <description><![CDATA[Allows to indicate some criteria upper bounds, i.e. constraints like w(g1) < 5. Note that if you want to fix the value of a criteria, just give it some equal lower and upper bounds.]]></description>
+      <position>100010</position>
+      <code> criteriaUpperBounds:criteriaUpperBounds.xml</code>
+      <types>
+        <type>criteriaValues</type>
+      </types>
+      <vdef>criteriaUpperBounds.xml</vdef>
+      <dep>(criteriaUpperBounds-dep:value="1")</dep>
+
+    </parameter>
+    <parameter id="criteriaUpperBounds-dep" ishidden="0" type="boolean">
+      <name>Use criteriaUpperBounds as input?</name>
+      <description>Use criteriaUpperBounds as input?</description>
+      <position>3010</position>
+      <code/>
+      <vdef>1</vdef>
+    </parameter>
+
+
+
+
+    <parameter id="messages" ishidden="0" type="output">
+      <name>messages</name>
+      <description><![CDATA[A list of messages generated by the algorithm.]]></description>
+      <position>2011</position>
+      <code/>
+      <types>
+        <type>methodMessages</type>
+      </types>
+      <vdef>messages.xml</vdef>
+    </parameter>
+
+
+
+
+
+    <parameter id="criteriaWeights" ishidden="0" type="output">
+      <name>criteriaWeights</name>
+      <description><![CDATA[The set of criteria weights generated by the algorithm]]></description>
+      <position>2012</position>
+      <code/>
+      <types>
+        <type>criteriaValues</type>
+      </types>
+      <vdef>criteriaWeights.xml</vdef>
+    </parameter>
+
+
+
+    <parameter id="TIMEOUT" ishidden="0" type="int">
+      <name>Timeout? (0 for no timeout)</name>
+      <description>timeout</description>
+      <position>100001</position>
+      <code>-t %s </code>
+      <constraint>
+        <description>value should be a positive or null integer</description>
+        <code>(%d &gt;= 0)</code>
+      </constraint>
+      <vdef>60</vdef>
+    </parameter>
+    
+    <parameter id="VERBOSE" ishidden="0" type="enum">
+      <name>Verbose mode</name>
+      <description></description>
+      <position>100002</position>
+      <vlist>
+        <item id="T1">
+          <description>None</description>
+          <code></code>
+        </item>
+        <item id="T2">
+          <description>Moderately verbose</description>
+          <code> -v</code>
+        </item>
+        <item id="T3">
+          <description>Very verbose</description>
+          <code> -vv</code>
+        </item>
+        <item id="T4">
+          <description>Extremely verbose (include SOAP msgs)</description>
+          <code> -vvv</code>
+        </item>
+      </vlist>
+      <vdef>T2</vdef>
+    </parameter>
+
+  </parameters>
+</program_description>
