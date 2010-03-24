@@ -3,7 +3,7 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2010-03-18 14:53:47 +0100">
+<program_description export_date="2010-03-24 10:05:02 +0100">
   <program provider="PyXMCDA" name="weightedSum" version="1.0" />
   <from desc_id="S8888" />
   <description><![CDATA[This web service allows to compute the weighted sum of alternatives's evaluations through criteria weights.]]></description>
@@ -12,7 +12,7 @@
       <name>weightedSum</name>
       <description></description>
       <position>100000</position>
-      <code>genericXMCDAService.py weightedSum-PyXMCDA -S </code>
+      <code>$callXMCDAService weightedSum-PyXMCDA -S </code>
     </parameter>
 
 

@@ -3,7 +3,7 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2010-03-18 14:53:45 +0100">
+<program_description export_date="2010-03-24 10:05:00 +0100">
   <program provider="RXMCDA" name="plotAlternativesValues" version="1.0" />
   <from desc_id="S8888" />
   <description><![CDATA[Generates a barplot representing a numeric quantity for each alternative, like, e.g., the overall value.]]></description>
@@ -12,7 +12,7 @@
       <name>plotAlternativesValues</name>
       <description></description>
       <position>100000</position>
-      <code>genericXMCDAService.py plotAlternativesValues-RXMCDA -S </code>
+      <code>$callXMCDAService plotAlternativesValues-RXMCDA -S </code>
     </parameter>
 
 

@@ -3,7 +3,7 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2010-03-18 14:53:44 +0100">
+<program_description export_date="2010-03-24 10:04:59 +0100">
   <program provider="kappalab" name="capacityShapley" version="1.0" />
   <from desc_id="S8888" />
   <description><![CDATA[Computes the Shapley value (n indices) of the Mobius transform of a capacity.]]></description>
@@ -12,7 +12,7 @@
       <name>capacityShapley</name>
       <description></description>
       <position>100000</position>
-      <code>genericXMCDAService.py capacityShapley-kappalab -S </code>
+      <code>$callXMCDAService capacityShapley-kappalab -S </code>
     </parameter>
 
 

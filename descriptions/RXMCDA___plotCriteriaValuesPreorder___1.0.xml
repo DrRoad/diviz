@@ -3,7 +3,7 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2010-03-18 14:53:46 +0100">
+<program_description export_date="2010-03-24 10:05:01 +0100">
   <program provider="RXMCDA" name="plotCriteriaValuesPreorder" version="1.0" />
   <from desc_id="S8888" />
   <description><![CDATA[Generates a graph representing a preorder on the criteria, according to numerical values taken by the criteria.]]></description>
@@ -12,7 +12,7 @@
       <name>plotCriteriaValuesPreorder</name>
       <description></description>
       <position>100000</position>
-      <code>genericXMCDAService.py plotCriteriaValuesPreorder-RXMCDA -S </code>
+      <code>$callXMCDAService plotCriteriaValuesPreorder-RXMCDA -S </code>
     </parameter>
 
 

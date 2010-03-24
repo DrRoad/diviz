@@ -10,7 +10,7 @@
       <name>generateXMCDAReport</name>
       <description></description>
       <position>100000</position>
-      <code>genericXMCDAService.py generateXMCDAReport-RXMCDA -S </code>
+      <code>$callXMCDAService generateXMCDAReport-RXMCDA -S </code>
     </parameter>
 
     <parameter id="report" ishidden="0" type="output">

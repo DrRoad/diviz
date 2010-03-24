@@ -3,7 +3,7 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2010-03-18 14:53:43 +0100">
+<program_description export_date="2010-03-24 10:04:57 +0100">
   <program provider="UTAR" name="computeNormalisedPerformanceTable" version="1.0" />
   <from desc_id="S8888" />
   <description><![CDATA[Transforms a performance table via value functions.]]></description>
@@ -12,7 +12,7 @@
       <name>computeNormalisedPerformanceTable</name>
       <description></description>
       <position>100000</position>
-      <code>genericXMCDAService.py computeNormalisedPerformanceTable-UTAR -S </code>
+      <code>$callXMCDAService computeNormalisedPerformanceTable-UTAR -S </code>
     </parameter>
 
 

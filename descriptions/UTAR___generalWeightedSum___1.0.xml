@@ -12,7 +12,7 @@
       <name>generalWeightedSum</name>
       <description></description>
       <position>100000</position>
-      <code>genericXMCDAService.py generalWeightedSum-UTAR -S </code>
+      <code>$callXMCDAService generalWeightedSum-UTAR -S </code>
     </parameter>
 
 

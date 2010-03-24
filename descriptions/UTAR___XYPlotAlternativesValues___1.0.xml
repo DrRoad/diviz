@@ -3,7 +3,7 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2010-03-18 14:53:42 +0100">
+<program_description export_date="2010-03-24 10:04:57 +0100">
   <program provider="UTAR" name="XYPlotAlternativesValues" version="1.0" />
   <from desc_id="S8888" />
   <description><![CDATA[Give a graphical XY reprentation of two alternativesValues (ex: ranking), providing an efficient way to compare them]]></description>
@@ -12,7 +12,7 @@
       <name>XYPlotAlternativesValues</name>
       <description></description>
       <position>100000</position>
-      <code>genericXMCDAService.py XYPlotAlternativesValues-UTAR -S </code>
+      <code>$callXMCDAService XYPlotAlternativesValues-UTAR -S </code>
     </parameter>
 
 
