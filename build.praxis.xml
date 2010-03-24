@@ -1,0 +1,167 @@
+<project name="diviz" default="build_fat_jar" basedir=".">
+  <description>
+    diviz' build.xml
+  </description>
+
+  <property name="project.name" value="diviz"/>
+  <property name="praxis.home" value="/home/big/Projets/praxis-git" />
+  <import file="${praxis.home}/praxis-core/build.xml" />
+
+  <property name="source.dir" location="src"/>
+  <property name="bin.dir" location="bin"/>
+  <property name="build.dir" location="build"/>
+
+  <path id="diviz.libs">
+    <fileset dir="." id="diviz.libs.fileset">
+      <include name="**/*.jar" />
+      <exclude name="build/**"/>
+    </fileset>
+  </path>
+
+  <echo-path pathref="diviz.libs"/>
+  <echo-path pathref="praxis.all.libs"/>
+
+  <!-- init + compile -->
+  <target name="init" unless="init_ok">		
+    <property name="init_ok" value="ok"/>
+    <tstamp/>
+    <mkdir dir="${bin.dir}"/>
+    <mkdir dir="${build.dir}"/>
+  </target>
+  
+  <target name="compile" depends="init, praxis.core.compile, praxis.swing_gui.compile"
+          description="Compile all sources">
+    <javac destdir="${bin.dir}"
+           debug="off"
+           source="1.6"
+           target="1.6"
+           encoding="ISO-8859-1"
+           excludes="**/*Test*">
+      <classpath path="${praxis.core.bin}"/>
+      <classpath path="${praxis.swing_gui.bin}"/>
+      <classpath refid="diviz.libs"/>
+      <classpath refid="praxis.all.libs"/>
+      <src path="${source.dir}"/>
+    </javac>
+  </target>
+
+  <target name="build_project_jar" depends="compile">
+    <jar jarfile="${build.dir}/${project.name}.jar" index="true">
+      <fileset dir="${bin.dir}">
+        <exclude name="**/*Test*"/>
+      </fileset>
+    </jar>
+  </target>
+  
+
+  <target name="build_standalone_jar"
+		    depends="build_project_jar"
+		    description="Builds the fat jar">
+    <copy file="configuration/server/resources.clientTree.xml"
+          tofile="configuration/client/resources.clientTree.xml"
+          preservelastmodified="true"/>
+    <praxis_project_one_jar
+       project.name="${project.name}"
+       configuration="configuration/run_cfg/standalone.cfg"
+       destfile="${build.dir}/${project.name}-full.jar">
+      <libs>
+        <fileset file="${build.dir}/${project.name}.jar"/>
+        <fileset file="configuration/client/lib/*.jar"/>
+        <fileset refid="diviz.libs.fileset" />
+      </libs>
+      <includes>
+        <fileset dir="." includes="certificates/**" excludes="**/*~" />
+        <fileset dir="." includes="configuration/**" excludes="**/*~" />
+        <fileset dir="." includes="descriptions/**" excludes="**/*~" />
+        <fileset dir="." includes="images/**" excludes="**/*~" />
+        <fileset dir="." includes="resources_descriptions/**" excludes="**/*~" />
+      </includes>
+    </praxis_project_one_jar>
+
+  </target>
+
+  <!-- client ddeck w/ praxis build -->
+  <!-- TODO use praxis-client.jar only, REQUIRES: adapt macro. -->
+  <target name="build_client_ddeck_jar"
+		    depends="build_project_jar"
+		    description="Builds the client jar, bound to ddeck@ecp">
+    <copy file="configuration/server/resources.clientTree.xml"
+          tofile="configuration/client/resources.clientTree.xml"
+          preservelastmodified="true"/>
+    <praxis_project_one_jar
+       project.name="${project.name}"
+       configuration="configuration/run_cfg/client_ECP.cfg"
+       destfile="${build.dir}/${project.name}-ddeck-client.jar">
+      <libs>
+        <fileset file="${build.dir}/${project.name}.jar"/>
+        <fileset file="configuration/client/lib/*.jar"/>
+        <fileset refid="diviz.libs.fileset" />
+      </libs>
+      <includes>
+        <fileset dir="." includes="certificates/**" excludes="**/*~" />
+        <fileset dir="." includes="configuration/**" excludes="**/*~" />
+        <fileset dir="." includes="descriptions/**" excludes="**/*~" />
+        <fileset dir="." includes="images/**" excludes="**/*~" />
+        <fileset dir="." includes="resources_descriptions/**" excludes="**/*~" />
+      </includes>
+    </praxis_project_one_jar>
+  </target>
+
+  <!-- server+platfrom ddeck w/ praxis build -->
+  <!-- TODO use praxis-server+platform.jar only, REQUIRES: adapt macro.
+  <property name="praxis_sp.jar" location="${praxis.build}/praxis_server_platform.jar"/>
+${praxis_sp.jar}
+
+ -->
+  <target name="build_server_platform_ddeck_jar"
+		    depends="build_project_jar"
+		    description="Builds the client jar, bound to ddeck@ecp">
+    <copy file="configuration/server/resources.clientTree.xml"
+          tofile="configuration/client/resources.clientTree.xml"
+          preservelastmodified="true"/>
+    <praxis_project_one_jar
+       project.name="${project.name}"
+       configuration="configuration/run_cfg/server_platforms_ECP.cfg"
+       destfile="${build.dir}/${project.name}-ddeck-sp.jar">
+      <libs>
+        <fileset file="${build.dir}/${project.name}.jar"/>
+        <fileset refid="diviz.libs.fileset" />
+      </libs>
+      <includes>
+        <fileset dir="." includes="certificates/**" excludes="**/*~" />
+        <fileset dir="." includes="configuration/**" excludes="**/*~" />
+        <fileset dir="." includes="descriptions/**" excludes="**/*~" />
+        <fileset dir="." includes="images/**" excludes="**/*~" />
+        <fileset dir="." includes="resources_descriptions/**" excludes="**/*~" />
+      </includes>
+    </praxis_project_one_jar>
+  </target>
+
+  <!-- client ddeck STRESS TEST w/ praxis build -->
+  <!-- TODO use praxis-client.jar only, REQUIRES: adapt macro. -->
+  <target name="build_stress_client_ddeck_jar"
+		    depends="build_project_jar"
+		    description="Builds the client jar, bound to ddeck@ecp">
+    <copy file="configuration/server/resources.clientTree.xml"
+          tofile="configuration/client/resources.clientTree.xml"
+          preservelastmodified="true"/>
+    <praxis_project_stress_one_jar
+       project.name="${project.name}"
+       configuration="configuration/run_cfg/client_ECP.cfg"
+       destfile="${build.dir}/${project.name}-stress-ddeck-client.jar">
+      <libs>
+        <fileset file="${build.dir}/${project.name}.jar"/>
+        <fileset file="configuration/client/lib/*.jar"/>
+        <fileset refid="diviz.libs.fileset" />
+      </libs>
+      <includes>
+        <fileset dir="." includes="certificates/**" excludes="**/*~" />
+        <fileset dir="." includes="configuration/**" excludes="**/*~" />
+        <fileset dir="." includes="descriptions/**" excludes="**/*~" />
+        <fileset dir="." includes="images/**" excludes="**/*~" />
+        <fileset dir="." includes="resources_descriptions/**" excludes="**/*~" />
+      </includes>
+    </praxis_project_stress_one_jar>
+  </target>
+
+</project>
