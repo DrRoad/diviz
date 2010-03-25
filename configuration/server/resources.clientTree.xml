@@ -24,7 +24,7 @@
 			<resource name="kappalab___capacityEntropy___1.0"/>
 			<resource name="kappalab___capacityFavor___1.0"/>
 			<resource name="kappalab___capacityInteraction___1.0"/>
-			<resource name="RXMCDA___capacityOrness___1.0"/>
+			<resource name="kappalab___capacityOrness___1.0"/>
 			<resource name="kappalab___capacityShapley___1.0"/>
 			<resource name="kappalab___capacityVariance___1.0"/>
 			<resource name="kappalab___capacityVeto___1.0"/>

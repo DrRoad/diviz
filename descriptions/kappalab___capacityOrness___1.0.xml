@@ -4,7 +4,7 @@
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
 <program_description export_date="2010-03-24 10:04:58 +0100">
-  <program provider="RXMCDA" name="capacityOrness" version="1.0" />
+  <program provider="kappalab" name="capacityOrness" version="1.0" />
   <from desc_id="S8888" />
   <description><![CDATA[Computes the orness degree of a Choquet integral from the underlying normalized Mobius transform of a capacity.]]></description>
   <parameters>
@@ -12,7 +12,7 @@
       <name>capacityOrness</name>
       <description></description>
       <position>100000</position>
-      <code>$callXMCDAService capacityOrness-RXMCDA -S </code>
+      <code>$callXMCDAService capacityOrness-kappalab -S </code>
     </parameter>
 
 
