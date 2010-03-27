@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+
+<!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
+
+<program_description export_date="2010-03-26 10:07:34 +0100">
+  <program provider="J-MCDA" name="preference" version="0.0.4" />
+  <from desc_id="S8888" />
+  <description><![CDATA[Computes a preference relation, a la Promethee.]]></description>
+  <parameters>
+    <parameter id="preference-cmdline" type="command" ismandatory="1">
+      <name>preference</name>
+      <description></description>
+      <position>100000</position>
+      <code>$callXMCDAService preference-J-MCDA -S </code>
+    </parameter>
+
+
+    <parameter id="input0" ishidden="0" type="input">
+      <name>alternatives</name>
+      <description><![CDATA[The alternatives to consider.]]></description>
+      <position>100003</position>
+      <code> alternatives:alternatives.xml</code>
+      <types>
+        <type>alternatives</type>
+      </types>
+      <vdef>alternatives.xml</vdef>
+      <dep/>
+    </parameter>
+
+
+
+    <parameter id="input1" ishidden="0" type="input">
+      <name>criteria</name>
+      <description><![CDATA[The criteria to consider.]]></description>
+      <position>100004</position>
+      <code> criteria:criteria.xml</code>
+      <types>
+        <type>criteria</type>
+      </types>
+      <vdef>criteria.xml</vdef>
+      <dep/>
+    </parameter>
+
+
+
+    <parameter id="input2" ishidden="0" type="input">
+      <name>weights</name>
+      <description><![CDATA[The weights of the criteria to consider.]]></description>
+      <position>100005</position>
+      <code> weights:weights.xml</code>
+      <types>
+        <type>criteriaValues</type>
+      </types>
+      <vdef>weights.xml</vdef>
+      <dep/>
+    </parameter>
+
+
+
+    <parameter id="input3" ishidden="0" type="input">
+      <name>performances</name>
+      <description><![CDATA[The performances of the alternatives on the criteria to consider.]]></description>
+      <position>100006</position>
+      <code> performances:performances.xml</code>
+      <types>
+        <type>performanceTable</type>
+      </types>
+      <vdef>performances.xml</vdef>
+      <dep/>
+    </parameter>
+
+
+
+
+    <parameter id="output0" ishidden="0" type="output">
+      <name>preference</name>
+      <description><![CDATA[The preference relation computed from the given input data.]]></description>
+      <position>2007</position>
+      <code/>
+      <types>
+        <type>alternativesComparisons</type>
+      </types>
+      <vdef>preference.xml</vdef>
+    </parameter>
+
+
+
+
+
+    <parameter id="output1" ishidden="0" type="output">
+      <name>messages</name>
+      <description><![CDATA[A status message.]]></description>
+      <position>2008</position>
+      <code/>
+      <types>
+        <type>methodMessages</type>
+      </types>
+      <vdef>messages.xml</vdef>
+    </parameter>
+
+
+
+    <parameter id="TIMEOUT" ishidden="0" type="int">
+      <name>Timeout? (0 for no timeout)</name>
+      <description>timeout</description>
+      <position>100001</position>
+      <code>-t %s </code>
+      <constraint>
+        <description>value should be a positive or null integer</description>
+        <code>(%d &gt;= 0)</code>
+      </constraint>
+      <vdef>60</vdef>
+    </parameter>
+    
+    <parameter id="VERBOSE" ishidden="0" type="enum">
+      <name>Verbose mode</name>
+      <description></description>
+      <position>100002</position>
+      <vlist>
+        <item id="T1">
+          <description>None</description>
+          <code></code>
+        </item>
+        <item id="T2">
+          <description>Moderately verbose</description>
+          <code> -v</code>
+        </item>
+        <item id="T3">
+          <description>Very verbose</description>
+          <code> -vv</code>
+        </item>
+        <item id="T4">
+          <description>Extremely verbose (include SOAP msgs)</description>
+          <code> -vvv</code>
+        </item>
+      </vlist>
+      <vdef>T2</vdef>
+    </parameter>
+
+  </parameters>
+</program_description>

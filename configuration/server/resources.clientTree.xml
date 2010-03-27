@@ -39,11 +39,20 @@
 		
 		<type name="Aggregation" collapsed="0">
 			<resource name="kappalab___choquetIntegral___1.0"/>
-			<resource name="PyXMCDA___RubisConcordanceRelation___1.0"/>
 			<type name="Weighted Sum" collapsed="0">
 				<resource name="PyXMCDA___weightedSum___1.0"/>
 				<resource name="UTAR___generalWeightedSum___1.0"/>
 			</type>
+		</type>
+		
+		<type name="Outranking" collapsed="0">
+			<resource name="PyXMCDA___RubisConcordanceRelation___1.0"/>
+			<resource name="J-MCDA___concordance___0.0.4"/>
+			<resource name="J-MCDA___discordances___0.0.4"/>
+			<resource name="J-MCDA___outranking___0.0.4"/>
+			<resource name="J-MCDA___cutRelation___0.0.4"/>
+			<resource name="J-MCDA___preference___0.0.4"/>
+			<resource name="J-MCDA___flows___0.0.4"/>
 		</type>
 		
 		<type name="Disaggregation" collapsed="0">

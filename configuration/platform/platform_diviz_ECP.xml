@@ -44,6 +44,12 @@ set callXMCDAService="genericXMCDAService.py -U http://localhost/cgi-bin/%s.py -
       <program id="UTAR___generalWeightedSum___1.0"/>
       <program id="UTAR___plotValueFunctions___1.0" />
       <program id="UTAR___XYPlotAlternativesValues___1.0" />
+      <program id="J-MCDA___concordance___0.0.4"/>
+      <program id="J-MCDA___discordances___0.0.4"/>
+      <program id="J-MCDA___outranking___0.0.4"/>
+      <program id="J-MCDA___cutRelation___0.0.4"/>
+      <program id="J-MCDA___preference___0.0.4"/>
+      <program id="J-MCDA___flows___0.0.4"/>
 
 <!-- These two programs requires cplex, which is not installed at ecp for the moment being -->
 <!--  <program id="PyXMCDA___weightsFromCondorcetAndPreferences___1.0"/>
