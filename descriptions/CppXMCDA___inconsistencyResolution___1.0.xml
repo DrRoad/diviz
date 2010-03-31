@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+
+<!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
+
+<program_description export_date="2010-03-31 15:04:37 +0200">
+  <program provider="CppXMCDA" name="inconsistencyResolution" version="1.0" />
+  <from desc_id="S8888" />
+  <description><![CDATA[Provides suggestions of deleting a subset of a set of inconsistent constraints to obtain a consistent set based on Mixed-integer linear programming (MILP) technique, confidence level can be considerd.]]></description>
+  <parameters>
+    <parameter id="inconsistencyResolution-cmdline" type="command" ismandatory="1">
+      <name>inconsistencyResolution</name>
+      <description></description>
+      <position>100000</position>
+      <code>$callXMCDAService inconsistencyResolution-CppXMCDA -S </code>
+    </parameter>
+
+
+    <parameter id="input0" ishidden="0" type="input">
+      <name>methodParameters</name>
+      <description><![CDATA[The parameters required to resolve inconsistency including resolution criterion(confidencelevel or cardinality),maximum number of constraints to be deleted, and confidence level at which to resolve inconsistency(required if the resolution criterion is based on confidence level).]]></description>
+      <position>100003</position>
+      <code> methodParameters:methodParameters.xml</code>
+      <types>
+        <type>methodParameters</type>
+      </types>
+      <vdef>methodParameters.xml</vdef>
+      <dep/>
+    </parameter>
+
+
+
+    <parameter id="input1" ishidden="0" type="input">
+      <name>criteriaLinearConstraints</name>
+      <description><![CDATA[A set of inconsistent constraints.]]></description>
+      <position>100004</position>
+      <code> criteriaLinearConstraints:criteriaLinearConstraints.xml</code>
+      <types>
+        <type>criteriaLinearConstraints</type>
+      </types>
+      <vdef>criteriaLinearConstraints.xml</vdef>
+      <dep/>
+    </parameter>
+
+
+
+
+    <parameter id="output0" ishidden="0" type="output">
+      <name>Suggestion+i</name>
+      <description><![CDATA[The result indicates the names of a subset of constraints after the delete of which will lead to a consistent system.]]></description>
+      <position>2005</position>
+      <code/>
+      <types>
+        <type>methodMessages</type>
+      </types>
+      <vdef>Suggestion.xml</vdef>
+    </parameter>
+
+
+
+
+
+    <parameter id="output1" ishidden="0" type="output">
+      <name>Constraints_Suggestion+i</name>
+      <description><![CDATA[The result shows the details of the set of contraints corresponding to each suggestion file]]></description>
+      <position>2006</position>
+      <code/>
+      <types>
+        <type>criteriaLinearConstraints</type>
+      </types>
+      <vdef>Constraints_Suggestion.xml</vdef>
+    </parameter>
+
+
+
+    <parameter id="TIMEOUT" ishidden="0" type="int">
+      <name>Timeout? (0 for no timeout)</name>
+      <description>timeout</description>
+      <position>100001</position>
+      <code>-t %s </code>
+      <constraint>
+        <description>value should be a positive or null integer</description>
+        <code>(%d &gt;= 0)</code>
+      </constraint>
+      <vdef>60</vdef>
+    </parameter>
+    
+    <parameter id="VERBOSE" ishidden="0" type="enum">
+      <name>Verbose mode</name>
+      <description></description>
+      <position>100002</position>
+      <vlist>
+        <item id="T1">
+          <description>None</description>
+          <code></code>
+        </item>
+        <item id="T2">
+          <description>Moderately verbose</description>
+          <code> -v</code>
+        </item>
+        <item id="T3">
+          <description>Very verbose</description>
+          <code> -vv</code>
+        </item>
+        <item id="T4">
+          <description>Extremely verbose (include SOAP msgs)</description>
+          <code> -vvv</code>
+        </item>
+      </vlist>
+      <vdef>T2</vdef>
+    </parameter>
+
+  </parameters>
+</program_description>

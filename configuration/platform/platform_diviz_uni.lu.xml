@@ -9,5 +9,8 @@ set callXMCDAService="genericXMCDAService.py -U http://ernst-schroeder.uni.lu/cg
     <programs>
       <program id="PyXMCDA___weightsFromCondorcetAndPreferences___1.0"/>
       <program id="PyXMCDA___weightsFromCondorcetRelation___1.0"/>
+      <program id="CppXMCDA___IRIS-testInconsistency___1.0" />
+      <program id="CppXMCDA___IRIS___1.0" />
+      <program id="CppXMCDA___inconsistencyResolution___1.0" />
     </programs>
 </platform>

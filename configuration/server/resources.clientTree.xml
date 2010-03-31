@@ -51,6 +51,8 @@
 			<resource name="J-MCDA___ElectreConcordance___0.0.4"/>
 			<resource name="J-MCDA___ElectreDiscordances___0.0.4"/>
 			<resource name="J-MCDA___ElectreOutranking___0.0.4"/>
+			<resource name="CppXMCDA___IRIS-testInconsistency___1.0"/>
+			<resource name="CppXMCDA___IRIS___1.0"/>
 			<resource name="J-MCDA___PrometheePreference___0.0.4"/>
 			<resource name="J-MCDA___PrometheeFlows___0.0.4"/>
 		</type>
@@ -72,6 +74,10 @@
 
 	<type name="Methods" collapsed="0">
 		<resource name="jsmaa___smaa2___0.2"/>
+	</type>
+
+	<type name="Unclassified" collapsed="0">
+		<resource name="CppXMCDA___inconsistencyResolution___1.0"/>
 	</type>
 
 	<type name="Visualisation components" collapsed="0">

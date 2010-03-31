@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+
+<!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
+
+<program_description export_date="2010-03-31 15:04:42 +0200">
+  <program provider="CppXMCDA" name="IRIS" version="1.0" />
+  <from desc_id="S8888" />
+  <description><![CDATA[For each alternative, provides the sorting result with the weights infered and computes robust assignment. ]]></description>
+  <parameters>
+    <parameter id="IRIS-cmdline" type="command" ismandatory="1">
+      <name>IRIS</name>
+      <description></description>
+      <position>100000</position>
+      <code>$callXMCDAService IRIS-CppXMCDA -S </code>
+    </parameter>
+
+
+    <parameter id="input0" ishidden="0" type="input">
+      <name>alternatives</name>
+      <description><![CDATA[The alternatives to consider.]]></description>
+      <position>100003</position>
+      <code> alternatives:alternatives.xml</code>
+      <types>
+        <type>alternatives</type>
+      </types>
+      <vdef>alternatives.xml</vdef>
+      <dep/>
+    </parameter>
+
+
+
+    <parameter id="input1" ishidden="0" type="input">
+      <name>criteria</name>
+      <description><![CDATA[The criteria to consider.]]></description>
+      <position>100004</position>
+      <code> criteria:criteria.xml</code>
+      <types>
+        <type>criteria</type>
+      </types>
+      <vdef>criteria.xml</vdef>
+      <dep/>
+    </parameter>
+
+
+
+    <parameter id="input2" ishidden="0" type="input">
+      <name>categories</name>
+      <description><![CDATA[The categories  to sort.]]></description>
+      <position>100005</position>
+      <code> categories:categories.xml</code>
+      <types>
+        <type>categories</type>
+      </types>
+      <vdef>categories.xml</vdef>
+      <dep/>
+    </parameter>
+
+
+
+    <parameter id="input3" ishidden="0" type="input">
+      <name>categoriesComparisons</name>
+      <description><![CDATA[The ranking of the categories.]]></description>
+      <position>100006</position>
+      <code> categoriesComparisons:categoriesComparisons.xml</code>
+      <types>
+        <type>categoriesComparisons</type>
+      </types>
+      <vdef>categoriesComparisons.xml</vdef>
+      <dep/>
+    </parameter>
+
+
+
+    <parameter id="input4" ishidden="0" type="input">
+      <name>categoriesProfiles</name>
+      <description><![CDATA[The reference alternatives and limits of profiles.]]></description>
+      <position>100007</position>
+      <code> categoriesProfiles:categoriesProfiles.xml</code>
+      <types>
+        <type>categoriesProfiles</type>
+      </types>
+      <vdef>categoriesProfiles.xml</vdef>
+      <dep/>
+    </parameter>
+
+
+
+    <parameter id="input5" ishidden="0" type="input">
+      <name>performanceTable</name>
+      <description><![CDATA[The performance of alternatives.]]></description>
+      <position>100008</position>
+      <code> performanceTable:performanceTable.xml</code>
+      <types>
+        <type>performanceTable</type>
+      </types>
+      <vdef>performanceTable.xml</vdef>
+      <dep/>
+    </parameter>
+
+
+
+    <parameter id="input6" ishidden="0" type="input">
+      <name>criteriaLinearConstraints</name>
+      <description><![CDATA[The linear constraints related to criteria and cutting level(with variable tag added to element tag and the cutting level is expressed in variable tag with id 'lamda').The confidence level can be provided (not obligationary)for resolving inconsistency(if it happens)]]></description>
+      <position>100009</position>
+      <code> criteriaLinearConstraints:criteriaLinearConstraints.xml</code>
+      <types>
+        <type>criteriaLinearConstraints</type>
+      </types>
+      <vdef>criteriaLinearConstraints.xml</vdef>
+      <dep/>
+    </parameter>
+
+
+
+    <parameter id="input7" ishidden="0" type="input">
+      <name>alternativesAffectations</name>
+      <description><![CDATA[The assignment examples provided by DM .]]></description>
+      <position>100010</position>
+      <code> alternativesAffectations:alternativesAffectations.xml</code>
+      <types>
+        <type>alternativesAffectations</type>
+      </types>
+      <vdef>alternativesAffectations.xml</vdef>
+      <dep>(input7-dep:value="1")</dep>
+
+    </parameter>
+    <parameter id="input7-dep" ishidden="0" type="boolean">
+      <name>Use alternativesAffectations as input?</name>
+      <description>Use alternativesAffectations as input?</description>
+      <position>3010</position>
+      <code/>
+      <vdef>1</vdef>
+    </parameter>
+
+
+
+
+    <parameter id="output0" ishidden="0" type="output">
+      <name>methodMessages_weights</name>
+      <description><![CDATA[A combination of values of weights and lamda which match the preference information best.]]></description>
+      <position>2011</position>
+      <code/>
+      <types>
+        <type>methodMessages</type>
+      </types>
+      <vdef>methodMessages_weights.xml</vdef>
+    </parameter>
+
+
+
+
+
+    <parameter id="output1" ishidden="0" type="output">
+      <name>alternativesAffectation_sorting</name>
+      <description><![CDATA[The sorting result for every alternative based on the values of parameters in methodMessage.]]></description>
+      <position>2012</position>
+      <code/>
+      <types>
+        <type>alternativesAffectations</type>
+      </types>
+      <vdef>alternativesAffectation_sorting.xml</vdef>
+    </parameter>
+
+
+
+
+
+    <parameter id="output2" ishidden="0" type="output">
+      <name>alternativesAffectations_roustAssignments</name>
+      <description><![CDATA[The range of robust assignments for each alternative and the combination of values of weights and lamda corresponding to each possible assignment.]]></description>
+      <position>2013</position>
+      <code/>
+      <types>
+        <type>alternativesAffectations</type>
+      </types>
+      <vdef>alternativesAffectations_roustAssignments.xml</vdef>
+    </parameter>
+
+
+
+    <parameter id="TIMEOUT" ishidden="0" type="int">
+      <name>Timeout? (0 for no timeout)</name>
+      <description>timeout</description>
+      <position>100001</position>
+      <code>-t %s </code>
+      <constraint>
+        <description>value should be a positive or null integer</description>
+        <code>(%d &gt;= 0)</code>
+      </constraint>
+      <vdef>60</vdef>
+    </parameter>
+    
+    <parameter id="VERBOSE" ishidden="0" type="enum">
+      <name>Verbose mode</name>
+      <description></description>
+      <position>100002</position>
+      <vlist>
+        <item id="T1">
+          <description>None</description>
+          <code></code>
+        </item>
+        <item id="T2">
+          <description>Moderately verbose</description>
+          <code> -v</code>
+        </item>
+        <item id="T3">
+          <description>Very verbose</description>
+          <code> -vv</code>
+        </item>
+        <item id="T4">
+          <description>Extremely verbose (include SOAP msgs)</description>
+          <code> -vvv</code>
+        </item>
+      </vlist>
+      <vdef>T2</vdef>
+    </parameter>
+
+  </parameters>
+</program_description>
