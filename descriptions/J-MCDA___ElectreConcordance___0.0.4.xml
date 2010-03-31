@@ -3,16 +3,16 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2010-03-26 10:07:35 +0100">
-  <program provider="J-MCDA" name="outranking" version="0.0.4" />
+<program_description export_date="2010-03-31 15:04:38 +0200">
+  <program provider="J-MCDA" name="ElectreConcordance" version="0.0.4" />
   <from desc_id="S8888" />
-  <description><![CDATA[Computes an outranking relation.]]></description>
+  <description><![CDATA[Computes a concordance relation.]]></description>
   <parameters>
-    <parameter id="outranking-cmdline" type="command" ismandatory="1">
-      <name>outranking</name>
+    <parameter id="ElectreConcordance-cmdline" type="command" ismandatory="1">
+      <name>concordance</name>
       <description></description>
       <position>100000</position>
-      <code>$callXMCDAService outranking-J-MCDA -S </code>
+      <code>$callXMCDAService ElectreConcordance-J-MCDA -S </code>
     </parameter>
 
 
@@ -45,28 +45,28 @@
 
 
     <parameter id="input2" ishidden="0" type="input">
-      <name>discordances</name>
-      <description><![CDATA[The discordance relations to use (one per criterion).]]></description>
+      <name>weights</name>
+      <description><![CDATA[The weights of the criteria to consider.]]></description>
       <position>100005</position>
-      <code> discordances:discordances.xml</code>
+      <code> weights:weights.xml</code>
       <types>
-        <type>alternativesComparisons</type>
+        <type>criteriaValues</type>
       </types>
-      <vdef>discordances.xml</vdef>
+      <vdef>weights.xml</vdef>
       <dep/>
     </parameter>
 
 
 
     <parameter id="input3" ishidden="0" type="input">
-      <name>concordance</name>
-      <description><![CDATA[The concordance relation to use.]]></description>
+      <name>performances</name>
+      <description><![CDATA[The performances of the alternatives on the criteria to consider.]]></description>
       <position>100006</position>
-      <code> concordance:concordance.xml</code>
+      <code> performances:performances.xml</code>
       <types>
-        <type>alternativesComparisons</type>
+        <type>performanceTable</type>
       </types>
-      <vdef>concordance.xml</vdef>
+      <vdef>performances.xml</vdef>
       <dep/>
     </parameter>
 
@@ -74,14 +74,14 @@
 
 
     <parameter id="output0" ishidden="0" type="output">
-      <name>outranking</name>
-      <description><![CDATA[The outranking relation computed from the given data.]]></description>
+      <name>concordance</name>
+      <description><![CDATA[The concordance relation computed from the given input data.]]></description>
       <position>2007</position>
       <code/>
       <types>
         <type>alternativesComparisons</type>
       </types>
-      <vdef>outranking.xml</vdef>
+      <vdef>concordance.xml</vdef>
     </parameter>
 
 

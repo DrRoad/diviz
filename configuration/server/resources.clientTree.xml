@@ -47,12 +47,12 @@
 		
 		<type name="Outranking" collapsed="0">
 			<resource name="PyXMCDA___RubisConcordanceRelation___1.0"/>
-			<resource name="J-MCDA___concordance___0.0.4"/>
-			<resource name="J-MCDA___discordances___0.0.4"/>
-			<resource name="J-MCDA___outranking___0.0.4"/>
 			<resource name="J-MCDA___cutRelation___0.0.4"/>
-			<resource name="J-MCDA___preference___0.0.4"/>
-			<resource name="J-MCDA___flows___0.0.4"/>
+			<resource name="J-MCDA___ElectreConcordance___0.0.4"/>
+			<resource name="J-MCDA___ElectreDiscordances___0.0.4"/>
+			<resource name="J-MCDA___ElectreOutranking___0.0.4"/>
+			<resource name="J-MCDA___PrometheePreference___0.0.4"/>
+			<resource name="J-MCDA___PrometheeFlows___0.0.4"/>
 		</type>
 		
 		<type name="Disaggregation" collapsed="0">

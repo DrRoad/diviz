@@ -3,16 +3,16 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2010-03-26 10:07:35 +0100">
-  <program provider="J-MCDA" name="discordances" version="0.0.4" />
+<program_description export_date="2010-03-31 15:04:38 +0200">
+  <program provider="J-MCDA" name="ElectreDiscordances" version="0.0.4" />
   <from desc_id="S8888" />
   <description><![CDATA[Computes a discordance relation per criteria.]]></description>
   <parameters>
-    <parameter id="discordances-cmdline" type="command" ismandatory="1">
+    <parameter id="ElectreDiscordances-cmdline" type="command" ismandatory="1">
       <name>discordances</name>
       <description></description>
       <position>100000</position>
-      <code>$callXMCDAService discordances-J-MCDA -S </code>
+      <code>$callXMCDAService ElectreDiscordances-J-MCDA -S </code>
     </parameter>
 
 
