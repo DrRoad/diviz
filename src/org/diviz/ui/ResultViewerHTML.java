@@ -1,6 +1,10 @@
 package org.diviz.ui;
 
 import java.awt.BorderLayout;
+import java.awt.Desktop;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.RenderingHints;
 import java.io.BufferedOutputStream;
 import java.io.BufferedWriter;
 import java.io.ByteArrayOutputStream;
@@ -10,10 +14,14 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.swing.BorderFactory;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JEditorPane;
 import javax.swing.JPanel;
@@ -45,11 +53,11 @@ import eu.telecom_bretagne.praxis.client.ui.results.viewers.FileFormat;
 import eu.telecom_bretagne.praxis.client.ui.results.viewers.FileViewer;
 import eu.telecom_bretagne.praxis.common.Base64Coder;
 import eu.telecom_bretagne.praxis.common.FileResources;
+import eu.telecom_bretagne.praxis.common.I18N;
 import eu.telecom_bretagne.praxis.common.Log;
+import eu.telecom_bretagne.praxis.common.PraxisPreferences;
 import eu.telecom_bretagne.praxis.common.Utile;
 import eu.telecom_bretagne.praxis.common.FileResources.ResourceNotFoundException;
-
-import javax.swing.JButton;
 
 /**
  * This is the viewer dedicated to the diviz project. It displays XMCDA results in a browser, after extracting from
@@ -88,7 +96,9 @@ public class ResultViewerHTML
 	
 	private JButton                          switchXmlHtmlViewButton  = null;
 	
-	private boolean                          htmlView = true;
+	private JButton                          openExternalBrowserButton = null;
+
+	private boolean                          htmlView                  = true;
 	
 	// File
 	private File                             resultFile               = null;
@@ -97,10 +107,32 @@ public class ResultViewerHTML
 	
 	private java.text.DecimalFormat          format                   = new java.text.DecimalFormat("00");
 	
-	transient String                         htmlContent_cache = null;
+	transient String                         htmlContent_cache        = null;
 	
+	/**
+	 * The date before which the cached results should be reset and re-calculated, because the xsl has been modified.
+	 * It is parsed when the class is initialized and stored in {@link #updateResultsBeforeDate}.
+	 */
+	static private final String              updateResultsBeforeDateString = "2010-04-04T00:00:00.000+0200";
+
+	/**
+	 * @see #updateResultsBeforeDateString
+	 */
+	static private Date                     updateResultsBeforeDate;
+
 	static
 	{
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
+		try
+        {
+			updateResultsBeforeDate = dateFormat.parse(updateResultsBeforeDateString);
+        }
+        catch (ParseException e1)
+        {
+        	// will not happen
+	        e1.printStackTrace();
+        }
+        
 		// Don't display logs from cobra renderer (lobo)
 		Logger.getLogger("org.lobobrowser").setLevel(Level.OFF);
 		
@@ -231,7 +263,7 @@ public class ResultViewerHTML
 		
 		// The url String must be supplied to HtmlPanel.setHtml() in order to load included images with its
 		// relative paths
-		String url = "file:///" + resultFile.getAbsolutePath();
+		String url = "file://" + imagesDir.getAbsolutePath()+"/";
 		if (htmlContent_cache!=null)
 		{
 			// avoid a round-trip to the FS
@@ -296,6 +328,7 @@ public class ResultViewerHTML
 	}
 	
 	static File lastResult = null;
+	
 	/**
 	 * Overrides the default repaint() method so that the HTML view is refreshed when needed, i.e.: when switching
 	 * from one tab to another, and when the XML/HTML View button is pressed.
@@ -325,16 +358,42 @@ public class ResultViewerHTML
 			}
 		}
 		super.repaint();
-		//htmlPanel.setEnabled(true);
+		// htmlPanel.setEnabled(true);
+	}
+	@Override
+	protected void paintComponent(Graphics g)
+	{
+		if(PraxisPreferences.getBoolean("display","antiAliasing"))
+		{
+			Graphics2D g2D = (Graphics2D) g;
+			g2D.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
+			                     RenderingHints.VALUE_ANTIALIAS_ON);
+		}
+	    super.paintComponent(g);
 	}
 	
+	/**
+	 * Examines the (xml) result and copies it into a file suffixed with ".modified.xml". If the result file contains
+	 * images, they are extracted and stored on the filesystem, and the base64-encoded images in the "modified" xml
+	 * are replaced by images' references.
+	 * @return {@code true} if the result file contains images, {@code false} otherwise.
+	 * @throws JDOMException
+	 * @throws IOException
+	 */
 	private boolean extractImages() throws JDOMException, IOException
 	{
 		String filename = resultFile.getName();
 		File newXMLFile = new File(imagesDir, filename + ".modified.xml");
-		if (newXMLFile.exists())
+		if (newXMLFile.exists() && newXMLFile.lastModified()>updateResultsBeforeDate.getTime())
 		{
+			// the file .modified.xml exists and is recent enough, no need to (re)generate it
 			return true;
+		}
+		else
+		{
+			// delete the file and the corresponding html
+			newXMLFile.delete();
+			new File(imagesDir, filename + ".html").delete();
 		}
 		
 		SAXBuilder builder = new SAXBuilder();
@@ -351,26 +410,26 @@ public class ResultViewerHTML
 			// Test whether the file exists
 			String number = format.format(i + 1);
 			String imageFilename = filename + "_img_" + number + ".png";
-			if (new File(imagesDir.getAbsolutePath() + File.separator + imageFilename).exists())
-				continue;
-			
-			// Decode content
 			Element imageElement = imageElements.get(i);
-			String imageBase64 = imageElement.getText();
-			byte[] decodedImage = Base64Coder.decode(imageBase64);
-			
-			// Write the image on disk
-			BufferedOutputStream out;
-			out = new BufferedOutputStream(new FileOutputStream(imagesDir.getAbsolutePath() + File.separator
-			                                                    + imageFilename));
-			out.write(decodedImage);
-			out.flush();
-			
+
+			if (!new File(imagesDir.getAbsolutePath() + File.separator + imageFilename).exists())
+			{
+				// Decode content
+				String imageBase64 = imageElement.getText();
+				byte[] decodedImage = Base64Coder.decode(imageBase64);
+				
+				// Write the image on disk
+				BufferedOutputStream out;
+				out = new BufferedOutputStream(new FileOutputStream(imagesDir.getAbsolutePath() + File.separator
+				                                                    + imageFilename));
+				out.write(decodedImage);
+				out.flush();
+			}
 			// Replace the content by the reference to the image stored on the disk
 			Element parentElement = imageElement.getParentElement();
 			parentElement.removeChild("image");
 			Element imageRefElement = new Element("imageRef");
-			imageRefElement.setText(imagesDir.getName() + "/" + imageFilename);
+			imageRefElement.setText("./"+imageFilename);
 			parentElement.addContent(imageRefElement);
 		}
 		
@@ -406,7 +465,8 @@ public class ResultViewerHTML
 			panelAction = new JPanel(bl);
 			if (Common.RESULTS_EXTERNAL_VIEWER_COLOR_BG != null)
 				jPanel.setBackground(Common.RESULTS_EXTERNAL_VIEWER_COLOR_BG);
-			panelAction.add(getSwitchXmlHtmlViewButton(), BorderLayout.WEST);
+			panelAction.add(getOpenExternalBrowserButton(), BorderLayout.WEST);
+			panelAction.add(getSwitchXmlHtmlViewButton(), BorderLayout.CENTER);
 			panelAction.add(getComboBoxViewersSelection(), BorderLayout.EAST);
 			panelAction.revalidate();
 		}
@@ -558,5 +618,30 @@ public class ResultViewerHTML
 		}
 		return switchXmlHtmlViewButton;
 	}
-	
+
+	private JButton getOpenExternalBrowserButton()
+	{
+		if (openExternalBrowserButton == null)
+		{
+			openExternalBrowserButton = new JButton();
+			openExternalBrowserButton.setText(I18N.s("UI.results.open_in_external_browser"));
+			openExternalBrowserButton.addActionListener(new java.awt.event.ActionListener() {
+				public void actionPerformed(java.awt.event.ActionEvent e)
+				{
+					try
+                    {
+						Desktop.getDesktop().browse(new File(imagesDir, resultFile.getName() + ".html").toURI());
+                    }
+                    catch (IOException e1)
+                    {
+	                    e1.printStackTrace();
+                    }
+				}
+			});
+			openExternalBrowserButton.setEnabled(Desktop.isDesktopSupported()
+			                       && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE));
+		}
+		return openExternalBrowserButton;
+	}
+
 }

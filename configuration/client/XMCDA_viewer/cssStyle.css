@@ -159,15 +159,7 @@ li
 	margin-bottom: 10pt;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
+img
+{
+    max-width:100%;
+}
