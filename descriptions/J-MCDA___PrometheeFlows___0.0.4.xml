@@ -3,13 +3,13 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2010-03-31 15:04:42 +0200">
+<program_description export_date="2010-04-02 15:29:03 +0200">
   <program provider="J-MCDA" name="PrometheeFlows" version="0.0.4" />
   <from desc_id="S8888" />
   <description><![CDATA[Computes Promethee flows (net flows, positive flows, or negative flows).]]></description>
   <parameters>
     <parameter id="PrometheeFlows-cmdline" type="command" ismandatory="1">
-      <name>flows</name>
+      <name>PrometheeFlows</name>
       <description></description>
       <position>100000</position>
       <code>$callXMCDAService PrometheeFlows-J-MCDA -S </code>

@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+
+<!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
+
+<program_description export_date="2010-04-02 15:29:02 +0200">
+  <program provider="RXMCDA" name="randomAlternativesRanks" version="1.0" />
+  <from desc_id="S8888" />
+  <description><![CDATA[Generates random (uniformly distributed) ranks of alternatives.]]></description>
+  <parameters>
+    <parameter id="randomAlternativesRanks-cmdline" type="command" ismandatory="1">
+      <name>randomAlternativesRanks</name>
+      <description></description>
+      <position>100000</position>
+      <code>$callXMCDAService randomAlternativesRanks-RXMCDA -S </code>
+    </parameter>
+
+
+    <parameter id="seed" ishidden="0" type="input">
+      <name>seed</name>
+      <description><![CDATA[The seed for the random numbers generator (integer).]]></description>
+      <position>100003</position>
+      <code/> 
+      <types>
+        <type>methodParameters</type>
+      </types>
+      <vdef>seed.xml</vdef>
+      <dep>(seed-dep:value="1") AND (seed-use-file-dep:value="1")</dep>
+
+    </parameter>
+    <parameter id="seed-dep" ishidden="0" type="boolean">
+      <name>Use seed as input?</name>
+      <description>Use seed as input?</description>
+      <position>3003</position>
+      <code/>
+      <vdef>0</vdef>
+    </parameter>
+
+    <parameter id="seed-use-file-dep" ishidden="0" type="boolean">
+      <name>Supply seed as a file?</name>
+      <description>Supply seed as a file?</description>
+      <position>3003</position>
+      <code/>
+      <vdef>0</vdef>
+      <dep>(seed-dep:value="1")</dep>
+
+    </parameter>
+    
+
+
+
+    <parameter id="seed-gui" ishidden="1" type="code">
+      <name>seed</name>
+      <description><![CDATA[The seed for the random numbers generator (integer).]]></description>
+      <position>300</position>
+      <code><![CDATA[#seed: seed.xml
+cat > seed.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="xmcdaKappalab.xsl"?>
+<xmcda:XMCDA xmlns:xmcda="http://www.decision-deck.org/2009/XMCDA-2.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.decision-deck.org/2009/XMCDA-2.0.0 http://www.decision-deck.org/xmcda/_downloads/XMCDA-2.0.0.xsd">]]></code>
+      <dep>(seed-dep:value="1") AND (seed-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+
+    <parameter id="seed-gui-301" ishidden="1" type="code">
+      <name />
+      <description />
+      <position>301</position>
+      <code><![CDATA[
+                
+                    <methodParameters>
+                        <parameter
+                             name="seed"> <!-- REQUIRED  -->
+                            <value>
+                                <integer>]]></code>
+      <dep>(seed-dep:value="1") AND (seed-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+
+    <parameter id="seed-gui-302" ishidden="0" type="int">
+      <name>seed</name>
+      <indent>1</indent>
+      <description>TODO</description>
+      <position>302</position>
+
+      <code>%s</code>
+
+      <constraint>
+        <description>An integer value.</description>
+        <code><![CDATA[%d > 0]]></code>   
+      </constraint>
+      <vdef>1</vdef>
+      <dep>(seed-dep:value="1") AND (seed-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+
+    <parameter id="seed-gui-303" ishidden="1" type="code">
+      <name />
+      <description />
+      <position>303</position>
+      <code><![CDATA[</integer>
+                            </value>
+                        </parameter>
+                    </methodParameters>
+                    
+            ]]></code>
+      <dep>(seed-dep:value="1") AND (seed-use-file-dep:value="0")</dep>
+
+    </parameter>
+    <parameter id="seed-gui-EOF" ishidden="1" type="code">
+      <name>seed EOF</name>
+      <description></description>
+      <position>304</position>
+      <code><![CDATA[</xmcda:XMCDA>%nEOF%n]]></code>
+      <dep>(seed-dep:value="1") AND (seed-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+    <parameter id="seed-cmdline" ishidden="1" type="code">
+      <name>seed insertion in cmd-line</name>
+      <description></description>
+      <position>100003</position>
+      <code> seed:seed.xml</code>
+      <dep>(seed-dep:value="1")</dep>
+
+    </parameter>
+
+
+
+
+
+    <parameter id="alternatives" ishidden="0" type="input">
+      <name>alternatives</name>
+      <description><![CDATA[A list of alternatives. Alternatives can be activated or desactivated via the <active> tag (true or false). By default (no <active> tag), alternatives are considered as active. ]]></description>
+      <position>100004</position>
+      <code> alternatives:alternatives.xml</code>
+      <types>
+        <type>alternatives</type>
+      </types>
+      <vdef>alternatives.xml</vdef>
+      <dep/>
+    </parameter>
+
+
+
+
+    <parameter id="messages" ishidden="0" type="output">
+      <name>messages</name>
+      <description><![CDATA[A list of messages generated by the algorithm.]]></description>
+      <position>2005</position>
+      <code/>
+      <types>
+        <type>methodMessages</type>
+      </types>
+      <vdef>messages.xml</vdef>
+    </parameter>
+
+
+
+
+
+    <parameter id="alternativesRanks" ishidden="0" type="output">
+      <name>alternativesRanks</name>
+      <description><![CDATA[The ranks of the alternatives.]]></description>
+      <position>2006</position>
+      <code/>
+      <types>
+        <type>alternativesValues</type>
+      </types>
+      <vdef>alternativesRanks.xml</vdef>
+    </parameter>
+
+
+
+    <parameter id="TIMEOUT" ishidden="0" type="int">
+      <name>Timeout? (0 for no timeout)</name>
+      <description>timeout</description>
+      <position>100001</position>
+      <code>-t %s </code>
+      <constraint>
+        <description>value should be a positive or null integer</description>
+        <code>(%d &gt;= 0)</code>
+      </constraint>
+      <vdef>60</vdef>
+    </parameter>
+    
+    <parameter id="VERBOSE" ishidden="0" type="enum">
+      <name>Verbose mode</name>
+      <description></description>
+      <position>100002</position>
+      <vlist>
+        <item id="T1">
+          <description>None</description>
+          <code></code>
+        </item>
+        <item id="T2">
+          <description>Moderately verbose</description>
+          <code> -v</code>
+        </item>
+        <item id="T3">
+          <description>Very verbose</description>
+          <code> -vv</code>
+        </item>
+        <item id="T4">
+          <description>Extremely verbose (include SOAP msgs)</description>
+          <code> -vvv</code>
+        </item>
+      </vlist>
+      <vdef>T2</vdef>
+    </parameter>
+
+  </parameters>
+</program_description>

@@ -3,7 +3,7 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2010-03-24 10:04:57 +0100">
+<program_description export_date="2010-04-02 15:29:02 +0200">
   <program provider="UTAR" name="computeNormalisedPerformanceTable" version="1.0" />
   <from desc_id="S8888" />
   <description><![CDATA[Transforms a performance table via value functions.]]></description>
@@ -16,33 +16,33 @@
     </parameter>
 
 
-    <parameter id="alt" ishidden="0" type="input">
-      <name>alternatives</name>
-      <description><![CDATA[
-					A list of alternatives. Alternatives can be activated or desactivated via the <active> tag (true or false). By default (no <active> tag), alternatives are considered as active. 
-				]]></description>
-      <position>100003</position>
-      <code> alternatives:alternatives.xml</code>
-      <types>
-        <type>alternatives</type>
-      </types>
-      <vdef>alternatives.xml</vdef>
-      <dep/>
-    </parameter>
-
-
-
     <parameter id="crit" ishidden="0" type="input">
       <name>criteria</name>
       <description><![CDATA[
 					A list of criteria. Criteria can be activated or desactivated via the <active> tag (true or false). By default (no <active> tag), criteria are considered as active.
 				]]></description>
-      <position>100004</position>
+      <position>100003</position>
       <code> criteria:criteria.xml</code>
       <types>
         <type>criteria</type>
       </types>
       <vdef>criteria.xml</vdef>
+      <dep/>
+    </parameter>
+
+
+
+    <parameter id="alt" ishidden="0" type="input">
+      <name>alternatives</name>
+      <description><![CDATA[
+					A list of alternatives. Alternatives can be activated or desactivated via the <active> tag (true or false). By default (no <active> tag), alternatives are considered as active. 
+				]]></description>
+      <position>100004</position>
+      <code> alternatives:alternatives.xml</code>
+      <types>
+        <type>alternatives</type>
+      </types>
+      <vdef>alternatives.xml</vdef>
       <dep/>
     </parameter>
 
@@ -81,34 +81,34 @@
 
 
 
-    <parameter id="normalizedperfTable" ishidden="0" type="output">
-      <name>performanceTable</name>
+    <parameter id="logMessage" ishidden="0" type="output">
+      <name>messages</name>
       <description><![CDATA[
-					Normalized performance table (via the value functions).
+					logMessage
 				]]></description>
       <position>2007</position>
       <code/>
       <types>
-        <type>performanceTable</type>
+        <type>methodMessages</type>
       </types>
-      <vdef>normalizedPerformanceTable.xml</vdef>
+      <vdef>message.xml</vdef>
     </parameter>
 
 
 
 
 
-    <parameter id="logMessage" ishidden="0" type="output">
-      <name>messages</name>
+    <parameter id="normalizedperfTable" ishidden="0" type="output">
+      <name>performanceTable</name>
       <description><![CDATA[
-					logMessage
+					Normalized performance table (via the value functions).
 				]]></description>
       <position>2008</position>
       <code/>
       <types>
-        <type>methodMessages</type>
+        <type>performanceTable</type>
       </types>
-      <vdef>message.xml</vdef>
+      <vdef>normalizedPerformanceTable.xml</vdef>
     </parameter>
 
 

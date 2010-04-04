@@ -3,7 +3,7 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2010-03-24 10:04:59 +0100">
+<program_description export_date="2010-04-02 15:29:05 +0200">
   <program provider="UTAR" name="ACUTA" version="1.0" />
   <from desc_id="S8888" />
   <description><![CDATA[Computes ACUTA method - analytic center for UTA - that provides a good solution for indeterminate problems in an additive model ]]></description>
@@ -256,96 +256,12 @@ cat > level.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 
 
 
-    <parameter id="alt" ishidden="0" type="input">
-      <name>alternatives</name>
-      <description><![CDATA[
-					A list of alternatives. Alternatives can be activated or desactivated via the <active> tag (true or false). By default (no <active> tag), alternatives are considered as active. 
-				]]></description>
-      <position>100005</position>
-      <code> alternatives:alternatives.xml</code>
-      <types>
-        <type>alternatives</type>
-      </types>
-      <vdef>alternatives.xml</vdef>
-      <dep/>
-    </parameter>
-
-
-
-    <parameter id="altRank" ishidden="0" type="input">
-      <name>alternativesRank</name>
-      <description><![CDATA[
-					Subset of alternatives and the related ranking, in order to compute the method. The subset must be included in the global set of alternatives.
-				]]></description>
-      <position>100006</position>
-      <code> alternativesRanking:alternativesRanking.xml</code>
-      <types>
-        <type>alternativesValues</type>
-      </types>
-      <vdef>alternativesRanking.xml</vdef>
-      <dep>(altRank-dep:value="1")</dep>
-
-    </parameter>
-    <parameter id="altRank-dep" ishidden="0" type="boolean">
-      <name>Use alternativesRank as input?</name>
-      <description>Use alternativesRank as input?</description>
-      <position>3006</position>
-      <code/>
-      <vdef>1</vdef>
-    </parameter>
-
-
-
-    <parameter id="altComp1" ishidden="0" type="input">
-      <name>alternativesPreferences</name>
-      <description><![CDATA[Partial order on a subset of alternatives, representing the strict preference, in order to compute the method. The subset must be included in the global set of alternatives.]]></description>
-      <position>100007</position>
-      <code> alternativesPreferences:alternativesPreferences.xml</code>
-      <types>
-        <type>alternativesValues</type>
-      </types>
-      <vdef>alternativesPreferences.xml</vdef>
-      <dep>(altComp1-dep:value="1")</dep>
-
-    </parameter>
-    <parameter id="altComp1-dep" ishidden="0" type="boolean">
-      <name>Use alternativesPreferences as input?</name>
-      <description>Use alternativesPreferences as input?</description>
-      <position>3007</position>
-      <code/>
-      <vdef>1</vdef>
-    </parameter>
-
-
-
-    <parameter id="altComp2" ishidden="0" type="input">
-      <name>alternativesIndifferences</name>
-      <description><![CDATA[Partial order on a subset of alternatives, representing the indifference, in order to compute the method. The subset must be included in the global set of alternatives.]]></description>
-      <position>100008</position>
-      <code> alternativesIndifferences:alternativesIndifferences.xml</code>
-      <types>
-        <type>alternativesValues</type>
-      </types>
-      <vdef>alternativesIndifferences.xml</vdef>
-      <dep>(altComp2-dep:value="1")</dep>
-
-    </parameter>
-    <parameter id="altComp2-dep" ishidden="0" type="boolean">
-      <name>Use alternativesIndifferences as input?</name>
-      <description>Use alternativesIndifferences as input?</description>
-      <position>3008</position>
-      <code/>
-      <vdef>1</vdef>
-    </parameter>
-
-
-
     <parameter id="crit" ishidden="0" type="input">
       <name>criteria</name>
       <description><![CDATA[
 					A list of criteria. Criteria can be activated or desactivated via the <active> tag (true or false). By default (no <active> tag), criteria are considered as active.
 				]]></description>
-      <position>100009</position>
+      <position>100005</position>
       <code> criteria:criteria.xml</code>
       <types>
         <type>criteria</type>
@@ -356,12 +272,28 @@ cat > level.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 
 
 
+    <parameter id="alt" ishidden="0" type="input">
+      <name>alternatives</name>
+      <description><![CDATA[
+					A list of alternatives. Alternatives can be activated or desactivated via the <active> tag (true or false). By default (no <active> tag), alternatives are considered as active. 
+				]]></description>
+      <position>100006</position>
+      <code> alternatives:alternatives.xml</code>
+      <types>
+        <type>alternatives</type>
+      </types>
+      <vdef>alternatives.xml</vdef>
+      <dep/>
+    </parameter>
+
+
+
     <parameter id="perfTable" ishidden="0" type="input">
       <name>performanceTable</name>
       <description><![CDATA[
 					Values of criteria for different alternatives. It must contains IDs of both criteria and alternatives described previously.
 				]]></description>
-      <position>100010</position>
+      <position>100007</position>
       <code> performanceTable:performanceTable.xml</code>
       <types>
         <type>performanceTable</type>
@@ -377,7 +309,7 @@ cat > level.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <description><![CDATA[
 					Optional information about preference directions of some criteria. If not specified : the algorithm will take care of it.
 				]]></description>
-      <position>100011</position>
+      <position>100008</position>
       <code> preferencesDirections:preferencesDirections.xml</code>
       <types>
         <type>criteriaValues</type>
@@ -389,7 +321,7 @@ cat > level.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
     <parameter id="prefDir-dep" ishidden="0" type="boolean">
       <name>Use preferenceDirections as input?</name>
       <description>Use preferenceDirections as input?</description>
-      <position>3011</position>
+      <position>3008</position>
       <code/>
       <vdef>1</vdef>
     </parameter>
@@ -401,7 +333,7 @@ cat > level.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <description><![CDATA[
 					Information about preference discretization of some criteria. If not specified : the algorithm will take care of it.
 				]]></description>
-      <position>100012</position>
+      <position>100009</position>
       <code> segments:segments.xml</code>
       <types>
         <type>criteriaValues</type>
@@ -413,10 +345,95 @@ cat > level.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
     <parameter id="critSeg-dep" ishidden="0" type="boolean">
       <name>Use criteriaSegments as input?</name>
       <description>Use criteriaSegments as input?</description>
+      <position>3009</position>
+      <code/>
+      <vdef>1</vdef>
+    </parameter>
+
+
+
+    <parameter id="altRank" ishidden="0" type="input">
+      <name>alternativesRank</name>
+      <description><![CDATA[
+					Subset of alternatives and the related ranking, in order to compute the method. The subset must be included in the global set of alternatives.
+				]]></description>
+      <position>100010</position>
+      <code> alternativesRanking:alternativesRanking.xml</code>
+      <types>
+        <type>alternativesValues</type>
+      </types>
+      <vdef>alternativesRanking.xml</vdef>
+      <dep>(altRank-dep:value="1")</dep>
+
+    </parameter>
+    <parameter id="altRank-dep" ishidden="0" type="boolean">
+      <name>Use alternativesRank as input?</name>
+      <description>Use alternativesRank as input?</description>
+      <position>3010</position>
+      <code/>
+      <vdef>1</vdef>
+    </parameter>
+
+
+
+    <parameter id="altComp1" ishidden="0" type="input">
+      <name>alternativesPreferences</name>
+      <description><![CDATA[Partial order on a subset of alternatives, representing the strict preference, in order to compute the method. The subset must be included in the global set of alternatives.]]></description>
+      <position>100011</position>
+      <code> alternativesPreferences:alternativesPreferences.xml</code>
+      <types>
+        <type>alternativesValues</type>
+      </types>
+      <vdef>alternativesPreferences.xml</vdef>
+      <dep>(altComp1-dep:value="1")</dep>
+
+    </parameter>
+    <parameter id="altComp1-dep" ishidden="0" type="boolean">
+      <name>Use alternativesPreferences as input?</name>
+      <description>Use alternativesPreferences as input?</description>
+      <position>3011</position>
+      <code/>
+      <vdef>1</vdef>
+    </parameter>
+
+
+
+    <parameter id="altComp2" ishidden="0" type="input">
+      <name>alternativesIndifferences</name>
+      <description><![CDATA[Partial order on a subset of alternatives, representing the indifference, in order to compute the method. The subset must be included in the global set of alternatives.]]></description>
+      <position>100012</position>
+      <code> alternativesIndifferences:alternativesIndifferences.xml</code>
+      <types>
+        <type>alternativesValues</type>
+      </types>
+      <vdef>alternativesIndifferences.xml</vdef>
+      <dep>(altComp2-dep:value="1")</dep>
+
+    </parameter>
+    <parameter id="altComp2-dep" ishidden="0" type="boolean">
+      <name>Use alternativesIndifferences as input?</name>
+      <description>Use alternativesIndifferences as input?</description>
       <position>3012</position>
       <code/>
       <vdef>1</vdef>
     </parameter>
+
+
+
+
+    <parameter id="logMessage" ishidden="0" type="output">
+      <name>messages</name>
+      <description><![CDATA[
+					logMessage
+				]]></description>
+      <position>2013</position>
+      <code/>
+      <types>
+        <type>methodMessages</type>
+      </types>
+      <vdef>message.xml</vdef>
+    </parameter>
+
 
 
 
@@ -426,7 +443,7 @@ cat > level.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <description><![CDATA[
 					Main solution : value functions of the selected criteria, using UTA method.
 				]]></description>
-      <position>2013</position>
+      <position>2014</position>
       <code/>
       <types>
         <type>criteria</type>
@@ -443,29 +460,12 @@ cat > level.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <description><![CDATA[
 					Other solutions (prefDirections) for valueFunctions using UTA method.
 				]]></description>
-      <position>2014</position>
+      <position>2015</position>
       <code/>
       <types>
         <type>criteria</type>
       </types>
       <vdef>otherValueFunctions.xml</vdef>
-    </parameter>
-
-
-
-
-
-    <parameter id="logMessage" ishidden="0" type="output">
-      <name>messages</name>
-      <description><![CDATA[
-					logMessage
-				]]></description>
-      <position>2015</position>
-      <code/>
-      <types>
-        <type>methodMessages</type>
-      </types>
-      <vdef>message.xml</vdef>
     </parameter>
 
 

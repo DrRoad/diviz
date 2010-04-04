@@ -3,13 +3,13 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2010-03-31 15:04:46 +0200">
+<program_description export_date="2010-04-02 15:29:05 +0200">
   <program provider="J-MCDA" name="PrometheePreference" version="0.0.4" />
   <from desc_id="S8888" />
   <description><![CDATA[Computes a preference relation, a la Promethee.]]></description>
   <parameters>
     <parameter id="PrometheePreference-cmdline" type="command" ismandatory="1">
-      <name>preference</name>
+      <name>PrometheePreference</name>
       <description></description>
       <position>100000</position>
       <code>$callXMCDAService PrometheePreference-J-MCDA -S </code>

@@ -15,6 +15,20 @@
       <code>$callXMCDAService generalWeightedSum-UTAR -S </code>
     </parameter>
 
+    <parameter id="criteria" ishidden="0" type="input">
+      <name>criteria</name>
+      <description><![CDATA[
+					A list of criteria. Criteria can be activated or desactivated via the <active> tag (true or false). By default (no <active> tag), criteria are considered as active.
+				]]></description>
+      <position>100006</position>
+      <code> criteria:criteria.xml</code>
+      <types>
+        <type>criteria</type>
+      </types>
+      <vdef>criteria.xml</vdef>
+      <dep/>
+    </parameter>
+
 
     <parameter id="alternatives" ishidden="0" type="input">
       <name>alternatives</name>
@@ -92,19 +106,7 @@ cat > avg.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 
 
 
-    <parameter id="criteria" ishidden="0" type="input">
-      <name>criteria</name>
-      <description><![CDATA[
-					A list of criteria. Criteria can be activated or desactivated via the <active> tag (true or false). By default (no <active> tag), criteria are considered as active.
-				]]></description>
-      <position>100006</position>
-      <code> criteria:criteria.xml</code>
-      <types>
-        <type>criteria</type>
-      </types>
-      <vdef>criteria.xml</vdef>
-      <dep/>
-    </parameter>
+
 
 
 
@@ -171,19 +173,7 @@ cat > norm.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
     </parameter>
 
 
-    <parameter id="alternativesValues" ishidden="0" type="output">
-      <name>alternativesValues</name>
-      <description><![CDATA[
-					Values (or utility) for different alternatives
-				]]></description>
-      <position>2009</position>
-      <code/>
-      <types>
-        <type>alternativesValues</type>
-      </types>
-      <vdef>alternativesValues.xml</vdef>
-    </parameter>
-
+    
 
     <parameter id="messages" ishidden="0" type="output">
       <name>messages</name>
@@ -197,6 +187,20 @@ cat > norm.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       </types>
       <vdef>messages.xml</vdef>
     </parameter>
+    
+    <parameter id="alternativesValues" ishidden="0" type="output">
+      <name>alternativesValues</name>
+      <description><![CDATA[
+					Values (or utility) for different alternatives
+				]]></description>
+      <position>2009</position>
+      <code/>
+      <types>
+        <type>alternativesValues</type>
+      </types>
+      <vdef>alternativesValues.xml</vdef>
+    </parameter>
+    
 
 
 
