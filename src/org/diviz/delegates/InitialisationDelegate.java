@@ -4,6 +4,7 @@
  */
 package org.diviz.delegates;
 
+import eu.telecom_bretagne.praxis.client.ui.UI;
 import eu.telecom_bretagne.praxis.core.workflow.Program;
 
 /**
@@ -23,5 +24,6 @@ public class InitialisationDelegate
 	public void initialize()
 	{
 		Program.delegate = new ProgramDelegate();
+		UI.setDelegate(new UIDelegate());
 	}
 }
