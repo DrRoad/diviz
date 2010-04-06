@@ -26,6 +26,7 @@ set callXMCDAService="genericXMCDAService.py -U http://localhost/cgi-bin/%s.py -
       <program id="kappalab___linProgCapaIdent___1.0"/>
       <program id="kappalab___lsRankingCapaIdent___1.0"/>
       <program id="kappalab___miniVarCapaIdent___1.0"/>
+      <!-- RXMCDA -->
       <program id="RXMCDA___alternativesValuesKendall___1.0"/>
       <program id="RXMCDA___generateXMCDAReport___1.0"/>
       <program id="RXMCDA___plotAlternativesComparisons___1.0"/>
@@ -36,6 +37,14 @@ set callXMCDAService="genericXMCDAService.py -U http://localhost/cgi-bin/%s.py -
       <program id="RXMCDA___plotCriteriaValues___1.0"/>
       <program id="RXMCDA___plotNumericPerformanceTable___1.0"/>
       <program id="RXMCDA___rankAlternativesValues___1.0"/>
+
+      <program id="RXMCDA___additiveValueFunctionsIdentification___1.0" />
+      <program id="RXMCDA___convertAlternativesRanksToAlternativesComparisons___1.0" />
+      <program id="RXMCDA___randomAlternativesRanks___1.0" />
+      <program id="RXMCDA___randomCriteriaWeights___1.0" />
+      <program id="RXMCDA___randomNormalizedPerformanceTable___1.0" />
+      <program id="RXMCDA___invertAlternativesRanks___1.0" />
+
       <program id="PyXMCDA___weightedSum___1.0"/>
       <program id="PyXMCDA___RubisConcordanceRelation___1.0"/>
       <program id="jsmaa___smaa2___0.2"/>
@@ -51,9 +60,8 @@ set callXMCDAService="genericXMCDAService.py -U http://localhost/cgi-bin/%s.py -
       <program id="J-MCDA___PrometheePreference___0.0.4"/>
       <program id="J-MCDA___PrometheeFlows___0.0.4"/>
 
-<!-- These two programs requires cplex, which is not installed at ecp for the moment being -->
+<!-- This program requires cplex, which is not installed at ecp for the moment being -->
 <!--  <program id="PyXMCDA___weightsFromCondorcetAndPreferences___1.0"/>
-      <program id="PyXMCDA___weightsFromCondorcetRelation___1.0"/>
 -->
 <!-- These programs are old programs, some of which may be reactivated in the future (e.g. splitXMCDA) -->
 <!--  <program id="DecisionDeck___assembleXMCDA___1.0"/> 

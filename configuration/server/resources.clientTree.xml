@@ -18,7 +18,7 @@
     >
 ]>
 <resourcesTree version="3">
-	
+		
 	<type name="Calculation components" collapsed="0">
 		<type name="Capacity analysis" collapsed="0">
 			<resource name="kappalab___capacityEntropy___1.0"/>
@@ -46,7 +46,6 @@
 		</type>
 		
 		<type name="Outranking" collapsed="0">
-			<resource name="PyXMCDA___RubisConcordanceRelation___1.0"/>
 			<resource name="J-MCDA___cutRelation___0.0.4"/>
 			<resource name="J-MCDA___ElectreConcordance___0.0.4"/>
 			<resource name="J-MCDA___ElectreDiscordances___0.0.4"/>
@@ -55,12 +54,13 @@
 			<resource name="CppXMCDA___IRIS___1.0"/>
 			<resource name="J-MCDA___PrometheePreference___0.0.4"/>
 			<resource name="J-MCDA___PrometheeFlows___0.0.4"/>
+			<resource name="PyXMCDA___RubisConcordanceRelation___1.0"/>
 		</type>
 		
 		<type name="Disaggregation" collapsed="0">
-		    <resource name="PyXMCDA___weightsFromCondorcetRelation___1.0"/>
-		    <resource name="PyXMCDA___weightsFromCondorcetAndPreferences___1.0"/>
-		    <resource name="UTAR___ACUTA___1.0"/>
+			<resource name="UTAR___ACUTA___1.0"/>
+			<resource name="RXMCDA___additiveValueFunctionsIdentification___1.0" />
+			<resource name="PyXMCDA___weightsFromCondorcetAndPreferences___1.0"/>
 		</type>
 		
 		<type name="Alternatives analysis" collapsed="0">
@@ -68,7 +68,16 @@
 			<resource name="RXMCDA___rankAlternativesValues___1.0"/>
 		</type>
 		<type name="Alternatives computations" collapsed="0">
+			<resource name="RXMCDA___convertAlternativesRanksToAlternativesComparisons___1.0" />
+			<resource name="RXMCDA___randomAlternativesRanks___1.0" />
+			<resource name="RXMCDA___invertAlternativesRanks___1.0" />
+		</type>
+		<type name="Criteria computations" collapsed="0">
+			<resource name="RXMCDA___randomCriteriaWeights___1.0" />
+		</type>
+		<type name="Performance table computations" collapsed="0">
 			<resource name="UTAR___computeNormalisedPerformanceTable___1.0"/>
+			<resource name="RXMCDA___randomNormalizedPerformanceTable___1.0" />
 		</type>
 	</type>
 
@@ -88,8 +97,8 @@
 		<resource name="RXMCDA___plotCriteriaValues___1.0"/>
 		<resource name="RXMCDA___plotCriteriaValuesPreorder___1.0"/>
 		<resource name="RXMCDA___plotNumericPerformanceTable___1.0"/>
-		<resource name="UTAR___XYPlotAlternativesValues___1.0"/>
 		<resource name="UTAR___plotValueFunctions___1.0"/>
+		<resource name="UTAR___XYPlotAlternativesValues___1.0"/>
 	</type>
 
 		<type name="Reporting" collapsed="0">
