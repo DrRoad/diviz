@@ -59,8 +59,10 @@ public class ProgramDelegate
 			final String[] dR_p_s_v = declaredResource.split(ProgramDescription.ID_SEPARATOR);
 			if (name.equals(dR_p_s_v[1]))
 			{
+				/*
 				warnings.add(XMLWarnings.PRG_DESC_REPLACED_BY_ALTERNATIVE, new String[] {
 				        xmlNode.getAttributeValue(Program.PRG_INFO), declaredResource });
+				*/
 				return RemoteComponents.resourceRepository().programDescriptionForId(declaredResource);
 			}
 		}
