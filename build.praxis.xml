@@ -103,6 +103,7 @@
         <fileset dir="." includes="descriptions/**" excludes="**/*~" />
         <fileset dir="." includes="images/**" excludes="**/*~" />
         <fileset dir="." includes="resources_descriptions/**" excludes="**/*~" />
+        <fileset dir="." includes="CHANGES.*" excludes="*~" />
       </includes>
     </praxis_project_one_jar>
   </target>

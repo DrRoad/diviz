@@ -1,0 +1,82 @@
+diviz v1.2
+----------
+
+- diviz is now officially released under the CeCill v2 license!
+  Sources are available at http://github.com/sbigaret/diviz
+
+  The praxis framework, on which diviz is based, is also released
+  under the same licence (http://github.com/sbigaret/Praxis).
+
+- All XMCDA web-services have been renamed. Existing workflows are
+  automatically adapted when they are loaded into diviz.
+
+- Services added and removed, following the changes in the set of
+  XMCDA Web-Services proposed by the Decision Deck consortium
+
+    CppXMCDA: 3 new services
+      - inconsistencyResolution
+      - IRIS
+      - IRIS-testInconsistency
+  
+    J-MCDA: 6 new services
+      - cutRelation
+      - ElectreConcordance
+      - ElectreDiscordances
+      - ElectreOutranking
+      - PrometheeFlows
+      - PrometheePreference
+  
+  
+    RXMCDA: 4 new services
+      - randomAlternativesRanks
+      - randomCriteriaWeights
+      - randomNormalizedPerformanceTable
+      - additiveValueFunctionsIdentification-RXMCDA
+      - convertAlternativesRanksToAlternativesComparisons-RXMCDA
+      - invertAlternativesRanks-RXMCDA
+
+    PyXMCDA: 1 service removed
+      - weightsFromCondorcetRelation: it was redundant w/
+        weightsFromCondorcetAndPreferences.
+
+- A button is added to open a result in a web browser
+
+- When creating a new file, the file selector now remembers the last
+  directory in which a file was picked up.
+
+- It is now possible to create a file when it does not exists.
+  When a file in a worflow points to a valid path and the
+  corresponding file does not exist, the popup menu gives the user the
+  possibility to create the file. The created file is an empty, valid
+  XMCDA file.
+
+- A contextual sub-menu is added for launching viewers/editors on files.
+  It allows users to open the files in a workflow when designing a
+  workflow, with the very same viewers as those available for viewing
+  the results.
+
+  Combined with the above new feature (creation of empty XMCDA files),
+  this makes it possible to create and edit files on the fly, when
+  building workflows.
+
+- The launcher now detects when the JVM used is not Sun's, and reports
+  it.  People using an alternate java virtual machine (such as
+  openjdk) are now warned that doing this may seriously degrade their
+  experience with diviz.
+  For more details, see http://github.com/sbigaret/Praxis/commit/afb7f972
+  
+- diviz now starts quicker when its workspaces contains a lot of
+  workflows and results.
+  Pre-read of workflows and results optimized: as a result, examining
+  the whole workspace is now about 3 times faster than in previous
+  versions.
+
+- Bug fix: it was not possible to execute a workflow where a single
+  file (or a single output) was connected to multiple inputs of the
+  same program.
+
+
+diviz v1.1
+----------
+
+Initial release.
