@@ -3,7 +3,7 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2010-03-31 15:04:42 +0200">
+<program_description export_date="2010-04-08 16:32:42 +0200">
   <program provider="CppXMCDA" name="IRIS" version="1.0" />
   <from desc_id="S8888" />
   <description><![CDATA[For each alternative, provides the sorting result with the weights infered and computes robust assignment. ]]></description>
@@ -153,14 +153,14 @@
 
 
     <parameter id="output1" ishidden="0" type="output">
-      <name>alternativesAffectation_sorting</name>
+      <name>alternativesAffectations_sorting</name>
       <description><![CDATA[The sorting result for every alternative based on the values of parameters in methodMessage.]]></description>
       <position>2012</position>
       <code/>
       <types>
         <type>alternativesAffectations</type>
       </types>
-      <vdef>alternativesAffectation_sorting.xml</vdef>
+      <vdef>alternativesAffectations_sorting.xml</vdef>
     </parameter>
 
 
@@ -168,14 +168,14 @@
 
 
     <parameter id="output2" ishidden="0" type="output">
-      <name>alternativesAffectations_roustAssignments</name>
+      <name>alternativesAffectations_robustAssignments</name>
       <description><![CDATA[The range of robust assignments for each alternative and the combination of values of weights and lamda corresponding to each possible assignment.]]></description>
       <position>2013</position>
       <code/>
       <types>
         <type>alternativesAffectations</type>
       </types>
-      <vdef>alternativesAffectations_roustAssignments.xml</vdef>
+      <vdef>alternativesAffectations_robustAssignments.xml</vdef>
     </parameter>
 
 

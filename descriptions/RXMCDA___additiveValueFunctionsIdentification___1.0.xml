@@ -3,7 +3,7 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2010-04-02 15:29:07 +0200">
+<program_description export_date="2010-04-08 16:32:45 +0200">
   <program provider="RXMCDA" name="additiveValueFunctionsIdentification" version="1.0" />
   <from desc_id="S8888" />
   <description><![CDATA[Identifies an set of additive value functions according to a ranking of the alternatives.]]></description>
@@ -276,7 +276,7 @@ cat > segments.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 
     <parameter id="alternativesRanks" ishidden="0" type="input">
       <name>alternativesRanks</name>
-      <description><![CDATA[The ranks of the alternatives, the best alternative having the highest rank.]]></description>
+      <description><![CDATA[The ranking of the alternatives, the best alternative having the lowest rank.]]></description>
       <position>100008</position>
       <code> alternativesRanks:alternativesRanks.xml</code>
       <types>

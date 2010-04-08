@@ -3,7 +3,7 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2010-04-06 22:51:53 +0200">
+<program_description export_date="2010-04-08 16:32:38 +0200">
   <program provider="CppXMCDA" name="inconsistencyResolution" version="1.0" />
   <from desc_id="S8888" />
   <description><![CDATA[Provides suggestions of deleting a subset of a set of inconsistent constraints to obtain a consistent set based on Mixed-integer linear programming (MILP) technique, confidence level can be considerd.]]></description>
@@ -46,14 +46,14 @@
 
 
     <parameter id="output0" ishidden="0" type="output">
-      <name>Suggestions</name>
+      <name>suggestions</name>
       <description><![CDATA[The result present the descriptions of each subset of constraints within the subset list. After one of the subset is deleted, the system becomes consistent.]]></description>
       <position>2005</position>
       <code/>
       <types>
         <type>methodMessages</type>
       </types>
-      <vdef>Suggestions.xml</vdef>
+      <vdef>suggestions.xml</vdef>
     </parameter>
 
 
@@ -61,14 +61,14 @@
 
 
     <parameter id="output1" ishidden="0" type="output">
-      <name>Constraints_Suggestion</name>
+      <name>constraints_suggestions</name>
       <description><![CDATA[The result indicates  the list of subsets of constraints. After one of the subset is deleted, the system becomes consistent.]]></description>
       <position>2006</position>
       <code/>
       <types>
         <type>criteriaLinearConstraints</type>
       </types>
-      <vdef>Constraints_Suggestion.xml</vdef>
+      <vdef>constraints_suggestions.xml</vdef>
     </parameter>
 
 
