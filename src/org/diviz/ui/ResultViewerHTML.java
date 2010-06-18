@@ -555,7 +555,7 @@ public class ResultViewerHTML
 				e.printStackTrace();
 			}
 			java.util.ArrayList<FileViewer> viewers = FileViewer.getAvailableViewers(fileType);
-			viewers.add(0, new FileViewer("Select an external viewer...", null, null, null, null));
+			viewers.add(0, new FileViewer("Select an external viewer...", null, (String[])null, null, null));
 
 			comboBoxViewersSelection = new JComboBox(viewers.toArray(new FileViewer[viewers.size()]));
 			comboBoxViewersSelection.addActionListener(new java.awt.event.ActionListener() {
