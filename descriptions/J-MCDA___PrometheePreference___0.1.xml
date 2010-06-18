@@ -3,16 +3,16 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2010-04-02 15:29:00 +0200">
-  <program provider="J-MCDA" name="ElectreDiscordances" version="0.0.4" />
+<program_description export_date="2010-06-18 11:42:13 +0200">
+  <program provider="J-MCDA" name="PrometheePreference" version="0.1" />
   <from desc_id="S8888" />
-  <description><![CDATA[Computes a discordance relation per criteria.]]></description>
+  <description><![CDATA[Computes a preference relation, a la Promethee.]]></description>
   <parameters>
-    <parameter id="ElectreDiscordances-cmdline" type="command" ismandatory="1">
-      <name>ElectreDiscordances</name>
+    <parameter id="PrometheePreference-cmdline" type="command" ismandatory="1">
+      <name>PrometheePreference</name>
       <description></description>
       <position>100000</position>
-      <code>$callXMCDAService ElectreDiscordances-J-MCDA -S </code>
+      <code>$callXMCDAService PrometheePreference-J-MCDA -S </code>
     </parameter>
 
 
@@ -32,7 +32,7 @@
 
     <parameter id="input1" ishidden="0" type="input">
       <name>criteria</name>
-      <description><![CDATA[The criteria to consider (with preference and veto thresholds).]]></description>
+      <description><![CDATA[The criteria to consider.]]></description>
       <position>100004</position>
       <code> criteria:criteria.xml</code>
       <types>
@@ -45,9 +45,23 @@
 
 
     <parameter id="input2" ishidden="0" type="input">
+      <name>weights</name>
+      <description><![CDATA[The weights of the criteria to consider.]]></description>
+      <position>100005</position>
+      <code> weights:weights.xml</code>
+      <types>
+        <type>criteriaValues</type>
+      </types>
+      <vdef>weights.xml</vdef>
+      <dep/>
+    </parameter>
+
+
+
+    <parameter id="input3" ishidden="0" type="input">
       <name>performances</name>
       <description><![CDATA[The performances of the alternatives on the criteria to consider.]]></description>
-      <position>100005</position>
+      <position>100006</position>
       <code> performances:performances.xml</code>
       <types>
         <type>performanceTable</type>
@@ -60,14 +74,14 @@
 
 
     <parameter id="output0" ishidden="0" type="output">
-      <name>discordances</name>
-      <description><![CDATA[The discordances relations (one relation per criteria) computed from the given input data.]]></description>
-      <position>2006</position>
+      <name>preference</name>
+      <description><![CDATA[The preference relation computed from the given input data.]]></description>
+      <position>2007</position>
       <code/>
       <types>
         <type>alternativesComparisons</type>
       </types>
-      <vdef>discordances.xml</vdef>
+      <vdef>preference.xml</vdef>
     </parameter>
 
 
@@ -77,7 +91,7 @@
     <parameter id="output1" ishidden="0" type="output">
       <name>messages</name>
       <description><![CDATA[A status message.]]></description>
-      <position>2007</position>
+      <position>2008</position>
       <code/>
       <types>
         <type>methodMessages</type>
