@@ -3,10 +3,10 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2010-04-08 16:32:45 +0200">
-  <program provider="RXMCDA" name="additiveValueFunctionsIdentification" version="1.0" />
+<program_description export_date="2010-06-18 15:53:33 +0200">
+  <program provider="RXMCDA" name="additiveValueFunctionsIdentification" version="1.1" />
   <from desc_id="S8888" />
-  <description><![CDATA[Identifies an set of additive value functions according to a ranking of the alternatives.]]></description>
+  <description><![CDATA[Identifies an set of piecewise linear additive value functions according to a ranking of the alternatives. If the number of segments is not given, a general additive value function is looked for.]]></description>
   <parameters>
     <parameter id="additiveValueFunctionsIdentification-cmdline" type="command" ismandatory="1">
       <name>additiveValueFunctionsIdentification</name>
@@ -126,15 +126,22 @@ cat > separationThreshold.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 
     <parameter id="segments" ishidden="0" type="input">
       <name>segments</name>
-      <description><![CDATA[The number of segments for the additive value functions.]]></description>
+      <description><![CDATA[The number of segments for the additive value functions. If it is not given, then a general additive value function is searched for.]]></description>
       <position>100004</position>
       <code/> 
       <types>
         <type>methodParameters</type>
       </types>
       <vdef>segments.xml</vdef>
-      <dep>(segments-use-file-dep:value="1")</dep>
+      <dep>(segments-dep:value="1") AND (segments-use-file-dep:value="1")</dep>
 
+    </parameter>
+    <parameter id="segments-dep" ishidden="0" type="boolean">
+      <name>Use segments as input?</name>
+      <description>Use segments as input?</description>
+      <position>3004</position>
+      <code/>
+      <vdef>1</vdef>
     </parameter>
 
     <parameter id="segments-use-file-dep" ishidden="0" type="boolean">
@@ -143,7 +150,8 @@ cat > separationThreshold.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <position>3004</position>
       <code/>
       <vdef>0</vdef>
-      <dep/>
+      <dep>(segments-dep:value="1")</dep>
+
     </parameter>
     
 
@@ -151,7 +159,7 @@ cat > separationThreshold.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 
     <parameter id="segments-gui" ishidden="1" type="code">
       <name>segments</name>
-      <description><![CDATA[The number of segments for the additive value functions.]]></description>
+      <description><![CDATA[The number of segments for the additive value functions. If it is not given, then a general additive value function is searched for.]]></description>
       <position>400</position>
       <code><![CDATA[#segments: segments.xml
 cat > segments.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
@@ -159,7 +167,7 @@ cat > segments.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 <xmcda:XMCDA xmlns:xmcda="http://www.decision-deck.org/2009/XMCDA-2.0.0"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.decision-deck.org/2009/XMCDA-2.0.0 http://www.decision-deck.org/xmcda/_downloads/XMCDA-2.0.0.xsd">]]></code>
-      <dep>(segments-use-file-dep:value="0")</dep>
+      <dep>(segments-dep:value="1") AND (segments-use-file-dep:value="0")</dep>
 
     </parameter>
 
@@ -175,7 +183,7 @@ cat > segments.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
                              name="criteriaSegments"><!-- REQUIRED  -->
                             <value>
                                 <integer>]]></code>
-      <dep>(segments-use-file-dep:value="0")</dep>
+      <dep>(segments-dep:value="1") AND (segments-use-file-dep:value="0")</dep>
 
     </parameter>
 
@@ -193,7 +201,7 @@ cat > segments.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
         <code><![CDATA[%d > 0]]></code>   
       </constraint>
       <vdef>1</vdef>
-      <dep>(segments-use-file-dep:value="0")</dep>
+      <dep>(segments-dep:value="1") AND (segments-use-file-dep:value="0")</dep>
 
     </parameter>
 
@@ -208,7 +216,7 @@ cat > segments.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
                     </methodParameters>
                     
             ]]></code>
-      <dep>(segments-use-file-dep:value="0")</dep>
+      <dep>(segments-dep:value="1") AND (segments-use-file-dep:value="0")</dep>
 
     </parameter>
     <parameter id="segments-gui-EOF" ishidden="1" type="code">
@@ -216,7 +224,7 @@ cat > segments.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <description></description>
       <position>404</position>
       <code><![CDATA[</xmcda:XMCDA>%nEOF%n]]></code>
-      <dep>(segments-use-file-dep:value="0")</dep>
+      <dep>(segments-dep:value="1") AND (segments-use-file-dep:value="0")</dep>
 
     </parameter>
 
@@ -225,7 +233,8 @@ cat > segments.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <description></description>
       <position>100004</position>
       <code> segments:segments.xml</code>
-      <dep/>
+      <dep>(segments-dep:value="1")</dep>
+
     </parameter>
 
 
