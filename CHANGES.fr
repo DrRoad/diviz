@@ -63,23 +63,18 @@ diviz v1.2
   XMCDA vide), cela permet de créer et d'éditer des fichiers à la
   volée, lors de la construction d'un workflow.
 
-- L'application détecte maintenant les cas où la JVM utilisé n'est pas
-  celle de Sun, et le signale.  Les personnes utilisant une machine
-  virtuelle alternative (telle que openjdk) sont désormais prévenus
-  que cela peut sérieusement dégrader le fonctionnement de diviz.
-  Pour plus de détails, voir:
+- L'application détecte maintenant les cas où la JVM utilisée n'est
+  pas celle de Sun, et le signale.  Les personnes utilisant une
+  machine virtuelle alternative (telle que openjdk) sont désormais
+  prévenus que cela peut sérieusement dégrader le fonctionnement de
+  diviz.  Pour plus de détails, voir:
   http://github.com/sbigaret/Praxis/commit/afb7f972
 
 - diviz démarre maintenant plus rapidement lorsque l'espace de travail
   contient beaucoup de workflows et de résultats.
-  La pré-lecture des workflows et des résultats a été optimized:
+  La pré-lecture des workflows et des résultats a été optimisée:
   l'examen complet de l'espace de travail est désormais quelque 3 fois
   plus rapide que dans la version précédente.
-
-- diviz now starts quicker when its workspaces contains a lot of
-  workflows and results.
-  Pre-read of workflows and results optimized: as a result, examining
-  the whole workspace is now about 3 times faster
 
 - Correction de bug: il n'était pas possible d'exécuter un workflow
   quand un fichier (ou une entrée) était connectée à plusieurs entrées
