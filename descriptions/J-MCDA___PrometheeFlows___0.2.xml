@@ -3,37 +3,23 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2010-06-18 11:42:15 +0200">
-  <program provider="J-MCDA" name="cutRelation" version="0.1" />
+<program_description export_date="2010-06-21 12:20:27 +0200">
+  <program provider="J-MCDA" name="PrometheeFlows" version="0.2" />
   <from desc_id="S8888" />
-  <description><![CDATA[Cuts a fuzzy relation (on alternatives) at a given threshold and produces a binary relation.]]></description>
+  <description><![CDATA[Computes Promethee flows (net flows, positive flows, or negative flows).]]></description>
   <parameters>
-    <parameter id="cutRelation-cmdline" type="command" ismandatory="1">
-      <name>cutRelation</name>
+    <parameter id="PrometheeFlows-cmdline" type="command" ismandatory="1">
+      <name>PrometheeFlows</name>
       <description></description>
       <position>100000</position>
-      <code>$callXMCDAService cutRelation-J-MCDA -S </code>
+      <code>$callXMCDAService PrometheeFlows-J-MCDA -S </code>
     </parameter>
 
 
     <parameter id="input0" ishidden="0" type="input">
-      <name>relation</name>
-      <description><![CDATA[The fuzzy relation to cut.]]></description>
-      <position>100003</position>
-      <code> relation:relation.xml</code>
-      <types>
-        <type>alternativesComparisons</type>
-      </types>
-      <vdef>relation.xml</vdef>
-      <dep/>
-    </parameter>
-
-
-
-    <parameter id="input1" ishidden="0" type="input">
       <name>alternatives</name>
       <description><![CDATA[The alternatives to consider.]]></description>
-      <position>100004</position>
+      <position>100003</position>
       <code> alternatives:alternatives.xml</code>
       <types>
         <type>alternatives</type>
@@ -44,22 +30,36 @@
 
 
 
+    <parameter id="input1" ishidden="0" type="input">
+      <name>preference</name>
+      <description><![CDATA[The preference relation from which to compute flows.]]></description>
+      <position>100004</position>
+      <code> preference:preference.xml</code>
+      <types>
+        <type>alternativesComparisons</type>
+      </types>
+      <vdef>preference.xml</vdef>
+      <dep/>
+    </parameter>
+
+
+
     <parameter id="input2" ishidden="0" type="input">
-      <name>cut_threshold</name>
-      <description><![CDATA[The threshold specifying where to cut the relation.]]></description>
+      <name>flow_type</name>
+      <description><![CDATA[The type of flow to compute (positive, negative or net).]]></description>
       <position>100005</position>
       <code/> 
       <types>
         <type>methodParameters</type>
       </types>
-      <vdef>cut_threshold.xml</vdef>
+      <vdef>flow_type.xml</vdef>
       <dep>(input2-use-file-dep:value="1")</dep>
 
     </parameter>
 
     <parameter id="input2-use-file-dep" ishidden="0" type="boolean">
-      <name>Supply cut_threshold as a file?</name>
-      <description>Supply cut_threshold as a file?</description>
+      <name>Supply flow_type as a file?</name>
+      <description>Supply flow_type as a file?</description>
       <position>3005</position>
       <code/>
       <vdef>0</vdef>
@@ -70,11 +70,11 @@
 
 
     <parameter id="input2-gui" ishidden="1" type="code">
-      <name>cut_threshold</name>
-      <description><![CDATA[The threshold specifying where to cut the relation.]]></description>
+      <name>flow_type</name>
+      <description><![CDATA[The type of flow to compute (positive, negative or net).]]></description>
       <position>500</position>
-      <code><![CDATA[#cut_threshold: cut_threshold.xml
-cat > cut_threshold.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
+      <code><![CDATA[#flow_type: flow_type.xml
+cat > flow_type.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="xmcdaKappalab.xsl"?>
 <xmcda:XMCDA xmlns:xmcda="http://www.decision-deck.org/2009/XMCDA-2.0.0"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -93,30 +93,40 @@ cat > cut_threshold.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <methodParameters>
          <parameter>
                <value>
-                  <real>]]></code>
+                  <label>]]></code>
       <dep>(input2-use-file-dep:value="0")</dep>
 
     </parameter>
 
 
-    <parameter id="input2-gui-502" ishidden="0" type="float">
-      <name>cut_threshold</name>
-      <indent>1</indent>
+    <parameter id="input2-gui-502" ishidden="0" type="enum">
+      <name>flow_type</name>
       <description>TODO</description>
       <position>502</position>
-
-      <code>%s</code>
-      <vdef></vdef>
+      <vlist>
+        <item id="item0">
+          <description>The positive flow.</description>
+          <code>POSITIVE</code>
+        </item>
+        <item id="item1">
+          <description>The negative flow.</description>
+          <code>NEGATIVE</code>
+        </item>
+        <item id="item2">
+          <description>The net flow.</description>
+          <code>NET</code>
+        </item>
+      </vlist>
+      <vdef>item0</vdef>
       <dep>(input2-use-file-dep:value="0")</dep>
 
     </parameter>
-
 
     <parameter id="input2-gui-503" ishidden="1" type="code">
       <name />
       <description />
       <position>503</position>
-      <code><![CDATA[</real>
+      <code><![CDATA[</label>
                </value>
          </parameter>
       </methodParameters>
@@ -126,7 +136,7 @@ cat > cut_threshold.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 
     </parameter>
     <parameter id="input2-gui-EOF" ishidden="1" type="code">
-      <name>cut_threshold EOF</name>
+      <name>flow_type EOF</name>
       <description></description>
       <position>504</position>
       <code><![CDATA[</xmcda:XMCDA>%nEOF%n]]></code>
@@ -135,10 +145,10 @@ cat > cut_threshold.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
     </parameter>
 
     <parameter id="input2-cmdline" ishidden="1" type="code">
-      <name>cut_threshold insertion in cmd-line</name>
+      <name>flow_type insertion in cmd-line</name>
       <description></description>
       <position>100005</position>
-      <code> cut_threshold:cut_threshold.xml</code>
+      <code> flow_type:flow_type.xml</code>
       <dep/>
     </parameter>
 
@@ -148,14 +158,14 @@ cat > cut_threshold.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 
 
     <parameter id="output0" ishidden="0" type="output">
-      <name>binary_relation</name>
-      <description><![CDATA[The binary relation resulting from the cut.]]></description>
+      <name>flows</name>
+      <description><![CDATA[The flows computed from the given data.]]></description>
       <position>2006</position>
       <code/>
       <types>
-        <type>alternativesComparisons</type>
+        <type>alternativesValues</type>
       </types>
-      <vdef>binary_relation.xml</vdef>
+      <vdef>flows.xml</vdef>
     </parameter>
 
 
