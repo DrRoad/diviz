@@ -3,10 +3,10 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2010-06-21 08:50:40 +0000">
+<program_description export_date="2010-06-21 13:37:26 +0000">
   <program provider="RXMCDA" name="plotGaiaPlane" version="1.0" />
   <from desc_id="S8888" />
-  <description><![CDATA[Generates the Gaia Plane from decomposed Promethee flows.]]></description>
+  <description><![CDATA[Generates the Gaia Plane from decomposed Promethee flows (a.k.a Promethee profiles).]]></description>
   <parameters>
     <parameter id="plotGaiaPlane-cmdline" type="command" ismandatory="1">
       <name>plotGaiaPlane</name>
@@ -44,9 +44,9 @@
 
 
 
-    <parameter id="singleCriterionNetFlows" ishidden="0" type="input">
-      <name>singleCriterionNetFlows</name>
-      <description><![CDATA[A performance table containing the single criterion net flows. The evaluations should be numeric values, i.e. <real>, <integer> or <rational>.]]></description>
+    <parameter id="prometheeProfiles" ishidden="0" type="input">
+      <name>prometheeProfiles</name>
+      <description><![CDATA[A performance table containing the single criterion net flows or Promethee profiles. The evaluations should be numeric values, i.e. <real>, <integer> or <rational>.]]></description>
       <position>100005</position>
       <code> performanceTable:performanceTable.xml</code>
       <types>
