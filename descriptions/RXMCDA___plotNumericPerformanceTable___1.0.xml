@@ -3,7 +3,7 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2010-03-24 10:05:00 +0100">
+<program_description export_date="2010-03-10 14:49:18 +0000">
   <program provider="RXMCDA" name="plotNumericPerformanceTable" version="1.0" />
   <from desc_id="S8888" />
   <description><![CDATA[Generates a barplot representing the performance table (abscissa: alternatives).]]></description>

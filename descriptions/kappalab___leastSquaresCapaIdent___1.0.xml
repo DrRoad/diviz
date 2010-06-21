@@ -3,7 +3,7 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2010-03-24 10:04:58 +0100">
+<program_description export_date="2010-03-10 14:49:18 +0000">
   <program provider="kappalab" name="leastSquaresCapaIdent" version="1.0" />
   <from desc_id="S8888" />
   <description><![CDATA[Identifies a Mobius capacity by means of an approach grounded on least squares optimization. More precisely, given a set of overall values for each alternative, and possibly additional linear constraints expressing preferences, importance of criteria, etc., this algorithm determines, if it exists, a capacity minimising the sum of squared errors between overall scores as given by the data and the output of the Choquet integral for those data, and compatible with the additional linear constraints. The existence is ensured if no additional constraint is given. The problem is solved using quadratic programming. ]]></description>

@@ -3,7 +3,7 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2010-04-08 16:32:39 +0200">
+<program_description export_date="2010-04-08 07:43:43 +0000">
   <program provider="RXMCDA" name="convertAlternativesRanksToAlternativesComparisons" version="1.0" />
   <from desc_id="S8888" />
   <description><![CDATA[Converts ranks of alternatives into alternatives comparisons.]]></description>

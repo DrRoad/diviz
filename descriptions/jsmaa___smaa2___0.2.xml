@@ -3,7 +3,7 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2010-03-24 10:04:59 +0100">
+<program_description export_date="2010-03-10 14:49:23 +0000">
   <program provider="jsmaa" name="smaa2" version="0.2" />
   <from desc_id="S8888" />
   <description><![CDATA[JSMAA adapter for DD. Currently implements only SMAA-2 without preference information and only cardinal interval measurements of reals.]]></description>

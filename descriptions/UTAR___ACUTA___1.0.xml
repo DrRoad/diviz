@@ -3,7 +3,7 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2010-04-02 15:29:05 +0200">
+<program_description export_date="2010-04-01 10:24:52 +0000">
   <program provider="UTAR" name="ACUTA" version="1.0" />
   <from desc_id="S8888" />
   <description><![CDATA[Computes ACUTA method - analytic center for UTA - that provides a good solution for indeterminate problems in an additive model ]]></description>
