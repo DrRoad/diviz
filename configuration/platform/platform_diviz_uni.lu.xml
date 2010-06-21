@@ -2,10 +2,12 @@
 <!DOCTYPE platform PUBLIC "-//Telecom Bretagne/DTD XML Praxis Platform 1.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/platform.dtd">
 
 <platform type="shell">
-	<!-- initialization: adapt PATH if needed: setenv PATH /path/to/...:${PATH}: -->
-    <initialisation>setenv PYTHONUNBUFFERED 1
-set callXMCDAService="genericXMCDAService.py -U http://ernst-schroeder.uni.lu/cgi-bin/%s.py -n "
-    </initialisation>
+    <configuration>
+	    <!-- script-init: adapt PATH if needed: setenv PATH /path/to/...:${PATH}: -->
+    	<item name="script-init">setenv PYTHONUNBUFFERED 1
+set callXMCDAService="genericXMCDAService.py -U http://ernst-schroeder.uni.lu/cgi-bin/%s-test.py -n "
+</item>
+    </configuration>
     <programs>
       <program id="PyXMCDA___weightsFromCondorcetAndPreferences___1.0"/>
       <program id="CppXMCDA___IRIS-testInconsistency___1.0" />

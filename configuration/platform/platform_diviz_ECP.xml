@@ -9,10 +9,12 @@
 -->
 
 <platform type="shell">
-	<!-- initialization: adapt PATH if needed: setenv PATH /path/to/...:${PATH}: -->
-    <initialisation>setenv PYTHONUNBUFFERED 1
-set callXMCDAService="genericXMCDAService.py -U http://localhost/cgi-bin/%s.py -n "
-    </initialisation>
+    <configuration>
+	    <!-- script-init: adapt PATH if needed: setenv PATH /path/to/...:${PATH}: -->
+    	<item name="script-init">setenv PYTHONUNBUFFERED 1
+set callXMCDAService="genericXMCDAService.py -U http://localhost/cgi-bin/%s-test.py -n "
+</item>
+    </configuration>
     <programs>
       <program id="kappalab___capacityEntropy___1.0"/>
       <program id="kappalab___capacityFavor___1.0"/>
@@ -36,10 +38,11 @@ set callXMCDAService="genericXMCDAService.py -U http://localhost/cgi-bin/%s.py -
       <program id="RXMCDA___plotCriteriaValuesPreorder___1.0"/>
       <program id="RXMCDA___plotCriteriaValues___1.0"/>
       <program id="RXMCDA___plotNumericPerformanceTable___1.0"/>
-      <program id="RXMCDA___rankAlternativesValues___1.0"/>
+      <program id="RXMCDA___rankAlternativesValues___1.1"/>
 
-      <program id="RXMCDA___additiveValueFunctionsIdentification___1.0" />
+      <program id="RXMCDA___additiveValueFunctionsIdentification___1.1" />
       <program id="RXMCDA___convertAlternativesRanksToAlternativesComparisons___1.0" />
+      <program id="RXMCDA___Promethee1Ranking___1.0" />
       <program id="RXMCDA___randomAlternativesRanks___1.0" />
       <program id="RXMCDA___randomCriteriaWeights___1.0" />
       <program id="RXMCDA___randomNormalizedPerformanceTable___1.0" />
@@ -53,12 +56,14 @@ set callXMCDAService="genericXMCDAService.py -U http://localhost/cgi-bin/%s.py -
       <program id="UTAR___generalWeightedSum___1.0"/>
       <program id="UTAR___plotValueFunctions___1.0" />
       <program id="UTAR___XYPlotAlternativesValues___1.0" />
-      <program id="J-MCDA___ElectreConcordance___0.0.4"/>
-      <program id="J-MCDA___ElectreDiscordances___0.0.4"/>
-      <program id="J-MCDA___ElectreOutranking___0.0.4"/>
-      <program id="J-MCDA___cutRelation___0.0.4"/>
-      <program id="J-MCDA___PrometheePreference___0.0.4"/>
-      <program id="J-MCDA___PrometheeFlows___0.0.4"/>
+      <program id="J-MCDA___ElectreConcordance___0.2"/>
+      <program id="J-MCDA___ElectreDiscordances___0.2"/>
+      <program id="J-MCDA___ElectreOutranking___0.2"/>
+      <program id="J-MCDA___cutRelation___0.2"/>
+      <program id="J-MCDA___PrometheePreference___0.2"/>
+      <program id="J-MCDA___PrometheeFlows___0.2"/>
+      <program id="J-MCDA___PrometheeProfiles___0.2"/>
+      <program id="J-MCDA___ElectreTriSorting___0.2"/>
 
 <!-- This program requires cplex, which is not installed at ecp for the moment being -->
 <!--  <program id="PyXMCDA___weightsFromCondorcetAndPreferences___1.0"/>
