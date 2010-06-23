@@ -3,10 +3,12 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2010-06-21 15:14:31 +0000">
+<program_description export_date="2010-06-23 14:55:35 +0000">
   <program provider="PyXMCDA" name="randomCriteria" version="1.0" />
   <from desc_id="S8888" />
-  <description><![CDATA[This web service allows to create a simple list of criteria by providing the desired number of criteria. Now, it is not taking into account creation of thresholds.]]></description>
+  <description><![CDATA[This web service allows to create a simple list of criteria by providing
+                     the desired number of criteria. Now, it is not taking into account creation of
+                     thresholds.]]></description>
   <parameters>
     <parameter id="randomCriteria-cmdline" type="command" ismandatory="1">
       <name>randomCriteria</name>
@@ -18,7 +20,8 @@
 
     <parameter id="nbCriteria" ishidden="0" type="input">
       <name>nbCriteria</name>
-      <description><![CDATA[Indicates the desired number of criteria. It must be a strict positive integer.]]></description>
+      <description><![CDATA[Indicates the desired number of criteria. It must be a
+                                   strict positive integer.]]></description>
       <position>100003</position>
       <code/> 
       <types>
@@ -43,7 +46,8 @@
 
     <parameter id="nbCriteria-gui" ishidden="1" type="code">
       <name>nbCriteria</name>
-      <description><![CDATA[Indicates the desired number of criteria. It must be a strict positive integer.]]></description>
+      <description><![CDATA[Indicates the desired number of criteria. It must be a
+                                   strict positive integer.]]></description>
       <position>300</position>
       <code><![CDATA[#nbCriteria: nbCriteria.xml
 cat > nbCriteria.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
@@ -79,7 +83,13 @@ cat > nbCriteria.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <position>302</position>
 
       <code>%s</code>
-      <vdef></vdef>
+
+      <constraint>
+        <description>The value should be a strict positive
+                                                 integer.</description>
+        <code><![CDATA[%d > 0]]></code>   
+      </constraint>
+      <vdef>2</vdef>
       <dep>(nbCriteria-use-file-dep:value="0")</dep>
 
     </parameter>
@@ -121,7 +131,11 @@ cat > nbCriteria.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 
     <parameter id="criteriaPrefix" ishidden="0" type="input">
       <name>criteriaPrefix</name>
-      <description><![CDATA[Indicates the desired prefix for the name of the criteria. If not provided, criteria will be called g1, g2, ... If provided, criteria will be called prefix1, prefix2, ... Note that it will only be used if you provide a number of alternatives.]]></description>
+      <description><![CDATA[Indicates the desired prefix for the name of the criteria.
+                                   If not provided, criteria will be called g1, g2, ... If provided,
+                                   criteria will be called prefix1, prefix2, ... Note that it will
+                                   only be used if you provide a number of
+                                   alternatives.]]></description>
       <position>100004</position>
       <code/> 
       <types>
@@ -154,7 +168,11 @@ cat > nbCriteria.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 
     <parameter id="criteriaPrefix-gui" ishidden="1" type="code">
       <name>criteriaPrefix</name>
-      <description><![CDATA[Indicates the desired prefix for the name of the criteria. If not provided, criteria will be called g1, g2, ... If provided, criteria will be called prefix1, prefix2, ... Note that it will only be used if you provide a number of alternatives.]]></description>
+      <description><![CDATA[Indicates the desired prefix for the name of the criteria.
+                                   If not provided, criteria will be called g1, g2, ... If provided,
+                                   criteria will be called prefix1, prefix2, ... Note that it will
+                                   only be used if you provide a number of
+                                   alternatives.]]></description>
       <position>400</position>
       <code><![CDATA[#criteriaPrefix: criteriaPrefix.xml
 cat > criteriaPrefix.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
@@ -190,7 +208,7 @@ cat > criteriaPrefix.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <position>402</position>
 
       <code>%s</code>
-      <vdef></vdef>
+      <vdef>g</vdef>
       <dep>(criteriaPrefix-dep:value="1") AND (criteriaPrefix-use-file-dep:value="0")</dep>
 
     </parameter>
@@ -233,7 +251,9 @@ cat > criteriaPrefix.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 
     <parameter id="criteriaNames" ishidden="0" type="input">
       <name>criteriaNames</name>
-      <description><![CDATA[Indicates a list of criteria names. Note that if criteriaNames and nbCriteria are provided at the same time, then only criteriaNames are considered.]]></description>
+      <description><![CDATA[Indicates a list of criteria names. Note that if
+                                   criteriaNames and nbCriteria are provided at the same time, then
+                                   only criteriaNames are considered.]]></description>
       <position>100005</position>
       <code> criteriaNames:criteriaNames.xml</code>
       <types>
@@ -255,7 +275,9 @@ cat > criteriaPrefix.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 
     <parameter id="criteriaType" ishidden="0" type="input">
       <name>criteriaType</name>
-      <description><![CDATA[Allows to indicate the type of some criteria (qualitative or quantitative). The default value for each criterion is quantitative.]]></description>
+      <description><![CDATA[Allows to indicate the type of some criteria (qualitative
+                                   or quantitative). The default value for each criterion is
+                                   quantitative.]]></description>
       <position>100006</position>
       <code> criteriaType:criteriaType.xml</code>
       <types>
@@ -277,7 +299,9 @@ cat > criteriaPrefix.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 
     <parameter id="lowerBounds" ishidden="0" type="input">
       <name>lowerBounds</name>
-      <description><![CDATA[Allows to indicate a lower bound for some quantitative criteria. The default value is 0. Lower bounds for qualitative criteria are ignored.]]></description>
+      <description><![CDATA[Allows to indicate a lower bound for some quantitative
+                                   criteria. The default value is 0. Lower bounds for qualitative
+                                   criteria are ignored.]]></description>
       <position>100007</position>
       <code> lowerBounds:lowerBounds.xml</code>
       <types>
@@ -299,7 +323,9 @@ cat > criteriaPrefix.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 
     <parameter id="upperBounds" ishidden="0" type="input">
       <name>upperBounds</name>
-      <description><![CDATA[Allows to indicate an upper bound for some quantitative criteria. The default value is 100. Upper bounds for qualitative criteria are ignored.]]></description>
+      <description><![CDATA[Allows to indicate an upper bound for some quantitative
+                                   criteria. The default value is 100. Upper bounds for qualitative
+                                   criteria are ignored.]]></description>
       <position>100008</position>
       <code> upperBounds:upperBounds.xml</code>
       <types>
@@ -321,7 +347,9 @@ cat > criteriaPrefix.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 
     <parameter id="numberOfLevels" ishidden="0" type="input">
       <name>numberOfLevels</name>
-      <description><![CDATA[Allows to indicate a number of levels for some qualitative criteria. The default value is 10. if provided for quantitative criteria, it will be ignored.]]></description>
+      <description><![CDATA[Allows to indicate a number of levels for some qualitative
+                                   criteria. The default value is 10. if provided for quantitative
+                                   criteria, it will be ignored.]]></description>
       <position>100009</position>
       <code> numberOfLevels:numberOfLevels.xml</code>
       <types>
@@ -343,7 +371,8 @@ cat > criteriaPrefix.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 
     <parameter id="preferenceDirection" ishidden="0" type="input">
       <name>preferenceDirection</name>
-      <description><![CDATA[Allows to indicate a preference direction (min or max) for some criteria. The default value is max.]]></description>
+      <description><![CDATA[Allows to indicate a preference direction (min or max) for
+                                   some criteria. The default value is max.]]></description>
       <position>100010</position>
       <code> preferenceDirection:preferenceDirection.xml</code>
       <types>
@@ -365,7 +394,11 @@ cat > criteriaPrefix.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 
     <parameter id="thresholdsNames" ishidden="0" type="input">
       <name>thresholdsNames</name>
-      <description><![CDATA[Indicates a list of thresholds names. The names must be provided in an increasing order of importance, as the randomly generated values will be sorted and associated to the thresholds in the given order. The thresholds are added for every criteria (with different random values for each one).]]></description>
+      <description><![CDATA[Indicates a list of thresholds names. The names must be
+                                   provided in an increasing order of importance, as the randomly
+                                   generated values will be sorted and associated to the thresholds
+                                   in the given order. The thresholds are added for every criteria
+                                   (with different random values for each one).]]></description>
       <position>100011</position>
       <code> thresholdsNames:thresholdsNames.xml</code>
       <types>
@@ -388,7 +421,8 @@ cat > criteriaPrefix.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 
     <parameter id="messages" ishidden="0" type="output">
       <name>messages</name>
-      <description><![CDATA[A list of messages generated by the algorithm.]]></description>
+      <description><![CDATA[A list of messages generated by the
+                                   algorithm.]]></description>
       <position>2012</position>
       <code/>
       <types>

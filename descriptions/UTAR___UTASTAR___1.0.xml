@@ -3,7 +3,7 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2010-06-23 09:03:26 +0000">
+<program_description export_date="2010-06-23 14:37:44 +0000">
   <program provider="UTAR" name="UTASTAR" version="1.0" />
   <from desc_id="S8888" />
   <description><![CDATA[Computes UTASTAR method and if necessary uses post-optimality analysis among three well-known post-optimality methods]]></description>
@@ -97,11 +97,11 @@ cat > method.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
           <code>ac</code>
         </item>
         <item id="mv">
-          <description>MV</description>
+          <description>Mean value</description>
           <code>mv</code>
         </item>
         <item id="md">
-          <description>MD</description>
+          <description>Max delta</description>
           <code>md</code>
         </item>
       </vlist>
