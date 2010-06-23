@@ -1,3 +1,30 @@
+diviz v1.3
+----------
+
+- 8 nouveaux servcies ont été ajoutés, suivant les changements qui ont
+  été faits dans l'ensemble des web-services XMCDA proposés par le
+  consortium Decision Deck:
+
+    J-MCDA: 2 new services
+      - PrometheeProfiles
+      - ElectreTriExploitation
+
+    PyXMCDA: 4 new services
+      - CondorcetRobustnessRelation
+      - randomAlternatives
+      - randomCriteria
+      - randomPerformanceTable
+
+    RXMCDA:
+      - plotGaiaPlane
+
+    UTAR:
+      - UTASTAR
+
+- Les latences réseau sont désormais mieux gérées, ce qui élimine la
+  plupart des problèmes de déconnexion qui ont été signalés.
+
+
 diviz v1.2
 ----------
 
@@ -8,7 +35,7 @@ diviz v1.2
   Le framework Praxis, sur lequel diviz est contruit, est aussi
   distribué sous le même licence (http://github.com/sbigaret/Praxis).
 
-- Tous les web-services XMCDA ont été renommés. les workflows
+- Tous les web-services XMCDA ont été renommés. Les workflows
   existants sont automatiquement adaptés lorsqu'ils sont ouverts dans
   diviz.
 

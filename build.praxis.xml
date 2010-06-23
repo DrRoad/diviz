@@ -74,7 +74,6 @@
         <fileset dir="." includes="configuration/**" excludes="**/*~" />
         <fileset dir="." includes="descriptions/**" excludes="**/*~" />
         <fileset dir="." includes="images/**" excludes="**/*~" />
-        <fileset dir="." includes="resources_descriptions/**" excludes="**/*~" />
       </includes>
     </praxis_project_one_jar>
 
@@ -102,7 +101,6 @@
         <fileset dir="." includes="configuration/**" excludes="**/*~" />
         <fileset dir="." includes="descriptions/**" excludes="**/*~" />
         <fileset dir="." includes="images/**" excludes="**/*~" />
-        <fileset dir="." includes="resources_descriptions/**" excludes="**/*~" />
         <fileset dir="." includes="CHANGES.*" excludes="*~" />
       </includes>
     </praxis_project_one_jar>
@@ -133,7 +131,6 @@ ${praxis_sp.jar}
         <fileset dir="." includes="configuration/**" excludes="**/*~" />
         <fileset dir="." includes="descriptions/**" excludes="**/*~" />
         <fileset dir="." includes="images/**" excludes="**/*~" />
-        <fileset dir="." includes="resources_descriptions/**" excludes="**/*~" />
       </includes>
     </praxis_project_one_jar>
   </target>
@@ -160,7 +157,6 @@ ${praxis_sp.jar}
         <fileset dir="." includes="configuration/**" excludes="**/*~" />
         <fileset dir="." includes="descriptions/**" excludes="**/*~" />
         <fileset dir="." includes="images/**" excludes="**/*~" />
-        <fileset dir="." includes="resources_descriptions/**" excludes="**/*~" />
       </includes>
     </praxis_project_stress_one_jar>
   </target>

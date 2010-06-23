@@ -1,3 +1,29 @@
+diviz v1.3
+----------
+
+- New services added, following the changes in the set of
+  XMCDA Web-Services proposed by the Decision Deck consortium:
+
+    J-MCDA: 2 new services
+      - PrometheeProfiles
+      - ElectreTriExploitation
+
+    PyXMCDA: 4 new services
+      - CondorcetRobustnessRelation
+      - randomAlternatives
+      - randomCriteria
+      - randomPerformanceTable
+
+    RXMCDA:
+      - plotGaiaPlane
+
+    UTAR:
+      - UTASTAR
+
+- Network latencies are now handled much better.  Most disconnection
+  problems that have been reported to us are now resolved.
+
+
 diviz v1.2
 ----------
 
