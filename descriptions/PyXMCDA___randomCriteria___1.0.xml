@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+
+<!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
+
+<program_description export_date="2010-06-21 15:14:31 +0000">
+  <program provider="PyXMCDA" name="randomCriteria" version="1.0" />
+  <from desc_id="S8888" />
+  <description><![CDATA[This web service allows to create a simple list of criteria by providing the desired number of criteria. Now, it is not taking into account creation of thresholds.]]></description>
+  <parameters>
+    <parameter id="randomCriteria-cmdline" type="command" ismandatory="1">
+      <name>randomCriteria</name>
+      <description></description>
+      <position>100000</position>
+      <code>$callXMCDAService randomCriteria-PyXMCDA -S </code>
+    </parameter>
+
+
+    <parameter id="nbCriteria" ishidden="0" type="input">
+      <name>nbCriteria</name>
+      <description><![CDATA[Indicates the desired number of criteria. It must be a strict positive integer.]]></description>
+      <position>100003</position>
+      <code/> 
+      <types>
+        <type>methodParameters</type>
+      </types>
+      <vdef>nbCriteria.xml</vdef>
+      <dep>(nbCriteria-use-file-dep:value="1")</dep>
+
+    </parameter>
+
+    <parameter id="nbCriteria-use-file-dep" ishidden="0" type="boolean">
+      <name>Supply nbCriteria as a file?</name>
+      <description>Supply nbCriteria as a file?</description>
+      <position>3003</position>
+      <code/>
+      <vdef>0</vdef>
+      <dep/>
+    </parameter>
+    
+
+
+
+    <parameter id="nbCriteria-gui" ishidden="1" type="code">
+      <name>nbCriteria</name>
+      <description><![CDATA[Indicates the desired number of criteria. It must be a strict positive integer.]]></description>
+      <position>300</position>
+      <code><![CDATA[#nbCriteria: nbCriteria.xml
+cat > nbCriteria.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="xmcdaKappalab.xsl"?>
+<xmcda:XMCDA xmlns:xmcda="http://www.decision-deck.org/2009/XMCDA-2.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.decision-deck.org/2009/XMCDA-2.0.0 http://www.decision-deck.org/xmcda/_downloads/XMCDA-2.0.0.xsd">]]></code>
+      <dep>(nbCriteria-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+
+    <parameter id="nbCriteria-gui-301" ishidden="1" type="code">
+      <name />
+      <description />
+      <position>301</position>
+      <code><![CDATA[
+                            
+                    <methodParameters>
+                        <parameter
+                             name="nbCriteria"><!-- REQUIRED  -->
+                            <value>
+                                <integer>]]></code>
+      <dep>(nbCriteria-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+
+    <parameter id="nbCriteria-gui-302" ishidden="0" type="int">
+      <name>nbCriteria</name>
+      <indent>1</indent>
+      <description>TODO</description>
+      <position>302</position>
+
+      <code>%s</code>
+      <vdef></vdef>
+      <dep>(nbCriteria-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+
+    <parameter id="nbCriteria-gui-303" ishidden="1" type="code">
+      <name />
+      <description />
+      <position>303</position>
+      <code><![CDATA[</integer>
+                            </value>
+                        </parameter>
+                    </methodParameters>
+                    
+                     ]]></code>
+      <dep>(nbCriteria-use-file-dep:value="0")</dep>
+
+    </parameter>
+    <parameter id="nbCriteria-gui-EOF" ishidden="1" type="code">
+      <name>nbCriteria EOF</name>
+      <description></description>
+      <position>304</position>
+      <code><![CDATA[</xmcda:XMCDA>%nEOF%n]]></code>
+      <dep>(nbCriteria-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+    <parameter id="nbCriteria-cmdline" ishidden="1" type="code">
+      <name>nbCriteria insertion in cmd-line</name>
+      <description></description>
+      <position>100003</position>
+      <code> nbCriteria:nbCriteria.xml</code>
+      <dep/>
+    </parameter>
+
+
+
+
+
+    <parameter id="criteriaPrefix" ishidden="0" type="input">
+      <name>criteriaPrefix</name>
+      <description><![CDATA[Indicates the desired prefix for the name of the criteria. If not provided, criteria will be called g1, g2, ... If provided, criteria will be called prefix1, prefix2, ... Note that it will only be used if you provide a number of alternatives.]]></description>
+      <position>100004</position>
+      <code/> 
+      <types>
+        <type>methodParameters</type>
+      </types>
+      <vdef>criteriaPrefix.xml</vdef>
+      <dep>(criteriaPrefix-dep:value="1") AND (criteriaPrefix-use-file-dep:value="1")</dep>
+
+    </parameter>
+    <parameter id="criteriaPrefix-dep" ishidden="0" type="boolean">
+      <name>Use criteriaPrefix as input?</name>
+      <description>Use criteriaPrefix as input?</description>
+      <position>3004</position>
+      <code/>
+      <vdef>1</vdef>
+    </parameter>
+
+    <parameter id="criteriaPrefix-use-file-dep" ishidden="0" type="boolean">
+      <name>Supply criteriaPrefix as a file?</name>
+      <description>Supply criteriaPrefix as a file?</description>
+      <position>3004</position>
+      <code/>
+      <vdef>0</vdef>
+      <dep>(criteriaPrefix-dep:value="1")</dep>
+
+    </parameter>
+    
+
+
+
+    <parameter id="criteriaPrefix-gui" ishidden="1" type="code">
+      <name>criteriaPrefix</name>
+      <description><![CDATA[Indicates the desired prefix for the name of the criteria. If not provided, criteria will be called g1, g2, ... If provided, criteria will be called prefix1, prefix2, ... Note that it will only be used if you provide a number of alternatives.]]></description>
+      <position>400</position>
+      <code><![CDATA[#criteriaPrefix: criteriaPrefix.xml
+cat > criteriaPrefix.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="xmcdaKappalab.xsl"?>
+<xmcda:XMCDA xmlns:xmcda="http://www.decision-deck.org/2009/XMCDA-2.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.decision-deck.org/2009/XMCDA-2.0.0 http://www.decision-deck.org/xmcda/_downloads/XMCDA-2.0.0.xsd">]]></code>
+      <dep>(criteriaPrefix-dep:value="1") AND (criteriaPrefix-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+
+    <parameter id="criteriaPrefix-gui-401" ishidden="1" type="code">
+      <name />
+      <description />
+      <position>401</position>
+      <code><![CDATA[
+                            
+                    <methodParameters>
+                        <parameter
+                             name="criteriaPrefix"><!-- REQUIRED  -->
+                            <value>
+                                <label>]]></code>
+      <dep>(criteriaPrefix-dep:value="1") AND (criteriaPrefix-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+
+    <parameter id="criteriaPrefix-gui-402" ishidden="0" type="string">
+      <name>criteriaPrefix</name>
+      <indent>1</indent>
+      <description>TODO</description>
+      <position>402</position>
+
+      <code>%s</code>
+      <vdef></vdef>
+      <dep>(criteriaPrefix-dep:value="1") AND (criteriaPrefix-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+
+    <parameter id="criteriaPrefix-gui-403" ishidden="1" type="code">
+      <name />
+      <description />
+      <position>403</position>
+      <code><![CDATA[</label>
+                            </value>
+                        </parameter>
+                    </methodParameters>
+                    
+                     ]]></code>
+      <dep>(criteriaPrefix-dep:value="1") AND (criteriaPrefix-use-file-dep:value="0")</dep>
+
+    </parameter>
+    <parameter id="criteriaPrefix-gui-EOF" ishidden="1" type="code">
+      <name>criteriaPrefix EOF</name>
+      <description></description>
+      <position>404</position>
+      <code><![CDATA[</xmcda:XMCDA>%nEOF%n]]></code>
+      <dep>(criteriaPrefix-dep:value="1") AND (criteriaPrefix-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+    <parameter id="criteriaPrefix-cmdline" ishidden="1" type="code">
+      <name>criteriaPrefix insertion in cmd-line</name>
+      <description></description>
+      <position>100004</position>
+      <code> criteriaPrefix:criteriaPrefix.xml</code>
+      <dep>(criteriaPrefix-dep:value="1")</dep>
+
+    </parameter>
+
+
+
+
+
+    <parameter id="criteriaNames" ishidden="0" type="input">
+      <name>criteriaNames</name>
+      <description><![CDATA[Indicates a list of criteria names. Note that if criteriaNames and nbCriteria are provided at the same time, then only criteriaNames are considered.]]></description>
+      <position>100005</position>
+      <code> criteriaNames:criteriaNames.xml</code>
+      <types>
+        <type>methodParameters</type>
+      </types>
+      <vdef>criteriaNames.xml</vdef>
+      <dep>(criteriaNames-dep:value="1")</dep>
+
+    </parameter>
+    <parameter id="criteriaNames-dep" ishidden="0" type="boolean">
+      <name>Use criteriaNames as input?</name>
+      <description>Use criteriaNames as input?</description>
+      <position>3005</position>
+      <code/>
+      <vdef>1</vdef>
+    </parameter>
+
+
+
+    <parameter id="criteriaType" ishidden="0" type="input">
+      <name>criteriaType</name>
+      <description><![CDATA[Allows to indicate the type of some criteria (qualitative or quantitative). The default value for each criterion is quantitative.]]></description>
+      <position>100006</position>
+      <code> criteriaType:criteriaType.xml</code>
+      <types>
+        <type>methodParameters</type>
+      </types>
+      <vdef>criteriaType.xml</vdef>
+      <dep>(criteriaType-dep:value="1")</dep>
+
+    </parameter>
+    <parameter id="criteriaType-dep" ishidden="0" type="boolean">
+      <name>Use criteriaType as input?</name>
+      <description>Use criteriaType as input?</description>
+      <position>3006</position>
+      <code/>
+      <vdef>1</vdef>
+    </parameter>
+
+
+
+    <parameter id="lowerBounds" ishidden="0" type="input">
+      <name>lowerBounds</name>
+      <description><![CDATA[Allows to indicate a lower bound for some quantitative criteria. The default value is 0. Lower bounds for qualitative criteria are ignored.]]></description>
+      <position>100007</position>
+      <code> lowerBounds:lowerBounds.xml</code>
+      <types>
+        <type>methodParameters</type>
+      </types>
+      <vdef>lowerBounds.xml</vdef>
+      <dep>(lowerBounds-dep:value="1")</dep>
+
+    </parameter>
+    <parameter id="lowerBounds-dep" ishidden="0" type="boolean">
+      <name>Use lowerBounds as input?</name>
+      <description>Use lowerBounds as input?</description>
+      <position>3007</position>
+      <code/>
+      <vdef>1</vdef>
+    </parameter>
+
+
+
+    <parameter id="upperBounds" ishidden="0" type="input">
+      <name>upperBounds</name>
+      <description><![CDATA[Allows to indicate an upper bound for some quantitative criteria. The default value is 100. Upper bounds for qualitative criteria are ignored.]]></description>
+      <position>100008</position>
+      <code> upperBounds:upperBounds.xml</code>
+      <types>
+        <type>methodParameters</type>
+      </types>
+      <vdef>upperBounds.xml</vdef>
+      <dep>(upperBounds-dep:value="1")</dep>
+
+    </parameter>
+    <parameter id="upperBounds-dep" ishidden="0" type="boolean">
+      <name>Use upperBounds as input?</name>
+      <description>Use upperBounds as input?</description>
+      <position>3008</position>
+      <code/>
+      <vdef>1</vdef>
+    </parameter>
+
+
+
+    <parameter id="numberOfLevels" ishidden="0" type="input">
+      <name>numberOfLevels</name>
+      <description><![CDATA[Allows to indicate a number of levels for some qualitative criteria. The default value is 10. if provided for quantitative criteria, it will be ignored.]]></description>
+      <position>100009</position>
+      <code> numberOfLevels:numberOfLevels.xml</code>
+      <types>
+        <type>methodParameters</type>
+      </types>
+      <vdef>numberOfLevels.xml</vdef>
+      <dep>(numberOfLevels-dep:value="1")</dep>
+
+    </parameter>
+    <parameter id="numberOfLevels-dep" ishidden="0" type="boolean">
+      <name>Use numberOfLevels as input?</name>
+      <description>Use numberOfLevels as input?</description>
+      <position>3009</position>
+      <code/>
+      <vdef>1</vdef>
+    </parameter>
+
+
+
+    <parameter id="preferenceDirection" ishidden="0" type="input">
+      <name>preferenceDirection</name>
+      <description><![CDATA[Allows to indicate a preference direction (min or max) for some criteria. The default value is max.]]></description>
+      <position>100010</position>
+      <code> preferenceDirection:preferenceDirection.xml</code>
+      <types>
+        <type>methodParameters</type>
+      </types>
+      <vdef>preferenceDirection.xml</vdef>
+      <dep>(preferenceDirection-dep:value="1")</dep>
+
+    </parameter>
+    <parameter id="preferenceDirection-dep" ishidden="0" type="boolean">
+      <name>Use preferenceDirection as input?</name>
+      <description>Use preferenceDirection as input?</description>
+      <position>3010</position>
+      <code/>
+      <vdef>1</vdef>
+    </parameter>
+
+
+
+    <parameter id="thresholdsNames" ishidden="0" type="input">
+      <name>thresholdsNames</name>
+      <description><![CDATA[Indicates a list of thresholds names. The names must be provided in an increasing order of importance, as the randomly generated values will be sorted and associated to the thresholds in the given order. The thresholds are added for every criteria (with different random values for each one).]]></description>
+      <position>100011</position>
+      <code> thresholdsNames:thresholdsNames.xml</code>
+      <types>
+        <type>methodParameters</type>
+      </types>
+      <vdef>thresholdsNames.xml</vdef>
+      <dep>(thresholdsNames-dep:value="1")</dep>
+
+    </parameter>
+    <parameter id="thresholdsNames-dep" ishidden="0" type="boolean">
+      <name>Use thresholdsNames as input?</name>
+      <description>Use thresholdsNames as input?</description>
+      <position>3011</position>
+      <code/>
+      <vdef>1</vdef>
+    </parameter>
+
+
+
+
+    <parameter id="messages" ishidden="0" type="output">
+      <name>messages</name>
+      <description><![CDATA[A list of messages generated by the algorithm.]]></description>
+      <position>2012</position>
+      <code/>
+      <types>
+        <type>methodMessages</type>
+      </types>
+      <vdef>messages.xml</vdef>
+    </parameter>
+
+
+
+
+
+    <parameter id="criteria" ishidden="0" type="output">
+      <name>criteria</name>
+      <description><![CDATA[A list of criteria with active tags.]]></description>
+      <position>2013</position>
+      <code/>
+      <types>
+        <type>criteria</type>
+      </types>
+      <vdef>criteria.xml</vdef>
+    </parameter>
+
+
+
+    <parameter id="TIMEOUT" ishidden="0" type="int">
+      <name>Timeout? (0 for no timeout)</name>
+      <description>timeout</description>
+      <position>100001</position>
+      <code>-t %s </code>
+      <constraint>
+        <description>value should be a positive or null integer</description>
+        <code>(%d &gt;= 0)</code>
+      </constraint>
+      <vdef>60</vdef>
+    </parameter>
+    
+    <parameter id="VERBOSE" ishidden="0" type="enum">
+      <name>Verbose mode</name>
+      <description></description>
+      <position>100002</position>
+      <vlist>
+        <item id="T1">
+          <description>None</description>
+          <code></code>
+        </item>
+        <item id="T2">
+          <description>Moderately verbose</description>
+          <code> -v</code>
+        </item>
+        <item id="T3">
+          <description>Very verbose</description>
+          <code> -vv</code>
+        </item>
+        <item id="T4">
+          <description>Extremely verbose (include SOAP msgs)</description>
+          <code> -vvv</code>
+        </item>
+      </vlist>
+      <vdef>T2</vdef>
+    </parameter>
+
+  </parameters>
+</program_description>
