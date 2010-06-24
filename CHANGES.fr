@@ -1,22 +1,23 @@
 diviz v1.3
 ----------
 
-- 8 nouveaux servcies ont été ajoutés, suivant les changements qui ont
+- 9 nouveaux services ont été ajoutés, suivant les changements qui ont
   été faits dans l'ensemble des web-services XMCDA proposés par le
   consortium Decision Deck:
 
-    J-MCDA: 2 new services
+    J-MCDA: 2 nouveaux services
       - PrometheeProfiles
       - ElectreTriExploitation
 
-    PyXMCDA: 4 new services
+    PyXMCDA: 4 nouveaux services
       - CondorcetRobustnessRelation
       - randomAlternatives
       - randomCriteria
       - randomPerformanceTable
 
-    RXMCDA:
+    RXMCDA: 2 nouveaux services
       - plotGaiaPlane
+      - Promethee1Ranking
 
     UTAR:
       - UTASTAR

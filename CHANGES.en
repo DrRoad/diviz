@@ -1,7 +1,7 @@
 diviz v1.3
 ----------
 
-- New services added, following the changes in the set of
+- 9 new services added, following the changes in the set of
   XMCDA Web-Services proposed by the Decision Deck consortium:
 
     J-MCDA: 2 new services
@@ -14,8 +14,9 @@ diviz v1.3
       - randomCriteria
       - randomPerformanceTable
 
-    RXMCDA:
+    RXMCDA: 2 new services
       - plotGaiaPlane
+      - Promethee1Ranking
 
     UTAR:
       - UTASTAR
