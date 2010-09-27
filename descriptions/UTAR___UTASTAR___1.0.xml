@@ -3,7 +3,7 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2010-06-23 14:37:44 +0000">
+<program_description export_date="2010-09-27 09:15:22 +0000">
   <program provider="UTAR" name="UTASTAR" version="1.0" />
   <from desc_id="S8888" />
   <description><![CDATA[Computes UTASTAR method and if necessary uses post-optimality analysis among three well-known post-optimality methods]]></description>
@@ -27,7 +27,7 @@
         <type>methodParameters</type>
       </types>
       <vdef>method.xml</vdef>
-      <dep>(method-dep:value="1")</dep>
+      <dep>(method-dep:value="1") AND (method-use-file-dep:value="1")</dep>
 
     </parameter>
     <parameter id="method-dep" ishidden="0" type="boolean">
@@ -63,7 +63,7 @@ cat > method.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 <xmcda:XMCDA xmlns:xmcda="http://www.decision-deck.org/2009/XMCDA-2.0.0"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.decision-deck.org/2009/XMCDA-2.0.0 http://www.decision-deck.org/xmcda/_downloads/XMCDA-2.0.0.xsd">]]></code>
-      <dep>(method-dep:value="1")</dep>
+      <dep>(method-dep:value="1") AND (method-use-file-dep:value="0")</dep>
 
     </parameter>
 
@@ -78,7 +78,7 @@ cat > method.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 						<parameter>
 							<value>
             					<label>]]></code>
-      <dep>(method-dep:value="1")</dep>
+      <dep>(method-dep:value="1") AND (method-use-file-dep:value="0")</dep>
 
     </parameter>
 
@@ -106,7 +106,7 @@ cat > method.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
         </item>
       </vlist>
       <vdef>none</vdef>
-      <dep>(method-dep:value="1")</dep>
+      <dep>(method-dep:value="1") AND (method-use-file-dep:value="0")</dep>
 
     </parameter>
 
@@ -120,7 +120,7 @@ cat > method.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 					</methodParameters>
 				
 			]]></code>
-      <dep>(method-dep:value="1")</dep>
+      <dep>(method-dep:value="1") AND (method-use-file-dep:value="0")</dep>
 
     </parameter>
     <parameter id="method-gui-EOF" ishidden="1" type="code">
@@ -128,7 +128,7 @@ cat > method.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <description></description>
       <position>304</position>
       <code><![CDATA[</xmcda:XMCDA>%nEOF%n]]></code>
-      <dep>(method-dep:value="1")</dep>
+      <dep>(method-dep:value="1") AND (method-use-file-dep:value="0")</dep>
 
     </parameter>
 

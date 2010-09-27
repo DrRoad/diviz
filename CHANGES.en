@@ -1,3 +1,8 @@
+- UTAR-UTASTAR: the program was incorrectly displaying a input (file)
+  parameter named 'method', instead of proposing the choice of the
+  post-optimality method in the parameters' setup dialog only.  This has been
+  fixed.
+
 - You can close diviz while an execution is running; the execution continues
   on the server, and you'll get updates when relaunching the client (either
   updates on the progress of the execution, or the results if it is finished).
