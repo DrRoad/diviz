@@ -1,3 +1,6 @@
+diviz v1.4
+----------
+
 - UTAR-UTASTAR: the program was incorrectly displaying a input (file)
   parameter named 'method', instead of proposing the choice of the
   post-optimality method in the parameters' setup dialog only.  This has been
