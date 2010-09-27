@@ -1,3 +1,38 @@
+- You can close diviz while an execution is running; the execution continues
+  on the server, and you'll get updates when relaunching the client (either
+  updates on the progress of the execution, or the results if it is finished).
+
+- Bug fix: closing a workflow sometimes left it displayed in the tree of
+  opened workflows, but not responsive.  This happened when an execution
+  result was selected, and it has been fixed.
+
+- Bug fix: when executing a workflow, if one changed the view to display an
+  other execution, or the workflow itself, the progress of the current
+  execution was still being displayed and updated.  Now the view is updated if
+  and only if the running execution is selected and displayed, as expected.
+
+- A double-click on a result file in the workflow panel now opens the system's
+  default viewer for this file.
+
+- In some cases, diviz was stopping to work after a moment, claiming that too
+  much opened files were opened.  This has been fixed.
+
+- a new command-line is available:
+
+  DVZ_CMD="java -Djava.util.logging.config.file= -Done-jar.main.class=eu.telecom_bretagne.praxis.client.SimpleCommandLine -jar ./build/diviz-client.jar"
+
+  Executing a workflow:
+  $DVZ_CMD /path/to/diviz/workspace/weightedSum/current/weightedSum.dvz
+
+  For details on the available options: $DVZ_CMD -h
+  Use option '-v' for verbose logging.
+
+- Not every mouse has a wheel (some trackpads or trackballs e.g.): as an
+  alternative to using Ctrl+mouse wheel, it is now possible to zoom in & to
+  zoom out the workflow by pressing Ctrl-+ and Ctrl-- (one may need to click
+  on the area displaying the workflow before)
+
+
 diviz v1.3
 ----------
 
