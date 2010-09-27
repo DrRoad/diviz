@@ -1,3 +1,57 @@
+diviz v1.4
+----------
+
+- Correction d'un cas sous Windows où l'application pouvait se figer lorsque
+  l'utilisateur demandait la suppression d'un workflow.
+
+- UTAR-UTASTAR: le programm affichait une entrée fichier 'method' qui n'avait
+  pas de sens, au lieu de ne proposer le choix de la méthode de
+  post-optimalité que dans la fenêtre de paramétrage. Il s'agissait d'un
+  problème relatif à diviz uniquement, le web-service associé n'est pas en
+  cause.
+
+- diviz peut désormais être fermé pendant qu'une exécution tourne; l'exécution
+  continue sur le serveur et les résulats sont renvoyés au client dès qu'il se
+  reconnecte (soit les résultats complets si l'exécution est erminée, soit son
+  degré d'avancement).
+
+- Correction de bug: après la fermeture d'un workflow, il restait parfois
+  affiché dans l'arbre des workflows ouverts, sans qu'on puisse interagir avec
+  (ni réouvrir le workflow). Cela arrivait lorsqu'un résultat d'exécution
+  était sélectionné, et cela a été corrigé.
+
+- Correction de bug: lors de l'exécution d'un workflow, si l'on sélectionnait
+  une autre exécution ou le wrokflow lui-même, l'état d'avancement de
+  l'exécution en cours était toujours affiché et mis à jour.  La vue n'est
+  maintenant mis à jour que si l'exécution correspondante est sélectionnée et
+  affichée.
+
+- Un double clic sur un fichier de résultat permet de l'ouvrir avec le
+  visualisateur par défaut.
+
+- Dans certains cas, diviz s'arrêtait de fonctionner après un moment, la
+  raison donnée était que trop de fichiers étaient ouverts (Too much open
+  files).  Cela a été corrigé.
+
+- Une nouvelle commande en ligne est disponible, qui permet d'exécuter des
+  workflows sans avoir à lancer l'interface graphique:
+
+  DVZ_CMD="java -Djava.util.logging.config.file= -Done-jar.main.class=eu.telecom_bretagne.praxis.client.SimpleCommandLine -jar ./build/diviz-client.jar"
+
+  Exécution d'un workflow:
+  $DVZ_CMD /chemin/du/diviz_workspace/weightedSum/current/weightedSum.dvz
+
+  Pour plus de détails sur les options disponibles:: $DVZ_CMD -h
+  À noter:
+  - les fichiers d'entrées déclarés dans le workflow peuvent être changés
+    avant exécution via cette commande en ligne;
+  - l'option '-v' permet un affichage plus verbeux.
+
+- Toutes les souris n'ont pas de molette (certains "trackpads" ou "trackballs"
+  p.ex.): en complément de Ctrl+molette pour zoomer sur un workflow, il est
+  désormais possible d'utiliser Ctrl-+ et Ctrl-- (il peut être nécessaire de
+  cliquer sur le panneau d'affichage du workflow pour que cela fonctionne).
+
 diviz v1.3
 ----------
 
