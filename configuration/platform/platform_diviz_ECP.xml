@@ -2,9 +2,9 @@
 <!DOCTYPE platform PUBLIC "-//Telecom Bretagne/DTD XML Praxis Platform 1.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/platform.dtd">
 
 <!-- the ECP_fqdn.xml points to ddeck.lgi.ecp.fr, while ECP.xml points to localhost
-     Reason is there is a network configuration problem for the moment ebing on ddeck causing long delays
+     Reason is there is a network configuration problem for the moment being on ddeck causing long delays
      when trying to access the server with its FQDN from the server itself.  So we use ECP.xml for the
-     (server+)platform deployed on ddeck, while we use ECP_fqdn.xml when acceesing it from everywhere else
+     (server+)platform deployed on ddeck, while we use ECP_fqdn.xml when accessing it from everywhere else
      (which is the case for the standalone version)
 -->
 
@@ -12,7 +12,7 @@
     <configuration>
 	    <!-- script-init: adapt PATH if needed: setenv PATH /path/to/...:${PATH}: -->
     	<item name="script-init">setenv PYTHONUNBUFFERED 1
-set callXMCDAService="genericXMCDAService.py -U http://localhost/cgi-bin/%s-test.py -n "
+set callXMCDAService="genericXMCDAService.py -U http://localhost/soap/%s.py -n "
 </item>
     </configuration>
     <programs>
