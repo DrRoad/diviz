@@ -263,7 +263,7 @@ public class ResultViewerHTML
 		
 		// The url String must be supplied to HtmlPanel.setHtml() in order to load included images with its
 		// relative paths
-		String url = "file://" + imagesDir.getAbsolutePath()+"/";
+		String url = imagesDir.getAbsoluteFile().toURI().toString();
 		if (htmlContent_cache!=null)
 		{
 			// avoid a round-trip to the FS
