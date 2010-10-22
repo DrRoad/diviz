@@ -1,3 +1,16 @@
+diviz v1.4.1
+------------
+
+- The images produced by some programs (plot...) were not displayed at all in
+  the results' panel on Windows OSes (but they were correctly displayed in an
+  external browser).  This has been fixed.
+
+- When the result of an execution is selected, all its results files were
+  consistently opened; this is not the case anymore.  A preference has been
+  added, deciding whether all files should be automatically opened and
+  displayed when a result is selected. The default is not to open them.
+
+
 diviz v1.4
 ----------
 
@@ -10,7 +23,7 @@ diviz v1.4
   diviz problem only, there is no impact on the associated XMCDA web-service.
 
 - diviz can be closed while an execution is running; the execution continues
-  on the server, and its results while be sent back to the client when it
+  on the server, and its results will be sent back to the client when it
   connects (either updates on the progress of the execution, or the results if
   it is finished).
 

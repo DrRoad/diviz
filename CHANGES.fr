@@ -1,3 +1,17 @@
+diviz v1.4.1
+------------
+
+- Les images produites par certains programmes (plot...) n'étaient pas
+  affichées dans le panneau de visualisation des résultats (elles
+  apparaissaient correctement lorsque le fichier était visualisé dans un
+  navigateur externe). Cela a été corrigé.
+
+- Quand le résultat d'une exécution est sélectionné, tous les fichiers étaient
+  ouverts systématiquement; ce n'est plus le cas désormais.  Une nouvelle
+  préférence a été ajoutée, permettant de déterminer si tous les fichiers
+  contenus dans les résultats d'une exécution doivent être ouverts et affichés
+  automatiquement.  Désormais et par défaut, aucun n'est ouvert.
+
 diviz v1.4
 ----------
 
