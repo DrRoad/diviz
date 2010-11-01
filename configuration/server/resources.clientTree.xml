@@ -19,6 +19,9 @@
 ]>
 <resourcesTree version="3">
 		
+	<type name="Generic" collapsed="0">
+		<resource name="test___generic___1.0"/>
+	</type>
 	<type name="Calculation components" collapsed="0">
 		<type name="Capacity analysis" collapsed="0">
 			<resource name="kappalab___capacityEntropy___1.0"/>
