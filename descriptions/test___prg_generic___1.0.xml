@@ -5,15 +5,17 @@
   <program provider="test" name="prg_generic" version="1.0" />
   <from desc_id="S9999" />
   <description>A generic box allowing to execute commands and custom scripts
-  - The input file is named 'infile'.
-  - An output file should be written, named 'outfile'.
+  - One to five input files, named 'infile1.xml', 'infile2.xml' etc.
+  - One to five output files should be written, named 'outfile1.xml', 'outfile2.xml' etc.
   - The script, if used, will be written in the standard input (stdin).
   
 Examples (python, shell script, R):
 
+NB: all the following examples have one input file and one output file.
+
 1. Python: a program reading the infile and numbering the lines
   
-cmdline: 'python - infile outfile' (without the quotes)
+cmdline: 'python - infile1.xml outfile1.xml' (without the quotes)
 Use a script: Yes
 Script (until "# end"):
 import sys
@@ -33,20 +35,20 @@ output.close()
 
 Remarks:
 - the cmdline launches python on the script file:
-- the script reads its arguments from the command-line; another solution would be to hard-code the name "infile" and "outfile" in the script itself.
+- the script reads its arguments from the command-line; another solution would be to hard-code the name "infile1.xml" and "outfile1.xml" in the script itself.
 
 2. Shell: a script reading the infile and numbering the lines
-cmdline: 'sh -s infile outfile'
+cmdline: 'sh -s infile1.xml outfile1.xml'
 Use a script: Yes
 Script (until "# end"):
 for n in $(seq 0 $#); do echo \$$n=${!n}; done
 cat -n $1 > $2
 #end
 
-Same thing can be done without a script, using the cmdline: sh -c "cat -n infile > outfile"
+Same thing can be done without a script, using the cmdline: sh -c "cat -n infile1.xml > outfile1.xml"
 
 3. R: a simple script numbering lines as well:
-cmdline: 'R --slave --vanilla --args infile outfile'
+cmdline: 'R --slave --vanilla --args infile1.xml outfile2.xml'
 Use a script: Yes
 Script (until "# end"):
 cat("command line arguments: \n");
@@ -69,26 +71,33 @@ for (line in lines)
       <code target="cmdline">%s</code>
       <vdef />
     </parameter>
-    <parameter id="infile" ishidden="0" type="input">
-      <name>infile </name>
-      <description>Input data file</description>
-      <position>200</position>
-      <code />
-      <types>
-        <type>all</type>
-      </types>
-      <vdef>infile</vdef>
+    
+    <parameter id="nbInputs" ishidden="0" type="int">
+      <name>Number of inputs</name>
+      <description>Number of inputs</description>
+      <position>2</position>
+      <code/>
+      <constraint>
+        <description>The value should be a positive integer, lower or equal to 5</description>
+        <code><![CDATA[%d > 0 && %d < 6]]></code>   
+      </constraint>
+      <vdef>1</vdef>
+      <dep/>
     </parameter>
-    <parameter id="outfile" ishidden="0" type="output">
-      <name>outfile</name>
-      <description>Output data file</description>
-      <position>300</position>
-      <code />
-      <types>
-        <type>all</type>
-      </types>
-      <vdef>outfile</vdef>
+    
+    <parameter id="nbOutputs" ishidden="0" type="int">
+      <name>Number of outputs</name>
+      <description>Number of outputs</description>
+      <position>3</position>
+      <code/>
+      <constraint>
+        <description>The value should be a positive integer, lower or equal to 5</description>
+        <code><![CDATA[%d > 0 && %d < 6]]></code>   
+      </constraint>
+      <vdef>1</vdef>
+      <dep/>
     </parameter>
+
     <parameter id="provide_script" ishidden="0" type="boolean">
       <name>Use a script? </name>
       <indent>0</indent>
@@ -98,6 +107,7 @@ for (line in lines)
       <vdef>0</vdef>
       <dep/>
     </parameter>
+
     <parameter id="script" ishidden="0" type="text">
       <name>Script (written into stdin)</name>
       <indent>0</indent>
@@ -107,6 +117,127 @@ for (line in lines)
       <vdef />
       <dep>(provide_script:value="1")</dep>
     </parameter>
+
+	<!-- infiles -->
+    <parameter id="infile1" ishidden="0" type="input">
+      <name>infile1.xml</name>
+      <description>Input data file</description>
+      <position>201</position>
+      <code />
+      <types>
+        <type>all</type>
+      </types>
+      <vdef>infile1.xml</vdef>
+    </parameter>
+
+    <parameter id="infile2" ishidden="0" type="input">
+      <name>infile2.xml</name>
+      <description>Input data file</description>
+      <position>202</position>
+      <code />
+      <types>
+        <type>all</type>
+      </types>
+      <vdef>infile2.xml</vdef>
+      <dep>(nbInputs:value>=2)</dep>
+    </parameter>
+
+    <parameter id="infile3" ishidden="0" type="input">
+      <name>infile3.xml</name>
+      <description>Input data file</description>
+      <position>203</position>
+      <code />
+      <types>
+        <type>all</type>
+      </types>
+      <vdef>infile3.xml</vdef>
+      <dep>(nbInputs:value>=3)</dep>
+    </parameter>
+
+    <parameter id="infile4" ishidden="0" type="input">
+      <name>infile4.xml</name>
+      <description>Input data file</description>
+      <position>204</position>
+      <code />
+      <types>
+        <type>all</type>
+      </types>
+      <vdef>infile4.xml</vdef>
+      <dep>(nbInputs:value>=4)</dep>
+    </parameter>
+
+    <parameter id="infile5" ishidden="0" type="input">
+      <name>infile5.xml</name>
+      <description>Input data file</description>
+      <position>205</position>
+      <code />
+      <types>
+        <type>all</type>
+      </types>
+      <vdef>infile5.xml</vdef>
+      <dep>(nbInputs:value>=5)</dep>
+    </parameter>
+
+	<!-- outfiles -->
+    <parameter id="outfile1" ishidden="0" type="output">
+      <name>outfile1.xml</name>
+      <description>Output data file</description>
+      <position>301</position>
+      <code />
+      <types>
+        <type>all</type>
+      </types>
+      <vdef>outfile1.xml</vdef>
+    </parameter>
+
+    <parameter id="outfile2" ishidden="0" type="output">
+      <name>outfile2.xml</name>
+      <description>Output data file</description>
+      <position>302</position>
+      <code />
+      <types>
+        <type>all</type>
+      </types>
+      <vdef>outfile2.xml</vdef>
+      <dep>(nbOutputs:value>=2)</dep>
+    </parameter>
+    
+    <parameter id="outfile3" ishidden="0" type="output">
+      <name>outfile3.xml</name>
+      <description>Output data file</description>
+      <position>303</position>
+      <code />
+      <types>
+        <type>all</type>
+      </types>
+      <vdef>outfile3.xml</vdef>
+      <dep>(nbOutputs:value>=3)</dep>
+    </parameter>
+
+    <parameter id="outfile4" ishidden="0" type="output">
+      <name>outfile4.xml</name>
+      <description>Output data file</description>
+      <position>304</position>
+      <code />
+      <types>
+        <type>all</type>
+      </types>
+      <vdef>outfile4.xml</vdef>
+      <dep>(nbOutputs:value>=4)</dep>
+    </parameter>
+
+    <parameter id="outfile5" ishidden="0" type="output">
+      <name>outfile5.xml</name>
+      <description>Output data file</description>
+      <position>305</position>
+      <code />
+      <types>
+        <type>all</type>
+      </types>
+      <vdef>outfile5.xml</vdef>
+      <dep>(nbOutputs:value>=5)</dep>
+    </parameter>
+    
   </parameters>
 </program_description>
 
