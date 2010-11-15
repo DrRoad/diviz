@@ -51,17 +51,25 @@ Same thing can be done without a script, using the cmdline: sh -c "cat -n infile
 cmdline: 'R --slave --vanilla --args infile1.xml outfile2.xml'
 Use a script: Yes
 Script (until "# end"):
-cat("command line arguments: \n");
-commandArgs()
-lines=readLines(commandArgs()[5], n=-1)
+args=commandArgs(trailingOnly=TRUE)
+cat("command line arguments (after --args): \n");
+args
+lines=readLines(args[1], n=-1)
 idx=0
 for (line in lines)
 {
   idx=idx+1
-  cat(idx, "\t", line, "\n", file=commandArgs()[6], append=TRUE)
+  cat(idx, "\t", line, "\n", file=args[2], append=TRUE)
 }
 # end
 
+Note: instead of putting the whole script in the parameters' box, you can also pass it as a command-line argument.
+In this case, the command-line becomes (without the quotes):
+
+  'R --slave --vanilla --file=/path/to/script.R --args infile1.xml outfile2.xml'
+
+and the file /path/to/script.R contains the same script as above.
+Since there is no need to 'Use a script' anymore, this option should be unchecked.
 </description>
   <parameters>
     <parameter id="generic_cmd" type="string">
