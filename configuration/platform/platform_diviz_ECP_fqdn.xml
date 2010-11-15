@@ -49,6 +49,8 @@ set callXMCDAService="genericXMCDAService.py -U http://webservices.decision-deck
       <program id="RXMCDA___randomNormalizedPerformanceTable___1.0" />
       <program id="RXMCDA___invertAlternativesRanks___1.0" />
       <program id="RXMCDA___plotGaiaPlane___1.0" />
+      <program id="RXMCDA___alternativesRankingViaQualificationDistillation___1.0" />
+      <program id="RXMCDA___computeAlternativesQualification___1.0" />
 
       <program id="PyXMCDA___weightedSum___1.0"/>
       <program id="PyXMCDA___RubisConcordanceRelation___1.0"/>
