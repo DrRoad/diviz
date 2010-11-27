@@ -4,5 +4,7 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/praxis"/>
 	<classpathentry kind="lib" path="configuration/client/lib/js.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/praxis Swing GUI"/>
+	<classpathentry kind="lib" path="configuration/client/lib/cobra.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
