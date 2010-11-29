@@ -1,3 +1,35 @@
+diviz v1.5
+----------
+
+- L'organisation des résultats a changé: les fichiers produits par chaque
+  programme sont maintenant placés dans un répertoire dédié, un par programme.
+  De plus, les fichiers de sortie ne sont plus renommés: ils conservent le nom
+  que le programme leur ont donné (ex.: 'alternatives.xml).  Du coup il
+  devient possible de les ouvrir avec le visualisateur par défaut adéquat.
+
+  diviz reste bien sûr compatible avec les anciens résultats.
+
+- Le menu contextuel associé au panneau de résultats place désormais les
+  fichiers d'entrée dans un sous-menu dédié ("Fichiers d'entrée").
+
+  Rappel: ce menu contextuel s'affiche avec un clic droit sur la barre des
+  onglets du panneau des résultats.
+
+- Ajout de 2 nouveaux services récemment ajoutés à l'ensemble des webservices
+  XMCDA par Patrick Meyer:
+
+    - alternativesRankingViaQualificationDistillation
+    - computeAlternativesQualification
+
+  (paquetage RXMCDA)
+
+- Corrections de bugs mineurs dans le XSL de présentation des résultats, merci
+  à Thomas Veneziano.
+
+- Correction de bug: un workflow effacé n'était pas correctement déréférencé.
+  Après avoir effacé un workflow, celui-ci restait affiché dans la liste des
+  workflows pouvant être ouverts, jusqu'à ce que diviz soit redémarré.
+
 diviz v1.4.1
 ------------
 
