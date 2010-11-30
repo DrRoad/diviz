@@ -3,7 +3,7 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2010-06-23 14:45:45 +0000">
+<program_description export_date="2010-09-27 12:13:21 +0000">
   <program provider="PyXMCDA" name="randomAlternatives" version="1.0" />
   <from desc_id="S8888" />
   <description><![CDATA[This web service allows to create a simple list of alternative by simply
@@ -28,15 +28,8 @@
         <type>methodParameters</type>
       </types>
       <vdef>nbAlternatives.xml</vdef>
-      <dep>(nbAlternatives-dep:value="1") AND (nbAlternatives-use-file-dep:value="1")</dep>
+      <dep>(nbAlternatives-use-file-dep:value="1")</dep>
 
-    </parameter>
-    <parameter id="nbAlternatives-dep" ishidden="0" type="boolean">
-      <name>Use nbAlternatives as input?</name>
-      <description>Use nbAlternatives as input?</description>
-      <position>3003</position>
-      <code/>
-      <vdef>1</vdef>
     </parameter>
 
     <parameter id="nbAlternatives-use-file-dep" ishidden="0" type="boolean">
@@ -45,8 +38,7 @@
       <position>3003</position>
       <code/>
       <vdef>0</vdef>
-      <dep>(nbAlternatives-dep:value="1")</dep>
-
+      <dep/>
     </parameter>
     
 
@@ -63,7 +55,7 @@ cat > nbAlternatives.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 <xmcda:XMCDA xmlns:xmcda="http://www.decision-deck.org/2009/XMCDA-2.0.0"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.decision-deck.org/2009/XMCDA-2.0.0 http://www.decision-deck.org/xmcda/_downloads/XMCDA-2.0.0.xsd">]]></code>
-      <dep>(nbAlternatives-dep:value="1") AND (nbAlternatives-use-file-dep:value="0")</dep>
+      <dep>(nbAlternatives-use-file-dep:value="0")</dep>
 
     </parameter>
 
@@ -79,7 +71,7 @@ cat > nbAlternatives.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
                              name="nbAlternatives"><!-- REQUIRED  -->
                             <value>
                                 <integer>]]></code>
-      <dep>(nbAlternatives-dep:value="1") AND (nbAlternatives-use-file-dep:value="0")</dep>
+      <dep>(nbAlternatives-use-file-dep:value="0")</dep>
 
     </parameter>
 
@@ -98,7 +90,7 @@ cat > nbAlternatives.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
         <code><![CDATA[%d > 0]]></code>   
       </constraint>
       <vdef>2</vdef>
-      <dep>(nbAlternatives-dep:value="1") AND (nbAlternatives-use-file-dep:value="0")</dep>
+      <dep>(nbAlternatives-use-file-dep:value="0")</dep>
 
     </parameter>
 
@@ -113,7 +105,7 @@ cat > nbAlternatives.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
                     </methodParameters>
                     
                      ]]></code>
-      <dep>(nbAlternatives-dep:value="1") AND (nbAlternatives-use-file-dep:value="0")</dep>
+      <dep>(nbAlternatives-use-file-dep:value="0")</dep>
 
     </parameter>
     <parameter id="nbAlternatives-gui-EOF" ishidden="1" type="code">
@@ -121,7 +113,7 @@ cat > nbAlternatives.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <description></description>
       <position>304</position>
       <code><![CDATA[</xmcda:XMCDA>%nEOF%n]]></code>
-      <dep>(nbAlternatives-dep:value="1") AND (nbAlternatives-use-file-dep:value="0")</dep>
+      <dep>(nbAlternatives-use-file-dep:value="0")</dep>
 
     </parameter>
 
@@ -130,8 +122,7 @@ cat > nbAlternatives.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <description></description>
       <position>100003</position>
       <code> nbAlternatives:nbAlternatives.xml</code>
-      <dep>(nbAlternatives-dep:value="1")</dep>
-
+      <dep/>
     </parameter>
 
 
