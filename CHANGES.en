@@ -23,6 +23,11 @@ diviz v1.5
 
   (in package RXMCDA)
 
+- PyXMCDA randomAlternatives: it is no longer possible to select parameters
+  'nbAlternatives' and 'alternativesNames' simultaneously (this is only a
+  matter of graphical interface: in the service, the second parameter
+  superseeds the first one).
+
 - Minor bugs fixed in the XSL used to display resullts, thanks to Thomas
   Veneziano.
 

@@ -6,9 +6,7 @@
 <program_description export_date="2010-09-27 12:13:21 +0000">
   <program provider="PyXMCDA" name="randomAlternatives" version="1.0" />
   <from desc_id="S8888" />
-  <description><![CDATA[This web service allows to create a simple list of alternative by simply
-                     providing the desired number of alternatives, or a list of alternatives
-                     names.]]></description>
+  <description><![CDATA[This web service allows to create a simple list of alternative by simply providing the desired number of alternatives, or a list of alternatives names.]]></description>
   <parameters>
     <parameter id="randomAlternatives-cmdline" type="command" ismandatory="1">
       <name>randomAlternatives</name>
@@ -16,237 +14,6 @@
       <position>100000</position>
       <code>$callXMCDAService randomAlternatives-PyXMCDA -S </code>
     </parameter>
-
-
-    <parameter id="nbAlternatives" ishidden="0" type="input">
-      <name>nbAlternatives</name>
-      <description><![CDATA[Indicates the desired number of alternatives. It must be a
-                                   strict positive integer.]]></description>
-      <position>100003</position>
-      <code/> 
-      <types>
-        <type>methodParameters</type>
-      </types>
-      <vdef>nbAlternatives.xml</vdef>
-      <dep>(nbAlternatives-use-file-dep:value="1")</dep>
-
-    </parameter>
-
-    <parameter id="nbAlternatives-use-file-dep" ishidden="0" type="boolean">
-      <name>Supply nbAlternatives as a file?</name>
-      <description>Supply nbAlternatives as a file?</description>
-      <position>3003</position>
-      <code/>
-      <vdef>0</vdef>
-      <dep/>
-    </parameter>
-    
-
-
-
-    <parameter id="nbAlternatives-gui" ishidden="1" type="code">
-      <name>nbAlternatives</name>
-      <description><![CDATA[Indicates the desired number of alternatives. It must be a
-                                   strict positive integer.]]></description>
-      <position>300</position>
-      <code><![CDATA[#nbAlternatives: nbAlternatives.xml
-cat > nbAlternatives.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="xmcdaKappalab.xsl"?>
-<xmcda:XMCDA xmlns:xmcda="http://www.decision-deck.org/2009/XMCDA-2.0.0"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.decision-deck.org/2009/XMCDA-2.0.0 http://www.decision-deck.org/xmcda/_downloads/XMCDA-2.0.0.xsd">]]></code>
-      <dep>(nbAlternatives-use-file-dep:value="0")</dep>
-
-    </parameter>
-
-
-    <parameter id="nbAlternatives-gui-301" ishidden="1" type="code">
-      <name />
-      <description />
-      <position>301</position>
-      <code><![CDATA[
-                            
-                    <methodParameters>
-                        <parameter
-                             name="nbAlternatives"><!-- REQUIRED  -->
-                            <value>
-                                <integer>]]></code>
-      <dep>(nbAlternatives-use-file-dep:value="0")</dep>
-
-    </parameter>
-
-
-    <parameter id="nbAlternatives-gui-302" ishidden="0" type="int">
-      <name>nbAlternatives</name>
-      <indent>1</indent>
-      <description>TODO</description>
-      <position>302</position>
-
-      <code>%s</code>
-
-      <constraint>
-        <description>The value should be a positive
-                                                 integer.</description>
-        <code><![CDATA[%d > 0]]></code>   
-      </constraint>
-      <vdef>2</vdef>
-      <dep>(nbAlternatives-use-file-dep:value="0")</dep>
-
-    </parameter>
-
-
-    <parameter id="nbAlternatives-gui-303" ishidden="1" type="code">
-      <name />
-      <description />
-      <position>303</position>
-      <code><![CDATA[</integer>
-                            </value>
-                        </parameter>
-                    </methodParameters>
-                    
-                     ]]></code>
-      <dep>(nbAlternatives-use-file-dep:value="0")</dep>
-
-    </parameter>
-    <parameter id="nbAlternatives-gui-EOF" ishidden="1" type="code">
-      <name>nbAlternatives EOF</name>
-      <description></description>
-      <position>304</position>
-      <code><![CDATA[</xmcda:XMCDA>%nEOF%n]]></code>
-      <dep>(nbAlternatives-use-file-dep:value="0")</dep>
-
-    </parameter>
-
-    <parameter id="nbAlternatives-cmdline" ishidden="1" type="code">
-      <name>nbAlternatives insertion in cmd-line</name>
-      <description></description>
-      <position>100003</position>
-      <code> nbAlternatives:nbAlternatives.xml</code>
-      <dep/>
-    </parameter>
-
-
-
-
-
-    <parameter id="alternativesPrefix" ishidden="0" type="input">
-      <name>alternativesPrefix</name>
-      <description><![CDATA[Indicates the desired prefix for the name of the
-                                   alternatives. If not provided, alternatives will be called a1,
-                                   a2, ... If provided, alternatives will be called prefix1,
-                                   prefix2, ... Note that it will only be used if you provide a
-                                   number of alternatives.]]></description>
-      <position>100004</position>
-      <code/> 
-      <types>
-        <type>methodParameters</type>
-      </types>
-      <vdef>alternativesPrefix.xml</vdef>
-      <dep>(alternativesPrefix-dep:value="1") AND (alternativesPrefix-use-file-dep:value="1")</dep>
-
-    </parameter>
-    <parameter id="alternativesPrefix-dep" ishidden="0" type="boolean">
-      <name>Use alternativesPrefix as input?</name>
-      <description>Use alternativesPrefix as input?</description>
-      <position>3004</position>
-      <code/>
-      <vdef>1</vdef>
-    </parameter>
-
-    <parameter id="alternativesPrefix-use-file-dep" ishidden="0" type="boolean">
-      <name>Supply alternativesPrefix as a file?</name>
-      <description>Supply alternativesPrefix as a file?</description>
-      <position>3004</position>
-      <code/>
-      <vdef>0</vdef>
-      <dep>(alternativesPrefix-dep:value="1")</dep>
-
-    </parameter>
-    
-
-
-
-    <parameter id="alternativesPrefix-gui" ishidden="1" type="code">
-      <name>alternativesPrefix</name>
-      <description><![CDATA[Indicates the desired prefix for the name of the
-                                   alternatives. If not provided, alternatives will be called a1,
-                                   a2, ... If provided, alternatives will be called prefix1,
-                                   prefix2, ... Note that it will only be used if you provide a
-                                   number of alternatives.]]></description>
-      <position>400</position>
-      <code><![CDATA[#alternativesPrefix: alternativesPrefix.xml
-cat > alternativesPrefix.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="xmcdaKappalab.xsl"?>
-<xmcda:XMCDA xmlns:xmcda="http://www.decision-deck.org/2009/XMCDA-2.0.0"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.decision-deck.org/2009/XMCDA-2.0.0 http://www.decision-deck.org/xmcda/_downloads/XMCDA-2.0.0.xsd">]]></code>
-      <dep>(alternativesPrefix-dep:value="1") AND (alternativesPrefix-use-file-dep:value="0")</dep>
-
-    </parameter>
-
-
-    <parameter id="alternativesPrefix-gui-401" ishidden="1" type="code">
-      <name />
-      <description />
-      <position>401</position>
-      <code><![CDATA[
-                            
-                    <methodParameters>
-                        <parameter
-                             name="alternativesPrefix"><!-- REQUIRED  -->
-                            <value>
-                                <label>]]></code>
-      <dep>(alternativesPrefix-dep:value="1") AND (alternativesPrefix-use-file-dep:value="0")</dep>
-
-    </parameter>
-
-
-    <parameter id="alternativesPrefix-gui-402" ishidden="0" type="string">
-      <name>alternativesPrefix</name>
-      <indent>1</indent>
-      <description>TODO</description>
-      <position>402</position>
-
-      <code>%s</code>
-      <vdef>a</vdef>
-      <dep>(alternativesPrefix-dep:value="1") AND (alternativesPrefix-use-file-dep:value="0")</dep>
-
-    </parameter>
-
-
-    <parameter id="alternativesPrefix-gui-403" ishidden="1" type="code">
-      <name />
-      <description />
-      <position>403</position>
-      <code><![CDATA[</label>
-                            </value>
-                        </parameter>
-                    </methodParameters>
-                    
-                     ]]></code>
-      <dep>(alternativesPrefix-dep:value="1") AND (alternativesPrefix-use-file-dep:value="0")</dep>
-
-    </parameter>
-    <parameter id="alternativesPrefix-gui-EOF" ishidden="1" type="code">
-      <name>alternativesPrefix EOF</name>
-      <description></description>
-      <position>404</position>
-      <code><![CDATA[</xmcda:XMCDA>%nEOF%n]]></code>
-      <dep>(alternativesPrefix-dep:value="1") AND (alternativesPrefix-use-file-dep:value="0")</dep>
-
-    </parameter>
-
-    <parameter id="alternativesPrefix-cmdline" ishidden="1" type="code">
-      <name>alternativesPrefix insertion in cmd-line</name>
-      <description></description>
-      <position>100004</position>
-      <code> alternativesPrefix:alternativesPrefix.xml</code>
-      <dep>(alternativesPrefix-dep:value="1")</dep>
-
-    </parameter>
-
-
-
 
 
     <parameter id="alternativesNames" ishidden="0" type="input">
@@ -266,16 +33,236 @@ cat > alternativesPrefix.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <description>Use alternativesNames as input?</description>
       <position>3005</position>
       <code/>
-      <vdef>1</vdef>
+      <vdef>0</vdef>
     </parameter>
+
+
+
+
+    <parameter id="nbAlternatives" ishidden="0" type="input">
+      <name>nbAlternatives</name>
+      <description><![CDATA[Indicates the desired number of alternatives. It must be a strict positive integer.]]></description>
+      <position>100003</position>
+      <code/> 
+      <types>
+        <type>methodParameters</type>
+      </types>
+      <vdef>nbAlternatives.xml</vdef>
+      <dep>(nbAlternatives-use-file-dep:value="1") AND (alternativesNames-dep:value="0")</dep>
+
+    </parameter>
+
+    <parameter id="nbAlternatives-use-file-dep" ishidden="0" type="boolean">
+      <name>Supply nbAlternatives as a file?</name>
+      <description>Supply nbAlternatives as a file?</description>
+      <position>3003</position>
+      <code/>
+      <vdef>0</vdef>
+      <dep>(alternativesNames-dep:value="0")</dep>
+    </parameter>
+    
+
+
+
+    <parameter id="nbAlternatives-gui" ishidden="1" type="code">
+      <name>nbAlternatives</name>
+      <description><![CDATA[Indicates the desired number of alternatives. It must be a strict positive integer.]]></description>
+      <position>300</position>
+      <code><![CDATA[#nbAlternatives: nbAlternatives.xml
+cat > nbAlternatives.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="xmcdaKappalab.xsl"?>
+<xmcda:XMCDA xmlns:xmcda="http://www.decision-deck.org/2009/XMCDA-2.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.decision-deck.org/2009/XMCDA-2.0.0 http://www.decision-deck.org/xmcda/_downloads/XMCDA-2.0.0.xsd">]]></code>
+      <dep>(nbAlternatives-use-file-dep:value="0") AND (alternativesNames-dep:value="0")</dep>
+
+    </parameter>
+
+
+    <parameter id="nbAlternatives-gui-301" ishidden="1" type="code">
+      <name />
+      <description />
+      <position>301</position>
+      <code><![CDATA[
+                            
+                    <methodParameters>
+                        <parameter
+                             name="nbAlternatives"><!-- REQUIRED  -->
+                            <value>
+                                <integer>]]></code>
+      <dep>(nbAlternatives-use-file-dep:value="0") AND (alternativesNames-dep:value="0")</dep>
+
+    </parameter>
+
+
+    <parameter id="nbAlternatives-gui-302" ishidden="0" type="int">
+      <name>nbAlternatives</name>
+      <indent>1</indent>
+      <description>TODO</description>
+      <position>302</position>
+
+      <code>%s</code>
+
+      <constraint>
+        <description>The value should be a positive integer.</description>
+        <code><![CDATA[%d > 0]]></code>   
+      </constraint>
+      <vdef>2</vdef>
+      <dep>(nbAlternatives-use-file-dep:value="0") AND (alternativesNames-dep:value="0")</dep>
+
+    </parameter>
+
+
+    <parameter id="nbAlternatives-gui-303" ishidden="1" type="code">
+      <name />
+      <description />
+      <position>303</position>
+      <code><![CDATA[</integer>
+                            </value>
+                        </parameter>
+                    </methodParameters>
+                    
+                     ]]></code>
+      <dep>(nbAlternatives-use-file-dep:value="0") AND (alternativesNames-dep:value="0")</dep>
+
+    </parameter>
+    <parameter id="nbAlternatives-gui-EOF" ishidden="1" type="code">
+      <name>nbAlternatives EOF</name>
+      <description></description>
+      <position>304</position>
+      <code><![CDATA[</xmcda:XMCDA>%nEOF%n]]></code>
+      <dep>(nbAlternatives-use-file-dep:value="0") AND (alternativesNames-dep:value="0")</dep>
+
+    </parameter>
+
+    <parameter id="nbAlternatives-cmdline" ishidden="1" type="code">
+      <name>nbAlternatives insertion in cmd-line</name>
+      <description></description>
+      <position>100003</position>
+      <code> nbAlternatives:nbAlternatives.xml</code>
+      <dep>(alternativesNames-dep:value="0")</dep>
+    </parameter>
+
+
+
+
+
+    <parameter id="alternativesPrefix" ishidden="0" type="input">
+      <name>alternativesPrefix</name>
+      <description><![CDATA[Indicates the desired prefix for the name of the alternatives. If not provided, alternatives will be called a1, a2, ... If provided, alternatives will be called prefix1, prefix2, ... Note that it will only be used if you provide a number of alternatives.]]></description>
+      <position>100004</position>
+      <code/> 
+      <types>
+        <type>methodParameters</type>
+      </types>
+      <vdef>alternativesPrefix.xml</vdef>
+      <dep>(alternativesPrefix-dep:value="1") AND (alternativesPrefix-use-file-dep:value="1") AND (alternativesNames-dep:value="0")</dep>
+
+    </parameter>
+    <parameter id="alternativesPrefix-dep" ishidden="0" type="boolean">
+      <name>Use alternativesPrefix as input?</name>
+      <description>Use alternativesPrefix as input?</description>
+      <position>3004</position>
+      <code/>
+      <vdef>1</vdef>
+      <dep>(alternativesNames-dep:value="0")</dep>
+    </parameter>
+
+    <parameter id="alternativesPrefix-use-file-dep" ishidden="0" type="boolean">
+      <name>Supply alternativesPrefix as a file?</name>
+      <description>Supply alternativesPrefix as a file?</description>
+      <position>3004</position>
+      <code/>
+      <vdef>0</vdef>
+      <dep>(alternativesPrefix-dep:value="1") AND (alternativesNames-dep:value="0")</dep>
+
+    </parameter>
+    
+
+
+
+    <parameter id="alternativesPrefix-gui" ishidden="1" type="code">
+      <name>alternativesPrefix</name>
+      <description><![CDATA[Indicates the desired prefix for the name of the alternatives. If not provided, alternatives will be called a1, a2, ... If provided, alternatives will be called prefix1, prefix2, ... Note that it will only be used if you provide a number of alternatives.]]></description>
+      <position>400</position>
+      <code><![CDATA[#alternativesPrefix: alternativesPrefix.xml
+cat > alternativesPrefix.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="xmcdaKappalab.xsl"?>
+<xmcda:XMCDA xmlns:xmcda="http://www.decision-deck.org/2009/XMCDA-2.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.decision-deck.org/2009/XMCDA-2.0.0 http://www.decision-deck.org/xmcda/_downloads/XMCDA-2.0.0.xsd">]]></code>
+      <dep>(alternativesPrefix-dep:value="1") AND (alternativesPrefix-use-file-dep:value="0") AND (alternativesNames-dep:value="0")</dep>
+
+    </parameter>
+
+
+    <parameter id="alternativesPrefix-gui-401" ishidden="1" type="code">
+      <name />
+      <description />
+      <position>401</position>
+      <code><![CDATA[
+                            
+                    <methodParameters>
+                        <parameter
+                             name="alternativesPrefix"><!-- REQUIRED  -->
+                            <value>
+                                <label>]]></code>
+      <dep>(alternativesPrefix-dep:value="1") AND (alternativesPrefix-use-file-dep:value="0") AND (alternativesNames-dep:value="0")</dep>
+
+    </parameter>
+
+
+    <parameter id="alternativesPrefix-gui-402" ishidden="0" type="string">
+      <name>alternativesPrefix</name>
+      <indent>1</indent>
+      <description>TODO</description>
+      <position>402</position>
+
+      <code>%s</code>
+      <vdef>a</vdef>
+      <dep>(alternativesPrefix-dep:value="1") AND (alternativesPrefix-use-file-dep:value="0") AND (alternativesNames-dep:value="0")</dep>
+
+    </parameter>
+
+
+    <parameter id="alternativesPrefix-gui-403" ishidden="1" type="code">
+      <name />
+      <description />
+      <position>403</position>
+      <code><![CDATA[</label>
+                            </value>
+                        </parameter>
+                    </methodParameters>
+                    
+                     ]]></code>
+      <dep>(alternativesPrefix-dep:value="1") AND (alternativesPrefix-use-file-dep:value="0") AND (alternativesNames-dep:value="0")</dep>
+
+    </parameter>
+    <parameter id="alternativesPrefix-gui-EOF" ishidden="1" type="code">
+      <name>alternativesPrefix EOF</name>
+      <description></description>
+      <position>404</position>
+      <code><![CDATA[</xmcda:XMCDA>%nEOF%n]]></code>
+      <dep>(alternativesPrefix-dep:value="1") AND (alternativesPrefix-use-file-dep:value="0") AND (alternativesNames-dep:value="0")</dep>
+
+    </parameter>
+
+    <parameter id="alternativesPrefix-cmdline" ishidden="1" type="code">
+      <name>alternativesPrefix insertion in cmd-line</name>
+      <description></description>
+      <position>100004</position>
+      <code> alternativesPrefix:alternativesPrefix.xml</code>
+      <dep>(alternativesPrefix-dep:value="1") AND (alternativesNames-dep:value="0")</dep>
+
+    </parameter>
+
 
 
 
 
     <parameter id="messages" ishidden="0" type="output">
       <name>messages</name>
-      <description><![CDATA[A list of messages generated by the
-                                   algorithm.]]></description>
+      <description><![CDATA[A list of messages generated by the algorithm.]]></description>
       <position>2006</position>
       <code/>
       <types>
