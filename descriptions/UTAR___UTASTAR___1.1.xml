@@ -3,8 +3,8 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2010-09-27 09:15:22 +0000">
-  <program provider="UTAR" name="UTASTAR" version="1.0" />
+<program_description export_date="2010-11-22 11:31:17 +0000">
+  <program provider="UTAR" name="UTASTAR" version="1.1" />
   <from desc_id="S8888" />
   <description><![CDATA[Computes UTASTAR method and if necessary uses post-optimality analysis among three well-known post-optimality methods]]></description>
   <parameters>
