@@ -482,8 +482,6 @@
 			<xsl:when test="@id"><div class="classSubTitle"><xsl:value-of select="@id"/></div></xsl:when>
 		</xsl:choose>
 		
-		<xsl:apply-templates select="description"/>
-		
 		<xsl:variable name="listCrit" select="alternativePerformances/performance/criterionID[not(.=following::criterionID)]"/>
 		
 		<table cellspacing='1'>
@@ -1136,7 +1134,7 @@
 
 <xsl:template match="categoryProfile">
 	<li>
-		Category profile id : <xsl:value-of select="@id"/><br/>
+		Category profile id : <xsl:value-of select="./alternativeID"/><br/>
 		<xsl:apply-templates select="description"/>
 		<xsl:choose>
 			<xsl:when test="central">central profile on category <xsl:value-of select="central/categoryID"/></xsl:when>

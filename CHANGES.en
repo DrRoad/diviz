@@ -1,3 +1,40 @@
+diviz v1.5
+----------
+
+- The way results are organized has changed.  The files produced by every
+  program are now put in a dedicated directory, one per program.  Moreover,
+  output files are not renamed to cryptic names anymore: the original file
+  names are kept (e.g.: 'alternatives.xml').  This makes it possible to open
+  them with the right default viewer.
+
+  diviz is of course still compatible with the former results.
+
+- The contextual menu associated to the results' panel now puts the input
+  files in a dedicated sub-menu ('Input files').
+
+  Reminder: this popup menu is shown when right-clicking on the results' tab
+  bar.
+
+- Added 2 new XMCDA web-services recently added to the set of XMCDA
+  webservices by Patrick Meyer:
+
+    - alternativesRankingViaQualificationDistillation
+    - computeAlternativesQualification
+
+  (in package RXMCDA)
+
+- PyXMCDA randomAlternatives: it is no longer possible to select parameters
+  'nbAlternatives' and 'alternativesNames' simultaneously (this is only a
+  matter of graphical interface: in the service, the second parameter
+  superseeds the first one).
+
+- Minor bugs fixed in the XSL used to display resullts, thanks to Thomas
+  Veneziano.
+
+- Bug fix: a deleted workflow was not correctly unregistered.  After deleting
+  a workflow, it was still being displayed in the list of workflows that could
+  be opened, until diviz was restarted.
+
 diviz v1.4.1
 ------------
 

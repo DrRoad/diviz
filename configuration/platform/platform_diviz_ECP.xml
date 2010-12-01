@@ -48,6 +48,8 @@ set callXMCDAService="genericXMCDAService.py -U http://localhost/soap/%s.py -n "
       <program id="RXMCDA___randomNormalizedPerformanceTable___1.0" />
       <program id="RXMCDA___invertAlternativesRanks___1.0" />
       <program id="RXMCDA___plotGaiaPlane___1.0" />
+      <program id="RXMCDA___alternativesRankingViaQualificationDistillation___1.0" />
+      <program id="RXMCDA___computeAlternativesQualification___1.0" />
 
       <program id="PyXMCDA___weightedSum___1.0"/>
       <program id="PyXMCDA___RubisConcordanceRelation___1.0"/>
@@ -57,8 +59,8 @@ set callXMCDAService="genericXMCDAService.py -U http://localhost/soap/%s.py -n "
       <program id="PyXMCDA___randomPerformanceTable___1.0"/>
 
       <program id="jsmaa___smaa2___0.2"/>
-      <program id="UTAR___ACUTA___1.0"/>
-      <program id="UTAR___UTASTAR___1.0"/>
+      <program id="UTAR___ACUTA___1.1"/>
+      <program id="UTAR___UTASTAR___1.1"/>
       <program id="UTAR___computeNormalisedPerformanceTable___1.0" />
       <program id="UTAR___generalWeightedSum___1.0"/>
       <program id="UTAR___plotValueFunctions___1.0" />
