@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
+
+<program_description export_date="2009-08-15 18:30" modification_date="2009-08-15 18:30">
+  <program provider="test" name="generic" version="1.0" />
+  <from desc_id="S9999" />
+  <description>A generic box allowing to execute commands and custom scripts
+  - The input file is named 'infile'.
+  - An output file should be written, named 'outfile'.
+  - The script, if used, will be written in a file named 'script' before the command-line is executed.
+  
+Example: a program reading the infile in python and numbering the lines
+  
+cmdline: 'python script infile outfile' (without the quotes)
+Use a script: Yes
+Script (until "# end"):
+import sys
+print "argv: ", sys.argv
+# here, sys.argv[0] is 'script'
+input=sys.argv[1]
+output=sys.argv[2]
+
+idx=0
+output=open(output, 'w')
+for line in open(input):
+  output.write("%i: %s"%(idx, line))
+  idx += 1
+
+output.close()
+# end
+
+Remarks:
+- the cmdline launches python on the script file:
+- the script reads its arguments from the command-line; another solution would be to hard-code the name "infile" and "outfile" in the script itself.
+</description>
+  <parameters>
+    <parameter id="generic_cmd" type="string">
+      <name>cmdline</name>
+      <description>Command-line</description>
+      <position>1</position>
+      <code>%s</code>
+      <vdef />
+    </parameter>
+    <parameter id="infile" ishidden="0" type="input">
+      <name>infile </name>
+      <description>Input data file</description>
+      <position>200</position>
+      <code />
+      <types>
+        <type>all</type>
+      </types>
+      <vdef>infile</vdef>
+    </parameter>
+    <parameter id="outfile" ishidden="0" type="output">
+      <name>outfile</name>
+      <description>Output data file</description>
+      <position>300</position>
+      <code />
+      <types>
+        <type>all</type>
+      </types>
+      <vdef>outfile</vdef>
+    </parameter>
+    <parameter id="provide_script" ishidden="0" type="boolean">
+      <name>Use a script? </name>
+      <indent>0</indent>
+      <description> Produce second output? </description>
+      <position>0</position>
+      <code />
+      <vdef>0</vdef>
+      <dep/>
+    </parameter>
+    <parameter id="script" ishidden="0" type="text">
+      <name>Script (put in file named: 'script')</name>
+      <indent>0</indent>
+      <description>The script to execute</description>
+      <position>0</position>
+      <code><![CDATA[cat >script<<EOF%n%s%nEOF%n]]></code>
+      <vdef></vdef>
+      <dep>(provide_script:value="1")</dep>
+    </parameter>
+  </parameters>
+</program_description>
+
