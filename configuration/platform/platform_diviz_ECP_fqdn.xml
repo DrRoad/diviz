@@ -16,7 +16,6 @@ set callXMCDAService="genericXMCDAService.py -U http://webservices.decision-deck
 </item>
     </configuration>
     <programs>
-      <program id="test___generic___1.0"/>
       <program id="kappalab___capacityEntropy___1.0"/>
       <program id="kappalab___capacityFavor___1.0"/>
       <program id="kappalab___capacityInteraction___1.0"/>
