@@ -20,8 +20,8 @@
 <resourcesTree version="4">
 		
 	<type name="Generic" collapsed="0">
-		<resource name="test___generic___1.0"/>
-		<resource name="test___prg_generic___1.0"/>
+		<resource name="local___generic___1.0"/>
+		<resource name="local___prg_generic___1.0"/>
 	</type>
 	<type name="Calculation components" collapsed="0">
 		<type name="Capacity analysis" collapsed="0">

@@ -2,7 +2,7 @@
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
 <program_description export_date="2009-08-15 18:30" modification_date="2009-08-15 18:30">
-  <program provider="test" name="prg_generic" version="1.0" />
+  <program provider="local" name="prg_generic" version="1.0" />
   <from desc_id="S9999" />
   <description>A generic box allowing to execute commands and custom scripts
   - One to five input files, named 'infile1.xml', 'infile2.xml' etc.
