@@ -17,7 +17,7 @@
         icon CDATA #IMPLIED
     >
 ]>
-<resourcesTree version="4">
+<resourcesTree version="5">
 		
 	<type name="Calculation components" collapsed="0">
 		<type name="Capacity analysis" collapsed="0">
@@ -82,13 +82,13 @@
 			<resource name="RXMCDA___invertAlternativesRanks___1.0" />
 		</type>
 		<type name="Criteria computations" collapsed="0">
-			<resource name="PyXMCDA___randomCriteria___1.0"/>
+			<resource name="PyXMCDA___randomCriteria___1.1"/>
 			<resource name="RXMCDA___randomCriteriaWeights___1.0" />
 		</type>
 		<type name="Performance table computations" collapsed="0">
 			<resource name="UTAR___computeNormalisedPerformanceTable___1.0"/>
 			<resource name="RXMCDA___randomNormalizedPerformanceTable___1.0" />
-			<resource name="PyXMCDA___randomPerformanceTable___1.0"/>
+			<resource name="PyXMCDA___randomPerformanceTable___1.1"/>
 		</type>
 	</type>
 
