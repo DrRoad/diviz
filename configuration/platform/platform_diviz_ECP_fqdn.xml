@@ -75,6 +75,9 @@ set callXMCDAService="genericXMCDAService.py -U http://webservices.decision-deck
       <program id="J-MCDA___PrometheeProfiles___0.2"/>
       <program id="J-MCDA___ElectreTriExploitation___0.2"/>
 
+      <!-- URV -->
+      <program id="URV___OWA___1.0"/>
+
 <!-- This program requires cplex, which is not installed at ecp for the moment being -->
 <!--  <program id="PyXMCDA___weightsFromCondorcetAndPreferences___1.0"/>
 -->
