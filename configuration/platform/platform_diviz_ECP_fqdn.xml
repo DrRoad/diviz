@@ -58,6 +58,7 @@ set callXMCDAService="genericXMCDAService.py -U http://webservices.decision-deck
       <program id="PyXMCDA___randomAlternatives___1.0"/>
       <program id="PyXMCDA___randomCriteria___1.1"/>
       <program id="PyXMCDA___randomPerformanceTable___1.1"/>
+      <program id="PyXMCDA___ElectreTriBMInference___1.0"/>
       
       <program id="jsmaa___smaa2___0.2"/>
       <program id="UTAR___ACUTA___1.1"/>
