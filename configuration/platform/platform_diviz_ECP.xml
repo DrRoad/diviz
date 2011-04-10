@@ -55,8 +55,8 @@ set callXMCDAService="genericXMCDAService.py -U http://localhost/soap/%s.py -n "
       <program id="PyXMCDA___RubisConcordanceRelation___1.0"/>
       <program id="PyXMCDA___CondorcetRobustnessRelation___1.0"/>
       <program id="PyXMCDA___randomAlternatives___1.0"/>
-      <program id="PyXMCDA___randomCriteria___1.0"/>
-      <program id="PyXMCDA___randomPerformanceTable___1.0"/>
+      <program id="PyXMCDA___randomCriteria___1.1"/>
+      <program id="PyXMCDA___randomPerformanceTable___1.1"/>
 
       <program id="jsmaa___smaa2___0.2"/>
       <program id="UTAR___ACUTA___1.1"/>
