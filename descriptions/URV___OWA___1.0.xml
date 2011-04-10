@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+
+<!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
+
+<program_description export_date="2011-03-30 12:17:47 +0000">
+  <program provider="URV" name="OWA" version="1.0" />
+  <from desc_id="S8888" />
+  <description><![CDATA[The Ordered Weighted Averaging operators, commonly called OWA operators, provide a parameterized class of mean type aggregation operators. 
+OWA was defined by R.R. Yager in 1988. Here we provide an implementation of the OWA operator. 
+The main characteristic of this aggregation operator is the fact that the weights are associated to the values instead to criteria.
+In this way, we can define different aggregation policies according to the importance that we associate to high and low performance scores.
+]]></description>
+  <parameters>
+    <parameter id="OWA-cmdline" type="command" ismandatory="1">
+      <name>OWA Method</name>
+      <description></description>
+      <position>100000</position>
+      <code>$callXMCDAService OWA-URV -S </code>
+    </parameter>
+
+
+    <parameter id="input0" ishidden="0" type="input">
+      <name>alternatives</name>
+      <description><![CDATA[A list of alternatives. Alternatives can be activated or desactivated via the <active> tag (true or false). 
+By default (no <active> tag), alternatives are considered as active.]]></description>
+      <position>100003</position>
+      <code> alternatives:alternatives.xml</code>
+      <types>
+        <type>alternatives</type>
+      </types>
+      <vdef>alternatives.xml</vdef>
+      <dep/>
+    </parameter>
+
+
+
+    <parameter id="input1" ishidden="0" type="input">
+      <name>criteria</name>
+      <description><![CDATA[A list of criteria. Criteria are always active. ]]></description>
+      <position>100004</position>
+      <code> criteria:criteria.xml</code>
+      <types>
+        <type>criteria</type>
+      </types>
+      <vdef>criteria.xml</vdef>
+      <dep/>
+    </parameter>
+
+
+
+    <parameter id="input2" ishidden="0" type="input">
+      <name>weights</name>
+      <description><![CDATA[The weights are associated to the values of the alteranatives. Assuming that the values
+on the alternative will be sorted from the best to the worst (e.g. 7, 5, 5, 3, 1), the list of weights must be ordered
+according to the importance that is given to the values, from the highest to the lowest. 
+For example a list of weights as (0.5, 0.5, 0, 0, 0) is ignoring the 3 lowest values, and making an average of the
+two highest ones. A list like (0, 0, 1, 0 ,0 ) is calculating the median, while (0, 0, 0, 0, 1) is taking the minimum.
+Notice that the sum of weights is required to be 1.
+]]></description>
+      <position>100005</position>
+      <code> weights:weights.xml</code>
+      <types>
+        <type>alternativesValues</type>
+      </types>
+      <vdef>weights.xml</vdef>
+      <dep/>
+    </parameter>
+
+
+
+    <parameter id="input3" ishidden="0" type="input">
+      <name>performances</name>
+      <description><![CDATA[The performance table will contain only numerical values, all in the same scale of measurement.]]></description>
+      <position>100006</position>
+      <code> performances:performances.xml</code>
+      <types>
+        <type>performanceTable</type>
+      </types>
+      <vdef>performances.xml</vdef>
+      <dep/>
+    </parameter>
+
+
+
+
+    <parameter id="output0" ishidden="0" type="output">
+      <name>alternativesValues</name>
+      <description><![CDATA[Result obtained from the OWA aggregation on each alternative.]]></description>
+      <position>2007</position>
+      <code/>
+      <types>
+        <type>alternativesValues</type>
+      </types>
+      <vdef>alternativesValues.xml</vdef>
+    </parameter>
+
+
+
+
+
+    <parameter id="output1" ishidden="0" type="output">
+      <name>messages</name>
+      <description><![CDATA[A status message.]]></description>
+      <position>2008</position>
+      <code/>
+      <types>
+        <type>methodMessages</type>
+      </types>
+      <vdef>messages.xml</vdef>
+    </parameter>
+
+
+
+    <parameter id="TIMEOUT" ishidden="0" type="int">
+      <name>Timeout? (0 for no timeout)</name>
+      <description>timeout</description>
+      <position>100001</position>
+      <code>-t %s </code>
+      <constraint>
+        <description>value should be a positive or null integer</description>
+        <code>(%d &gt;= 0)</code>
+      </constraint>
+      <vdef>60</vdef>
+    </parameter>
+    
+    <parameter id="VERBOSE" ishidden="0" type="enum">
+      <name>Verbose mode</name>
+      <description></description>
+      <position>100002</position>
+      <vlist>
+        <item id="T1">
+          <description>None</description>
+          <code></code>
+        </item>
+        <item id="T2">
+          <description>Moderately verbose</description>
+          <code> -v</code>
+        </item>
+        <item id="T3">
+          <description>Very verbose</description>
+          <code> -vv</code>
+        </item>
+        <item id="T4">
+          <description>Extremely verbose (include SOAP msgs)</description>
+          <code> -vvv</code>
+        </item>
+      </vlist>
+      <vdef>T2</vdef>
+    </parameter>
+
+  </parameters>
+</program_description>

@@ -39,6 +39,7 @@
 		
 		<type name="Aggregation" collapsed="0">
 			<resource name="kappalab___choquetIntegral___1.0"/>
+                        <resource name="URV___OWA___1.0"/>
 			<type name="Weighted Sum" collapsed="0">
 				<resource name="PyXMCDA___weightedSum___1.0"/>
 				<resource name="UTAR___generalWeightedSum___1.0"/>
