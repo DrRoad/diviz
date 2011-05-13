@@ -1,3 +1,6 @@
+- Services mis à jour:
+  PyXMCDA: randomCriteria v1.1, randomPerformanceTable v1.1 par Thomas Veneziano (seed)
+
 diviz v1.5
 ----------
 
