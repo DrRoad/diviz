@@ -3,7 +3,7 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2011-03-30 12:17:47 +0000">
+<program_description export_date="2011-05-16 07:15:11 +0000">
   <program provider="URV" name="OWA" version="1.0" />
   <from desc_id="S8888" />
   <description><![CDATA[The Ordered Weighted Averaging operators, commonly called OWA operators, provide a parameterized class of mean type aggregation operators. 
@@ -13,7 +13,7 @@ In this way, we can define different aggregation policies according to the impor
 ]]></description>
   <parameters>
     <parameter id="OWA-cmdline" type="command" ismandatory="1">
-      <name>OWA Method</name>
+      <name>OWA</name>
       <description></description>
       <position>100000</position>
       <code>$callXMCDAService OWA-URV -S </code>
@@ -70,14 +70,14 @@ Notice that the sum of weights is required to be 1.
 
 
     <parameter id="input3" ishidden="0" type="input">
-      <name>performances</name>
+      <name>performanceTable</name>
       <description><![CDATA[The performance table will contain only numerical values, all in the same scale of measurement.]]></description>
       <position>100006</position>
-      <code> performances:performances.xml</code>
+      <code> performanceTable:performanceTable.xml</code>
       <types>
         <type>performanceTable</type>
       </types>
-      <vdef>performances.xml</vdef>
+      <vdef>performanceTable.xml</vdef>
       <dep/>
     </parameter>
 
