@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE platform PUBLIC "-//Telecom Bretagne/DTD XML Praxis Platform 1.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/platform.dtd">
+
+<platform type="shell">
+    <configuration>
+	    <!-- script-init: adapt PATH if needed: setenv PATH /path/to/...:${PATH}: -->
+    	<item name="script-init">setenv PYTHONUNBUFFERED 1
+set callXMCDAService="genericXMCDAService.py -U http://localhost/cgi-bin/%s.py -n "
+</item>
+    </configuration>
+    <programs>
+      <program id="kappalab___capacityEntropy___1.0"/>
+      <program id="kappalab___capacityFavor___1.0"/>
+      <program id="kappalab___capacityInteraction___1.0"/>
+      <program id="kappalab___capacityOrness___1.0"/>
+      <program id="kappalab___capacityShapley___1.0"/>
+      <program id="kappalab___capacityVariance___1.0"/>
+      <program id="kappalab___capacityVeto___1.0"/>
+      <program id="kappalab___choquetIntegral___1.0"/>
+      <program id="kappalab___leastSquaresCapaIdent___1.0"/>
+      <program id="kappalab___linProgCapaIdent___1.0"/>
+      <program id="kappalab___lsRankingCapaIdent___1.0"/>
+      <program id="kappalab___miniVarCapaIdent___1.0"/>
+      <!-- RXMCDA -->
+      <program id="RXMCDA___alternativesValuesKendall___1.0"/>
+      <program id="RXMCDA___generateXMCDAReport___1.0"/>
+      <program id="RXMCDA___plotAlternativesComparisons___1.0"/>
+      <program id="RXMCDA___plotAlternativesValuesPreorder___1.0"/>
+      <program id="RXMCDA___plotAlternativesValues___1.0"/>
+      <program id="RXMCDA___plotCriteriaComparisons___1.0"/>
+      <program id="RXMCDA___plotCriteriaValuesPreorder___1.0"/>
+      <program id="RXMCDA___plotCriteriaValues___1.0"/>
+      <program id="RXMCDA___plotNumericPerformanceTable___1.0"/>
+      <program id="RXMCDA___rankAlternativesValues___1.1"/>
+
+      <program id="RXMCDA___additiveValueFunctionsIdentification___1.1" />
+      <program id="RXMCDA___convertAlternativesRanksToAlternativesComparisons___1.0" />
+      <program id="RXMCDA___Promethee1Ranking___1.0" />
+      <program id="RXMCDA___randomAlternativesRanks___1.0" />
+      <program id="RXMCDA___randomCriteriaWeights___1.0" />
+      <program id="RXMCDA___randomNormalizedPerformanceTable___1.0" />
+      <program id="RXMCDA___invertAlternativesRanks___1.0" />
+      <program id="RXMCDA___plotGaiaPlane___1.0" />
+      <program id="RXMCDA___alternativesRankingViaQualificationDistillation___1.0" />
+      <program id="RXMCDA___computeAlternativesQualification___1.0" />
+
+      <program id="PyXMCDA___weightedSum___1.0"/>
+      <program id="PyXMCDA___RubisConcordanceRelation___1.0"/>
+      <program id="PyXMCDA___CondorcetRobustnessRelation___1.0"/>
+      <program id="PyXMCDA___randomAlternatives___1.0"/>
+      <program id="PyXMCDA___randomCriteria___1.1"/>
+      <program id="PyXMCDA___randomPerformanceTable___1.1"/>
+      <program id="PyXMCDA___ElectreTriBMInference___1.0"/>
+
+      <program id="jsmaa___smaa2___0.2"/>
+      <program id="UTAR___ACUTA___1.1"/>
+      <program id="UTAR___UTASTAR___1.1"/>
+      <program id="UTAR___computeNormalisedPerformanceTable___1.0" />
+      <program id="UTAR___generalWeightedSum___1.0"/>
+      <program id="UTAR___plotValueFunctions___1.0" />
+      <program id="UTAR___XYPlotAlternativesValues___1.0" />
+      <program id="J-MCDA___ElectreConcordance___0.2"/>
+      <program id="J-MCDA___ElectreDiscordances___0.2"/>
+      <program id="J-MCDA___ElectreOutranking___0.2"/>
+      <program id="J-MCDA___cutRelation___0.2"/>
+      <program id="J-MCDA___PrometheePreference___0.2"/>
+      <program id="J-MCDA___PrometheeFlows___0.2"/>
+      <program id="J-MCDA___PrometheeProfiles___0.2"/>
+      <program id="J-MCDA___ElectreTriExploitation___0.2"/>
+
+      <!-- URV -->
+      <program id="URV___OWA___1.0"/>
+
+<!-- This program requires cplex, which is not installed at TB for the moment being -->
+<!--  <program id="PyXMCDA___weightsFromCondorcetAndPreferences___1.0"/>
+-->
+<!-- These programs are old programs, some of which may be reactivated in the future (e.g. splitXMCDA) -->
+<!--  <program id="DecisionDeck___assembleXMCDA___1.0"/> 
+      <program id="DecisionDeck___splitXMCDA___1.0"/>
+      <program id="DecisionDeck___normalize___1.0"/>
+      <program id="DecisionDeck___kappalabComponent___1.0"/>
+      <program id="DecisionDeck___kappalabServer___1.0"/>
+      <program id="DecisionDeck___kappalab_O2I___1.0"/>
+      <program id="DecisionDeck___kappalab___1.0"/>
+-->
+    </programs>
+</platform>
+
