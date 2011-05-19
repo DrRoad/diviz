@@ -20,7 +20,7 @@
 <resourcesTree version="5">
 		
 	<type name="Generic" collapsed="0">
-		<resource name="local___generic___1.0"/>
+<!--		<resource name="local___generic___1.0"/>-->
 		<resource name="local___prg_generic___1.0"/>
 	</type>
 	<type name="Calculation components" collapsed="0">
