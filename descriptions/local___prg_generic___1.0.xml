@@ -66,7 +66,7 @@ for (line in lines)
 Note: instead of putting the whole script in the parameters' box, you can also pass it as a command-line argument.
 In this case, the command-line becomes (without the quotes):
 
-  'R --slave --vanilla --file=/path/to/script.R --args infile1.xml outfile2.xml'
+  'R --slave --vanilla --file=/path/to/script.R --args infile1.xml outfile1.xml'
 
 and the file /path/to/script.R contains the same script as above.
 Since there is no need to 'Use a script' anymore, this option should be unchecked.
