@@ -98,6 +98,10 @@
 		</type>
 	</type>
 
+	<type name="Sensitivity Analysis" collapsed="0">
+		<resource name="PyXMCDA___thresholdsSensitivityAnalysis___1.0.0"/>
+	</type>
+
 	<type name="Methods" collapsed="0">
 		<resource name="jsmaa___smaa2___0.2"/>
 	</type>
