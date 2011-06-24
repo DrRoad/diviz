@@ -3,7 +3,7 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2010-11-22 11:31:17 +0000">
+<program_description export_date="2011-06-24 07:49:27 +0000">
   <program provider="UTAR" name="UTASTAR" version="1.1" />
   <from desc_id="S8888" />
   <description><![CDATA[Computes UTASTAR method and if necessary uses post-optimality analysis among three well-known post-optimality methods]]></description>
@@ -19,7 +19,7 @@
     <parameter id="method" ishidden="0" type="input">
       <name>method</name>
       <description><![CDATA[
-					Post-optimality method
+					Post-optimality method : if required, please choose between "ac" (analytic center), "mv" (mean value, geometric center), and "md" (utamp, delta maximization).
 				]]></description>
       <position>100003</position>
       <code/> 
@@ -54,7 +54,7 @@
     <parameter id="method-gui" ishidden="1" type="code">
       <name>method</name>
       <description><![CDATA[
-					Post-optimality method
+					Post-optimality method : if required, please choose between "ac" (analytic center), "mv" (mean value, geometric center), and "md" (utamp, delta maximization).
 				]]></description>
       <position>300</position>
       <code><![CDATA[#method: method.xml
@@ -164,7 +164,7 @@ cat > method.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
     <parameter id="altRank" ishidden="0" type="input">
       <name>alternativesRank</name>
       <description><![CDATA[
-					Subset of alternatives and the related ranking, in order to compute the method. The subset must be included in the global set of alternatives.
+					Ranking (preorder) of alternatives, corresponding to pariwize preference and indifference statements 
 				]]></description>
       <position>100005</position>
       <code> alternativesRanking:alternativesRanking.xml</code>
@@ -187,7 +187,7 @@ cat > method.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 
     <parameter id="alternativesPreferences" ishidden="0" type="input">
       <name>alternativesPreferences</name>
-      <description><![CDATA[Partial order on a subset of alternatives, representing the strict preference, in order to compute the method. The subset must be included in the global set of alternatives.]]></description>
+      <description><![CDATA[Asymmetric part of the preference relation, representing strict preference statements, under the form of paiwise comparisons of alternatives.]]></description>
       <position>100006</position>
       <code> alternativesPreferences:alternativesPreferences.xml</code>
       <types>
@@ -209,7 +209,7 @@ cat > method.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 
     <parameter id="alternativesIndifferences" ishidden="0" type="input">
       <name>alternativesIndifferences</name>
-      <description><![CDATA[Partial order on a subset of alternatives, representing the indifference, in order to compute the method. The subset must be included in the global set of alternatives.]]></description>
+      <description><![CDATA[Symmetric part of the preference relation, representing indifference statements, under the form of paiwise comparisons of alternatives.]]></description>
       <position>100007</position>
       <code> alternativesIndifferences:alternativesIndifferences.xml</code>
       <types>
@@ -264,7 +264,7 @@ cat > method.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
     <parameter id="prefDir" ishidden="0" type="input">
       <name>preferenceDirections</name>
       <description><![CDATA[
-					Optional information about preference directions of some criteria. If not specified : the algorithm will take care of it.
+					Optimization direction for the selected criteria (min or max).
 				]]></description>
       <position>100010</position>
       <code> preferencesDirections:preferencesDirections.xml</code>
@@ -272,15 +272,7 @@ cat > method.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
         <type>criteriaValues</type>
       </types>
       <vdef>preferencesDirections.xml</vdef>
-      <dep>(prefDir-dep:value="1")</dep>
-
-    </parameter>
-    <parameter id="prefDir-dep" ishidden="0" type="boolean">
-      <name>Use preferenceDirections as input?</name>
-      <description>Use preferenceDirections as input?</description>
-      <position>3010</position>
-      <code/>
-      <vdef>1</vdef>
+      <dep/>
     </parameter>
 
 
@@ -288,7 +280,7 @@ cat > method.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
     <parameter id="critSeg" ishidden="0" type="input">
       <name>criteriaSegments</name>
       <description><![CDATA[
-					Information about preference discretization of some criteria. If not specified : the algorithm will take care of it.
+					Number of segments in each value function to be constructed by UTA.
 				]]></description>
       <position>100011</position>
       <code> segments:segments.xml</code>
@@ -296,15 +288,7 @@ cat > method.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
         <type>criteriaValues</type>
       </types>
       <vdef>segments.xml</vdef>
-      <dep>(critSeg-dep:value="1")</dep>
-
-    </parameter>
-    <parameter id="critSeg-dep" ishidden="0" type="boolean">
-      <name>Use criteriaSegments as input?</name>
-      <description>Use criteriaSegments as input?</description>
-      <position>3011</position>
-      <code/>
-      <vdef>1</vdef>
+      <dep/>
     </parameter>
 
 
@@ -313,7 +297,7 @@ cat > method.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
     <parameter id="valueFunctions" ishidden="0" type="output">
       <name>valueFunctions</name>
       <description><![CDATA[
-					Main solution : value functions of the selected criteria, using UTA method.
+					Constructed value functions for the selected criteria and the provided rankings, using ACUTA method.
 				]]></description>
       <position>2012</position>
       <code/>
