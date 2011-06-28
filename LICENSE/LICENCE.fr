@@ -1,4 +1,4 @@
-Copyright Institut Télécom-Télécom Bretagne, 2010
+Copyright Institut Télécom-Télécom Bretagne, 2010-2011
 
 Contributeurs:
   Sébastien Bigaret <sebastien.bigaret@telecom-bretagne.eu>
