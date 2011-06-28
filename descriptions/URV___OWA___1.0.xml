@@ -3,22 +3,27 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2010-06-21 11:41:59 +0000">
-  <program provider="J-MCDA" name="PrometheePreference" version="0.2" />
+<program_description export_date="2011-05-16 07:15:11 +0000">
+  <program provider="URV" name="OWA" version="1.0" />
   <from desc_id="S8888" />
-  <description><![CDATA[Computes a preference relation, a la Promethee.]]></description>
+  <description><![CDATA[The Ordered Weighted Averaging operators, commonly called OWA operators, provide a parameterized class of mean type aggregation operators. 
+OWA was defined by R.R. Yager in 1988. Here we provide an implementation of the OWA operator. 
+The main characteristic of this aggregation operator is the fact that the weights are associated to the values instead to criteria.
+In this way, we can define different aggregation policies according to the importance that we associate to high and low performance scores.
+]]></description>
   <parameters>
-    <parameter id="PrometheePreference-cmdline" type="command" ismandatory="1">
-      <name>PrometheePreference</name>
+    <parameter id="OWA-cmdline" type="command" ismandatory="1">
+      <name>OWA</name>
       <description></description>
       <position>100000</position>
-      <code>$callXMCDAService PrometheePreference-J-MCDA -S </code>
+      <code>$callXMCDAService OWA-URV -S </code>
     </parameter>
 
 
     <parameter id="input0" ishidden="0" type="input">
       <name>alternatives</name>
-      <description><![CDATA[The alternatives to consider.]]></description>
+      <description><![CDATA[A list of alternatives. Alternatives can be activated or desactivated via the <active> tag (true or false). 
+By default (no <active> tag), alternatives are considered as active.]]></description>
       <position>100003</position>
       <code> alternatives:alternatives.xml</code>
       <types>
@@ -32,7 +37,7 @@
 
     <parameter id="input1" ishidden="0" type="input">
       <name>criteria</name>
-      <description><![CDATA[The criteria to consider.]]></description>
+      <description><![CDATA[A list of criteria. Criteria are always active. ]]></description>
       <position>100004</position>
       <code> criteria:criteria.xml</code>
       <types>
@@ -46,11 +51,17 @@
 
     <parameter id="input2" ishidden="0" type="input">
       <name>weights</name>
-      <description><![CDATA[The weights of the criteria to consider.]]></description>
+      <description><![CDATA[The weights are associated to the values of the alteranatives. Assuming that the values
+on the alternative will be sorted from the best to the worst (e.g. 7, 5, 5, 3, 1), the list of weights must be ordered
+according to the importance that is given to the values, from the highest to the lowest. 
+For example a list of weights as (0.5, 0.5, 0, 0, 0) is ignoring the 3 lowest values, and making an average of the
+two highest ones. A list like (0, 0, 1, 0 ,0 ) is calculating the median, while (0, 0, 0, 0, 1) is taking the minimum.
+Notice that the sum of weights is required to be 1.
+]]></description>
       <position>100005</position>
       <code> weights:weights.xml</code>
       <types>
-        <type>criteriaValues</type>
+        <type>alternativesValues</type>
       </types>
       <vdef>weights.xml</vdef>
       <dep/>
@@ -59,14 +70,14 @@
 
 
     <parameter id="input3" ishidden="0" type="input">
-      <name>performances</name>
-      <description><![CDATA[The performances of the alternatives on the criteria to consider.]]></description>
+      <name>performanceTable</name>
+      <description><![CDATA[The performance table will contain only numerical values, all in the same scale of measurement.]]></description>
       <position>100006</position>
-      <code> performances:performances.xml</code>
+      <code> performanceTable:performanceTable.xml</code>
       <types>
         <type>performanceTable</type>
       </types>
-      <vdef>performances.xml</vdef>
+      <vdef>performanceTable.xml</vdef>
       <dep/>
     </parameter>
 
@@ -74,14 +85,14 @@
 
 
     <parameter id="output0" ishidden="0" type="output">
-      <name>preference</name>
-      <description><![CDATA[The preference relation computed from the given input data.]]></description>
+      <name>alternativesValues</name>
+      <description><![CDATA[Result obtained from the OWA aggregation on each alternative.]]></description>
       <position>2007</position>
       <code/>
       <types>
-        <type>alternativesComparisons</type>
+        <type>alternativesValues</type>
       </types>
-      <vdef>preference.xml</vdef>
+      <vdef>alternativesValues.xml</vdef>
     </parameter>
 
 

@@ -55,11 +55,12 @@ set callXMCDAService="genericXMCDAService.py -U http://localhost/soap/%s.py -n "
       <program id="PyXMCDA___RubisConcordanceRelation___1.0"/>
       <program id="PyXMCDA___CondorcetRobustnessRelation___1.0"/>
       <program id="PyXMCDA___randomAlternatives___1.0"/>
-      <program id="PyXMCDA___randomCriteria___1.0"/>
-      <program id="PyXMCDA___randomPerformanceTable___1.0"/>
+      <program id="PyXMCDA___randomCriteria___1.1"/>
+      <program id="PyXMCDA___randomPerformanceTable___1.1"/>
+      <program id="PyXMCDA___ElectreTriBMInference___1.0"/>
 
       <program id="jsmaa___smaa2___0.2"/>
-      <program id="UTAR___ACUTA___1.1"/>
+      <program id="UTAR___ACUTA___2.0"/>
       <program id="UTAR___UTASTAR___1.1"/>
       <program id="UTAR___computeNormalisedPerformanceTable___1.0" />
       <program id="UTAR___generalWeightedSum___1.0"/>
@@ -73,6 +74,9 @@ set callXMCDAService="genericXMCDAService.py -U http://localhost/soap/%s.py -n "
       <program id="J-MCDA___PrometheeFlows___0.2"/>
       <program id="J-MCDA___PrometheeProfiles___0.2"/>
       <program id="J-MCDA___ElectreTriExploitation___0.2"/>
+
+      <!-- URV -->
+      <program id="URV___OWA___1.0"/>
 
 <!-- This program requires cplex, which is not installed at ecp for the moment being -->
 <!--  <program id="PyXMCDA___weightsFromCondorcetAndPreferences___1.0"/>

@@ -17,8 +17,12 @@
         icon CDATA #IMPLIED
     >
 ]>
-<resourcesTree version="4">
+<resourcesTree version="6">
 		
+	<type name="Generic" collapsed="0">
+<!--		<resource name="local___generic___1.0"/>-->
+		<resource name="local___prg_generic___1.0"/>
+	</type>
 	<type name="Calculation components" collapsed="0">
 		<type name="Capacity analysis" collapsed="0">
 			<resource name="kappalab___capacityEntropy___1.0"/>
@@ -39,6 +43,7 @@
 		
 		<type name="Aggregation" collapsed="0">
 			<resource name="kappalab___choquetIntegral___1.0"/>
+                        <resource name="URV___OWA___1.0"/>
 			<type name="Weighted Sum" collapsed="0">
 				<resource name="PyXMCDA___weightedSum___1.0"/>
 				<resource name="UTAR___generalWeightedSum___1.0"/>
@@ -53,6 +58,7 @@
 			<resource name="J-MCDA___ElectreConcordance___0.2"/>
 			<resource name="J-MCDA___ElectreDiscordances___0.2"/>
 			<resource name="J-MCDA___ElectreOutranking___0.2"/>
+			<resource name="PyXMCDA___ElectreTriBMInference___1.0"/>
       		<resource name="J-MCDA___ElectreTriExploitation___0.2"/>
 			<resource name="CppXMCDA___IRIS-testInconsistency___1.0"/>
 			<resource name="CppXMCDA___IRIS___1.0"/>
@@ -65,7 +71,7 @@
 		</type>
 		
 		<type name="Disaggregation" collapsed="0">
-			<resource name="UTAR___ACUTA___1.1"/>
+			<resource name="UTAR___ACUTA___2.0"/>
 			<resource name="RXMCDA___additiveValueFunctionsIdentification___1.1" />
 			<resource name="UTAR___UTASTAR___1.1"/>
 			<resource name="PyXMCDA___weightsFromCondorcetAndPreferences___1.0"/>
@@ -82,14 +88,18 @@
 			<resource name="RXMCDA___invertAlternativesRanks___1.0" />
 		</type>
 		<type name="Criteria computations" collapsed="0">
-			<resource name="PyXMCDA___randomCriteria___1.0"/>
+			<resource name="PyXMCDA___randomCriteria___1.1"/>
 			<resource name="RXMCDA___randomCriteriaWeights___1.0" />
 		</type>
 		<type name="Performance table computations" collapsed="0">
 			<resource name="UTAR___computeNormalisedPerformanceTable___1.0"/>
 			<resource name="RXMCDA___randomNormalizedPerformanceTable___1.0" />
-			<resource name="PyXMCDA___randomPerformanceTable___1.0"/>
+			<resource name="PyXMCDA___randomPerformanceTable___1.1"/>
 		</type>
+	</type>
+
+	<type name="Sensitivity Analysis" collapsed="0">
+		<resource name="PyXMCDA___thresholdsSensitivityAnalysis___1.0.0"/>
 	</type>
 
 	<type name="Methods" collapsed="0">

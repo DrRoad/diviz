@@ -1,3 +1,60 @@
+diviz v1.6
+----------
+
+Please note!
+    In this version, it is NOT possible to continue the execution of a
+    workflow after diviz exits.  While this is an important issue, we
+    decided that it was worth releasing diviz with the new ability to
+    execute local scripts.  Of course, we are working on solving the
+    problem.
+
+    Should you really need to execute long jobs offline, please contact
+    us and we will provide an alternate version where this is possible
+    (but where execution of local programs is disabled).
+
+
+- It is now possible to execute local scripts and programs, using the
+  new program 'prg_generic'.
+
+  Tutorials can be found here:
+    http://www.diviz.org/tutorial.localProgram.html
+    http://www.diviz.org/tutorial.localRScript.html
+
+
+- New interactions in the results' views:
+
+  - items (programs, links and files) can be selected ; since links can
+    be selected, it makes it easier to see to which files or
+    prog. inputs/outputs a program is connected to.
+
+  - items in results (programs, links and files) can now be copied and
+    pasted in any workflows.
+
+    When pasting inputs that were copied from a result, the user is first
+    asked for a directory where the corresponding files should be copied into.
+
+  - Paste and delete actions are disabled.
+
+
+- Added new XMCDA web-services recently introduced into the set of
+  Decision Deck webservices:
+
+  - (PyXMCDA) ElectreTriBMInference by Olivier Sobrie
+  - (PyXMCDA) thresholdsSensitivityAnalysis by Thomas Veneziano
+  - (URV) OWA by Jordi Canals & Aida Valls
+
+
+- Services updated:
+
+  PyXMCDA: randomCriteria v1.1 and randomPerformanceTable v1.1
+           by Thomas Veneziano
+
+  UTAR: ACUTA v2.0 and UTASTAR v1.1 by Boris Leistedt
+
+
+- Execution views don't flicker anymore when updating the prgs' status
+
+
 diviz v1.5
 ----------
 

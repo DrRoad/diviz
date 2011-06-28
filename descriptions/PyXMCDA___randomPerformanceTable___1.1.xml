@@ -3,140 +3,23 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2011-03-30 13:32:39 +0000">
-  <program provider="RXMCDA" name="randomNormalizedPerformanceTable" version="1.0" />
+<program_description export_date="2011-03-31 13:24:27 +0000">
+  <program provider="PyXMCDA" name="randomPerformanceTable" version="1.1" />
   <from desc_id="S8888" />
-  <description><![CDATA[Generates a performance table with numeric values in the real unit interval, from a uniform distribution.]]></description>
+  <description><![CDATA[This web service allows to create a simple performance table by providing a list of alternatives and a list of criteria.]]></description>
   <parameters>
-    <parameter id="randomNormalizedPerformanceTable-cmdline" type="command" ismandatory="1">
-      <name>randomNormalizedPerformanceTable</name>
+    <parameter id="randomPerformanceTable-cmdline" type="command" ismandatory="1">
+      <name>randomPerformanceTable</name>
       <description></description>
       <position>100000</position>
-      <code>$callXMCDAService randomNormalizedPerformanceTable-RXMCDA -S </code>
+      <code>$callXMCDAService randomPerformanceTable-PyXMCDA -S </code>
     </parameter>
-
-
-    <parameter id="seed" ishidden="0" type="input">
-      <name>seed</name>
-      <description><![CDATA[The seed for the random numbers generator (integer).]]></description>
-      <position>100003</position>
-      <code/> 
-      <types>
-        <type>methodParameters</type>
-      </types>
-      <vdef>seed.xml</vdef>
-      <dep>(seed-dep:value="1") AND (seed-use-file-dep:value="1")</dep>
-
-    </parameter>
-    <parameter id="seed-dep" ishidden="0" type="boolean">
-      <name>Use seed as input?</name>
-      <description>Use seed as input?</description>
-      <position>3003</position>
-      <code/>
-      <vdef>0</vdef>
-    </parameter>
-
-    <parameter id="seed-use-file-dep" ishidden="0" type="boolean">
-      <name>Supply seed as a file?</name>
-      <description>Supply seed as a file?</description>
-      <position>3003</position>
-      <code/>
-      <vdef>0</vdef>
-      <dep>(seed-dep:value="1")</dep>
-
-    </parameter>
-    
-
-
-
-    <parameter id="seed-gui" ishidden="1" type="code">
-      <name>seed</name>
-      <description><![CDATA[The seed for the random numbers generator (integer).]]></description>
-      <position>300</position>
-      <code><![CDATA[#seed: seed.xml
-cat > seed.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="xmcdaKappalab.xsl"?>
-<xmcda:XMCDA xmlns:xmcda="http://www.decision-deck.org/2009/XMCDA-2.0.0"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.decision-deck.org/2009/XMCDA-2.0.0 http://www.decision-deck.org/xmcda/_downloads/XMCDA-2.0.0.xsd">]]></code>
-      <dep>(seed-dep:value="1") AND (seed-use-file-dep:value="0")</dep>
-
-    </parameter>
-
-
-    <parameter id="seed-gui-301" ishidden="1" type="code">
-      <name />
-      <description />
-      <position>301</position>
-      <code><![CDATA[
-                
-                    <methodParameters>
-                        <parameter
-                             name="seed"> <!-- REQUIRED  -->
-                            <value>
-                                <integer>]]></code>
-      <dep>(seed-dep:value="1") AND (seed-use-file-dep:value="0")</dep>
-
-    </parameter>
-
-
-    <parameter id="seed-gui-302" ishidden="0" type="int">
-      <name>seed</name>
-      <indent>1</indent>
-      <description>TODO</description>
-      <position>302</position>
-
-      <code>%s</code>
-
-      <constraint>
-        <description>An integer value.</description>
-        <code><![CDATA[%d > 0]]></code>   
-      </constraint>
-      <vdef>1</vdef>
-      <dep>(seed-dep:value="1") AND (seed-use-file-dep:value="0")</dep>
-
-    </parameter>
-
-
-    <parameter id="seed-gui-303" ishidden="1" type="code">
-      <name />
-      <description />
-      <position>303</position>
-      <code><![CDATA[</integer>
-                            </value>
-                        </parameter>
-                    </methodParameters>
-                    
-            ]]></code>
-      <dep>(seed-dep:value="1") AND (seed-use-file-dep:value="0")</dep>
-
-    </parameter>
-    <parameter id="seed-gui-EOF" ishidden="1" type="code">
-      <name>seed EOF</name>
-      <description></description>
-      <position>304</position>
-      <code><![CDATA[</xmcda:XMCDA>%nEOF%n]]></code>
-      <dep>(seed-dep:value="1") AND (seed-use-file-dep:value="0")</dep>
-
-    </parameter>
-
-    <parameter id="seed-cmdline" ishidden="1" type="code">
-      <name>seed insertion in cmd-line</name>
-      <description></description>
-      <position>100003</position>
-      <code> seed:seed.xml</code>
-      <dep>(seed-dep:value="1")</dep>
-
-    </parameter>
-
-
-
 
 
     <parameter id="criteria" ishidden="0" type="input">
       <name>criteria</name>
       <description><![CDATA[A list of criteria. Criteria can be activated or desactivated via the <active> tag (true or false). By default (no <active> tag), criteria are considered as active.]]></description>
-      <position>100004</position>
+      <position>100003</position>
       <code> criteria:criteria.xml</code>
       <types>
         <type>criteria</type>
@@ -149,8 +32,8 @@ cat > seed.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 
     <parameter id="alternatives" ishidden="0" type="input">
       <name>alternatives</name>
-      <description><![CDATA[A list of alternatives. Alternatives can be activated or desactivated via the <active> tag (true or false). By default (no <active> tag), alternatives are considered as active. ]]></description>
-      <position>100005</position>
+      <description><![CDATA[A list of alternatives. Alternatives can be activated or desactivated via the <active> tag (true or false). By default (no <active> tag), alternatives are considered as active.]]></description>
+      <position>100004</position>
       <code> alternatives:alternatives.xml</code>
       <types>
         <type>alternatives</type>
@@ -161,11 +44,150 @@ cat > seed.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 
 
 
+    <parameter id="seed" ishidden="0" type="input">
+      <name>seed</name>
+      <description><![CDATA[Allows to initialize the random generator with a precise seed.]]></description>
+      <position>100005</position>
+      <code/> 
+      <types>
+        <type>methodParameters</type>
+      </types>
+      <vdef>seed.xml</vdef>
+      <dep>(seed-dep:value="1") AND (seed-use-file-dep:value="1")</dep>
+
+    </parameter>
+    <parameter id="seed-dep" ishidden="0" type="boolean">
+      <name>Use seed as input?</name>
+      <description>Use seed as input?</description>
+      <position>3005</position>
+      <code/>
+      <vdef>0</vdef>
+    </parameter>
+
+    <parameter id="seed-use-file-dep" ishidden="0" type="boolean">
+      <name>Supply seed as a file?</name>
+      <description>Supply seed as a file?</description>
+      <position>3005</position>
+      <code/>
+      <vdef>1</vdef>
+      <dep>(seed-dep:value="1")</dep>
+
+    </parameter>
+    
+
+
+
+    <parameter id="seed-gui" ishidden="1" type="code">
+      <name>seed</name>
+      <description><![CDATA[Allows to initialize the random generator with a precise seed.]]></description>
+      <position>500</position>
+      <code><![CDATA[#seed: seed.xml
+cat > seed.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="xmcdaKappalab.xsl"?>
+<xmcda:XMCDA xmlns:xmcda="http://www.decision-deck.org/2009/XMCDA-2.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.decision-deck.org/2009/XMCDA-2.0.0 http://www.decision-deck.org/xmcda/_downloads/XMCDA-2.0.0.xsd">]]></code>
+      <dep>(seed-dep:value="1") AND (seed-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+
+    <parameter id="seed-gui-501" ishidden="1" type="code">
+      <name />
+      <description />
+      <position>501</position>
+      <code><![CDATA[
+                            
+                                   <methodParameters>
+                                          <parameter
+                                                 name="seed"> <!-- REQUIRED  -->
+                                                 <value>
+                                                        <integer>]]></code>
+      <dep>(seed-dep:value="1") AND (seed-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+
+    <parameter id="seed-gui-502" ishidden="0" type="int">
+      <name>seed</name>
+      <indent>1</indent>
+      <description>TODO</description>
+      <position>502</position>
+
+      <code>%s</code>
+
+      <constraint>
+        <description>The value should be a positive integer.</description>
+        <code><![CDATA[%d > 0]]></code>   
+      </constraint>
+      <vdef></vdef>
+      <dep>(seed-dep:value="1") AND (seed-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+
+    <parameter id="seed-gui-503" ishidden="1" type="code">
+      <name />
+      <description />
+      <position>503</position>
+      <code><![CDATA[</integer>
+                                                 </value>
+                                          </parameter>
+                                   </methodParameters>
+                            
+                     ]]></code>
+      <dep>(seed-dep:value="1") AND (seed-use-file-dep:value="0")</dep>
+
+    </parameter>
+    <parameter id="seed-gui-EOF" ishidden="1" type="code">
+      <name>seed EOF</name>
+      <description></description>
+      <position>504</position>
+      <code><![CDATA[</xmcda:XMCDA>%nEOF%n]]></code>
+      <dep>(seed-dep:value="1") AND (seed-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+    <parameter id="seed-cmdline" ishidden="1" type="code">
+      <name>seed insertion in cmd-line</name>
+      <description></description>
+      <position>100005</position>
+      <code> seed:seed.xml</code>
+      <dep>(seed-dep:value="1")</dep>
+
+    </parameter>
+
+
+
+
+
+    <parameter id="criteriaProfiles" ishidden="0" type="input">
+      <name>criteriaProfiles</name>
+      <description><![CDATA[A list of parameters allowing to compute non uniform random values for a given criterion. it allows to compute normal series, by providing the average and the standard deviation. It will be able to provide soon other kind of distribution.]]></description>
+      <position>100006</position>
+      <code> criteriaProfiles:criteriaProfiles.xml</code>
+      <types>
+        <type>methodParameters</type>
+      </types>
+      <vdef>criteriaProfiles.xml</vdef>
+      <dep>(criteriaProfiles-dep:value="1")</dep>
+
+    </parameter>
+    <parameter id="criteriaProfiles-dep" ishidden="0" type="boolean">
+      <name>Use criteriaProfiles as input?</name>
+      <description>Use criteriaProfiles as input?</description>
+      <position>3006</position>
+      <code/>
+      <vdef>1</vdef>
+    </parameter>
+
+
+
 
     <parameter id="messages" ishidden="0" type="output">
       <name>messages</name>
       <description><![CDATA[A list of messages generated by the algorithm.]]></description>
-      <position>2006</position>
+      <position>2007</position>
       <code/>
       <types>
         <type>methodMessages</type>
@@ -179,8 +201,8 @@ cat > seed.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 
     <parameter id="performanceTable" ishidden="0" type="output">
       <name>performanceTable</name>
-      <description><![CDATA[A performance table. The evaluations are random numeric values in the real unit interval.]]></description>
-      <position>2007</position>
+      <description><![CDATA[A random performance table.]]></description>
+      <position>2008</position>
       <code/>
       <types>
         <type>performanceTable</type>
