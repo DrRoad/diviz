@@ -61,7 +61,7 @@ set callXMCDAService="genericXMCDAService.py -U http://webservices.decision-deck
       <program id="PyXMCDA___ElectreTriBMInference___1.0"/>
       
       <program id="jsmaa___smaa2___0.2"/>
-      <program id="UTAR___ACUTA___1.1"/>
+      <program id="UTAR___ACUTA___2.0"/>
       <program id="UTAR___UTASTAR___1.1"/>
       <program id="UTAR___computeNormalisedPerformanceTable___1.0" />
       <program id="UTAR___generalWeightedSum___1.0"/>

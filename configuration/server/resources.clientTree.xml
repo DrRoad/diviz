@@ -17,10 +17,10 @@
         icon CDATA #IMPLIED
     >
 ]>
-<resourcesTree version="5">
+<resourcesTree version="6">
 		
 	<type name="Generic" collapsed="0">
-		<resource name="local___generic___1.0"/>
+<!--		<resource name="local___generic___1.0"/>-->
 		<resource name="local___prg_generic___1.0"/>
 	</type>
 	<type name="Calculation components" collapsed="0">
@@ -71,7 +71,7 @@
 		</type>
 		
 		<type name="Disaggregation" collapsed="0">
-			<resource name="UTAR___ACUTA___1.1"/>
+			<resource name="UTAR___ACUTA___2.0"/>
 			<resource name="RXMCDA___additiveValueFunctionsIdentification___1.1" />
 			<resource name="UTAR___UTASTAR___1.1"/>
 			<resource name="PyXMCDA___weightsFromCondorcetAndPreferences___1.0"/>

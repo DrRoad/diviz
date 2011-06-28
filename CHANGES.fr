@@ -1,5 +1,58 @@
-- Services mis à jour:
-  PyXMCDA: randomCriteria v1.1, randomPerformanceTable v1.1 par Thomas Veneziano (seed)
+diviz v1.6
+----------
+
+Note importante!
+    Dans cette version, il n'est plus possible d'exécuter des workflows
+    après que le client est fermé.  Bien que ce soit un problème
+    important, nous avons pensé que la nouvelle fonctionnalité
+    d'exécution des programmes locaux valait le coup d'être distribuée.
+    Bien entendu, nous travaillons à résoudre ce problème.
+
+    Cependant si vous avez besoin d'exécuter des traitements longs,
+    veuillez nous contacter et nous vous fournirons une version qui le
+    permet (mais dans laquelle l'exécution de programmes locaux est
+    désactivée).
+
+- Il est maintenant possible d'exécuter des scripts ou des programmes
+  locaux, en utilisant le nouveau program «prg_generic».
+
+  Deux exemples d'utilisation sont disponibles sur:
+    http://www.diviz.org/tutorial.localProgram.html
+    http://www.diviz.org/tutorial.localRScript.html
+
+
+- Nouvelles interactions dans la fenêtre de résultats:
+
+  - tous les éléments (programmes, liens et fichiers) peuvent être
+    sélectionnés; la sélection des liens permet plus facilement de voir
+    quels fichiers ou programmes sont reliés entre eux.
+
+  - Les éléments résultats peuvent désormais être copiés/collés dans
+    n'importe quel workflow.
+
+    Lorsqu'un fichier d'entrée provenant d'un résultat est collé, il est
+    copié dans le répertoire préalablement spécifié par l'utilisateur.
+
+
+- Ajout des web-services XMCDA ajoutés récemment aux services Decision
+  Deck:
+
+  - (PyXMCDA) ElectreTriBMInference par Olivier Sobrie
+  - (PyXMCDA) thresholdsSensitivityAnalysis par Thomas Veneziano
+  - (URV) OWA par Jordi Canals & Aida Valls
+
+
+- Mise à jour des services:
+
+  PyXMCDA: randomCriteria v1.1 et randomPerformanceTable v1.1
+           par Thomas Veneziano
+
+  UTAR: ACUTA v2.0 et UTASTAR v1.1 par Boris Leistedt
+
+
+- La vue d'exécution ne clignote plus quand l'état des programmes est
+  mis à jour.
+
 
 diviz v1.5
 ----------
