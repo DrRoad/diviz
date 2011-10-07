@@ -3,8 +3,8 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2010-06-21 11:41:59 +0000" active="0">
-  <program provider="J-MCDA" name="cutRelation" version="0.2" />
+<program_description export_date="2011-09-28 06:28:06 +0000">
+  <program provider="J-MCDA" name="cutRelation" version="0.5" />
   <from desc_id="S8888" />
   <description><![CDATA[Cuts a fuzzy relation (on alternatives) at a given threshold and produces a binary relation.]]></description>
   <parameters>
@@ -32,14 +32,22 @@
 
     <parameter id="input1" ishidden="0" type="input">
       <name>alternatives</name>
-      <description><![CDATA[The alternatives to consider.]]></description>
+      <description><![CDATA[The alternatives to consider. Set some alternatives as inactive (or remove them) to ignore them.]]></description>
       <position>100004</position>
       <code> alternatives:alternatives.xml</code>
       <types>
         <type>alternatives</type>
       </types>
       <vdef>alternatives.xml</vdef>
-      <dep/>
+      <dep>(input1-dep:value="1")</dep>
+
+    </parameter>
+    <parameter id="input1-dep" ishidden="0" type="boolean">
+      <name>Use alternatives as input?</name>
+      <description>Use alternatives as input?</description>
+      <position>3004</position>
+      <code/>
+      <vdef>1</vdef>
     </parameter>
 
 
