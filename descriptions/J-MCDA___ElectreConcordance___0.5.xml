@@ -3,36 +3,45 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2010-06-21 11:41:59 +0000" active="0">
-  <program provider="J-MCDA" name="PrometheePreference" version="0.2" />
+<program_description export_date="2011-09-28 06:28:06 +0000">
+  <program provider="J-MCDA" name="ElectreConcordance" version="0.5" />
   <from desc_id="S8888" />
-  <description><![CDATA[Computes a preference relation, a la Promethee.]]></description>
+  <description><![CDATA[Computes a concordance relation.]]></description>
   <parameters>
-    <parameter id="PrometheePreference-cmdline" type="command" ismandatory="1">
-      <name>PrometheePreference</name>
+    <parameter id="ElectreConcordance-cmdline" type="command" ismandatory="1">
+      <name>ElectreConcordance</name>
       <description></description>
       <position>100000</position>
-      <code>$callXMCDAService PrometheePreference-J-MCDA -S </code>
+      <code>$callXMCDAService ElectreConcordance-J-MCDA -S </code>
     </parameter>
 
 
     <parameter id="input0" ishidden="0" type="input">
       <name>alternatives</name>
-      <description><![CDATA[The alternatives to consider.]]></description>
+      <description><![CDATA[The alternatives to consider. Set some alternatives as inactive (or remove them) to ignore them.]]></description>
       <position>100003</position>
       <code> alternatives:alternatives.xml</code>
       <types>
         <type>alternatives</type>
       </types>
       <vdef>alternatives.xml</vdef>
-      <dep/>
+      <dep>(input0-dep:value="1")</dep>
+
+    </parameter>
+    <parameter id="input0-dep" ishidden="0" type="boolean">
+      <name>Use alternatives as input?</name>
+      <description>Use alternatives as input?</description>
+      <position>3003</position>
+      <code/>
+      <vdef>1</vdef>
     </parameter>
 
 
 
     <parameter id="input1" ishidden="0" type="input">
       <name>criteria</name>
-      <description><![CDATA[The criteria to consider.]]></description>
+      <description><![CDATA[The criteria to consider, possibly with preference and indifference thresholds. Each one must have a preference direction. Set some criteria as inactive (or remove them) to ignore them.
+				]]></description>
       <position>100004</position>
       <code> criteria:criteria.xml</code>
       <types>
@@ -74,14 +83,14 @@
 
 
     <parameter id="output0" ishidden="0" type="output">
-      <name>preference</name>
-      <description><![CDATA[The preference relation computed from the given input data.]]></description>
+      <name>concordance</name>
+      <description><![CDATA[The concordance relation computed from the given input data.]]></description>
       <position>2007</position>
       <code/>
       <types>
         <type>alternativesComparisons</type>
       </types>
-      <vdef>preference.xml</vdef>
+      <vdef>concordance.xml</vdef>
     </parameter>
 
 
