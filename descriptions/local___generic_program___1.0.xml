@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2009-08-15 18:30" modification_date="2009-08-15 18:30">
-  <program provider="local" name="prg_generic" version="1.0" />
+<program_description export_date="2011-11-26 16:30" modification_date="2011-11-26 16:30">
+  <program provider="local" name="generic_program" version="1.0" />
   <from desc_id="S9999" />
   <description>A generic box allowing to execute commands and custom scripts
   - Zero to five input files, named 'infile1', 'infile2' etc.
@@ -16,7 +16,7 @@ Examples (python, shell script, R):
 NB: all the following examples have one input file and one output file.
 
 1. Python: a program reading the infile and numbering the lines
-  
+
 cmdline: 'python - infile1 outfile1' (without the quotes)
 Number of inputs: 1
 Number of outputs: 1
@@ -83,7 +83,7 @@ a. You can also pass it as an input file, in this case:
 
 b. You can supply the full path of the script as a command-line argument.
    In this case:
-   
+
    - the option 'Use a script' should be unchecked,
    - the command-line becomes (without the quotes):
 
@@ -104,7 +104,7 @@ exported with the workflow when using "Workflow > Export with input files").
       <code target="cmdline">%s</code>
       <vdef />
     </parameter>
-    
+
     <parameter id="nbInputs" ishidden="0" type="int">
       <name>Number of inputs</name>
       <description>Number of inputs</description>
@@ -117,7 +117,7 @@ exported with the workflow when using "Workflow > Export with input files").
       <vdef>1</vdef>
       <dep/>
     </parameter>
-    
+
     <parameter id="nbOutputs" ishidden="0" type="int">
       <name>Number of outputs</name>
       <description>Number of outputs</description>
@@ -173,7 +173,7 @@ exported with the workflow when using "Workflow > Export with input files").
       <vdef>script</vdef>
       <dep><![CDATA[(provide_script:value="1") && (provide_script_as_file:value="1")]]></dep>
     </parameter>
-    
+
 	<!-- infiles -->
     <parameter id="infile1" ishidden="0" type="input">
       <name>infile1</name>
@@ -258,7 +258,7 @@ exported with the workflow when using "Workflow > Export with input files").
       <vdef>outfile2</vdef>
       <dep>(nbOutputs:value>=2)</dep>
     </parameter>
-    
+
     <parameter id="outfile3" ishidden="0" type="output">
       <name>outfile3</name>
       <description>Output data file</description>
@@ -294,7 +294,7 @@ exported with the workflow when using "Workflow > Export with input files").
       <vdef>outfile5</vdef>
       <dep>(nbOutputs:value>=5)</dep>
     </parameter>
-    
+
   </parameters>
 </program_description>
 
