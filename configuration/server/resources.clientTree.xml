@@ -54,18 +54,18 @@
 			<resource name="RXMCDA___alternativesRankingViaQualificationDistillation___1.0" />
 			<resource name="RXMCDA___computeAlternativesQualification___1.0" />
 			<resource name="PyXMCDA___CondorcetRobustnessRelation___1.0"/>
-			<resource name="J-MCDA___cutRelation___0.5"/>
-			<resource name="J-MCDA___ElectreConcordance___0.5"/>
-			<resource name="J-MCDA___ElectreDiscordances___0.5"/>
-			<resource name="J-MCDA___ElectreOutranking___0.5"/>
+			<resource name="J-MCDA___cutRelation___0.5.1"/>
+			<resource name="J-MCDA___ElectreConcordance___0.5.1"/>
+			<resource name="J-MCDA___ElectreDiscordances___0.5.1"/>
+			<resource name="J-MCDA___ElectreOutranking___0.5.1"/>
 			<resource name="PyXMCDA___ElectreTriBMInference___1.0"/>
-			<resource name="J-MCDA___ElectreTriExploitation___0.5"/>
+			<resource name="J-MCDA___ElectreTriExploitation___0.5.1"/>
 			<resource name="CppXMCDA___IRIS-testInconsistency___1.0"/>
 			<resource name="CppXMCDA___IRIS___1.0"/>
 			<resource name="RXMCDA___plotGaiaPlane___1.0" />
-			<resource name="J-MCDA___PrometheePreference___0.5"/>
-			<resource name="J-MCDA___PrometheeFlows___0.5"/>
-			<resource name="J-MCDA___PrometheeProfiles___0.5"/>
+			<resource name="J-MCDA___PrometheePreference___0.5.1"/>
+			<resource name="J-MCDA___PrometheeFlows___0.5.1"/>
+			<resource name="J-MCDA___PrometheeProfiles___0.5.1"/>
 			<resource name="RXMCDA___Promethee1Ranking___1.0" />
 			<resource name="PyXMCDA___RubisConcordanceRelation___1.0"/>
 		</type>
@@ -95,6 +95,7 @@
 			<resource name="UTAR___computeNormalisedPerformanceTable___1.0"/>
 			<resource name="RXMCDA___randomNormalizedPerformanceTable___1.0" />
 			<resource name="PyXMCDA___randomPerformanceTable___1.1"/>
+			<resource name="J-MCDA___csvImport___0.5.1"/>
 		</type>
 	</type>
 
