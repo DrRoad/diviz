@@ -1,4 +1,7 @@
 
+
+- randomCriteria (PyXMCDA): all options are now disabled by default.
+
 - prg_generic: infiles and outfiles no longer have the extension '.xml'.  This
   makes it clearer that any type of file can be supplied or produced by such
   local script, not only xml.

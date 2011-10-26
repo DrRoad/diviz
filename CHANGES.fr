@@ -1,4 +1,7 @@
 
+- randomCriteria (PyXMCDA): toutes ses options sont désormais désactivées par
+  défaut.
+
 - prg_generic: les fichiers d'entrées et de sorties n'ont plus l'extension
   '.xml'.  De cette façon il devient évident que tout type de fichier peuvent
   être en entrée ou en sortie, et pas seulement des fichiers au format xml.
