@@ -1,3 +1,19 @@
+
+- prg_generic: infiles and outfiles no longer have the extension '.xml'.  This
+  makes it clearer that any type of file can be supplied or produced by such
+  local script, not only xml.
+
+  NOTE: it means that existing local scripts should be adapted so that the
+        inputs and outputs do not have the extension '.xml' (e.g. 'outfile1'
+        instead of 'outfile1.xml').
+
+  It is now allowed to have zero inputs.
+
+  The script can be supplied as an additional input file --this makes it
+  easier to share a workflow with a local script without having to copy/paste
+  it into the parameters' box, since exporting a workflow with its input files
+  will then automatically include the script in the exported workflow.
+
 diviz v1.6
 ----------
 
