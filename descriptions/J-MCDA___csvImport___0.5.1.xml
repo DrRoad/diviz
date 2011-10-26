@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+
+<!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
+
+<program_description export_date="2011-10-26 07:28:33 +0000">
+  <program provider="J-MCDA" name="csvImport" version="0.5.1" />
+  <from desc_id="S8888" />
+  <description><![CDATA[Transforms a performance table from a comma-separated values (CSV) file to XMCDA compliant files.]]></description>
+  <parameters>
+    <parameter id="csvImport-cmdline" type="command" ismandatory="1">
+      <name>csvImport</name>
+      <description></description>
+      <position>100000</position>
+      <code>$callXMCDAService csvImport-J-MCDA -S </code>
+    </parameter>
+
+
+    <parameter id="input0" ishidden="0" type="input">
+      <name>performances</name>
+      <description><![CDATA[The alternatives, criteria, performances as a CSV file.]]></description>
+      <position>100003</position>
+      <code> performances.csv:performances.csv</code>
+      <types>
+        <type>other</type>
+      </types>
+      <vdef>performances.csv</vdef>
+      <dep/>
+    </parameter>
+
+
+
+
+    <parameter id="output0" ishidden="0" type="output">
+      <name>alternatives</name>
+      <description><![CDATA[The equivalent alternatives.]]></description>
+      <position>2004</position>
+      <code/>
+      <types>
+        <type>alternatives</type>
+      </types>
+      <vdef>alternatives.xml</vdef>
+    </parameter>
+
+
+
+
+
+    <parameter id="output1" ishidden="0" type="output">
+      <name>criteria</name>
+      <description><![CDATA[The equivalent criteria.
+				]]></description>
+      <position>2005</position>
+      <code/>
+      <types>
+        <type>criteria</type>
+      </types>
+      <vdef>criteria.xml</vdef>
+    </parameter>
+
+
+
+
+
+    <parameter id="output2" ishidden="0" type="output">
+      <name>performances</name>
+      <description><![CDATA[The equivalent performances.
+				]]></description>
+      <position>2006</position>
+      <code/>
+      <types>
+        <type>performanceTable</type>
+      </types>
+      <vdef>performances.xml</vdef>
+    </parameter>
+
+
+
+
+
+    <parameter id="output3" ishidden="0" type="output">
+      <name>messages</name>
+      <description><![CDATA[A status message.]]></description>
+      <position>2007</position>
+      <code/>
+      <types>
+        <type>methodMessages</type>
+      </types>
+      <vdef>messages.xml</vdef>
+    </parameter>
+
+
+
+    <parameter id="TIMEOUT" ishidden="0" type="int">
+      <name>Timeout? (0 for no timeout)</name>
+      <description>timeout</description>
+      <position>100001</position>
+      <code>-t %s </code>
+      <constraint>
+        <description>value should be a positive or null integer</description>
+        <code>(%d &gt;= 0)</code>
+      </constraint>
+      <vdef>60</vdef>
+    </parameter>
+    
+    <parameter id="VERBOSE" ishidden="0" type="enum">
+      <name>Verbose mode</name>
+      <description></description>
+      <position>100002</position>
+      <vlist>
+        <item id="T1">
+          <description>None</description>
+          <code></code>
+        </item>
+        <item id="T2">
+          <description>Moderately verbose</description>
+          <code> -v</code>
+        </item>
+        <item id="T3">
+          <description>Very verbose</description>
+          <code> -vv</code>
+        </item>
+        <item id="T4">
+          <description>Extremely verbose (include SOAP msgs)</description>
+          <code> -vvv</code>
+        </item>
+      </vlist>
+      <vdef>T2</vdef>
+    </parameter>
+
+  </parameters>
+</program_description>
