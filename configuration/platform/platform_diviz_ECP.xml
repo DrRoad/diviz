@@ -66,14 +66,15 @@ set callXMCDAService="genericXMCDAService.py -U http://localhost/soap/%s.py -n "
       <program id="UTAR___generalWeightedSum___1.0"/>
       <program id="UTAR___plotValueFunctions___1.0" />
       <program id="UTAR___XYPlotAlternativesValues___1.0" />
-      <program id="J-MCDA___ElectreConcordance___0.5"/>
-      <program id="J-MCDA___ElectreDiscordances___0.5"/>
-      <program id="J-MCDA___ElectreOutranking___0.5"/>
-      <program id="J-MCDA___cutRelation___0.5"/>
-      <program id="J-MCDA___PrometheePreference___0.5"/>
-      <program id="J-MCDA___PrometheeFlows___0.5"/>
-      <program id="J-MCDA___PrometheeProfiles___0.5"/>
-      <program id="J-MCDA___ElectreTriExploitation___0.5"/>
+      <program id="J-MCDA___ElectreConcordance___0.5.1"/>
+      <program id="J-MCDA___ElectreDiscordances___0.5.1"/>
+      <program id="J-MCDA___ElectreOutranking___0.5.1"/>
+      <program id="J-MCDA___cutRelation___0.5.1"/>
+      <program id="J-MCDA___PrometheePreference___0.5.1"/>
+      <program id="J-MCDA___PrometheeFlows___0.5.1"/>
+      <program id="J-MCDA___PrometheeProfiles___0.5.1"/>
+      <program id="J-MCDA___ElectreTriExploitation___0.5.1"/>
+      <program id="J-MCDA___csvToXMCDA-performanceTable___0.5.1"/>
 
       <!-- URV -->
       <program id="URV___OWA___1.0"/>

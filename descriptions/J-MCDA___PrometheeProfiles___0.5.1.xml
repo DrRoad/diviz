@@ -3,16 +3,16 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2011-09-28 06:28:06 +0000">
-  <program provider="J-MCDA" name="ElectreConcordance" version="0.5" />
+<program_description export_date="2011-10-26 06:10:10 +0000">
+  <program provider="J-MCDA" name="PrometheeProfiles" version="0.5.1" />
   <from desc_id="S8888" />
-  <description><![CDATA[Computes a concordance relation.]]></description>
+  <description><![CDATA[Computes the profiles of the given alternatives on the given criteria, a la Promethee.]]></description>
   <parameters>
-    <parameter id="ElectreConcordance-cmdline" type="command" ismandatory="1">
-      <name>ElectreConcordance</name>
+    <parameter id="PrometheeProfiles-cmdline" type="command" ismandatory="1">
+      <name>PrometheeProfiles</name>
       <description></description>
       <position>100000</position>
-      <code>$callXMCDAService ElectreConcordance-J-MCDA -S </code>
+      <code>$callXMCDAService PrometheeProfiles-J-MCDA -S </code>
     </parameter>
 
 
@@ -40,8 +40,7 @@
 
     <parameter id="input1" ishidden="0" type="input">
       <name>criteria</name>
-      <description><![CDATA[The criteria to consider, possibly with preference and indifference thresholds. Each one must have a preference direction. Set some criteria as inactive (or remove them) to ignore them.
-				]]></description>
+      <description><![CDATA[The criteria to consider, possibly with preference and indifference thresholds. Each one must have a preference direction. Set some criteria as inactive (or remove them) to ignore them.]]></description>
       <position>100004</position>
       <code> criteria:criteria.xml</code>
       <types>
@@ -54,23 +53,9 @@
 
 
     <parameter id="input2" ishidden="0" type="input">
-      <name>weights</name>
-      <description><![CDATA[The weights of the criteria to consider.]]></description>
-      <position>100005</position>
-      <code> weights:weights.xml</code>
-      <types>
-        <type>criteriaValues</type>
-      </types>
-      <vdef>weights.xml</vdef>
-      <dep/>
-    </parameter>
-
-
-
-    <parameter id="input3" ishidden="0" type="input">
       <name>performances</name>
       <description><![CDATA[The performances of the alternatives on the criteria to consider.]]></description>
-      <position>100006</position>
+      <position>100005</position>
       <code> performances:performances.xml</code>
       <types>
         <type>performanceTable</type>
@@ -83,14 +68,14 @@
 
 
     <parameter id="output0" ishidden="0" type="output">
-      <name>concordance</name>
-      <description><![CDATA[The concordance relation computed from the given input data.]]></description>
-      <position>2007</position>
+      <name>promethee_profiles</name>
+      <description><![CDATA[The profiles of the alternatives computed from the given input data.]]></description>
+      <position>2006</position>
       <code/>
       <types>
-        <type>alternativesComparisons</type>
+        <type>performanceTable</type>
       </types>
-      <vdef>concordance.xml</vdef>
+      <vdef>promethee_profiles.xml</vdef>
     </parameter>
 
 
@@ -100,7 +85,7 @@
     <parameter id="output1" ishidden="0" type="output">
       <name>messages</name>
       <description><![CDATA[A status message.]]></description>
-      <position>2008</position>
+      <position>2007</position>
       <code/>
       <types>
         <type>methodMessages</type>

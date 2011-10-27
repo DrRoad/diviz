@@ -3,11 +3,10 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2011-09-28 06:28:06 +0000">
-  <program provider="J-MCDA" name="PrometheeFlows" version="0.5" />
+<program_description export_date="2011-10-26 06:10:10 +0000">
+  <program provider="J-MCDA" name="PrometheeFlows" version="0.5.1" />
   <from desc_id="S8888" />
-  <description><![CDATA[Computes Promethee flows (net flows, positive flows, or
-			negative flows).]]></description>
+  <description><![CDATA[Computes Promethee flows (net flows, positive flows, or negative flows).]]></description>
   <parameters>
     <parameter id="PrometheeFlows-cmdline" type="command" ismandatory="1">
       <name>PrometheeFlows</name>
@@ -19,8 +18,7 @@
 
     <parameter id="input0" ishidden="0" type="input">
       <name>alternatives</name>
-      <description><![CDATA[The alternatives to consider. Set some alternatives as
-					inactive (or remove them) to ignore them.]]></description>
+      <description><![CDATA[The alternatives to consider. Set some alternatives as inactive (or remove them) to ignore them.]]></description>
       <position>100003</position>
       <code> alternatives:alternatives.xml</code>
       <types>
@@ -42,8 +40,7 @@
 
     <parameter id="input1" ishidden="0" type="input">
       <name>preference</name>
-      <description><![CDATA[The preference relation from which to compute flows.
-				]]></description>
+      <description><![CDATA[The preference relation from which to compute flows.]]></description>
       <position>100004</position>
       <code> preference:preference.xml</code>
       <types>
@@ -57,8 +54,7 @@
 
     <parameter id="input2" ishidden="0" type="input">
       <name>flow_type</name>
-      <description><![CDATA[The type of flow to compute: positive, negative or net.
-				]]></description>
+      <description><![CDATA[The type of flow to compute: positive, negative or net.]]></description>
       <position>100005</position>
       <code/> 
       <types>
@@ -83,8 +79,7 @@
 
     <parameter id="input2-gui" ishidden="1" type="code">
       <name>flow_type</name>
-      <description><![CDATA[The type of flow to compute: positive, negative or net.
-				]]></description>
+      <description><![CDATA[The type of flow to compute: positive, negative or net.]]></description>
       <position>500</position>
       <code><![CDATA[#flow_type: flow_type.xml
 cat > flow_type.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
