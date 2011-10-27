@@ -95,7 +95,7 @@
 			<resource name="UTAR___computeNormalisedPerformanceTable___1.0"/>
 			<resource name="RXMCDA___randomNormalizedPerformanceTable___1.0" />
 			<resource name="PyXMCDA___randomPerformanceTable___1.1"/>
-			<resource name="J-MCDA___csvImport___0.5.1"/>
+			<resource name="J-MCDA___csvToXMCDA-performanceTable___0.5.1"/>
 		</type>
 	</type>
 
