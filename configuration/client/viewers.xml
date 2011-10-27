@@ -35,4 +35,15 @@
 		<parameters></parameters>
 	</viewer>
  
+	<viewer>
+		<name>Exchanger XML</name>
+		<type>local</type>
+		<path>xngr-editor</path>
+		<formats>
+			<format>defaut</format>
+			<format>xml</format>
+		</formats>
+		<parameters></parameters>
+	</viewer>
+
 </external_viewers>

@@ -13,6 +13,9 @@ Please note!
 	executed, will resume their execution (at the point where the local
 	program is to be executed) when diviz is launched again.
 
+- Exchanger XML Editor has been added to the list of xml viewers
+  (executable xngr-editor must appear in the system's path)
+
 - randomCriteria (PyXMCDA): all options are now disabled by default.
 
 - prg_generic: lots of changes for this program which has been renamed to

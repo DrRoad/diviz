@@ -15,6 +15,9 @@ Note importante!
   exécution sera suspendu à l'endroit où ces programmes locaux apparaissent,
   jusqu'à ce que diviz soit relancé.
 
+- Exchanger XML Editor a été ajouté à la liste des visualisateurs xml
+  (l'exécutable xngr-editor doit apparaître dans le "path" système)
+
 - randomCriteria (PyXMCDA): toutes ses options sont désormais désactivées par
   défaut.
 
