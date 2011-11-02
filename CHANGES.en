@@ -40,6 +40,14 @@ Please note!
   can write the script to be executed, now adapts its width to the dialog's
   width when it is resized.
 
+- Changes in the XMCDA web-services that are reflected in diviz:
+
+  - J-MCDA webservices by Olivier Cailloux: v0.5.1 is now integrated; a new
+    service is available: csvToXMCDA-performanceTable;
+
+  - PyXMCDA by Thomas Veneziano and Olivier Sobrie: all webservices now accept
+    XMCDA v2.1 in addition to v2.0.
+
 diviz v1.6
 ----------
 

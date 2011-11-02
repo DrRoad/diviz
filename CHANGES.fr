@@ -44,6 +44,15 @@ Note importante!
   laquelle on peut saisir le code du script, adapte sa largeur lorsqu'on
   redimensionne la fenêtre de dialogue.
 
+- Changements intervenus dans les web-services XMCDA, reflétés par la
+  configuration actuelle de diviz:
+
+  - services J-MCDA par Olivier Cailloux: la version 0.5.1 est désormais
+    intégrée; un nouveau service est apparu: csvToXMCDA-performanceTable;
+
+  - services PyXMCDA par Thomas Veneziano et Olivier Sobrie: tous les
+    webservices acceptent maintenant XMCDA v2.1 en plus de la v2.0.
+
 diviz v1.6
 ----------
 
