@@ -3,56 +3,28 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2010-06-21 11:41:59 +0000" active="0">
-  <program provider="J-MCDA" name="ElectreDiscordances" version="0.2" />
+<program_description export_date="2011-10-26 07:28:33 +0000">
+  <program provider="J-MCDA" name="csvToXMCDA-performanceTable" version="0.5.1" />
   <from desc_id="S8888" />
-  <description><![CDATA[Computes a discordance relation per criteria.]]></description>
+  <description><![CDATA[Transforms a performance table from a comma-separated values (CSV) file to XMCDA compliant files.]]></description>
   <parameters>
-    <parameter id="ElectreDiscordances-cmdline" type="command" ismandatory="1">
-      <name>ElectreDiscordances</name>
+    <parameter id="csvToXMCDA-performanceTable-cmdline" type="command" ismandatory="1">
+      <name>csvToXMCDA-performanceTable</name>
       <description></description>
       <position>100000</position>
-      <code>$callXMCDAService ElectreDiscordances-J-MCDA -S </code>
+      <code>$callXMCDAService csvToXMCDA-performanceTable-J-MCDA -S </code>
     </parameter>
 
 
     <parameter id="input0" ishidden="0" type="input">
-      <name>alternatives</name>
-      <description><![CDATA[The alternatives to consider.]]></description>
-      <position>100003</position>
-      <code> alternatives:alternatives.xml</code>
-      <types>
-        <type>alternatives</type>
-      </types>
-      <vdef>alternatives.xml</vdef>
-      <dep/>
-    </parameter>
-
-
-
-    <parameter id="input1" ishidden="0" type="input">
-      <name>criteria</name>
-      <description><![CDATA[The criteria to consider (with preference and veto thresholds).]]></description>
-      <position>100004</position>
-      <code> criteria:criteria.xml</code>
-      <types>
-        <type>criteria</type>
-      </types>
-      <vdef>criteria.xml</vdef>
-      <dep/>
-    </parameter>
-
-
-
-    <parameter id="input2" ishidden="0" type="input">
       <name>performances</name>
-      <description><![CDATA[The performances of the alternatives on the criteria to consider.]]></description>
-      <position>100005</position>
-      <code> performances:performances.xml</code>
+      <description><![CDATA[The alternatives, criteria, performances as a CSV file.]]></description>
+      <position>100003</position>
+      <code> performances.csv:performances.csv</code>
       <types>
-        <type>performanceTable</type>
+        <type>other</type>
       </types>
-      <vdef>performances.xml</vdef>
+      <vdef>performances.csv</vdef>
       <dep/>
     </parameter>
 
@@ -60,14 +32,14 @@
 
 
     <parameter id="output0" ishidden="0" type="output">
-      <name>discordances</name>
-      <description><![CDATA[The discordances relations (one relation per criteria) computed from the given input data.]]></description>
-      <position>2006</position>
+      <name>alternatives</name>
+      <description><![CDATA[The equivalent alternatives.]]></description>
+      <position>2004</position>
       <code/>
       <types>
-        <type>alternativesComparisons</type>
+        <type>alternatives</type>
       </types>
-      <vdef>discordances.xml</vdef>
+      <vdef>alternatives.xml</vdef>
     </parameter>
 
 
@@ -75,6 +47,38 @@
 
 
     <parameter id="output1" ishidden="0" type="output">
+      <name>criteria</name>
+      <description><![CDATA[The equivalent criteria.
+				]]></description>
+      <position>2005</position>
+      <code/>
+      <types>
+        <type>criteria</type>
+      </types>
+      <vdef>criteria.xml</vdef>
+    </parameter>
+
+
+
+
+
+    <parameter id="output2" ishidden="0" type="output">
+      <name>performances</name>
+      <description><![CDATA[The equivalent performances.
+				]]></description>
+      <position>2006</position>
+      <code/>
+      <types>
+        <type>performanceTable</type>
+      </types>
+      <vdef>performances.xml</vdef>
+    </parameter>
+
+
+
+
+
+    <parameter id="output3" ishidden="0" type="output">
       <name>messages</name>
       <description><![CDATA[A status message.]]></description>
       <position>2007</position>

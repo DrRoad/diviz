@@ -29,11 +29,8 @@ public class ProgramDelegate
 		ProgramDescription p = super.findAlternateProgramDescription(prgDescriptionId, xmlNode, warnings, xmlExc);
 		if (p != null)
 			return p;
-		if (!prgDescriptionId.startsWith("DecisionDeck"))
-			return null;
-		
-		// All programs' providers were formerly identical: DecisionDeck
-		// it's time to find the corresponding ones
+
+		// It's time to find the corresponding ones
 		
 		// 1st, adapt those whose name has changed
 		final String[] provider_service_version = prgDescriptionId.split(ProgramDescription.ID_SEPARATOR);
@@ -42,14 +39,22 @@ public class ProgramDelegate
 			Log.log.severe("Request for a invalid id: " + prgDescriptionId);
 			return null;
 		}
-		
+		String provider = provider_service_version[0];
 		String name = provider_service_version[1];
-		if ("ACUTAR".equals(name))
-			name = "ACUTA";
-		else
-			if ("jsmaa".equals(name))
+		if ("DecisionDeck".equals(provider))
+		{	
+			if ( "ACUTAR".equals(name) )
+				name = "ACUTA";
+			else if ( "jsmaa".equals(name) )
 				name = "smaa2";
-		
+			else
+				return null;
+		}
+		else if ( "local".equals(provider) && "prg_generic".equals(name) )
+			name = "generic_program";
+		else
+			return null;
+
 		// 2nd, let's find the corresponding description, i.e. simply one that as the same name:
 		// when the services'providers are renamed from DecisionDeck, none of them had the same name; hopefully all
 		// the users' workflows will be migrated before this happens.

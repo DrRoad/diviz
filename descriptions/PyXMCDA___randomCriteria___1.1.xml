@@ -3,7 +3,7 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2011-03-31 13:23:56 +0000">
+<program_description export_date="2011-10-26 14:13:34 +0000">
   <program provider="PyXMCDA" name="randomCriteria" version="1.1" />
   <from desc_id="S8888" />
   <description><![CDATA[This web service allows to create a simple list of criteria by providing the desired number of criteria. Now, it is not taking into account creation of thresholds.]]></description>
@@ -141,7 +141,7 @@ cat > nbCriteria.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <description>Use criteriaPrefix as input?</description>
       <position>3004</position>
       <code/>
-      <vdef>1</vdef>
+      <vdef>0</vdef>
     </parameter>
 
     <parameter id="criteriaPrefix-use-file-dep" ishidden="0" type="boolean">
@@ -253,7 +253,7 @@ cat > criteriaPrefix.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <description>Use criteriaNames as input?</description>
       <position>3005</position>
       <code/>
-      <vdef>1</vdef>
+      <vdef>0</vdef>
     </parameter>
 
 
@@ -275,7 +275,7 @@ cat > criteriaPrefix.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <description>Use criteriaType as input?</description>
       <position>3006</position>
       <code/>
-      <vdef>1</vdef>
+      <vdef>0</vdef>
     </parameter>
 
 
@@ -414,7 +414,7 @@ cat > seed.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <description>Use lowerBounds as input?</description>
       <position>3008</position>
       <code/>
-      <vdef>1</vdef>
+      <vdef>0</vdef>
     </parameter>
 
 
@@ -436,7 +436,7 @@ cat > seed.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <description>Use upperBounds as input?</description>
       <position>3009</position>
       <code/>
-      <vdef>1</vdef>
+      <vdef>0</vdef>
     </parameter>
 
 
@@ -458,7 +458,7 @@ cat > seed.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <description>Use numberOfLevels as input?</description>
       <position>3010</position>
       <code/>
-      <vdef>1</vdef>
+      <vdef>0</vdef>
     </parameter>
 
 
@@ -480,7 +480,7 @@ cat > seed.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <description>Use preferenceDirection as input?</description>
       <position>3011</position>
       <code/>
-      <vdef>1</vdef>
+      <vdef>0</vdef>
     </parameter>
 
 
@@ -502,7 +502,7 @@ cat > seed.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <description>Use thresholdsNames as input?</description>
       <position>3012</position>
       <code/>
-      <vdef>1</vdef>
+      <vdef>0</vdef>
     </parameter>
 
 

@@ -3,7 +3,6 @@
 <platform type="program">
 	<configuration/>
 	<programs>
-                <program id="local___prg_generic___1.0"/>
+                <program id="local___generic_program___1.0"/>
 	</programs>
 </platform>
-	
