@@ -1,3 +1,22 @@
+diviz v1.7
+----------
+
+Note importante!
+
+  La limitation apparue dans la v1.6 qui empêchait les exécutions après que le
+  client est fermé, est désormais levée: il est à nouveau possible de quitter
+  diviz après avoir lancé une exécution.
+
+  Quand un workflow est exécuté, tous les programmes qui peuvent être exécutés
+  à distance sont directement envoyés au serveur, de façon à ce que l'on
+  puisse quitter diviz juste après le lancement de l'exécution, et le relancer
+  plus tard pour récupérer les résultats.  Il est à noter que, si le workflow
+  contient un ou plusieurs programmes qui doit être exécuté localement, son
+  exécution sera suspendu à l'endroit où ces programmes locaux apparaissent,
+  jusqu'à ce que diviz soit relancé.
+
+- Exchanger XML Editor a été ajouté à la liste des visualisateurs xml
+  (l'exécutable xngr-editor doit apparaître dans le "path" système)
 
 - randomCriteria (PyXMCDA): toutes ses options sont désormais désactivées par
   défaut.
@@ -5,21 +24,34 @@
 - prg_generic: beaucoup de changements pour ce programme qui a été renommé
   "generic_program" (les workflows existants sont automatiquement adaptés)
 
-  Les fichiers d'entrées et de sorties n'ont plus l'extension '.xml'.  De
-  cette façon il devient évident que tout type de fichier peuvent être en
-  entrée ou en sortie, et pas seulement des fichiers au format xml.
+  Les fichiers d'entrées et de sorties n'ont plus l'extension '.xml', de façon
+  à mettre en évidence le fait que tout type de fichier peut être en entrée ou
+  en sortie, et non uniquement des fichiers au format xml.
 
   NOTE: cela signifie que les scripts locaux existants doivent être adaptés,
         de façon à ce que les entrées et les sorties n'aient plus l'extension
         '.xml' ('outfile1.xml' devient 'outfile1', p.ex.).
 
-  Il peut n'avoir aucune (zéro) entrée.
+  Il peut n'avoir aucune (zéro) entrée (le minimum était précédemment de 1)
 
   Le script peut être ajouté en tant que fichier d'entrée --cela permet de
   partager plus facilement des workflows qui utilisent un script local sans
   avoir à copier/coller son contenu dans la boîte de paramétrage, dans la
   mesure où l'export d'un workflow avec ses fichiers d'entrées incluera
   alors automatiquement le script.
+
+- La zone de texte dans la fenêtre de paramétrage de «generic_program», dans
+  laquelle on peut saisir le code du script, adapte sa largeur lorsqu'on
+  redimensionne la fenêtre de dialogue.
+
+- Changements intervenus dans les web-services XMCDA, reflétés par la
+  configuration actuelle de diviz:
+
+  - services J-MCDA par Olivier Cailloux: la version 0.5.1 est désormais
+    intégrée; un nouveau service est apparu: csvToXMCDA-performanceTable;
+
+  - services PyXMCDA par Thomas Veneziano et Olivier Sobrie: tous les
+    webservices acceptent maintenant XMCDA v2.1 en plus de la v2.0.
 
 
 diviz v1.6.1

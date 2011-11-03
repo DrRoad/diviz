@@ -17,7 +17,7 @@
         icon CDATA #IMPLIED
     >
 ]>
-<resourcesTree version="6">
+<resourcesTree version="7">
 		
 	<type name="Generic" collapsed="0">
 		<resource name="local___generic_program___1.0"/>

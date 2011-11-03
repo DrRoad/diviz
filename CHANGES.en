@@ -1,3 +1,20 @@
+diviz v1.7
+----------
+
+Please note!
+
+    The limitation introduced in 1.6, preventing offline executions, has been
+    removed: it is again possible to execute workflows offline.
+
+	When a workflow is executed, all programs that can be executed remotely
+	are directly sent to the server, so that one can quit diviz just after
+	executing a workflow and come back later for the results.  It should be
+	noted that workflows containing one or more programs to be locally
+	executed, will resume their execution (at the point where the local
+	program is to be executed) when diviz is launched again.
+
+- Exchanger XML Editor has been added to the list of xml viewers
+  (executable xngr-editor must appear in the system's path)
 
 - randomCriteria (PyXMCDA): all options are now disabled by default.
 
@@ -12,13 +29,24 @@
         inputs and outputs do not have the extension '.xml' (e.g. 'outfile1'
         instead of 'outfile1.xml').
 
-  It is now allowed to have zero inputs.
+  It is now allowed to have zero inputs (the minimum was previously set to 1).
 
   The script can be supplied as an additional input file --this makes it
   easier to share a workflow with a local script without having to copy/paste
   it into the parameters' box, since exporting a workflow with its input files
   will then automatically include the script in the exported workflow.
 
+- The text area in the parameter's dialog of "generic_program", in which one
+  can write the script to be executed, now adapts its width to the dialog's
+  width when it is resized.
+
+- Changes in the XMCDA web-services that are reflected in diviz:
+
+  - J-MCDA webservices by Olivier Cailloux: v0.5.1 is now integrated; a new
+    service is available: csvToXMCDA-performanceTable;
+
+  - PyXMCDA by Thomas Veneziano and Olivier Sobrie: all webservices now accept
+    XMCDA v2.1 in addition to v2.0.
 
 diviz v1.6.1
 ------------

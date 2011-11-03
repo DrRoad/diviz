@@ -25,7 +25,7 @@
   <format>
     <name>xml</name>
     <header/>
-    <extension></extension>
+    <extension>.xml</extension>
   </format>
   <format>
     <name>postscript</name>
