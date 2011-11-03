@@ -1,5 +1,4 @@
 
-
 - randomCriteria (PyXMCDA): all options are now disabled by default.
 
 - prg_generic: lots of changes for this program which has been renamed to
@@ -19,6 +18,23 @@
   easier to share a workflow with a local script without having to copy/paste
   it into the parameters' box, since exporting a workflow with its input files
   will then automatically include the script in the exported workflow.
+
+
+diviz v1.6.1
+------------
+
+- Parameters' dialog now displays all parameter's fields.  There were
+  some situations where some parameters were only partially displayed
+  or not displayed at all --this happened for program 'prg_generic',
+  when the text area used by parameter 'script' was activated.
+
+- The fields shown in the parameter's dialog are now resized if the
+  dialog's width is changed.
+
+  We also changed the dialog's scroll increment value so that the
+  mouse wheel scrolls more quickly than just one pixel after the
+  other!
+
 
 diviz v1.6
 ----------

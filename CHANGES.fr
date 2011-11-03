@@ -21,6 +21,23 @@
   mesure où l'export d'un workflow avec ses fichiers d'entrées incluera
   alors automatiquement le script.
 
+
+diviz v1.6.1
+------------
+
+- La fenêtre de paramétrage affiche maintenant tous les champs de
+  paramètres.  Il y avait quelques cas où certains paramètres
+  pouvaient n'être qu'affichés que partiellement (ou pas du tout)
+  --cela arrivait dans le programme 'prg_generic', lorsque la zone de
+  texte du paramètre 'script'était activé.
+
+- Les champs affichés dans la fenêtre de paramétrage grandissent
+  maintenant avec la fenêtre.
+
+  Le molette permet maintenant de scroller plus rapidement, plutôt que
+  pixel par pixel!
+
+
 diviz v1.6
 ----------
 
