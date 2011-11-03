@@ -1,3 +1,11 @@
+diviz v1.7.1
+------------
+
+La version v1.7 exécutait les web-services dans leur environnement de
+test.  Cette version ne nécessite pas que le client diviz soit mis à
+jour.
+
+
 diviz v1.7
 ----------
 
