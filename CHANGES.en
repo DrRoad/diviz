@@ -1,3 +1,10 @@
+diviz v1.7.1
+------------
+
+v1.7 was executing the web-services in their testing environment.
+This release does not require that the diviz client is updated.
+
+
 diviz v1.7
 ----------
 

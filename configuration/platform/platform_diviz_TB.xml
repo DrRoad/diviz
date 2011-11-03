@@ -5,7 +5,7 @@
     <configuration>
 	    <!-- script-init: adapt PATH if needed: setenv PATH /path/to/...:${PATH}: -->
     	<item name="script-init">setenv PYTHONUNBUFFERED 1
-set callXMCDAService="genericXMCDAService.py -U http://server-telecom-bretagne.diviz.org/soap/%s-test.py -n "
+set callXMCDAService="genericXMCDAService.py -U http://server-telecom-bretagne.diviz.org/soap/%s.py -n "
 </item>
     </configuration>
     <programs>
