@@ -1,3 +1,14 @@
+diviz v1.7.2
+------------
+
+Dans certains cas dépendant de la configuration du réseau du poste
+utilisateur, diviz était complètement inutilisable: tous les web-services
+étaient marqués "inconnus", affichés en rouge.
+
+Nous remercions particulièrement Sascha Graßhoff pour avoir signalé le
+problème, et pour avoir travaillé avec nous à sa résolution.
+
+
 diviz v1.7.1
 ------------
 
