@@ -1,3 +1,13 @@
+diviz v1.7.2
+------------
+
+In certain cases related to the network configuration of the user's computer,
+diviz could not be used at all: all web-services were marked as unknown,
+displayed in red.
+
+We particularly thank Sascha Graßhoff for reporting the problem and for
+working with us to solve it.
+
 diviz v1.7.1
 ------------
 
