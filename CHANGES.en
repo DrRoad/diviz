@@ -1,3 +1,9 @@
+diviz v1.7.3
+------------
+
+- When using java 7, the HTML result's viewer was not available (only the raw
+  XMCDA format could be viewed): this has been fixed.
+
 diviz v1.7.2
 ------------
 
