@@ -1,3 +1,9 @@
+diviz v1.7.3
+------------
+
+- Le visualisateur HTML de résultat ne fonctionnait pas avec java 7 (seule la
+  vue XMCDA était disponible): c'est désormais réparé.
+
 diviz v1.7.2
 ------------
 

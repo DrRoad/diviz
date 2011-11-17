@@ -1,0 +1,21 @@
+--- Common/org/lobobrowser/util/gui/FontFactory.java    28 Dec 2008 22:33:46 -0000      1.14
++++ Common/org/lobobrowser/util/gui/FontFactory.java    15 Nov 2011 10:33:07 -0000
+@@ -29,8 +29,6 @@
+ import java.util.logging.*;
+ 
+ import org.lobobrowser.util.Objects;
+-/** Note: Undocumented class? */
+-import sun.font.FontManager;
+ 
+ /**
+  * @author J. H. S.
+@@ -206,8 +204,7 @@
+        }
+ 
+        private Font createFont(String name, int style, int size) {
+-               // Proprietary Sun API. Maybe shouldn't use it. Works well for Chinese.
+-           return FontManager.getCompositeFontUIResource(new Font(name, style, size));
++           return javax.swing.text.StyleContext.getDefaultStyleContext().getFont(name, style, size);
+        }
+ 
+        private static class FontKey {

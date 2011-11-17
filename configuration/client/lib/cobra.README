@@ -1,0 +1,5 @@
+cobra.patch contains a patch to be applied to cobra 0.98.4 so that it works
+with java 7.
+
+Submitted by James Ahlborn:
+http://sourceforge.net/tracker/index.php?func=detail&aid=2991043&group_id=139023&atid=742262
