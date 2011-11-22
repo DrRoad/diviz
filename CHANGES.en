@@ -1,3 +1,9 @@
+diviz v1.7.4
+------------
+
+- Fixed a situation where the client could never connect to the server,
+  depending on the network configuration and the surrounding firewalls.
+
 diviz v1.7.3
 ------------
 

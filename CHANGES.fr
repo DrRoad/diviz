@@ -1,3 +1,9 @@
+diviz v1.7.4
+------------
+
+- Correction d'une situation où, selon la configuration réseau et les pare-feu
+  environnants, le client n'arrivait jamais à se connecter au serveur.
+
 diviz v1.7.3
 ------------
 
