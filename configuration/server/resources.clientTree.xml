@@ -60,6 +60,7 @@
 			<resource name="J-MCDA___ElectreOutranking___0.5.1"/>
 			<resource name="PyXMCDA___ElectreTriBMInference___1.0"/>
 			<resource name="J-MCDA___ElectreTriExploitation___0.5.1"/>
+			<resource name="PyXMCDA___GammaP___1.0"/>
 			<resource name="CppXMCDA___IRIS-testInconsistency___1.0"/>
 			<resource name="CppXMCDA___IRIS___1.0"/>
 			<resource name="RXMCDA___plotGaiaPlane___1.0" />
