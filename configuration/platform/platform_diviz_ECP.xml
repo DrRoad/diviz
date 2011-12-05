@@ -78,6 +78,7 @@ set callXMCDAService="genericXMCDAService.py -U http://localhost/soap/%s.py -n "
 
       <!-- URV -->
       <program id="URV___OWA___1.0"/>
+      <program id="URV___ULOWA___1.0"/>
 
 <!-- This program requires cplex, which is not installed at ecp for the moment being -->
 <!--  <program id="PyXMCDA___weightsFromCondorcetAndPreferences___1.0"/>
