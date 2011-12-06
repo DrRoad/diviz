@@ -52,7 +52,7 @@ set callXMCDAService="genericXMCDAService.py -U http://server-telecom-bretagne.d
       <program id="PyXMCDA___randomPerformanceTable___1.1"/>
       <program id="PyXMCDA___ElectreTriBMInference___1.0"/>
       <program id="PyXMCDA___thresholdsSensitivityAnalysis___1.0.0"/>
-      <program id="PyXMCDA___RubisOutrankingRelation___1.0"/>
+      <program id="PyXMCDA___RubisOutrankingRelation___1.1"/>
       <program id="PyXMCDA___GammaP___1.0"/>
 
       <program id="jsmaa___smaa2___0.2"/>
