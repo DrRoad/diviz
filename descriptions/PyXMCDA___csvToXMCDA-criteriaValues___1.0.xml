@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+
+<!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
+
+<program_description export_date="2011-12-06 15:54:43 +0000">
+  <program provider="PyXMCDA" name="csvToXMCDA-criteriaValues" version="1.0" />
+  <from desc_id="S8888" />
+  <description><![CDATA[Transforms a file containing criteria values from a comma-separated values (CSV) file to two XMCDA compliant files, containing the corresponding criteria ids and their criteriaValues.]]></description>
+  <parameters>
+    <parameter id="csvToXMCDA-criteriaValues-cmdline" type="command" ismandatory="1">
+      <name>csvToXMCDA-criteriaValues</name>
+      <description></description>
+      <position>100000</position>
+      <code>$callXMCDAService csvToXMCDA-criteriaValues-PyXMCDA -S </code>
+    </parameter>
+
+
+    <parameter id="csv" ishidden="0" type="input">
+      <name>criteriaValues</name>
+      <description><![CDATA[The criteria and their criteria values as a CSV file.]]></description>
+      <position>100003</position>
+      <code> criteriaValues.csv:criteriaValues.csv.xml</code>
+      <types>
+        <type>other</type>
+      </types>
+      <vdef>criteriaValues.csv.xml</vdef>
+      <dep/>
+    </parameter>
+
+
+
+
+    <parameter id="criteria" ishidden="0" type="output">
+      <name>criteria</name>
+      <description><![CDATA[The equivalent criteria ids.]]></description>
+      <position>2004</position>
+      <code/>
+      <types>
+        <type>criteria</type>
+      </types>
+      <vdef>criteria.xml</vdef>
+    </parameter>
+
+
+
+
+
+    <parameter id="criteriaValues" ishidden="0" type="output">
+      <name>criteriaValues</name>
+      <description><![CDATA[The equivalent criteria values.]]></description>
+      <position>2005</position>
+      <code/>
+      <types>
+        <type>criteriaValues</type>
+      </types>
+      <vdef>criteriaValues.xml</vdef>
+    </parameter>
+
+
+
+
+
+    <parameter id="messages" ishidden="0" type="output">
+      <name>messages</name>
+      <description><![CDATA[Status messages.]]></description>
+      <position>2006</position>
+      <code/>
+      <types>
+        <type>methodMessages</type>
+      </types>
+      <vdef>messages.xml</vdef>
+    </parameter>
+
+
+
+    <parameter id="TIMEOUT" ishidden="0" type="int">
+      <name>Timeout? (0 for no timeout)</name>
+      <description>timeout</description>
+      <position>100001</position>
+      <code>-t %s </code>
+      <constraint>
+        <description>value should be a positive or null integer</description>
+        <code>(%d &gt;= 0)</code>
+      </constraint>
+      <vdef>60</vdef>
+    </parameter>
+    
+    <parameter id="VERBOSE" ishidden="0" type="enum">
+      <name>Verbose mode</name>
+      <description></description>
+      <position>100002</position>
+      <vlist>
+        <item id="T1">
+          <description>None</description>
+          <code></code>
+        </item>
+        <item id="T2">
+          <description>Moderately verbose</description>
+          <code> -v</code>
+        </item>
+        <item id="T3">
+          <description>Very verbose</description>
+          <code> -vv</code>
+        </item>
+        <item id="T4">
+          <description>Extremely verbose (include SOAP msgs)</description>
+          <code> -vvv</code>
+        </item>
+      </vlist>
+      <vdef>T2</vdef>
+    </parameter>
+
+  </parameters>
+</program_description>
