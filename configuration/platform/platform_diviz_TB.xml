@@ -43,6 +43,7 @@ set callXMCDAService="genericXMCDAService.py -U http://server-telecom-bretagne.d
       <program id="RXMCDA___plotGaiaPlane___1.0" />
       <program id="RXMCDA___alternativesRankingViaQualificationDistillation___1.0" />
       <program id="RXMCDA___computeAlternativesQualification___1.0" />
+      <program id="RXMCDA___multipleAlternativesValuesKendalls___1.0" />
 
       <program id="PyXMCDA___weightedSum___1.0"/>
       <program id="PyXMCDA___RubisConcordanceRelation___1.0"/>

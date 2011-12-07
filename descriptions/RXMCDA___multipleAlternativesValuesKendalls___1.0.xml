@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+
+<!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
+
+<program_description export_date="2011-12-06 09:48:16 +0000">
+  <program provider="RXMCDA" name="multipleAlternativesValuesKendalls" version="1.0" />
+  <from desc_id="S8888" />
+  <description><![CDATA[Calculates the correlation index between multiple rankings of alternatives (represented by lists of ranks).]]></description>
+  <parameters>
+    <parameter id="multipleAlternativesValuesKendalls-cmdline" type="command" ismandatory="1">
+      <name>multipleAlternativesValuesKendalls</name>
+      <description></description>
+      <position>100000</position>
+      <code>$callXMCDAService multipleAlternativesValuesKendalls-RXMCDA -S </code>
+    </parameter>
+
+    <parameter id="nbEntries" ishidden="0" type="int">
+      <name>Number of entries</name>
+      <description>Number of entries</description>
+      <position>10000</position>
+      <code/>
+
+      <constraint>
+        <description>The value should be a positive integer, between 2 and 10 (inclusive)</description>
+        <code><![CDATA[%d > 1 && %d < 11]]></code>   
+      </constraint>
+      <vdef>3</vdef>
+      <dep/>
+    </parameter>
+
+
+
+    <parameter id="alternatives" ishidden="0" type="input">
+      <name>alternatives</name>
+      <description><![CDATA[A list of alternatives. Alternatives can be activated or desactivated via the <active> tag (true or false). By default (no <active> tag), alternatives are considered as active. ]]></description>
+      <position>100003</position>
+      <code> alternatives:alternatives.xml</code>
+      <types>
+        <type>alternatives</type>
+      </types>
+      <vdef>alternatives.xml</vdef>
+      <dep/>
+    </parameter>
+
+
+
+    <parameter id="alternativesValues1" ishidden="0" type="input">
+      <name>alternativesValues</name>
+      <description><![CDATA[A list of <alternativeValue> in an <alternativesValues> containing the rank of each alternative. The <value> should be a numeric value.]]></description>
+      <position>100004</position>
+      <code> alternativesValues1:alternativesValues1.xml</code>
+      <types>
+        <type>alternativesValues</type>
+      </types>
+      <vdef>alternativesValues1.xml</vdef>
+    </parameter>
+
+    <parameter id="alternativesValues2" ishidden="0" type="input">
+      <name>alternativesValues</name>
+      <description><![CDATA[A list of <alternativeValue> in an <alternativesValues> containing the rank of each alternative. The <value> should be a numeric value.]]></description>
+      <position>100005</position>
+      <code> alternativesValues2:alternativesValues2.xml</code>
+      <types>
+        <type>alternativesValues</type>
+      </types>
+      <vdef>alternativesValues2.xml</vdef>
+    </parameter>
+
+    <parameter id="alternativesValues3" ishidden="0" type="input">
+      <name>alternativesValues</name>
+      <description><![CDATA[A list of <alternativeValue> in an <alternativesValues> containing the rank of each alternative. The <value> should be a numeric value.]]></description>
+      <position>100005</position>
+      <code> alternativesValues3:alternativesValues3.xml</code>
+      <types>
+        <type>alternativesValues</type>
+      </types>
+      <vdef>alternativesValues3.xml</vdef>
+      <dep>(nbEntries:value>=3)</dep>
+    </parameter>
+
+    <parameter id="alternativesValues4" ishidden="0" type="input">
+      <name>alternativesValues</name>
+      <description><![CDATA[A list of <alternativeValue> in an <alternativesValues> containing the rank of each alternative. The <value> should be a numeric value.]]></description>
+      <position>100005</position>
+      <code> alternativesValues4:alternativesValues4.xml</code>
+      <types>
+        <type>alternativesValues</type>
+      </types>
+      <vdef>alternativesValues4.xml</vdef>
+      <dep>(nbEntries:value>=4)</dep>
+    </parameter>
+
+    <parameter id="alternativesValues5" ishidden="0" type="input">
+      <name>alternativesValues</name>
+      <description><![CDATA[A list of <alternativeValue> in an <alternativesValues> containing the rank of each alternative. The <value> should be a numeric value.]]></description>
+      <position>100005</position>
+      <code> alternativesValues5:alternativesValues5.xml</code>
+      <types>
+        <type>alternativesValues</type>
+      </types>
+      <vdef>alternativesValues5.xml</vdef>
+      <dep>(nbEntries:value>=5)</dep>
+    </parameter>
+
+    <parameter id="alternativesValues6" ishidden="0" type="input">
+      <name>alternativesValues</name>
+      <description><![CDATA[A list of <alternativeValue> in an <alternativesValues> containing the rank of each alternative. The <value> should be a numeric value.]]></description>
+      <position>100005</position>
+      <code> alternativesValues6:alternativesValues6.xml</code>
+      <types>
+        <type>alternativesValues</type>
+      </types>
+      <vdef>alternativesValues6.xml</vdef>
+      <dep>(nbEntries:value>=6)</dep>
+    </parameter>
+
+    <parameter id="alternativesValues7" ishidden="0" type="input">
+      <name>alternativesValues</name>
+      <description><![CDATA[A list of <alternativeValue> in an <alternativesValues> containing the rank of each alternative. The <value> should be a numeric value.]]></description>
+      <position>100005</position>
+      <code> alternativesValues7:alternativesValues7.xml</code>
+      <types>
+        <type>alternativesValues</type>
+      </types>
+      <vdef>alternativesValues7.xml</vdef>
+      <dep>(nbEntries:value>=7)</dep>
+    </parameter>
+
+    <parameter id="alternativesValues8" ishidden="0" type="input">
+      <name>alternativesValues</name>
+      <description><![CDATA[A list of <alternativeValue> in an <alternativesValues> containing the rank of each alternative. The <value> should be a numeric value.]]></description>
+      <position>100005</position>
+      <code> alternativesValues8:alternativesValues8.xml</code>
+      <types>
+        <type>alternativesValues</type>
+      </types>
+      <vdef>alternativesValues8.xml</vdef>
+      <dep>(nbEntries:value>=8)</dep>
+    </parameter>
+
+    <parameter id="alternativesValues9" ishidden="0" type="input">
+      <name>alternativesValues</name>
+      <description><![CDATA[A list of <alternativeValue> in an <alternativesValues> containing the rank of each alternative. The <value> should be a numeric value.]]></description>
+      <position>100005</position>
+      <code> alternativesValues9:alternativesValues9.xml</code>
+      <types>
+        <type>alternativesValues</type>
+      </types>
+      <vdef>alternativesValues9.xml</vdef>
+      <dep>(nbEntries:value>=9)</dep>
+    </parameter>
+
+    <parameter id="alternativesValues10" ishidden="0" type="input">
+      <name>alternativesValues</name>
+      <description><![CDATA[A list of <alternativeValue> in an <alternativesValues> containing the rank of each alternative. The <value> should be a numeric value.]]></description>
+      <position>100005</position>
+      <code> alternativesValues10:alternativesValues10.xml</code>
+      <types>
+        <type>alternativesValues</type>
+      </types>
+      <vdef>alternativesValues10.xml</vdef>
+      <dep>(nbEntries:value>=10)</dep>
+    </parameter>
+
+
+
+
+    <parameter id="messages" ishidden="0" type="output">
+      <name>messages</name>
+      <description><![CDATA[A list of messages generated by the algorithm.]]></description>
+      <position>2006</position>
+      <code/>
+      <types>
+        <type>methodMessages</type>
+      </types>
+      <vdef>messages.xml</vdef>
+    </parameter>
+
+
+
+
+
+    <parameter id="kendall-output" ishidden="0" type="output">
+      <name>kendall</name>
+      <description><![CDATA[An <alternativeValue> containing the Kendall correlation index of the two rankings of alternatives.]]></description>
+      <position>2007</position>
+      <code/>
+      <types>
+        <type>alternativeValue</type>
+      </types>
+      <vdef>kendall.xml</vdef>
+    </parameter>
+
+
+
+    <parameter id="TIMEOUT" ishidden="0" type="int">
+      <name>Timeout? (0 for no timeout)</name>
+      <description>timeout</description>
+      <position>100001</position>
+      <code>-t %s </code>
+      <constraint>
+        <description>value should be a positive or null integer</description>
+        <code>(%d &gt;= 0)</code>
+      </constraint>
+      <vdef>60</vdef>
+    </parameter>
+    
+    <parameter id="VERBOSE" ishidden="0" type="enum">
+      <name>Verbose mode</name>
+      <description></description>
+      <position>100002</position>
+      <vlist>
+        <item id="T1">
+          <description>None</description>
+          <code></code>
+        </item>
+        <item id="T2">
+          <description>Moderately verbose</description>
+          <code> -v</code>
+        </item>
+        <item id="T3">
+          <description>Very verbose</description>
+          <code> -vv</code>
+        </item>
+        <item id="T4">
+          <description>Extremely verbose (include SOAP msgs)</description>
+          <code> -vvv</code>
+        </item>
+      </vlist>
+      <vdef>T2</vdef>
+    </parameter>
+
+  </parameters>
+</program_description>

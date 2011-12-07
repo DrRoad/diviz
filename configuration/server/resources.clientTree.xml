@@ -124,6 +124,7 @@
 			<resource name="RXMCDA___alternativesValuesKendall___1.0"/>
 			<resource name="RXMCDA___convertAlternativesRanksToAlternativesComparisons___1.0" />
 			<resource name="RXMCDA___invertAlternativesRanks___1.0" />
+			<resource name="RXMCDA___multipleAlternativesValuesKendalls___1.0"/>
 			<resource name="PyXMCDA___randomAlternatives___1.0"/>
 			<resource name="RXMCDA___randomAlternativesRanks___1.0" />
 			<resource name="RXMCDA___rankAlternativesValues___1.1"/>
