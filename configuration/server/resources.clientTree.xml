@@ -100,6 +100,7 @@
 					<resource name="J-MCDA___ElectreTriExploitation___0.5.1"/>
 					<resource name="CppXMCDA___IRIS___1.0"/>
 					<resource name="CppXMCDA___IRIS-testInconsistency___1.0"/>
+					<resource name="PyXMCDA___stableSorting___1.0"/>
 				</type>
 				<type name="Clustering" collapsed="0">
 					<resource name="PyXMCDA___MccP___1.0"/>
