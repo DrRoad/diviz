@@ -1,14 +1,37 @@
+
+- A new search field appeared at the top the the tree of programs.  Programs
+  matching the searched string are highlighted by being displayed using a bold
+  font.
+
+- In addition, the hierarchy of programs has changed, we hope it makes it even
+  easier to select / find a program.
+
+- The following web-services, developed and proposed during the Decision Deck
+  Developers' Camp '2011 have been integrated into diviz:
+
+  - ULOWA (URV) poposed by Aida Valls, Lucas Marin and Jordi Canals
+  - RubisOutrankingRelation (PyXMCDA) by Thomas Veneziano
+  - MccP (PyXMCDA) by Alexandru Olteanu
+  - multipleAlternativesValuesKendall (RXMCDA) by Patrick  Meyer
+  - csvToXMCDA-criteriaValues by Sébastien Bigaret
+
+  Plus the two following ones proposed just after the DD Dev.Camp:
+  - csvToXMCDA-criteriaThresholds (PyXMCDA) by Sébastien Bigaret
+  - stableSorting (PyXMCDA) by Thomas Veneziano
+
 diviz v1.7.4
 ------------
 
 - Fixed a situation where the client could never connect to the server,
   depending on the network configuration and the surrounding firewalls.
 
+
 diviz v1.7.3
 ------------
 
 - When using java 7, the HTML result's viewer was not available (only the raw
   XMCDA format could be viewed): this has been fixed.
+
 
 diviz v1.7.2
 ------------
@@ -19,6 +42,7 @@ displayed in red.
 
 We particularly thank Sascha Graßhoff for reporting the problem and for
 working with us to solve it.
+
 
 diviz v1.7.1
 ------------
@@ -76,6 +100,7 @@ Please note!
 
   - PyXMCDA by Thomas Veneziano and Olivier Sobrie: all webservices now accept
     XMCDA v2.1 in addition to v2.0.
+
 
 diviz v1.6.1
 ------------
