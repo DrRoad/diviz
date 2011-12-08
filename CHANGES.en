@@ -15,7 +15,12 @@
   - multipleAlternativesValuesKendall (RXMCDA) by Patrick  Meyer
   - csvToXMCDA-criteriaValues by Sébastien Bigaret
 
-  Plus the two following ones proposed just after the DD Dev.Camp:
+  Updated:
+
+  - ElectreTriBMInference v1.1 by Olivier S.: fixed categories' rank problem:
+    the preferred category is ranked first.
+
+  Plus the two new following services proposed just after the DD Dev.Camp:
   - csvToXMCDA-criteriaThresholds (PyXMCDA) by Sébastien Bigaret
   - stableSorting (PyXMCDA) by Thomas Veneziano
 

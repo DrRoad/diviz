@@ -72,7 +72,7 @@
 		<type name="Outranking techniques" collapsed="0">
 			
 			<type name="Parameters elicitation" collapsed="0">
-				<resource name="PyXMCDA___ElectreTriBMInference___1.0"/>
+				<resource name="PyXMCDA___ElectreTriBMInference___1.1"/>
 				<resource name="PyXMCDA___weightsFromCondorcetAndPreferences___1.0"/>
 			</type>
 			

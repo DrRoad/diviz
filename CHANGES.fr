@@ -16,6 +16,11 @@
   - multipleAlternativesValuesKendall (RXMCDA) par Patrick  Meyer
   - csvToXMCDA-criteriaValues par Sébastien Bigaret
 
+  Mis à jour:
+
+  - ElectreTriBMInference v1.1 par Olivier S.: correction du problème du rang
+    des catégories: la catégorie préférée est rangée au rang 1.
+
   Plus les deux suivants, proposés juste après le DD Dev.Camp:
   - csvToXMCDA-criteriaThresholds (PyXMCDA) by Sébastien Bigaret
   - stableSorting (PyXMCDA) by Thomas Veneziano
