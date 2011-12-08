@@ -17,115 +17,160 @@
         icon CDATA #IMPLIED
     >
 ]>
-<resourcesTree version="7">
-		
+<resourcesTree version="8">
+	
 	<type name="Generic" collapsed="0">
 		<resource name="local___generic_program___1.0"/>
 	</type>
+	
 	<type name="Calculation components" collapsed="0">
-		<type name="Capacity analysis" collapsed="0">
-			<resource name="kappalab___capacityEntropy___1.0"/>
-			<resource name="kappalab___capacityFavor___1.0"/>
-			<resource name="kappalab___capacityInteraction___1.0"/>
-			<resource name="kappalab___capacityOrness___1.0"/>
-			<resource name="kappalab___capacityShapley___1.0"/>
-			<resource name="kappalab___capacityVariance___1.0"/>
-			<resource name="kappalab___capacityVeto___1.0"/>
-		</type>
 		
-		<type name="Capacity identification" collapsed="0">
-			<resource name="kappalab___leastSquaresCapaIdent___1.0"/>
-			<resource name="kappalab___linProgCapaIdent___1.0"/>
-			<resource name="kappalab___lsRankingCapaIdent___1.0"/>
-			<resource name="kappalab___miniVarCapaIdent___1.0"/>
-		</type>
-		
-		<type name="Aggregation" collapsed="0">
-			<resource name="kappalab___choquetIntegral___1.0"/>
-                        <resource name="URV___OWA___1.0"/>
-			<type name="Weighted Sum" collapsed="0">
-				<resource name="PyXMCDA___weightedSum___1.0"/>
-				<resource name="UTAR___generalWeightedSum___1.0"/>
+		<type name="Value techniques" collapsed="0">	
+			
+			<type name="Parameters elicitation" collapsed="0">
+				<resource name="UTAR___ACUTA___2.0"/>
+				<resource name="RXMCDA___additiveValueFunctionsIdentification___1.1" />
+				<resource name="UTAR___UTASTAR___1.1"/>
 			</type>
+			
+			<type name="Aggregation operators" collapsed="0">
+				<type name="Weighted Sum" collapsed="0">
+					<resource name="UTAR___generalWeightedSum___1.0"/>
+					<resource name="PyXMCDA___weightedSum___1.0"/>
+				</type>
+			</type>
+			
+			<type name="Capacity related techniques" collapsed="0">
+				
+				<type name="Capacity identification" collapsed="0">
+					<resource name="kappalab___leastSquaresCapaIdent___1.0"/>
+					<resource name="kappalab___linProgCapaIdent___1.0"/>
+					<resource name="kappalab___lsRankingCapaIdent___1.0"/>
+					<resource name="kappalab___miniVarCapaIdent___1.0"/>
+				</type>
+				
+				<type name="Aggregation" collapsed="0">
+					<resource name="kappalab___choquetIntegral___1.0"/>
+					<resource name="URV___OWA___1.0"/>
+					<resource name="URV___ULOWA___1.0"/>
+				</type>
+				
+				<type name="Capacity analysis" collapsed="0">
+					<resource name="kappalab___capacityEntropy___1.0"/>
+					<resource name="kappalab___capacityFavor___1.0"/>
+					<resource name="kappalab___capacityInteraction___1.0"/>
+					<resource name="kappalab___capacityOrness___1.0"/>
+					<resource name="kappalab___capacityShapley___1.0"/>
+					<resource name="kappalab___capacityVariance___1.0"/>
+					<resource name="kappalab___capacityVeto___1.0"/>
+				</type>
+				
+			</type>
+			
 		</type>
 		
-		<type name="Outranking" collapsed="0">
-			<resource name="RXMCDA___alternativesRankingViaQualificationDistillation___1.0" />
-			<resource name="RXMCDA___computeAlternativesQualification___1.0" />
-			<resource name="PyXMCDA___CondorcetRobustnessRelation___1.0"/>
-			<resource name="J-MCDA___cutRelation___0.5.1"/>
-			<resource name="J-MCDA___ElectreConcordance___0.5.1"/>
-			<resource name="J-MCDA___ElectreDiscordances___0.5.1"/>
-			<resource name="J-MCDA___ElectreOutranking___0.5.1"/>
-			<resource name="PyXMCDA___ElectreTriBMInference___1.0"/>
-			<resource name="J-MCDA___ElectreTriExploitation___0.5.1"/>
-			<resource name="CppXMCDA___IRIS-testInconsistency___1.0"/>
-			<resource name="CppXMCDA___IRIS___1.0"/>
-			<resource name="RXMCDA___plotGaiaPlane___1.0" />
-			<resource name="J-MCDA___PrometheePreference___0.5.1"/>
-			<resource name="J-MCDA___PrometheeFlows___0.5.1"/>
-			<resource name="J-MCDA___PrometheeProfiles___0.5.1"/>
-			<resource name="RXMCDA___Promethee1Ranking___1.0" />
-			<resource name="PyXMCDA___RubisConcordanceRelation___1.0"/>
+		<type name="Outranking techniques" collapsed="0">
+			
+			<type name="Parameters elicitation" collapsed="0">
+				<resource name="PyXMCDA___ElectreTriBMInference___1.1"/>
+				<resource name="PyXMCDA___weightsFromCondorcetAndPreferences___1.0"/>
+			</type>
+			
+			<type name="Relation construction" collapsed="0">
+				<resource name="J-MCDA___cutRelation___0.5.1"/>
+				<resource name="PyXMCDA___CondorcetRobustnessRelation___1.0"/>
+				<resource name="J-MCDA___ElectreConcordance___0.5.1"/>
+				<resource name="J-MCDA___ElectreDiscordances___0.5.1"/>
+				<resource name="J-MCDA___ElectreOutranking___0.5.1"/>
+				<resource name="J-MCDA___PrometheeFlows___0.5.1"/>
+				<resource name="J-MCDA___PrometheePreference___0.5.1"/>
+				<resource name="PyXMCDA___RubisConcordanceRelation___1.0"/>
+				<resource name="PyXMCDA___RubisOutrankingRelation___1.1"/>
+			</type>
+			
+			<type name="Relation exploitation" collapsed="0">
+				<type name="Ranking" collapsed="0">
+					<resource name="RXMCDA___alternativesRankingViaQualificationDistillation___1.0" />
+					<resource name="RXMCDA___computeAlternativesQualification___1.0" />
+					<resource name="RXMCDA___plotGaiaPlane___1.0" />
+					<resource name="RXMCDA___Promethee1Ranking___1.0" />
+					<resource name="J-MCDA___PrometheeProfiles___0.5.1"/>
+				</type>
+				<type name="Sorting" collapsed="0">
+					<resource name="J-MCDA___ElectreTriExploitation___0.5.1"/>
+					<resource name="CppXMCDA___IRIS___1.0"/>
+					<resource name="CppXMCDA___IRIS-testInconsistency___1.0"/>
+					<resource name="PyXMCDA___stableSorting___1.0"/>
+				</type>
+				<type name="Clustering" collapsed="0">
+					<resource name="PyXMCDA___MccP___1.0"/>
+				</type>
+			</type>
+			
+			<type name="Sensitivity analysis" collapsed="0">
+				<resource name="PyXMCDA___thresholdsSensitivityAnalysis___1.0.0"/>
+			</type>
+			
 		</type>
 		
-		<type name="Disaggregation" collapsed="0">
-			<resource name="UTAR___ACUTA___2.0"/>
-			<resource name="RXMCDA___additiveValueFunctionsIdentification___1.1" />
-			<resource name="UTAR___UTASTAR___1.1"/>
-			<resource name="PyXMCDA___weightsFromCondorcetAndPreferences___1.0"/>
+		<type name="Miscellaneous" collapsed = "0">
+			<resource name="jsmaa___smaa2___0.2"/>
 		</type>
 		
-		<type name="Alternatives analysis" collapsed="0">
-			<resource name="RXMCDA___alternativesValuesKendall___1.0"/>
-			<resource name="RXMCDA___rankAlternativesValues___1.1"/>
-		</type>
+	</type>
+	
+	<type name="Tools" collapsed="0">
+		
 		<type name="Alternatives computations" collapsed="0">
+			<resource name="RXMCDA___alternativesValuesKendall___1.0"/>
 			<resource name="RXMCDA___convertAlternativesRanksToAlternativesComparisons___1.0" />
+			<resource name="RXMCDA___invertAlternativesRanks___1.0" />
+			<resource name="RXMCDA___multipleAlternativesValuesKendalls___1.0"/>
 			<resource name="PyXMCDA___randomAlternatives___1.0"/>
 			<resource name="RXMCDA___randomAlternativesRanks___1.0" />
-			<resource name="RXMCDA___invertAlternativesRanks___1.0" />
+			<resource name="RXMCDA___rankAlternativesValues___1.1"/>
 		</type>
+		
 		<type name="Criteria computations" collapsed="0">
 			<resource name="PyXMCDA___randomCriteria___1.1"/>
 			<resource name="RXMCDA___randomCriteriaWeights___1.0" />
 		</type>
+		
 		<type name="Performance table computations" collapsed="0">
 			<resource name="UTAR___computeNormalisedPerformanceTable___1.0"/>
 			<resource name="RXMCDA___randomNormalizedPerformanceTable___1.0" />
 			<resource name="PyXMCDA___randomPerformanceTable___1.1"/>
-			<resource name="J-MCDA___csvToXMCDA-performanceTable___0.5.1"/>
-		</type>
-	</type>
-
-	<type name="Sensitivity Analysis" collapsed="0">
-		<resource name="PyXMCDA___thresholdsSensitivityAnalysis___1.0.0"/>
-	</type>
-
-	<type name="Methods" collapsed="0">
-		<resource name="jsmaa___smaa2___0.2"/>
-	</type>
-
-	<type name="Misc." collapsed="0">
-		<resource name="CppXMCDA___inconsistencyResolution___1.0"/>
-	</type>
-
-	<type name="Visualisation components" collapsed="0">
-		<resource name="RXMCDA___plotAlternativesComparisons___1.0"/>
-		<resource name="RXMCDA___plotAlternativesValues___1.0"/>
-		<resource name="RXMCDA___plotAlternativesValuesPreorder___1.0"/>
-		<resource name="RXMCDA___plotCriteriaComparisons___1.0"/>
-		<resource name="RXMCDA___plotCriteriaValues___1.0"/>
-		<resource name="RXMCDA___plotCriteriaValuesPreorder___1.0"/>
-		<resource name="RXMCDA___plotNumericPerformanceTable___1.0"/>
-		<resource name="UTAR___plotValueFunctions___1.0"/>
-		<resource name="UTAR___XYPlotAlternativesValues___1.0"/>
-	</type>
-
-		<type name="Reporting" collapsed="0">
-		    <resource name="RXMCDA___generateXMCDAReport___1.0"/>
+			
 		</type>
 		
+		<type name="CSV converters" collapsed = "0">
+			<resource name="PyXMCDA___csvToXMCDA-criteriaValues___1.0"/>
+			<resource name="J-MCDA___csvToXMCDA-performanceTable___0.5.1"/>
+			<resource name="PyXMCDA___csvToXMCDA-criteriaThresholds___1.0"/>
+		</type>
+		
+		<type name="Data visualisation" collapsed="0">
+			<resource name="RXMCDA___plotAlternativesComparisons___1.0"/>
+			<resource name="RXMCDA___plotAlternativesValues___1.0"/>
+			<resource name="RXMCDA___plotAlternativesValuesPreorder___1.0"/>
+			<resource name="RXMCDA___plotCriteriaComparisons___1.0"/>
+			<resource name="RXMCDA___plotCriteriaValues___1.0"/>
+			<resource name="RXMCDA___plotCriteriaValuesPreorder___1.0"/>
+			<resource name="RXMCDA___plotNumericPerformanceTable___1.0"/>
+			<resource name="UTAR___plotValueFunctions___1.0"/>
+			<resource name="UTAR___XYPlotAlternativesValues___1.0"/>
+		</type>
+		
+		<type name="Misc." collapsed="0">
+			<resource name="CppXMCDA___inconsistencyResolution___1.0"/>
+		</type>
+		
+		<type name="Reporting" collapsed="0">
+			<resource name="RXMCDA___generateXMCDAReport___1.0"/>
+		</type>
+		
+	</type>
+	
 	<!-- <type name="Development" collapsed="1">
 		<resource name="DecisionDeck___kappalabServer___1.0"/>
 		<resource name="DecisionDeck___kappalab___1.0"/>
@@ -134,6 +179,6 @@
 		<resource name="DecisionDeck___kappalab_O2I___1.0"/>
 		<resource name="DecisionDeck___kappalabComponent___1.0"/>
 		<resource name="DecisionDeck___assembleXMCDA___1.0"/>
-	</type> -->
-
+		</type> -->
+	
 </resourcesTree>

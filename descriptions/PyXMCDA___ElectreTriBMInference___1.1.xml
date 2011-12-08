@@ -3,8 +3,8 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2011-04-10 10:25:35 +0000" active="0">
-  <program provider="PyXMCDA" name="ElectreTriBMInference" version="1.0" />
+<program_description export_date="2011-12-08 17:15:00 +0000">
+  <program provider="PyXMCDA" name="ElectreTriBMInference" version="1.1" />
   <from desc_id="S8888" />
   <description><![CDATA[This web service allows to infer parameters of a Bouyssou-Marchant Electre Tri relation on basis of reference actions affectations]]></description>
   <parameters>

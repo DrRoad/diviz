@@ -1,3 +1,31 @@
+
+- Un nouveau champ de recherche a été ajouté en haut de la liste des
+  programmes.  Les programmes qui correspondent à la recherche sont mis en
+  évidence en étant affichés en caractères gras.
+
+- De plus, la hiérarchie des programmes a changé, nous espérons que cela rend
+  encore plus facile la sélection / recherche de programmes.
+
+- Les services web suivants, qui ont été développés et proposés pendant la
+  session 2011 du «Decision Deck Developer's Camp», ont été intégrés dans
+  diviz:
+
+  - ULOWA (URV) par Aida Valls, Lucas Marin et Jordi Canals
+  - RubisOutrankingRelation & stableSorting (PyXMCDA) par Thomas Veneziano
+  - MccP (PyXMCDA) par Alexandru Olteanu
+  - multipleAlternativesValuesKendall (RXMCDA) par Patrick  Meyer
+  - csvToXMCDA-criteriaValues par Sébastien Bigaret
+
+  Mis à jour:
+
+  - ElectreTriBMInference v1.1 par Olivier S.: correction du problème du rang
+    des catégories: la catégorie préférée est rangée au rang 1.
+
+  Plus les deux suivants, proposés juste après le DD Dev.Camp:
+  - csvToXMCDA-criteriaThresholds (PyXMCDA) by Sébastien Bigaret
+  - stableSorting (PyXMCDA) by Thomas Veneziano
+
+
 diviz v1.7.4
 ------------
 

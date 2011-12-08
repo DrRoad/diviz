@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+
+<!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
+
+<program_description export_date="2011-12-08 11:59:31 +0000">
+  <program provider="PyXMCDA" name="csvToXMCDA-criteriaThresholds" version="1.0" />
+  <from desc_id="S8888" />
+  <description><![CDATA[Transforms a file containing criteria discrimination thresholds and preference directions from a comma-separated values (CSV) file to an XMCDA compliant file, containing the criteria ids with their preference direction and related discrimination thresholds.]]></description>
+  <parameters>
+    <parameter id="csvToXMCDA-criteriaThresholds-cmdline" type="command" ismandatory="1">
+      <name>csvToXMCDA-criteriaThresholds</name>
+      <description></description>
+      <position>100000</position>
+      <code>$callXMCDAService csvToXMCDA-criteriaThresholds-PyXMCDA -S </code>
+    </parameter>
+
+
+    <parameter id="csv" ishidden="0" type="input">
+      <name>criteriaThresholds</name>
+      <description><![CDATA[A csv with criteria' thresholds.
+
+Example:
+  ,cost,risks,employment,connection
+  ind,1,2,3,4
+  pref,2,3,4,5
+  veto,3,4,5,6
+  preferenceDirection,min,max,min,max
+
+The labels of the separation thresholds ("ind", "pref", "veto") can be chosen freely in order to be in accordance with the selected outranking method. Further separation thresholds can also be added. The last line represents the preferenceDirection; its label must be "preferenceDirection".
+]]></description>
+      <position>100003</position>
+      <code> thresholds.csv:thresholds.csv.xml</code>
+      <types>
+        <type>other</type>
+      </types>
+      <vdef>thresholds.csv.xml</vdef>
+      <dep/>
+    </parameter>
+
+
+
+
+    <parameter id="criteria" ishidden="0" type="output">
+      <name>criteria</name>
+      <description><![CDATA[The equivalent XMCDA file containing criteria with their preference directions and discrimination thresholds.]]></description>
+      <position>2004</position>
+      <code/>
+      <types>
+        <type>criteria</type>
+      </types>
+      <vdef>criteria.xml</vdef>
+    </parameter>
+
+
+
+
+
+    <parameter id="messages" ishidden="0" type="output">
+      <name>messages</name>
+      <description><![CDATA[Status messages.]]></description>
+      <position>2005</position>
+      <code/>
+      <types>
+        <type>methodMessages</type>
+      </types>
+      <vdef>messages.xml</vdef>
+    </parameter>
+
+
+
+    <parameter id="TIMEOUT" ishidden="0" type="int">
+      <name>Timeout? (0 for no timeout)</name>
+      <description>timeout</description>
+      <position>100001</position>
+      <code>-t %s </code>
+      <constraint>
+        <description>value should be a positive or null integer</description>
+        <code>(%d &gt;= 0)</code>
+      </constraint>
+      <vdef>60</vdef>
+    </parameter>
+    
+    <parameter id="VERBOSE" ishidden="0" type="enum">
+      <name>Verbose mode</name>
+      <description></description>
+      <position>100002</position>
+      <vlist>
+        <item id="T1">
+          <description>None</description>
+          <code></code>
+        </item>
+        <item id="T2">
+          <description>Moderately verbose</description>
+          <code> -v</code>
+        </item>
+        <item id="T3">
+          <description>Very verbose</description>
+          <code> -vv</code>
+        </item>
+        <item id="T4">
+          <description>Extremely verbose (include SOAP msgs)</description>
+          <code> -vvv</code>
+        </item>
+      </vlist>
+      <vdef>T2</vdef>
+    </parameter>
+
+  </parameters>
+</program_description>
