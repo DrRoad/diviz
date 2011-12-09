@@ -43,6 +43,7 @@ set callXMCDAService="genericXMCDAService.py -U http://server-telecom-bretagne.d
       <program id="RXMCDA___plotGaiaPlane___1.0" />
       <program id="RXMCDA___alternativesRankingViaQualificationDistillation___1.0" />
       <program id="RXMCDA___computeAlternativesQualification___1.0" />
+      <program id="RXMCDA___multipleAlternativesValuesKendalls___1.0" />
 
       <program id="PyXMCDA___weightedSum___1.0"/>
       <program id="PyXMCDA___RubisConcordanceRelation___1.0"/>
@@ -50,8 +51,13 @@ set callXMCDAService="genericXMCDAService.py -U http://server-telecom-bretagne.d
       <program id="PyXMCDA___randomAlternatives___1.0"/>
       <program id="PyXMCDA___randomCriteria___1.1"/>
       <program id="PyXMCDA___randomPerformanceTable___1.1"/>
-      <program id="PyXMCDA___ElectreTriBMInference___1.0"/>
+      <program id="PyXMCDA___ElectreTriBMInference___1.1"/>
       <program id="PyXMCDA___thresholdsSensitivityAnalysis___1.0.0"/>
+      <program id="PyXMCDA___RubisOutrankingRelation___1.1"/>
+      <program id="PyXMCDA___MccP___1.0"/>
+      <program id="PyXMCDA___csvToXMCDA-criteriaValues___1.0"/>
+      <program id="PyXMCDA___csvToXMCDA-criteriaThresholds___1.0"/>
+      <program id="PyXMCDA___stableSorting___1.0"/>
 
       <program id="jsmaa___smaa2___0.2"/>
       <program id="UTAR___ACUTA___2.0"/>
@@ -72,6 +78,7 @@ set callXMCDAService="genericXMCDAService.py -U http://server-telecom-bretagne.d
 
       <!-- URV -->
       <program id="URV___OWA___1.0"/>
+      <program id="URV___ULOWA___1.0"/>
 
 <!-- This program requires cplex, which is not installed at TB for the moment being -->
 <!--  <program id="PyXMCDA___weightsFromCondorcetAndPreferences___1.0"/>

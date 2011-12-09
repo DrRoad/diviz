@@ -1395,6 +1395,7 @@
 	<xsl:choose>
 		<xsl:when test="quantitative">
 			[ <xsl:value-of select="./quantitative/minimum"/> ; <xsl:value-of select="./quantitative/maximum"/> ]
+			<xsl:if test="quantitative/preferenceDirection">(<xsl:value-of select="quantitative/preferenceDirection"/>)</xsl:if>
 		</xsl:when>
 		<xsl:when test="qualitative">
 			[

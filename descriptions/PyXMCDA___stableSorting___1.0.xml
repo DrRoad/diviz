@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+
+<!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
+
+<program_description export_date="2011-12-08 13:38:05 +0000">
+  <program provider="PyXMCDA" name="stableSorting" version="1.0" />
+  <from desc_id="S8888" />
+  <description><![CDATA[
+			This web service allows to compute the affectations of some alternatives in predefined categories, bounded with predefined profiles. It takes a stability relation, which inform on the dependency of the outranking statements to the preorder. Basically, a statement is said to be stable if it is only dependent on the preorder of the weights, not the precise fixation of them. A positive value (resp. negative one) means that the outranking statement is warranted (resp. is not warranted). A +1 or -1 value on a statement means that it is unstable: in that case, at it may be warranted or not, it can modify the affectation of the alternatives. We then consider here to give the list of contiguous categories such that the alternatives can be affected to every ones by modifying the weights without changing the preorder.
+		]]></description>
+  <parameters>
+    <parameter id="stableSorting-cmdline" type="command" ismandatory="1">
+      <name>stableSorting</name>
+      <description></description>
+      <position>100000</position>
+      <code>$callXMCDAService stableSorting-PyXMCDA -S </code>
+    </parameter>
+
+
+    <parameter id="alternatives" ishidden="0" type="input">
+      <name>alternatives</name>
+      <description><![CDATA[
+					A list of alternatives. Alternatives can be activated or deactivated via the <active> tag (true or false). By default (no <active> tag), alternatives are considered as active. Alternatives can be also considered as fictive or not (using the tag <type>) and will not be affected in the categories. This is useful as the profiles have to be defined here. By default (no <type> tag), alternatives are considered as real. 
+				]]></description>
+      <position>100003</position>
+      <code> alternatives:alternatives.xml</code>
+      <types>
+        <type>alternatives</type>
+      </types>
+      <vdef>alternatives.xml</vdef>
+      <dep/>
+    </parameter>
+
+
+
+    <parameter id="categories" ishidden="0" type="input">
+      <name>categories</name>
+      <description><![CDATA[
+					A list of categories. They have to be ranked (using the tag rank).
+				]]></description>
+      <position>100004</position>
+      <code> categories:categories.xml</code>
+      <types>
+        <type>categories</type>
+      </types>
+      <vdef>categories.xml</vdef>
+      <dep/>
+    </parameter>
+
+
+
+    <parameter id="categoriesProfiles" ishidden="0" type="input">
+      <name>categoriesProfiles</name>
+      <description><![CDATA[
+					A list of categoriesProfiles. They allow to know which profiles bound which categories. The profiles are defined under the tag alternatives.
+				]]></description>
+      <position>100005</position>
+      <code> categoriesProfiles:categoriesProfiles.xml</code>
+      <types>
+        <type>categories</type>
+      </types>
+      <vdef>categoriesProfiles.xml</vdef>
+      <dep/>
+    </parameter>
+
+
+
+    <parameter id="stabilityRelation" ishidden="0" type="input">
+      <name>stabilityRelation</name>
+      <description><![CDATA[The complete stability relation (at least, the relation that compare the alternatives and the profiles, not necessary the alternatives together). The value associated to each ordered pair (a,b) must be an integer between 3 and -3.
+				]]></description>
+      <position>100006</position>
+      <code> stabilityRelation:stabilityRelation.xml</code>
+      <types>
+        <type>alternativesComparisons</type>
+      </types>
+      <vdef>stabilityRelation.xml</vdef>
+      <dep/>
+    </parameter>
+
+
+
+    <parameter id="sortingMode" ishidden="0" type="input">
+      <name>sortingMode</name>
+      <description><![CDATA[The type of sorting to use (optimistic or pessimistic).
+				]]></description>
+      <position>100007</position>
+      <code/> 
+      <types>
+        <type>methodParameters</type>
+      </types>
+      <vdef>sortingMode.xml</vdef>
+      <dep>(sortingMode-use-file-dep:value="1")</dep>
+
+    </parameter>
+
+    <parameter id="sortingMode-use-file-dep" ishidden="0" type="boolean">
+      <name>Supply sortingMode as a file?</name>
+      <description>Supply sortingMode as a file?</description>
+      <position>3007</position>
+      <code/>
+      <vdef>0</vdef>
+      <dep/>
+    </parameter>
+    
+
+
+
+    <parameter id="sortingMode-gui" ishidden="1" type="code">
+      <name>sortingMode</name>
+      <description><![CDATA[The type of sorting to use (optimistic or pessimistic).
+				]]></description>
+      <position>700</position>
+      <code><![CDATA[#sortingMode: sortingMode.xml
+cat > sortingMode.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="xmcdaKappalab.xsl"?>
+<xmcda:XMCDA xmlns:xmcda="http://www.decision-deck.org/2009/XMCDA-2.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.decision-deck.org/2009/XMCDA-2.0.0 http://www.decision-deck.org/xmcda/_downloads/XMCDA-2.0.0.xsd">]]></code>
+      <dep>(sortingMode-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+
+    <parameter id="sortingMode-gui-701" ishidden="1" type="code">
+      <name />
+      <description />
+      <position>701</position>
+      <code><![CDATA[
+				<methodParameters>
+					<parameter name="sortingMode">
+						<value>
+							<label>]]></code>
+      <dep>(sortingMode-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+
+    <parameter id="sortingMode-gui-702" ishidden="0" type="enum">
+      <name>sortingMode</name>
+      <description>TODO</description>
+      <position>702</position>
+      <vlist>
+        <item id="item0">
+          <description>Optimistic sorting.</description>
+          <code>optimistic</code>
+        </item>
+        <item id="item1">
+          <description>Pessimistic sorting.</description>
+          <code>pessimistic</code>
+        </item>
+      </vlist>
+      <vdef>item0</vdef>
+      <dep>(sortingMode-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+    <parameter id="sortingMode-gui-703" ishidden="1" type="code">
+      <name />
+      <description />
+      <position>703</position>
+      <code><![CDATA[</label>
+						</value>
+					</parameter>
+				</methodParameters>
+			]]></code>
+      <dep>(sortingMode-use-file-dep:value="0")</dep>
+
+    </parameter>
+    <parameter id="sortingMode-gui-EOF" ishidden="1" type="code">
+      <name>sortingMode EOF</name>
+      <description></description>
+      <position>704</position>
+      <code><![CDATA[</xmcda:XMCDA>%nEOF%n]]></code>
+      <dep>(sortingMode-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+    <parameter id="sortingMode-cmdline" ishidden="1" type="code">
+      <name>sortingMode insertion in cmd-line</name>
+      <description></description>
+      <position>100007</position>
+      <code> sortingMode:sortingMode.xml</code>
+      <dep/>
+    </parameter>
+
+
+
+
+
+
+    <parameter id="messages" ishidden="0" type="output">
+      <name>messages</name>
+      <description><![CDATA[A list of messages generated by the algorithm.]]></description>
+      <position>2008</position>
+      <code/>
+      <types>
+        <type>methodMessages</type>
+      </types>
+      <vdef>messages.xml</vdef>
+    </parameter>
+
+
+
+
+
+    <parameter id="alternativesAffectations" ishidden="0" type="output">
+      <name>alternativesAffectations</name>
+      <description><![CDATA[
+					The affectations of the alternatives.
+				]]></description>
+      <position>2009</position>
+      <code/>
+      <types>
+        <type>alternativesAffectations</type>
+      </types>
+      <vdef>alternativesAffectations.xml</vdef>
+    </parameter>
+
+
+
+    <parameter id="TIMEOUT" ishidden="0" type="int">
+      <name>Timeout? (0 for no timeout)</name>
+      <description>timeout</description>
+      <position>100001</position>
+      <code>-t %s </code>
+      <constraint>
+        <description>value should be a positive or null integer</description>
+        <code>(%d &gt;= 0)</code>
+      </constraint>
+      <vdef>60</vdef>
+    </parameter>
+    
+    <parameter id="VERBOSE" ishidden="0" type="enum">
+      <name>Verbose mode</name>
+      <description></description>
+      <position>100002</position>
+      <vlist>
+        <item id="T1">
+          <description>None</description>
+          <code></code>
+        </item>
+        <item id="T2">
+          <description>Moderately verbose</description>
+          <code> -v</code>
+        </item>
+        <item id="T3">
+          <description>Very verbose</description>
+          <code> -vv</code>
+        </item>
+        <item id="T4">
+          <description>Extremely verbose (include SOAP msgs)</description>
+          <code> -vvv</code>
+        </item>
+      </vlist>
+      <vdef>T2</vdef>
+    </parameter>
+
+  </parameters>
+</program_description>

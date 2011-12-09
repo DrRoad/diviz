@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+
+<!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
+
+<program_description export_date="2011-12-05 14:33:49 +0000">
+  <program provider="URV" name="ULOWA" version="1.0" />
+  <from desc_id="S8888" />
+  <description><![CDATA[This module implements the ULOWA aggregation operator: Unbalanced Linguistic Ordered Weighted Average. Aggregation operators for linguistic variables usually assume uniform and symmetrical distribution of the linguistic terms that define the variable. However, there are some problems where an unbalanced set of linguistic terms is more appropriate to describe the objects. ULOWA accepts a set of linguistic labels defined with unbalanced fuzzy sets. The fuzzy sets must define a fuzzy partition on the set of reference values. They can be defined by trapezoidal or triangular membership functions.]]></description>
+  <parameters>
+    <parameter id="ULOWA-cmdline" type="command" ismandatory="1">
+      <name>ULOWA</name>
+      <description></description>
+      <position>100000</position>
+      <code>$callXMCDAService ULOWA-URV -S </code>
+    </parameter>
+
+
+    <parameter id="input0" ishidden="0" type="input">
+      <name>alternatives</name>
+      <description><![CDATA[A list of alternatives. Alternatives can be activated or desactivated via the <active> tag (true or false). 
+By default (no <active> tag), alternatives are considered as active.]]></description>
+      <position>100003</position>
+      <code> alternatives:alternatives.xml</code>
+      <types>
+        <type>alternatives</type>
+      </types>
+      <vdef>alternatives.xml</vdef>
+      <dep/>
+    </parameter>
+
+
+
+    <parameter id="input1" ishidden="0" type="input">
+      <name>criteria</name>
+      <description><![CDATA[A list of linguistic criteria. Criteria are always active. ]]></description>
+      <position>100004</position>
+      <code> criteria:criteria.xml</code>
+      <types>
+        <type>criteria</type>
+      </types>
+      <vdef>criteria.xml</vdef>
+      <dep/>
+    </parameter>
+
+
+
+    <parameter id="input2" ishidden="0" type="input">
+      <name>weights</name>
+      <description><![CDATA[The weights operate in the same way as the classical OWA operator. They are associated to the values of the alternatives rather than to the criteria. In this way they can define different aggregation policies. Assuming that the values on the alternative will be sorted from the best to the worst (e.g. perfect, good, good, medium, low), the list of weights must be ordered
+according to the importance that is given to the values, from the highest to the lowest. 
+For example a list of weights as (0.5, 0.5, 0, 0, 0) is ignoring the 3 lowest values, and making an average of the
+two highest ones. A list like (0, 0, 1, 0 ,0 ) is calculating the median, while (0, 0, 0, 0, 1) is taking the minimum.
+Notice that the sum of weights is required to be 1.
+]]></description>
+      <position>100005</position>
+      <code> weights:weights.xml</code>
+      <types>
+        <type>alternativesValues</type>
+      </types>
+      <vdef>weights.xml</vdef>
+      <dep/>
+    </parameter>
+
+
+
+    <parameter id="input3" ishidden="0" type="input">
+      <name>performanceTable</name>
+      <description><![CDATA[The performance table will contain only string values, which correspond to the identifiers of the labels defined in the domain of the linguistic variable.]]></description>
+      <position>100006</position>
+      <code> performanceTable:performanceTable.xml</code>
+      <types>
+        <type>performanceTable</type>
+      </types>
+      <vdef>performanceTable.xml</vdef>
+      <dep/>
+    </parameter>
+
+
+
+    <parameter id="input4" ishidden="0" type="input">
+      <name>fuzzyNumbers</name>
+      <description><![CDATA[
+				This file contains the definition of the fuzzy sets associated to the linguistic variable that is used for all the criteria. The semantics of the linguistic labels are given by a trapezoidal membership function, that is represented with a tuple of 4 pairs values ((x1,y1),(x2,y2),(x3,y3),(x4,y4). The first value corresponds to the abscissa point x, and the second to the ordinate value, y. If x2=x3 the fuzzy set A is triangular.
+				The values must be ordered on the X axis, so that x1 < x2 < x3 < x4. 
+				The ordinates correspond to the membership degree for each point, so they must be concave function. The maximum value of y is 1.
+				Notice that the ULOWA operator does not use the ordinate value.
+				For each label in the linguistic domain (categoriesValues list), a fuzzy set must be defined.
+				The labels must be ordered from the worst to the best performance (fi. Low, Medium, High, Perfect).
+			]]></description>
+      <position>100007</position>
+      <code> fuzzyNumbers:fuzzyNumbers.xml</code>
+      <types>
+        <type>categoriesValues</type>
+      </types>
+      <vdef>fuzzyNumbers.xml</vdef>
+      <dep/>
+    </parameter>
+
+
+
+
+    <parameter id="output0" ishidden="0" type="output">
+      <name>alternativesValues</name>
+      <description><![CDATA[Result obtained from the ULOWA aggregation on each alternative. It will be a linguistic label belonging to the domain defined in the fuzzyNumbers input file.]]></description>
+      <position>2008</position>
+      <code/>
+      <types>
+        <type>alternativesValues</type>
+      </types>
+      <vdef>alternativesValues.xml</vdef>
+    </parameter>
+
+
+
+
+
+    <parameter id="output1" ishidden="0" type="output">
+      <name>messages</name>
+      <description><![CDATA[A status message.]]></description>
+      <position>2009</position>
+      <code/>
+      <types>
+        <type>methodMessages</type>
+      </types>
+      <vdef>messages.xml</vdef>
+    </parameter>
+
+
+
+    <parameter id="TIMEOUT" ishidden="0" type="int">
+      <name>Timeout? (0 for no timeout)</name>
+      <description>timeout</description>
+      <position>100001</position>
+      <code>-t %s </code>
+      <constraint>
+        <description>value should be a positive or null integer</description>
+        <code>(%d &gt;= 0)</code>
+      </constraint>
+      <vdef>60</vdef>
+    </parameter>
+    
+    <parameter id="VERBOSE" ishidden="0" type="enum">
+      <name>Verbose mode</name>
+      <description></description>
+      <position>100002</position>
+      <vlist>
+        <item id="T1">
+          <description>None</description>
+          <code></code>
+        </item>
+        <item id="T2">
+          <description>Moderately verbose</description>
+          <code> -v</code>
+        </item>
+        <item id="T3">
+          <description>Very verbose</description>
+          <code> -vv</code>
+        </item>
+        <item id="T4">
+          <description>Extremely verbose (include SOAP msgs)</description>
+          <code> -vvv</code>
+        </item>
+      </vlist>
+      <vdef>T2</vdef>
+    </parameter>
+
+  </parameters>
+</program_description>
