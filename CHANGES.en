@@ -1,10 +1,17 @@
+diviz v1.8
+----------
 
 - A new search field appeared at the top the the tree of programs.  Programs
   matching the searched string are highlighted by being displayed using a bold
   font.
 
 - In addition, the hierarchy of programs has changed, we hope it makes it even
-  easier to select / find a program.
+  easier to select / find a program. Programs are now sorted according to
+  value and outranking techniques, and general tools for MCDA. Each of these
+  categories contains several sub-categories, which should allow to
+  reconstruct MCDA methods more easily. For example, the outranking techniques
+  are composed of parameter elicitation algorithms, relation construction
+  methods, relation exploitation techniques and sensitivity analysis tools.
 
 - The following web-services, developed and proposed during the Decision Deck
   Developers' Camp '2011 have been integrated into diviz:

@@ -1,10 +1,19 @@
+diviz v1.8
+----------
 
 - Un nouveau champ de recherche a été ajouté en haut de la liste des
   programmes.  Les programmes qui correspondent à la recherche sont mis en
   évidence en étant affichés en caractères gras.
 
 - De plus, la hiérarchie des programmes a changé, nous espérons que cela rend
-  encore plus facile la sélection / recherche de programmes.
+  encore plus facile la sélection / recherche de programmes. Les programmes
+  sont triés en 3 catégories : méthodes par valeur, méthodes par
+  surclassement, et outils génériques. Chacune de ces catégories contient
+  plusieurs sous-catégories qui doivent faciliter la construction de méthodes
+  d'AMCD. Par exemple, les techniques de surclassement sont composées
+  d'algorithmes d'élicitation de paramètres, de méthodes de construction de
+  relations, de techniques d'exploitation de ces relations et d'outils
+  d'analyse de sensibilité.
 
 - Les services web suivants, qui ont été développés et proposés pendant la
   session 2011 du «Decision Deck Developer's Camp», ont été intégrés dans
