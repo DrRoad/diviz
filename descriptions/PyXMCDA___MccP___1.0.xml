@@ -3,10 +3,10 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2011-12-06 12:58:52 +0000">
+<program_description export_date="2011-12-09 08:21:35 +0000">
   <program provider="PyXMCDA" name="MccP" version="1.0" />
   <from desc_id="S8888" />
-  <description><![CDATA[This web service allows to compute clusters of alternatives from an outranking relation with the aim of maximizing the indifference between the alternatives inside the same cluster, and minimizing the indifference between different clusters.]]></description>
+  <description><![CDATA[This web service allows to compute ordered clusters of alternatives from an outranking relation with the aim of maximizing the indifference between the alternatives inside the same cluster, and maximizing the preference relations in one direction or another between different clusters.]]></description>
   <parameters>
     <parameter id="MccP-cmdline" type="command" ismandatory="1">
       <name>MccP</name>
@@ -30,15 +30,15 @@
 
 
 
-    <parameter id="relation" ishidden="0" type="input">
-      <name>outranking relation</name>
+    <parameter id="alternativesComparisons" ishidden="0" type="input">
+      <name>alternativesComparisons</name>
       <description><![CDATA[The outranking relation used to compare the objects.]]></description>
       <position>100004</position>
-      <code> relation:relation.xml</code>
+      <code> alternativesComparisons:alternativesComparisons.xml</code>
       <types>
         <type>alternativesComparisons</type>
       </types>
-      <vdef>relation.xml</vdef>
+      <vdef>alternativesComparisons.xml</vdef>
       <dep/>
     </parameter>
 
@@ -46,7 +46,7 @@
 
     <parameter id="parameters" ishidden="0" type="input">
       <name>parameters</name>
-      <description><![CDATA[The 4 method parameters: min (real value) - the minimum of the valuation domain of the relation; max (real value) - the maximum of the valuation domain of the relation; cut (real value) - the cut level of the relation (for a relation valued between 0(false) and 1(true) we normally have a 0.5 cut level; for a relation valued between -1 and 1 we normally have a 0 cut level); bipolar (boolean value) - the type of cut on the relation (false means a classic cut where every value above or equal to the cut level is considered as 'true', everything below the cut level is considered 'false'; true means a bipolar cut, where any value above or equal to the cut level is considered 'true', every value below ... if you read all the way here than contact me.]]></description>
+      <description><![CDATA[The 4 method parameters: min (real value) - the minimum of the valuation domain of the relation; max (real value) - the maximum of the valuation domain of the relation; cut (real value) - the cut level of the relation (for a relation valued between 0(false) and 1(true) we normally have a 0.5 cut level; for a relation valued between -1 and 1 we normally have a 0 cut level); bipolar (boolean value) - the type of cut on the relation (false means a classic, true means bipolar)]]></description>
       <position>100005</position>
       <code> parameters:parameters.xml</code>
       <types>
@@ -74,15 +74,45 @@
 
 
 
-    <parameter id="output" ishidden="0" type="output">
-      <name>output</name>
-      <description><![CDATA[The alternatives clusters affectations.]]></description>
+    <parameter id="clusters" ishidden="0" type="output">
+      <name>clusters</name>
+      <description><![CDATA[The clusters names.]]></description>
       <position>2007</position>
+      <code/>
+      <types>
+        <type>categories</type>
+      </types>
+      <vdef>clusters.xml</vdef>
+    </parameter>
+
+
+
+
+
+    <parameter id="alternativesAffectations" ishidden="0" type="output">
+      <name>alternativesAffectations</name>
+      <description><![CDATA[The alternatives clusters affectations.]]></description>
+      <position>2008</position>
       <code/>
       <types>
         <type>alternativesAffectations</type>
       </types>
-      <vdef>output.xml</vdef>
+      <vdef>alternativesAffectations.xml</vdef>
+    </parameter>
+
+
+
+
+
+    <parameter id="clustersComparisons" ishidden="0" type="output">
+      <name>clustersComparisons</name>
+      <description><![CDATA[The relation between clusters.]]></description>
+      <position>2009</position>
+      <code/>
+      <types>
+        <type>categoriesComparisons</type>
+      </types>
+      <vdef>clustersComparisons.xml</vdef>
     </parameter>
 
 
