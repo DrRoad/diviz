@@ -1,3 +1,5 @@
+diviz v1.8
+----------
 
 - Un nouveau champ de recherche a été ajouté en haut de la liste des
   programmes.  Les programmes qui correspondent à la recherche sont mis en
