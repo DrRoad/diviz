@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+
+<!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
+
+<program_description export_date="2012-01-23 13:03:29 +0000">
+  <program provider="PyXMCDA" name="csvToXMCDA-alternativesValues" version="1.0" />
+  <from desc_id="S8888" />
+  <description><![CDATA[Transforms a file containing alternatives values from a comma-separated values (CSV) file to two XMCDA compliant files, containing the corresponding alternatives ids and their alternativesValues.]]></description>
+  <parameters>
+    <parameter id="csvToXMCDA-alternativesValues-cmdline" type="command" ismandatory="1">
+      <name>csvToXMCDA-alternativesValues</name>
+      <description></description>
+      <position>100000</position>
+      <code>$callXMCDAService csvToXMCDA-alternativesValues-PyXMCDA -S </code>
+    </parameter>
+
+
+    <parameter id="csv" ishidden="0" type="input">
+      <name>alternativesValues</name>
+      <description><![CDATA[The alternatives and their alternatives values as a CSV file.  The first line is made of two cells, the first one being empty, and the second one will be the content of the attribute "mcdaConcept" in the tag "<alternativesValues>", if supplied.
+
+Example:
+
+    ,ranks
+    alt1,1
+    alt2,2.7
+    alt3,3
+
+]]></description>
+      <position>100003</position>
+      <code> alternativesValues.csv:alternativesValues.csv.xml</code>
+      <types>
+        <type>other</type>
+      </types>
+      <vdef>alternativesValues.csv.xml</vdef>
+      <dep/>
+    </parameter>
+
+
+
+
+    <parameter id="alternatives" ishidden="0" type="output">
+      <name>alternatives</name>
+      <description><![CDATA[The equivalent alternatives ids.]]></description>
+      <position>2004</position>
+      <code/>
+      <types>
+        <type>alternatives</type>
+      </types>
+      <vdef>alternatives.xml</vdef>
+    </parameter>
+
+
+
+
+
+    <parameter id="alternativesValues" ishidden="0" type="output">
+      <name>alternativesValues</name>
+      <description><![CDATA[The equivalent alternatives values.]]></description>
+      <position>2005</position>
+      <code/>
+      <types>
+        <type>alternativesValues</type>
+      </types>
+      <vdef>alternativesValues.xml</vdef>
+    </parameter>
+
+
+
+
+
+    <parameter id="messages" ishidden="0" type="output">
+      <name>messages</name>
+      <description><![CDATA[Status messages.]]></description>
+      <position>2006</position>
+      <code/>
+      <types>
+        <type>methodMessages</type>
+      </types>
+      <vdef>messages.xml</vdef>
+    </parameter>
+
+
+
+    <parameter id="TIMEOUT" ishidden="0" type="int">
+      <name>Timeout? (0 for no timeout)</name>
+      <description>timeout</description>
+      <position>100001</position>
+      <code>-t %s </code>
+      <constraint>
+        <description>value should be a positive or null integer</description>
+        <code>(%d &gt;= 0)</code>
+      </constraint>
+      <vdef>60</vdef>
+    </parameter>
+    
+    <parameter id="VERBOSE" ishidden="0" type="enum">
+      <name>Verbose mode</name>
+      <description></description>
+      <position>100002</position>
+      <vlist>
+        <item id="T1">
+          <description>None</description>
+          <code></code>
+        </item>
+        <item id="T2">
+          <description>Moderately verbose</description>
+          <code> -v</code>
+        </item>
+        <item id="T3">
+          <description>Very verbose</description>
+          <code> -vv</code>
+        </item>
+        <item id="T4">
+          <description>Extremely verbose (include SOAP msgs)</description>
+          <code> -vvv</code>
+        </item>
+      </vlist>
+      <vdef>T2</vdef>
+    </parameter>
+
+  </parameters>
+</program_description>

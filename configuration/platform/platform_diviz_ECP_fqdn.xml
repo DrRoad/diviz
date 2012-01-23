@@ -62,6 +62,7 @@ set callXMCDAService="genericXMCDAService.py -U http://webservices.decision-deck
       <program id="PyXMCDA___ElectreTriBMInference___1.1"/>
       <program id="PyXMCDA___RubisOutrankingRelation___1.1"/>
       <program id="PyXMCDA___MccP___1.0"/>
+      <program id="PyXMCDA___csvToXMCDA-alternativesValues___1.0"/>
       <program id="PyXMCDA___csvToXMCDA-criteriaValues___1.0"/>
       <program id="PyXMCDA___csvToXMCDA-criteriaThresholds___1.0"/>
       <program id="PyXMCDA___csvToXMCDA-performanceTable___1.0"/>

@@ -144,6 +144,7 @@
 		</type>
 		
 		<type name="CSV converters" collapsed = "0">
+			<resource name="PyXMCDA___csvToXMCDA-alternativesValues___1.0"/>
 			<resource name="PyXMCDA___csvToXMCDA-criteriaValues___1.0"/>
 			<resource name="PyXMCDA___csvToXMCDA-performanceTable___1.0"/>
 			<resource name="PyXMCDA___csvToXMCDA-criteriaThresholds___1.0"/>
