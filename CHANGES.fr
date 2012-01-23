@@ -1,3 +1,20 @@
+diviz v1.8.1
+------------
+
+- Il est maintenant possible de donner un nom particulier aux résultats
+  d'exécution; cela devrait permttre de retrouver plus facilement des
+  résultats qui ont été correctement nommés.  Quand un nom a été donné à un
+  résultat, il est affiché à la place de la date d'exécution; celle-ci est
+  cependant toujours disponible et apparait comme "tooltip".
+
+- Nouveaux web-services XMCDA Decision Deck disponibles:
+
+  - (PyXMCDA) csvToXMCDA-alternativesValues v1.0
+
+  - (PyXMCDA) csvToXMCDA-performanceTable v1.0, remplace la version J-MCDA
+    (cette version accepte plus de formes de fichier csv différentes)
+
+
 diviz v1.8
 ----------
 
