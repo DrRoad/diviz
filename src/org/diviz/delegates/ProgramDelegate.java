@@ -74,7 +74,9 @@ public class ProgramDelegate
 				warnings.add(XMLWarnings.PRG_DESC_REPLACED_BY_ALTERNATIVE, new String[] {
 				        xmlNode.getAttributeValue(Program.PRG_INFO), declaredResource });
 				*/
-				return RemoteComponents.resourceRepository().programDescriptionForId(declaredResource);
+				ProgramDescription d = RemoteComponents.resourceRepository().programDescriptionForId(declaredResource);
+				if (d.isActive())
+					return d;
 			}
 		}
 		return null;
