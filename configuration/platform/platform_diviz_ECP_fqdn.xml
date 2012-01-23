@@ -64,6 +64,7 @@ set callXMCDAService="genericXMCDAService.py -U http://webservices.decision-deck
       <program id="PyXMCDA___MccP___1.0"/>
       <program id="PyXMCDA___csvToXMCDA-criteriaValues___1.0"/>
       <program id="PyXMCDA___csvToXMCDA-criteriaThresholds___1.0"/>
+      <program id="PyXMCDA___csvToXMCDA-performanceTable___1.0"/>
       <program id="PyXMCDA___stableSorting___1.0"/>
       
       <program id="jsmaa___smaa2___0.2"/>
@@ -81,7 +82,6 @@ set callXMCDAService="genericXMCDAService.py -U http://webservices.decision-deck
       <program id="J-MCDA___PrometheeFlows___0.5.1"/>
       <program id="J-MCDA___PrometheeProfiles___0.5.1"/>
       <program id="J-MCDA___ElectreTriExploitation___0.5.1"/>
-      <program id="J-MCDA___csvToXMCDA-performanceTable___0.5.1"/>
 
       <!-- URV -->
       <program id="URV___OWA___1.0"/>

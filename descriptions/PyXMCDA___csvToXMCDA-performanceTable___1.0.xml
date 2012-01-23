@@ -3,28 +3,36 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2011-10-26 07:28:33 +0000" active="0">
-  <program provider="J-MCDA" name="csvToXMCDA-performanceTable" version="0.5.1" />
+<program_description export_date="2012-01-23 09:46:37 +0000">
+  <program provider="PyXMCDA" name="csvToXMCDA-performanceTable" version="1.0" />
   <from desc_id="S8888" />
-  <description><![CDATA[Transforms a performance table from a comma-separated values (CSV) file to XMCDA compliant files.]]></description>
+  <description><![CDATA[Transforms a file containing a performance table from a comma-separated values (CSV) file to three XMCDA compliant files, containing the corresponding criteria ids, alternatives' ids and the performance table.]]></description>
   <parameters>
     <parameter id="csvToXMCDA-performanceTable-cmdline" type="command" ismandatory="1">
       <name>csvToXMCDA-performanceTable</name>
       <description></description>
       <position>100000</position>
-      <code>$callXMCDAService csvToXMCDA-performanceTable-J-MCDA -S </code>
+      <code>$callXMCDAService csvToXMCDA-performanceTable-PyXMCDA -S </code>
     </parameter>
 
 
     <parameter id="input0" ishidden="0" type="input">
-      <name>performances</name>
-      <description><![CDATA[The alternatives, criteria, performances as a CSV file.]]></description>
+      <name>performanceTable</name>
+      <description><![CDATA[The performance table as a CSV file.
+
+Example:
+
+  ,cost,risk,employment,connection
+  a11,17537,28.3,34.8,2.33
+  a03,16973,29,34.9,2.66
+
+]]></description>
       <position>100003</position>
-      <code> performances.csv:performances.csv</code>
+      <code> performanceTable.csv:performanceTable.csv.xml</code>
       <types>
         <type>other</type>
       </types>
-      <vdef>performances.csv</vdef>
+      <vdef>performanceTable.csv.xml</vdef>
       <dep/>
     </parameter>
 
@@ -33,7 +41,7 @@
 
     <parameter id="output0" ishidden="0" type="output">
       <name>alternatives</name>
-      <description><![CDATA[The equivalent alternatives.]]></description>
+      <description><![CDATA[The equivalent alternative ids.]]></description>
       <position>2004</position>
       <code/>
       <types>
@@ -48,8 +56,7 @@
 
     <parameter id="output1" ishidden="0" type="output">
       <name>criteria</name>
-      <description><![CDATA[The equivalent criteria.
-				]]></description>
+      <description><![CDATA[The equivalent criteria ids.]]></description>
       <position>2005</position>
       <code/>
       <types>
@@ -63,15 +70,14 @@
 
 
     <parameter id="output2" ishidden="0" type="output">
-      <name>performances</name>
-      <description><![CDATA[The equivalent performances.
-				]]></description>
+      <name>performanceTable</name>
+      <description><![CDATA[The equivalent performances.]]></description>
       <position>2006</position>
       <code/>
       <types>
         <type>performanceTable</type>
       </types>
-      <vdef>performances.xml</vdef>
+      <vdef>performanceTable.xml</vdef>
     </parameter>
 
 
@@ -80,7 +86,7 @@
 
     <parameter id="output3" ishidden="0" type="output">
       <name>messages</name>
-      <description><![CDATA[A status message.]]></description>
+      <description><![CDATA[Status messages.]]></description>
       <position>2007</position>
       <code/>
       <types>
