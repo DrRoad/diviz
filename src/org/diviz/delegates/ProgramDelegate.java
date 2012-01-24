@@ -52,6 +52,12 @@ public class ProgramDelegate
 		}
 		else if ( "local".equals(provider) && "prg_generic".equals(name) )
 			name = "generic_program";
+		else if ( "J-MCDA".equals(provider) && "csvToXMCDA-performanceTable".equals(name) )
+		{
+			provider = "PyXMCDA";
+			warnings.add(XMLWarnings.PRG_DESC_REPLACED_BY_ALTERNATIVE,
+			             new String[] { "J-MCDA csvToXMCDA-performanceTable", "PyXMCDA csvToXMCDA-performanceTable" });
+		}
 		else
 			return null;
 
@@ -68,7 +74,9 @@ public class ProgramDelegate
 				warnings.add(XMLWarnings.PRG_DESC_REPLACED_BY_ALTERNATIVE, new String[] {
 				        xmlNode.getAttributeValue(Program.PRG_INFO), declaredResource });
 				*/
-				return RemoteComponents.resourceRepository().programDescriptionForId(declaredResource);
+				ProgramDescription d = RemoteComponents.resourceRepository().programDescriptionForId(declaredResource);
+				if (d.isActive())
+					return d;
 			}
 		}
 		return null;

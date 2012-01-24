@@ -3,48 +3,61 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2011-12-08 11:59:31 +0000" active="0">
-  <program provider="PyXMCDA" name="csvToXMCDA-criteriaThresholds" version="1.0" />
+<program_description export_date="2012-01-23 09:46:37 +0000">
+  <program provider="PyXMCDA" name="csvToXMCDA-performanceTable" version="1.0" />
   <from desc_id="S8888" />
-  <description><![CDATA[Transforms a file containing criteria discrimination thresholds and preference directions from a comma-separated values (CSV) file to an XMCDA compliant file, containing the criteria ids with their preference direction and related discrimination thresholds.]]></description>
+  <description><![CDATA[Transforms a file containing a performance table from a comma-separated values (CSV) file to three XMCDA compliant files, containing the corresponding criteria ids, alternatives' ids and the performance table.]]></description>
   <parameters>
-    <parameter id="csvToXMCDA-criteriaThresholds-cmdline" type="command" ismandatory="1">
-      <name>csvToXMCDA-criteriaThresholds</name>
+    <parameter id="csvToXMCDA-performanceTable-cmdline" type="command" ismandatory="1">
+      <name>csvToXMCDA-performanceTable</name>
       <description></description>
       <position>100000</position>
-      <code>$callXMCDAService csvToXMCDA-criteriaThresholds-PyXMCDA -S </code>
+      <code>$callXMCDAService csvToXMCDA-performanceTable-PyXMCDA -S </code>
     </parameter>
 
 
-    <parameter id="csv" ishidden="0" type="input">
-      <name>criteriaThresholds</name>
-      <description><![CDATA[A csv with criteria' thresholds.
+    <parameter id="input0" ishidden="0" type="input">
+      <name>performanceTable</name>
+      <description><![CDATA[The performance table as a CSV file.
 
 Example:
-  ,cost,risks,employment,connection
-  ind,1,2,3,4
-  pref,2,3,4,5
-  veto,3,4,5,6
-  preferenceDirection,min,max,min,max
 
-The labels of the separation thresholds ("ind", "pref", "veto") can be chosen freely in order to be in accordance with the selected outranking method. Further separation thresholds can also be added. The last line represents the preferenceDirection; its label must be "preferenceDirection".
+  ,cost,risk,employment,connection
+  a11,17537,28.3,34.8,2.33
+  a03,16973,29,34.9,2.66
+
 ]]></description>
       <position>100003</position>
-      <code> thresholds.csv:thresholds.csv.xml</code>
+      <code> performanceTable.csv:performanceTable.csv.xml</code>
       <types>
         <type>other</type>
       </types>
-      <vdef>thresholds.csv.xml</vdef>
+      <vdef>performanceTable.csv.xml</vdef>
       <dep/>
     </parameter>
 
 
 
 
-    <parameter id="criteria" ishidden="0" type="output">
-      <name>criteria</name>
-      <description><![CDATA[The equivalent XMCDA file containing criteria with their preference directions and discrimination thresholds.]]></description>
+    <parameter id="output0" ishidden="0" type="output">
+      <name>alternatives</name>
+      <description><![CDATA[The equivalent alternative ids.]]></description>
       <position>2004</position>
+      <code/>
+      <types>
+        <type>alternatives</type>
+      </types>
+      <vdef>alternatives.xml</vdef>
+    </parameter>
+
+
+
+
+
+    <parameter id="output1" ishidden="0" type="output">
+      <name>criteria</name>
+      <description><![CDATA[The equivalent criteria ids.]]></description>
+      <position>2005</position>
       <code/>
       <types>
         <type>criteria</type>
@@ -56,10 +69,25 @@ The labels of the separation thresholds ("ind", "pref", "veto") can be chosen fr
 
 
 
-    <parameter id="messages" ishidden="0" type="output">
+    <parameter id="output2" ishidden="0" type="output">
+      <name>performanceTable</name>
+      <description><![CDATA[The equivalent performances.]]></description>
+      <position>2006</position>
+      <code/>
+      <types>
+        <type>performanceTable</type>
+      </types>
+      <vdef>performanceTable.xml</vdef>
+    </parameter>
+
+
+
+
+
+    <parameter id="output3" ishidden="0" type="output">
       <name>messages</name>
       <description><![CDATA[Status messages.]]></description>
-      <position>2005</position>
+      <position>2007</position>
       <code/>
       <types>
         <type>methodMessages</type>

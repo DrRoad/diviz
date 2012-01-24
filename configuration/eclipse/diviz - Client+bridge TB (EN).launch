@@ -25,5 +25,5 @@
 <booleanAttribute key="org.eclipse.jdt.launching.DEFAULT_CLASSPATH" value="false"/>
 <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="eu.telecom_bretagne.praxis.common.Launcher"/>
 <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="diviz"/>
-<stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-DCONFIGURATION=configuration/run_cfg/server_platforms_localhost.cfg&#10;-DDEVELOPMENT_MODE&#13;&#10;-Duser.language=en&#13;&#10;-Duser.region=&#13;&#10;-DPLATFORM_OS=UNIX&#13;&#10;-Djava.util.logging.config.file=logging.properties&#13;&#10;-Djava.rmi.dgc.leaseValue=5000&#13;&#10;-Djava.library.path=lib&#10;-Djava.rmi.server.logCallss=true"/>
+<stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-DCONFIGURATION=configuration/run_cfg/client_bridge_TB.cfg&#13;&#10;-Duser.language=en&#13;&#10;-Duser.region=&#13;&#10;-DPLATFORM_OS=UNIX&#13;&#10;-Djava.util.logging.config.file=logging.properties&#13;&#10;-Djava.rmi.dgc.leaseValue=5000&#13;&#10;-Djava.library.path=lib"/>
 </launchConfiguration>

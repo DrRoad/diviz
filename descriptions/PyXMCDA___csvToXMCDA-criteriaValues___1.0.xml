@@ -3,7 +3,7 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2011-12-06 15:54:43 +0000">
+<program_description export_date="2011-12-06 15:54:43 +0000" active="false">
   <program provider="PyXMCDA" name="csvToXMCDA-criteriaValues" version="1.0" />
   <from desc_id="S8888" />
   <description><![CDATA[Transforms a file containing criteria values from a comma-separated values (CSV) file to two XMCDA compliant files, containing the corresponding criteria ids and their criteriaValues.]]></description>

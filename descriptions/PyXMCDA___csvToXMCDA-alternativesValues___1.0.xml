@@ -3,53 +3,67 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2011-12-08 11:59:31 +0000" active="0">
-  <program provider="PyXMCDA" name="csvToXMCDA-criteriaThresholds" version="1.0" />
+<program_description export_date="2012-01-23 13:03:29 +0000">
+  <program provider="PyXMCDA" name="csvToXMCDA-alternativesValues" version="1.0" />
   <from desc_id="S8888" />
-  <description><![CDATA[Transforms a file containing criteria discrimination thresholds and preference directions from a comma-separated values (CSV) file to an XMCDA compliant file, containing the criteria ids with their preference direction and related discrimination thresholds.]]></description>
+  <description><![CDATA[Transforms a file containing alternatives values from a comma-separated values (CSV) file to two XMCDA compliant files, containing the corresponding alternatives ids and their alternativesValues.]]></description>
   <parameters>
-    <parameter id="csvToXMCDA-criteriaThresholds-cmdline" type="command" ismandatory="1">
-      <name>csvToXMCDA-criteriaThresholds</name>
+    <parameter id="csvToXMCDA-alternativesValues-cmdline" type="command" ismandatory="1">
+      <name>csvToXMCDA-alternativesValues</name>
       <description></description>
       <position>100000</position>
-      <code>$callXMCDAService csvToXMCDA-criteriaThresholds-PyXMCDA -S </code>
+      <code>$callXMCDAService csvToXMCDA-alternativesValues-PyXMCDA -S </code>
     </parameter>
 
 
     <parameter id="csv" ishidden="0" type="input">
-      <name>criteriaThresholds</name>
-      <description><![CDATA[A csv with criteria' thresholds.
+      <name>alternativesValues</name>
+      <description><![CDATA[The alternatives and their alternatives values as a CSV file.  The first line is made of two cells, the first one being empty, and the second one will be the content of the attribute "mcdaConcept" in the tag "<alternativesValues>", if supplied.
 
 Example:
-  ,cost,risks,employment,connection
-  ind,1,2,3,4
-  pref,2,3,4,5
-  veto,3,4,5,6
-  preferenceDirection,min,max,min,max
 
-The labels of the separation thresholds ("ind", "pref", "veto") can be chosen freely in order to be in accordance with the selected outranking method. Further separation thresholds can also be added. The last line represents the preferenceDirection; its label must be "preferenceDirection".
+    ,ranks
+    alt1,1
+    alt2,2.7
+    alt3,3
+
 ]]></description>
       <position>100003</position>
-      <code> thresholds.csv:thresholds.csv.xml</code>
+      <code> alternativesValues.csv:alternativesValues.csv.xml</code>
       <types>
         <type>other</type>
       </types>
-      <vdef>thresholds.csv.xml</vdef>
+      <vdef>alternativesValues.csv.xml</vdef>
       <dep/>
     </parameter>
 
 
 
 
-    <parameter id="criteria" ishidden="0" type="output">
-      <name>criteria</name>
-      <description><![CDATA[The equivalent XMCDA file containing criteria with their preference directions and discrimination thresholds.]]></description>
+    <parameter id="alternatives" ishidden="0" type="output">
+      <name>alternatives</name>
+      <description><![CDATA[The equivalent alternatives ids.]]></description>
       <position>2004</position>
       <code/>
       <types>
-        <type>criteria</type>
+        <type>alternatives</type>
       </types>
-      <vdef>criteria.xml</vdef>
+      <vdef>alternatives.xml</vdef>
+    </parameter>
+
+
+
+
+
+    <parameter id="alternativesValues" ishidden="0" type="output">
+      <name>alternativesValues</name>
+      <description><![CDATA[The equivalent alternatives values.]]></description>
+      <position>2005</position>
+      <code/>
+      <types>
+        <type>alternativesValues</type>
+      </types>
+      <vdef>alternativesValues.xml</vdef>
     </parameter>
 
 
@@ -59,7 +73,7 @@ The labels of the separation thresholds ("ind", "pref", "veto") can be chosen fr
     <parameter id="messages" ishidden="0" type="output">
       <name>messages</name>
       <description><![CDATA[Status messages.]]></description>
-      <position>2005</position>
+      <position>2006</position>
       <code/>
       <types>
         <type>methodMessages</type>
