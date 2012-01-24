@@ -3,8 +3,8 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2011-12-08 11:59:31 +0000" active="0">
-  <program provider="PyXMCDA" name="csvToXMCDA-criteriaThresholds" version="1.0" />
+<program_description export_date="2012-01-24 12:50:21 +0000">
+  <program provider="PyXMCDA" name="csvToXMCDA-criteriaThresholds" version="1.2" />
   <from desc_id="S8888" />
   <description><![CDATA[Transforms a file containing criteria discrimination thresholds and preference directions from a comma-separated values (CSV) file to an XMCDA compliant file, containing the criteria ids with their preference direction and related discrimination thresholds.]]></description>
   <parameters>
@@ -24,10 +24,14 @@ Example:
   ,cost,risks,employment,connection
   ind,1,2,3,4
   pref,2,3,4,5
-  veto,3,4,5,6
+  veto,3,4.6,5,6
   preferenceDirection,min,max,min,max
 
 The labels of the separation thresholds ("ind", "pref", "veto") can be chosen freely in order to be in accordance with the selected outranking method. Further separation thresholds can also be added. The last line represents the preferenceDirection; its label must be "preferenceDirection".
+
+The separator used in csv will be determined by examing the file (this means that it can be different than a comma: a semicolon, a tab or space character, etc.).
+
+Thresholds values should be float; both decimal separator '.' and ',' are supported.  If a threshold value is left empty, the corresponding combination (criterion id, separation thresholds) is not present in the XMCDA output.  Same for "preferenceDirection": the corresponding tag 'scale' is present in the XMCDA output only if the preferenceDirection is supplied.
 ]]></description>
       <position>100003</position>
       <code> thresholds.csv:thresholds.csv.xml</code>
