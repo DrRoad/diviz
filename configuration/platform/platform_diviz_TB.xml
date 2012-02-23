@@ -56,8 +56,8 @@ set callXMCDAService="genericXMCDAService.py -U http://server-telecom-bretagne.d
       <program id="PyXMCDA___RubisOutrankingRelation___1.1"/>
       <program id="PyXMCDA___MccP___1.0"/>
       <program id="PyXMCDA___csvToXMCDA-alternativesValues___1.0"/>
-      <program id="PyXMCDA___csvToXMCDA-criteriaValues___1.1"/>
-      <program id="PyXMCDA___csvToXMCDA-criteriaThresholds___1.0"/>
+      <program id="PyXMCDA___csvToXMCDA-criteriaValues___1.2"/>
+      <program id="PyXMCDA___csvToXMCDA-criteriaThresholds___1.2"/>
 	  <program id="PyXMCDA___csvToXMCDA-performanceTable___1.0"/>
       <program id="PyXMCDA___stableSorting___1.0"/>
 

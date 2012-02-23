@@ -3,35 +3,42 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2012-01-23 13:56:11 +0000">
-  <program provider="PyXMCDA" name="csvToXMCDA-criteriaValues" version="1.1" />
+<program_description export_date="2012-01-24 12:50:21 +0000">
+  <program provider="PyXMCDA" name="csvToXMCDA-criteriaThresholds" version="1.2" />
   <from desc_id="S8888" />
-  <description><![CDATA[Transforms a file containing criteria values from a comma-separated values (CSV) file to two XMCDA compliant files, containing the corresponding criteria ids and their criteriaValues.]]></description>
+  <description><![CDATA[Transforms a file containing criteria discrimination thresholds and preference directions from a comma-separated values (CSV) file to an XMCDA compliant file, containing the criteria ids with their preference direction and related discrimination thresholds.]]></description>
   <parameters>
-    <parameter id="csvToXMCDA-criteriaValues-cmdline" type="command" ismandatory="1">
-      <name>csvToXMCDA-criteriaValues</name>
+    <parameter id="csvToXMCDA-criteriaThresholds-cmdline" type="command" ismandatory="1">
+      <name>csvToXMCDA-criteriaThresholds</name>
       <description></description>
       <position>100000</position>
-      <code>$callXMCDAService csvToXMCDA-criteriaValues-PyXMCDA -S </code>
+      <code>$callXMCDAService csvToXMCDA-criteriaThresholds-PyXMCDA -S </code>
     </parameter>
 
 
     <parameter id="csv" ishidden="0" type="input">
-      <name>criteriaValues</name>
-      <description><![CDATA[The criteria and their criteria values as a CSV file.
+      <name>criteriaThresholds</name>
+      <description><![CDATA[A csv with criteria' thresholds.
 
 Example:
+  ,cost,risks,employment,connection
+  ind,1,2,3,4
+  pref,2,3,4,5
+  veto,3,4.6,5,6
+  preferenceDirection,min,max,min,max
 
-  ,cost,risk,employment,connection
-  weights,1,2,3,4
+The labels of the separation thresholds ("ind", "pref", "veto") can be chosen freely in order to be in accordance with the selected outranking method. Further separation thresholds can also be added. The last line represents the preferenceDirection; its label must be "preferenceDirection".
 
+The separator used in csv will be determined by examing the file (this means that it can be different than a comma: a semicolon, a tab or space character, etc.).
+
+Thresholds values should be float; both decimal separator '.' and ',' are supported.  If a threshold value is left empty, the corresponding combination (criterion id, separation thresholds) is not present in the XMCDA output.  Same for "preferenceDirection": the corresponding tag 'scale' is present in the XMCDA output only if the preferenceDirection is supplied.
 ]]></description>
       <position>100003</position>
-      <code> criteriaValues.csv:criteriaValues.csv.xml</code>
+      <code> thresholds.csv:thresholds.csv.xml</code>
       <types>
         <type>other</type>
       </types>
-      <vdef>criteriaValues.csv.xml</vdef>
+      <vdef>thresholds.csv.xml</vdef>
       <dep/>
     </parameter>
 
@@ -40,7 +47,7 @@ Example:
 
     <parameter id="criteria" ishidden="0" type="output">
       <name>criteria</name>
-      <description><![CDATA[The equivalent criteria ids.]]></description>
+      <description><![CDATA[The equivalent XMCDA file containing criteria with their preference directions and discrimination thresholds.]]></description>
       <position>2004</position>
       <code/>
       <types>
@@ -53,25 +60,10 @@ Example:
 
 
 
-    <parameter id="criteriaValues" ishidden="0" type="output">
-      <name>criteriaValues</name>
-      <description><![CDATA[The equivalent criteria values.]]></description>
-      <position>2005</position>
-      <code/>
-      <types>
-        <type>criteriaValues</type>
-      </types>
-      <vdef>criteriaValues.xml</vdef>
-    </parameter>
-
-
-
-
-
     <parameter id="messages" ishidden="0" type="output">
       <name>messages</name>
       <description><![CDATA[Status messages.]]></description>
-      <position>2006</position>
+      <position>2005</position>
       <code/>
       <types>
         <type>methodMessages</type>

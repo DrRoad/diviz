@@ -1,3 +1,18 @@
+diviz v1.8.1
+------------
+
+- It is now possible to give your own, custom names to the results; it should
+  make it simpler to retrieve a known result which has been appropriately
+  named.  When a custom name is given to a result, it replaces the execution
+  date in the workflow executions' tree. The execution time is however still
+  accessible as a tooltip.
+
+- Integrated new Decision Deck XMCDA webservices:
+
+  - (PyXMCDA) csvToXMCDA-alternativesValues v1.0
+  - (PyXMCDA) csvToXMCDA-performanceTable v1.0, replaces the J-MCDA version
+    (this version accepts more csv formats)
+
 diviz v1.8
 ----------
 
