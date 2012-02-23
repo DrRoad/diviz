@@ -84,6 +84,19 @@ set callXMCDAService="genericXMCDAService.py -U http://webservices.decision-deck
       <program id="J-MCDA___PrometheeProfiles___0.5.1"/>
       <program id="J-MCDA___ElectreTriExploitation___0.5.1"/>
 
+      <!-- Institut Télécom / Télécom Bretagne -->
+      <program id="ITTB___criteriaDescriptiveStatistics___1.0"/>
+      <program id="ITTB___advancedPlotValueFunctions___1.0"/>
+      <program id="ITTB___advancedPlotAlternativesValues___1.0"/>
+      <program id="ITTB___advancedPlotAlternativesValuesPreorder___1.0"/>
+      <program id="ITTB___advancedPlotCriteriaValues___1.0"/>
+      <program id="ITTB___advancedPlotCriteriaValuesPreorder___1.0"/>
+      <program id="ITTB___advancedPlotAlternativesComparisons___1.0"/>
+      <program id="ITTB___advancedPlotCriteriaComparisons___1.0"/>
+      <program id="ITTB___advancedPlotNumericPerformanceTable___1.0"/>
+      <program id="ITTB___transitiveReductionAlternativesComparisons___1.0"/>
+      <program id="ITTB___transitiveReductionCriteriaComparisons___1.0"/>
+
       <!-- URV -->
       <program id="URV___OWA___1.0"/>
       <program id="URV___ULOWA___1.0"/>

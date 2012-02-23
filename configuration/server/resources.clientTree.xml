@@ -23,6 +23,19 @@
 		<resource name="local___generic_program___1.0"/>
 	</type>
 	
+	<type name="UNSORTED" collapsed="0">
+      <resource name="ITTB___advancedPlotAlternativesComparisons___1.0"/>
+      <resource name="ITTB___advancedPlotAlternativesValues___1.0"/>
+      <resource name="ITTB___advancedPlotAlternativesValuesPreorder___1.0"/>
+      <resource name="ITTB___advancedPlotCriteriaComparisons___1.0"/>
+      <resource name="ITTB___advancedPlotCriteriaValues___1.0"/>
+      <resource name="ITTB___advancedPlotCriteriaValuesPreorder___1.0"/>
+      <resource name="ITTB___advancedPlotNumericPerformanceTable___1.0"/>
+      <resource name="ITTB___advancedPlotValueFunctions___1.0"/>
+      <resource name="ITTB___transitiveReductionAlternativesComparisons___1.0"/>
+      <resource name="ITTB___transitiveReductionCriteriaComparisons___1.0"/>
+	</type>
+
 	<type name="Calculation components" collapsed="0">
 		
 		<type name="Value techniques" collapsed="0">	
@@ -132,6 +145,7 @@
 		</type>
 		
 		<type name="Criteria computations" collapsed="0">
+            <resource name="ITTB___criteriaDescriptiveStatistics___1.0"/>
 			<resource name="PyXMCDA___randomCriteria___1.1"/>
 			<resource name="RXMCDA___randomCriteriaWeights___1.0" />
 		</type>

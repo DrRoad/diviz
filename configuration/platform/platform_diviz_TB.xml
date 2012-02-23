@@ -81,6 +81,19 @@ set callXMCDAService="genericXMCDAService.py -U http://server-telecom-bretagne.d
       <program id="URV___OWA___1.0"/>
       <program id="URV___ULOWA___1.0"/>
 
+      <!-- Institut Télécom / Télécom Bretagne -->
+      <program id="ITTB___criteriaDescriptiveStatistics___1.0"/>
+      <program id="ITTB___advancedPlotValueFunctions___1.0"/>
+      <program id="ITTB___advancedPlotAlternativesValues___1.0"/>
+      <program id="ITTB___advancedPlotAlternativesValuesPreorder___1.0"/>
+      <program id="ITTB___advancedPlotCriteriaValues___1.0"/>
+      <program id="ITTB___advancedPlotCriteriaValuesPreorder___1.0"/>
+      <program id="ITTB___advancedPlotAlternativesComparisons___1.0"/>
+      <program id="ITTB___advancedPlotCriteriaComparisons___1.0"/>
+      <program id="ITTB___advancedPlotNumericPerformanceTable___1.0"/>
+      <program id="ITTB___transitiveReductionAlternativesComparisons___1.0"/>
+      <program id="ITTB___transitiveReductionCriteriaComparisons___1.0"/>
+
 <!-- This program requires cplex, which is not installed at TB for the moment being -->
 <!--  <program id="PyXMCDA___weightsFromCondorcetAndPreferences___1.0"/>
 -->

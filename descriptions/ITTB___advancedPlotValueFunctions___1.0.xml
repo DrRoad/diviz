@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+
+<!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
+
+<program_description export_date="2012-02-17 13:10:20 +0000">
+  <program provider="ITTB" name="advancedPlotValueFunctions" version="1.0" />
+  <from desc_id="S8888" />
+  <description><![CDATA[This web service allows to plot utility functions. Compared to the existing web service plotValueFunctions, some parameters are added. Colors can be used. You can specify how to display the utility functions: by line, by column or by square. A linear interpolation can be processed in order to connect the different points in the generated utility function.]]></description>
+  <parameters>
+    <parameter id="advancedPlotValueFunctions-cmdline" type="command" ismandatory="1">
+      <name>advancedPlotValueFunctions</name>
+      <description></description>
+      <position>100000</position>
+      <code>$callXMCDAService advancedPlotValueFunctions-ITTB -S </code>
+    </parameter>
+
+
+    <parameter id="methodPlotOptions" ishidden="0" type="input">
+      <name>methodPlotOptions</name>
+      <description><![CDATA[
+                      
+                   ]]></description>
+      <position>100003</position>
+      <code/> 
+      <types>
+        <type>methodParameters</type>
+      </types>
+      <vdef>methodPlotOptions.xml</vdef>
+      <dep>(methodPlotOptions-use-file-dep:value="1")</dep>
+
+    </parameter>
+
+    <parameter id="methodPlotOptions-use-file-dep" ishidden="1" type="boolean">
+      <name>Supply methodPlotOptions as a file?</name>
+      <description>Supply methodPlotOptions as a file?</description>
+      <position>3003</position>
+      <code/>
+      <vdef>0</vdef>
+      <dep/>
+    </parameter>
+    
+
+
+
+    <parameter id="methodPlotOptions-gui" ishidden="1" type="code">
+      <name>methodPlotOptions</name>
+      <description><![CDATA[
+                      
+                   ]]></description>
+      <position>300</position>
+      <code><![CDATA[#methodPlotOptions: methodPlotOptions.xml
+cat > methodPlotOptions.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="xmcdaKappalab.xsl"?>
+<xmcda:XMCDA xmlns:xmcda="http://www.decision-deck.org/2009/XMCDA-2.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.decision-deck.org/2009/XMCDA-2.0.0 http://www.decision-deck.org/xmcda/_downloads/XMCDA-2.0.0.xsd">]]></code>
+      <dep>(methodPlotOptions-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+
+    <parameter id="methodPlotOptions-gui-301" ishidden="1" type="code">
+      <name />
+      <description />
+      <position>301</position>
+      <code><![CDATA[
+                   
+					<methodParameters>	 
+						  <parameter id="unique_plot" name="Unique plot">
+							<value>
+            					<label>]]></code>
+      <dep>(methodPlotOptions-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+
+    <parameter id="methodPlotOptions-gui-value-placeholder-1" ishidden="0" type="enum">
+      <name>A unique plot?</name>
+      <description>TODO</description>
+      <position>302</position>
+      <vlist>
+        <item id="true">
+          <description>Single image</description>
+          <code>true</code>
+        </item>
+        <item id="false">
+          <description>Multiple images</description>
+          <code>false</code>
+        </item>
+      </vlist>
+      <vdef>true</vdef>
+      <dep>(methodPlotOptions-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+    <parameter id="methodPlotOptions-gui-303" ishidden="1" type="code">
+      <name />
+      <description />
+      <position>303</position>
+      <code><![CDATA[</label>
+       						 </value>
+						</parameter>
+						 <parameter id="plots_display" name="Plots' display">
+							<value>
+            					<label>]]></code>
+      <dep>(methodPlotOptions-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+
+    <parameter id="methodPlotOptions-gui-value-placeholder-2" ishidden="0" type="enum">
+      <name>Display the plots:</name>
+      <description>TODO</description>
+      <position>304</position>
+      <vlist>
+        <item id="column">
+          <description>By column</description>
+          <code>By column</code>
+        </item>
+        <item id="line">
+          <description>By line</description>
+          <code>By line</code>
+        </item>
+        <item id="square">
+          <description>By square</description>
+          <code>By square</code>
+        </item>
+      </vlist>
+      <vdef>column</vdef>
+      <dep>(methodPlotOptions-use-file-dep:value="0") AND (methodPlotOptions-gui-value-placeholder-1:type="true")</dep>
+
+    </parameter>
+
+    <parameter id="methodPlotOptions-gui-305" ishidden="1" type="code">
+      <name />
+      <description />
+      <position>305</position>
+      <code><![CDATA[</label>
+       						 </value>
+						</parameter>
+						<parameter id="linear_interpolation" name="Linear interpolation">
+							<value>
+            					<label>]]></code>
+      <dep>(methodPlotOptions-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+
+    <parameter id="methodPlotOptions-gui-value-placeholder-3" ishidden="0" type="enum">
+      <name>Linear interpolation?</name>
+      <description>TODO</description>
+      <position>306</position>
+      <vlist>
+        <item id="true">
+          <description>With linear interpolation</description>
+          <code>true</code>
+        </item>
+        <item id="false">
+          <description>Without linear interpolation</description>
+          <code>false</code>
+        </item>
+      </vlist>
+      <vdef>true</vdef>
+      <dep>(methodPlotOptions-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+    <parameter id="methodPlotOptions-gui-307" ishidden="1" type="code">
+      <name />
+      <description />
+      <position>307</position>
+      <code><![CDATA[</label>
+       						 </value>
+						</parameter>
+						<parameter id="vertical_lines" name="Vertical lines">
+							<value>
+            					<label>]]></code>
+      <dep>(methodPlotOptions-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+
+    <parameter id="methodPlotOptions-gui-value-placeholder-4" ishidden="0" type="enum">
+      <name>Add vertical bars?</name>
+      <description>TODO</description>
+      <position>308</position>
+      <vlist>
+        <item id="true">
+          <description>With vertical bars</description>
+          <code>true</code>
+        </item>
+        <item id="false">
+          <description>Without vertical bars</description>
+          <code>false</code>
+        </item>
+      </vlist>
+      <vdef>false</vdef>
+      <dep>(methodPlotOptions-use-file-dep:value="0") AND (methodPlotOptions-gui-value-placeholder-3:type="false")</dep>
+
+    </parameter>
+
+    <parameter id="methodPlotOptions-gui-309" ishidden="1" type="code">
+      <name />
+      <description />
+      <position>309</position>
+      <code><![CDATA[</label>
+       						 </value>
+						</parameter>	
+						 <parameter id="use_color" name="Colors in the plots">
+							<value>
+            					<label>]]></code>
+      <dep>(methodPlotOptions-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+
+    <parameter id="methodPlotOptions-gui-value-placeholder-5" ishidden="0" type="enum">
+      <name>Use color?</name>
+      <description>TODO</description>
+      <position>310</position>
+      <vlist>
+        <item id="true">
+          <description>Use of colors</description>
+          <code>true</code>
+        </item>
+        <item id="false">
+          <description>Black and white plot</description>
+          <code>false</code>
+        </item>
+      </vlist>
+      <vdef>false</vdef>
+      <dep>(methodPlotOptions-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+    <parameter id="methodPlotOptions-gui-311" ishidden="1" type="code">
+      <name />
+      <description />
+      <position>311</position>
+      <code><![CDATA[</label>
+       						 </value>
+						</parameter>
+						 <parameter id="selected_color" name="Selected color">
+							<value>
+            					<label>]]></code>
+      <dep>(methodPlotOptions-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+
+    <parameter id="methodPlotOptions-gui-value-placeholder-6" ishidden="0" type="enum">
+      <name>Choose color:</name>
+      <description>TODO</description>
+      <position>312</position>
+      <vlist>
+        <item id="Black">
+          <description>Black</description>
+          <code>Black</code>
+        </item>
+        <item id="Red">
+          <description>Red</description>
+          <code>Red</code>
+        </item>
+        <item id="Blue">
+          <description>Blue</description>
+          <code>Blue</code>
+        </item>
+        <item id="Green">
+          <description>Green</description>
+          <code>Green</code>
+        </item>
+        <item id="Yellow">
+          <description>Yellow</description>
+          <code>Yellow</code>
+        </item>
+        <item id="Magenta">
+          <description>Magenta</description>
+          <code>Magenta</code>
+        </item>
+        <item id="Cyan">
+          <description>Cyan</description>
+          <code>Cyan</code>
+        </item>
+      </vlist>
+      <vdef>Black</vdef>
+      <dep>(methodPlotOptions-use-file-dep:value="0") AND (methodPlotOptions-gui-value-placeholder-5:type="true")</dep>
+
+    </parameter>
+
+    <parameter id="methodPlotOptions-gui-313" ishidden="1" type="code">
+      <name />
+      <description />
+      <position>313</position>
+      <code><![CDATA[</label>
+       						 </value>
+       						 </parameter>
+					</methodParameters>
+				
+               ]]></code>
+      <dep>(methodPlotOptions-use-file-dep:value="0")</dep>
+
+    </parameter>
+    <parameter id="methodPlotOptions-gui-EOF" ishidden="1" type="code">
+      <name>methodPlotOptions EOF</name>
+      <description></description>
+      <position>314</position>
+      <code><![CDATA[</xmcda:XMCDA>%nEOF%n]]></code>
+      <dep>(methodPlotOptions-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+    <parameter id="methodPlotOptions-cmdline" ishidden="1" type="code">
+      <name>methodPlotOptions insertion in cmd-line</name>
+      <description></description>
+      <position>100003</position>
+      <code> methodPlotOptions:methodPlotOptions.xml</code>
+      <dep/>
+    </parameter>
+
+
+
+
+
+    <parameter id="criteria" ishidden="0" type="input">
+      <name>criteria</name>
+      <description><![CDATA[A list of criteria. Criteria can be activated or desactivated via the <active> tag (true or false). By default (no <active> tag), criteria are considered as active.]]></description>
+      <position>100004</position>
+      <code> criteria:criteria.xml</code>
+      <types>
+        <type>criteria</type>
+      </types>
+      <vdef>criteria.xml</vdef>
+      <dep/>
+    </parameter>
+
+
+
+    <parameter id="valueFunctions" ishidden="0" type="input">
+      <name>valueFunctions</name>
+      <description><![CDATA[
+                       Values of utilities of chosen criteria abscissa - Utility functions
+                   ]]></description>
+      <position>100005</position>
+      <code> valueFunctions:valueFunctions.xml</code>
+      <types>
+        <type>criteria</type>
+      </types>
+      <vdef>valueFunctions.xml</vdef>
+      <dep/>
+    </parameter>
+
+
+
+
+    <parameter id="valueFunctionsPlot" ishidden="0" type="output">
+      <name>valueFunctionsPlot</name>
+      <description><![CDATA[
+                       A string containing the base64 representation of the png image of the generated multi-subplot.
+                   ]]></description>
+      <position>2006</position>
+      <code/>
+      <types>
+        <type>criterionValue</type>
+      </types>
+      <vdef>valueFunctionsPlot.xml</vdef>
+    </parameter>
+
+
+
+
+
+    <parameter id="messages" ishidden="0" type="output">
+      <name>messages</name>
+      <description><![CDATA[A list of messages generated by the algorithm.]]></description>
+      <position>2007</position>
+      <code/>
+      <types>
+        <type>methodMessages</type>
+      </types>
+      <vdef>messages.xml</vdef>
+    </parameter>
+
+
+
+    <parameter id="TIMEOUT" ishidden="0" type="int">
+      <name>Timeout? (0 for no timeout)</name>
+      <description>timeout</description>
+      <position>100001</position>
+      <code>-t %s </code>
+      <constraint>
+        <description>value should be a positive or null integer</description>
+        <code>(%d &gt;= 0)</code>
+      </constraint>
+      <vdef>60</vdef>
+    </parameter>
+    
+    <parameter id="VERBOSE" ishidden="0" type="enum">
+      <name>Verbose mode</name>
+      <description></description>
+      <position>100002</position>
+      <vlist>
+        <item id="T1">
+          <description>None</description>
+          <code></code>
+        </item>
+        <item id="T2">
+          <description>Moderately verbose</description>
+          <code> -v</code>
+        </item>
+        <item id="T3">
+          <description>Very verbose</description>
+          <code> -vv</code>
+        </item>
+        <item id="T4">
+          <description>Extremely verbose (include SOAP msgs)</description>
+          <code> -vvv</code>
+        </item>
+      </vlist>
+      <vdef>T2</vdef>
+    </parameter>
+
+  </parameters>
+</program_description>
