@@ -22,6 +22,12 @@
 	<type name="Generic" collapsed="0">
 		<resource name="local___generic_program___1.1"/>
 	</type>
+	<type name="Unsorted" collapsed="0">
+		<resource name="ws-Mcc___mccClusters___1.0"/>
+		<resource name="ws-Mcc___mccEvaluateClusters___1.0"/>
+		<resource name="ws-Mcc___mccPlotClusters___1.0"/>
+		<resource name="ws-Mcc___mccPreferenceRelation___1.0"/>
+	</type>
 	
 	<type name="Calculation components" collapsed="0">
 		
