@@ -3,7 +3,7 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2012-02-23 08:54:31 +0000">
+<program_description export_date="2012-02-23 16:04:35 +0000">
   <program provider="ITTB" name="advancedPlotCriteriaValuesPreorder" version="1.0" />
   <from desc_id="S8888" />
   <description><![CDATA[This web service generates a graph representing a preorder on the criteria, according to numerical values taken by the criteria (the "best" criteria has the highest value). Compared to the web service plotCriteriaValuesPreorder, some parameters are added. Colors can be used and the title of the graph can be typed. You can choose between an increasing or a decreasing order for the graph. It is also possible to show the name of the criteria instead of the id, etc. The criteria evaluations are supposed to be real or integer numeric values.]]></description>
@@ -31,7 +31,7 @@
 
     </parameter>
 
-    <parameter id="options-use-file-dep" ishidden="1" type="boolean">
+    <parameter id="options-use-file-dep" ishidden="0" type="boolean">
       <name>Supply options as a file?</name>
       <description>Supply options as a file?</description>
       <position>3003</position>
@@ -256,36 +256,36 @@ cat > options.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <description>TODO</description>
       <position>312</position>
       <vlist>
-        <item id="Black">
+        <item id="black">
           <description>Black</description>
           <code>Black</code>
         </item>
-        <item id="Red">
+        <item id="red">
           <description>Red</description>
           <code>Red</code>
         </item>
-        <item id="Blue">
+        <item id="blue">
           <description>Blue</description>
           <code>Blue</code>
         </item>
-        <item id="Green">
+        <item id="green">
           <description>Green</description>
           <code>Green</code>
         </item>
-        <item id="Yellow">
+        <item id="yellow">
           <description>Yellow</description>
           <code>Yellow</code>
         </item>
-        <item id="Magenta">
+        <item id="magenta">
           <description>Magenta</description>
           <code>Magenta</code>
         </item>
-        <item id="Cyan">
+        <item id="cyan">
           <description>Cyan</description>
           <code>Cyan</code>
         </item>
       </vlist>
-      <vdef>Black</vdef>
+      <vdef>black</vdef>
       <dep>(options-use-file-dep:value="0") AND (options-gui-value-placeholder-5:type="true")</dep>
 
     </parameter>

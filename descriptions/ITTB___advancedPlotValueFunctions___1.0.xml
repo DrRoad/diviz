@@ -3,10 +3,10 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2012-02-17 13:10:20 +0000">
+<program_description export_date="2012-02-23 16:11:10 +0000">
   <program provider="ITTB" name="advancedPlotValueFunctions" version="1.0" />
   <from desc_id="S8888" />
-  <description><![CDATA[This web service allows to plot utility functions. Compared to the existing web service plotValueFunctions, some parameters are added. Colors can be used. You can specify how to display the utility functions: by line, by column or by square. A linear interpolation can be processed in order to connect the different points in the generated utility function.]]></description>
+  <description><![CDATA[This web service allows to plot utility functions. Compared to the web service plotValueFunctions, some parameters are added. Colors can be used. You can specify how to display the utility functions: by line, by column or by square. A linear interpolation can be processed in order to connect the different points in the generated utility function.]]></description>
   <parameters>
     <parameter id="advancedPlotValueFunctions-cmdline" type="command" ismandatory="1">
       <name>advancedPlotValueFunctions</name>
@@ -19,7 +19,7 @@
     <parameter id="methodPlotOptions" ishidden="0" type="input">
       <name>methodPlotOptions</name>
       <description><![CDATA[
-                      
+
                    ]]></description>
       <position>100003</position>
       <code/> 
@@ -31,7 +31,7 @@
 
     </parameter>
 
-    <parameter id="methodPlotOptions-use-file-dep" ishidden="1" type="boolean">
+    <parameter id="methodPlotOptions-use-file-dep" ishidden="0" type="boolean">
       <name>Supply methodPlotOptions as a file?</name>
       <description>Supply methodPlotOptions as a file?</description>
       <position>3003</position>
@@ -46,7 +46,7 @@
     <parameter id="methodPlotOptions-gui" ishidden="1" type="code">
       <name>methodPlotOptions</name>
       <description><![CDATA[
-                      
+
                    ]]></description>
       <position>300</position>
       <code><![CDATA[#methodPlotOptions: methodPlotOptions.xml
@@ -76,12 +76,12 @@ cat > methodPlotOptions.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 
 
     <parameter id="methodPlotOptions-gui-value-placeholder-1" ishidden="0" type="enum">
-      <name>A unique plot?</name>
+      <name>Number of images</name>
       <description>TODO</description>
       <position>302</position>
       <vlist>
         <item id="true">
-          <description>Single image</description>
+          <description>1 per plot</description>
           <code>true</code>
         </item>
         <item id="false">
@@ -110,24 +110,24 @@ cat > methodPlotOptions.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 
 
     <parameter id="methodPlotOptions-gui-value-placeholder-2" ishidden="0" type="enum">
-      <name>Display the plots:</name>
+      <name>Plots arrangement</name>
       <description>TODO</description>
       <position>304</position>
       <vlist>
-        <item id="column">
-          <description>By column</description>
+        <item id="by_column">
+          <description>Column</description>
           <code>By column</code>
         </item>
-        <item id="line">
-          <description>By line</description>
+        <item id="by_line">
+          <description>Line</description>
           <code>By line</code>
         </item>
-        <item id="square">
-          <description>By square</description>
+        <item id="by_square">
+          <description>Grid</description>
           <code>By square</code>
         </item>
       </vlist>
-      <vdef>column</vdef>
+      <vdef>by_column</vdef>
       <dep>(methodPlotOptions-use-file-dep:value="0") AND (methodPlotOptions-gui-value-placeholder-1:type="true")</dep>
 
     </parameter>
@@ -148,16 +148,16 @@ cat > methodPlotOptions.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 
 
     <parameter id="methodPlotOptions-gui-value-placeholder-3" ishidden="0" type="enum">
-      <name>Linear interpolation?</name>
+      <name>Plot linear interpolation</name>
       <description>TODO</description>
       <position>306</position>
       <vlist>
         <item id="true">
-          <description>With linear interpolation</description>
+          <description>Yes</description>
           <code>true</code>
         </item>
         <item id="false">
-          <description>Without linear interpolation</description>
+          <description>No</description>
           <code>false</code>
         </item>
       </vlist>
@@ -182,16 +182,16 @@ cat > methodPlotOptions.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 
 
     <parameter id="methodPlotOptions-gui-value-placeholder-4" ishidden="0" type="enum">
-      <name>Add vertical bars?</name>
+      <name>Add vertical bars</name>
       <description>TODO</description>
       <position>308</position>
       <vlist>
         <item id="true">
-          <description>With vertical bars</description>
+          <description>Yes</description>
           <code>true</code>
         </item>
         <item id="false">
-          <description>Without vertical bars</description>
+          <description>No</description>
           <code>false</code>
         </item>
       </vlist>
@@ -216,16 +216,16 @@ cat > methodPlotOptions.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 
 
     <parameter id="methodPlotOptions-gui-value-placeholder-5" ishidden="0" type="enum">
-      <name>Use color?</name>
+      <name>Use Colors?</name>
       <description>TODO</description>
       <position>310</position>
       <vlist>
         <item id="true">
-          <description>Use of colors</description>
+          <description>Yes</description>
           <code>true</code>
         </item>
         <item id="false">
-          <description>Black and white plot</description>
+          <description>No</description>
           <code>false</code>
         </item>
       </vlist>
@@ -254,36 +254,36 @@ cat > methodPlotOptions.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <description>TODO</description>
       <position>312</position>
       <vlist>
-        <item id="Black">
+        <item id="black">
           <description>Black</description>
           <code>Black</code>
         </item>
-        <item id="Red">
+        <item id="red">
           <description>Red</description>
           <code>Red</code>
         </item>
-        <item id="Blue">
+        <item id="blue">
           <description>Blue</description>
           <code>Blue</code>
         </item>
-        <item id="Green">
+        <item id="green">
           <description>Green</description>
           <code>Green</code>
         </item>
-        <item id="Yellow">
+        <item id="yellow">
           <description>Yellow</description>
           <code>Yellow</code>
         </item>
-        <item id="Magenta">
+        <item id="magenta">
           <description>Magenta</description>
           <code>Magenta</code>
         </item>
-        <item id="Cyan">
+        <item id="cyan">
           <description>Cyan</description>
           <code>Cyan</code>
         </item>
       </vlist>
-      <vdef>Black</vdef>
+      <vdef>black</vdef>
       <dep>(methodPlotOptions-use-file-dep:value="0") AND (methodPlotOptions-gui-value-placeholder-5:type="true")</dep>
 
     </parameter>

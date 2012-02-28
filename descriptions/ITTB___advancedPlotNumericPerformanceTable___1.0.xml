@@ -3,7 +3,7 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2012-02-23 10:26:11 +0000">
+<program_description export_date="2012-02-23 16:08:52 +0000">
   <program provider="ITTB" name="advancedPlotNumericPerformanceTable" version="1.0" />
   <from desc_id="S8888" />
   <description><![CDATA[This web service generates a plot representing the performance table (abscissa: alternatives). Compared to the web service plotNumericPerformanceTable, several options are added. The generated plot can be a bar plot or pie plot. Colors can be used and the title of the plot can be typed. In the case of a bar chart, the axis-labels can also be typed. It is possible to have multiple images or only one image per plot: by column, by line or a grid. In the generated plot, you can also order the alternatives by name, by id or by values in an ascending or descending order.]]></description>
@@ -148,20 +148,20 @@ cat > plotOptions.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <description>TODO</description>
       <position>306</position>
       <vlist>
-        <item id="column">
+        <item id="arrange_imgs_by_column">
           <description>Column</description>
           <code>By column</code>
         </item>
-        <item id="line">
+        <item id="arrange_imgs_by_line">
           <description>Line</description>
           <code>By line</code>
         </item>
-        <item id="square">
+        <item id="arrange_imgs_by_square">
           <description>Grid</description>
           <code>By square</code>
         </item>
       </vlist>
-      <vdef>column</vdef>
+      <vdef>arrange_imgs_by_column</vdef>
       <dep>(plotOptions-use-file-dep:value="0") AND (plotOptions-gui-value-placeholder-2:type="true")</dep>
 
     </parameter>
@@ -187,20 +187,20 @@ cat > plotOptions.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <description>TODO</description>
       <position>308</position>
       <vlist>
-        <item id="name">
+        <item id="order_abs_by_name">
           <description>By name</description>
           <code>By name</code>
         </item>
-        <item id="id">
+        <item id="order_abs_by_id">
           <description>By id</description>
           <code>By id</code>
         </item>
-        <item id="values">
+        <item id="order_abs_by_values">
           <description>By values</description>
           <code>By values</code>
         </item>
       </vlist>
-      <vdef>values</vdef>
+      <vdef>order_abs_by_values</vdef>
       <dep>(plotOptions-use-file-dep:value="0")</dep>
 
     </parameter>
