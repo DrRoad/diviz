@@ -1,0 +1,6 @@
+This is an integration branch for diviz-test.
+
+diviz-test is a temporary release of diviz.
+It is used to test the integration of new web-services, or new versions of existing web-services, without impacting the official diviz release.
+
+Contact sebastien.bigaret@telecom-bretagne.eu.
