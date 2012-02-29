@@ -6,7 +6,7 @@
 	    <!-- script-init: adapt PATH if needed: setenv PATH /path/to/...:${PATH}: -->
     	<item name="script-init">setenv PYTHONUNBUFFERED 1
 setenv http_proxy proxy.enst-bretagne.fr:8080
-set callXMCDAService="genericXMCDAService.py -U http://ernst-schroeder.uni.lu/cgi-bin/%s.py -n "
+set callXMCDAService="genericXMCDAService.py -U http://ernst-schroeder.uni.lu/cgi-bin/%s-test.py -n "
 </item>
     </configuration>
     <programs>
