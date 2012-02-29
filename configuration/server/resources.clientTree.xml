@@ -104,7 +104,6 @@
 					<resource name="PyXMCDA___stableSorting___1.0"/>
 				</type>
 				<type name="Clustering" collapsed="0">
-					<resource name="PyXMCDA___MccP___1.0"/>
 					<resource name="ws-Mcc___mccClusters___1.0"/>
 					<resource name="ws-Mcc___mccClustersRelationSummary___1.0"/>
 					<resource name="ws-Mcc___mccEvaluateClusters___1.0"/>
