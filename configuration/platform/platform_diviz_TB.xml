@@ -5,7 +5,7 @@
     <configuration>
 	    <!-- script-init: adapt PATH if needed: setenv PATH /path/to/...:${PATH}: -->
     	<item name="script-init">setenv PYTHONUNBUFFERED 1
-set callXMCDAService="genericXMCDAService.py -U http://server-telecom-bretagne.diviz.org/soap/%s.py -n "
+set callXMCDAService="genericXMCDAService.py -U http://server-telecom-bretagne.diviz.org/soap/%s-test.py -n "
 </item>
     </configuration>
     <programs>
@@ -93,6 +93,13 @@ set callXMCDAService="genericXMCDAService.py -U http://server-telecom-bretagne.d
       <program id="ITTB___advancedPlotNumericPerformanceTable___1.0"/>
       <program id="ITTB___transitiveReductionAlternativesComparisons___1.0"/>
       <program id="ITTB___transitiveReductionCriteriaComparisons___1.0"/>
+
+      <!-- ws-Mcc -->
+      <program id="ws-Mcc___mccClusters___1.0"/>
+      <program id="ws-Mcc___mccClustersRelationSummary___1.0"/>
+      <program id="ws-Mcc___mccEvaluateClusters___1.0"/>
+      <program id="ws-Mcc___mccPlotClusters___1.0"/>
+      <program id="ws-Mcc___mccPreferenceRelation___1.0"/>
 
 <!-- This program requires cplex, which is not installed at TB for the moment being -->
 <!--  <program id="PyXMCDA___weightsFromCondorcetAndPreferences___1.0"/>

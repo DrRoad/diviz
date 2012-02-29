@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+
+<!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
+
+<program_description export_date="2012-02-29 12:28:04 +0000">
+  <program provider="ws-Mcc" name="mccClusters" version="1.0" />
+  <from desc_id="S8888" />
+  <description><![CDATA[This web service computes clusters of alternatives based on the following clustering typology: non-relational, relational, ordered, {p+,p-}-exclusive relational and {p+,p-}-exclusive ordered multi-criteria clustering.]]></description>
+  <parameters>
+    <parameter id="mccClusters-cmdline" type="command" ismandatory="1">
+      <name>mccClusters</name>
+      <description></description>
+      <position>100000</position>
+      <code>$callXMCDAService mccClusters-ws-Mcc -S </code>
+    </parameter>
+
+
+    <parameter id="alternatives" ishidden="0" type="input">
+      <name>alternatives</name>
+      <description><![CDATA[A list of alternatives. Alternatives can be activated or deactivated via the <active> tag (true or false). By default (no <active> tag), alternatives are considered as active. ]]></description>
+      <position>100003</position>
+      <code> alternatives:alternatives.xml</code>
+      <types>
+        <type>alternatives</type>
+      </types>
+      <vdef>alternatives.xml</vdef>
+      <dep/>
+    </parameter>
+
+
+
+    <parameter id="preferenceRelation" ishidden="0" type="input">
+      <name>preferenceRelation</name>
+      <description><![CDATA[The preference relation between alternatives.]]></description>
+      <position>100004</position>
+      <code> preferenceRelation:preferenceRelation.xml</code>
+      <types>
+        <type>alternativesComparisons</type>
+      </types>
+      <vdef>preferenceRelation.xml</vdef>
+      <dep/>
+    </parameter>
+
+
+
+    <parameter id="methodParameters" ishidden="0" type="input">
+      <name>Method Type</name>
+      <description><![CDATA[Indicates the type of clustering result to find: Non-relations (NR), Relationa (R), Ordered (O), Q-exclusive Relational (QR),  Q-exclusive Ordered (QO).]]></description>
+      <position>100005</position>
+      <code/> 
+      <types>
+        <type>methodParameters</type>
+      </types>
+      <vdef>methodParameters.xml</vdef>
+      <dep>(methodParameters-dep:value="1") AND (methodParameters-use-file-dep:value="1")</dep>
+
+    </parameter>
+    <parameter id="methodParameters-dep" ishidden="0" type="boolean">
+      <name>Use Method Type as input?</name>
+      <description>Use Method Type as input?</description>
+      <position>3005</position>
+      <code/>
+      <vdef>1</vdef>
+    </parameter>
+
+    <parameter id="methodParameters-use-file-dep" ishidden="0" type="boolean">
+      <name>Supply Method Type as a file?</name>
+      <description>Supply Method Type as a file?</description>
+      <position>3005</position>
+      <code/>
+      <vdef>0</vdef>
+      <dep>(methodParameters-dep:value="1")</dep>
+
+    </parameter>
+    
+
+
+
+    <parameter id="methodParameters-gui" ishidden="1" type="code">
+      <name>Method Type</name>
+      <description><![CDATA[Indicates the type of clustering result to find: Non-relations (NR), Relationa (R), Ordered (O), Q-exclusive Relational (QR),  Q-exclusive Ordered (QO).]]></description>
+      <position>500</position>
+      <code><![CDATA[#methodParameters: methodParameters.xml
+cat > methodParameters.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="xmcdaKappalab.xsl"?>
+<xmcda:XMCDA xmlns:xmcda="http://www.decision-deck.org/2009/XMCDA-2.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.decision-deck.org/2009/XMCDA-2.0.0 http://www.decision-deck.org/xmcda/_downloads/XMCDA-2.0.0.xsd">]]></code>
+      <dep>(methodParameters-dep:value="1") AND (methodParameters-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+
+    <parameter id="methodParameters-gui-501" ishidden="1" type="code">
+      <name />
+      <description />
+      <position>501</position>
+      <code><![CDATA[
+                        
+			<methodParameters>
+				<parameter name="type">
+					<value>
+						<label>]]></code>
+      <dep>(methodParameters-dep:value="1") AND (methodParameters-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+
+    <parameter id="methodParameters-gui-value-placeholder-1" ishidden="0" type="enum">
+      <name>Type</name>
+      <description>TODO</description>
+      <position>502</position>
+      <vlist>
+        <item id="NR">
+          <description>Non-relational</description>
+          <code>NR</code>
+        </item>
+        <item id="R">
+          <description>Relational</description>
+          <code>R</code>
+        </item>
+        <item id="O">
+          <description>Ordered</description>
+          <code>O</code>
+        </item>
+        <item id="QR">
+          <description>Relational {p+,p-}-exclusive</description>
+          <code>QR</code>
+        </item>
+        <item id="QO">
+          <description>Ordered {p+,p-}-exclusive</description>
+          <code>QO</code>
+        </item>
+      </vlist>
+      <vdef>NR</vdef>
+      <dep>(methodParameters-dep:value="1") AND (methodParameters-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+    <parameter id="methodParameters-gui-503" ishidden="1" type="code">
+      <name />
+      <description />
+      <position>503</position>
+      <code><![CDATA[</label>
+					</value>
+				</parameter>
+			</methodParameters>
+                     ]]></code>
+      <dep>(methodParameters-dep:value="1") AND (methodParameters-use-file-dep:value="0")</dep>
+
+    </parameter>
+    <parameter id="methodParameters-gui-EOF" ishidden="1" type="code">
+      <name>Method Type EOF</name>
+      <description></description>
+      <position>504</position>
+      <code><![CDATA[</xmcda:XMCDA>%nEOF%n]]></code>
+      <dep>(methodParameters-dep:value="1") AND (methodParameters-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+    <parameter id="methodParameters-cmdline" ishidden="1" type="code">
+      <name>Method Type insertion in cmd-line</name>
+      <description></description>
+      <position>100005</position>
+      <code> methodParameters:methodParameters.xml</code>
+      <dep>(methodParameters-dep:value="1")</dep>
+
+    </parameter>
+
+
+
+
+
+
+    <parameter id="clusters" ishidden="0" type="output">
+      <name>clusters</name>
+      <description><![CDATA[The cluster names.]]></description>
+      <position>2006</position>
+      <code/>
+      <types>
+        <type>categories</type>
+      </types>
+      <vdef>clusters.xml</vdef>
+    </parameter>
+
+
+
+
+
+    <parameter id="alternativesAffectations" ishidden="0" type="output">
+      <name>alternativesAffectations</name>
+      <description><![CDATA[The alternatives affectations to the clusters.]]></description>
+      <position>2007</position>
+      <code/>
+      <types>
+        <type>alternativesAffectations</type>
+      </types>
+      <vdef>alternativesAffectations.xml</vdef>
+    </parameter>
+
+
+
+
+
+    <parameter id="clustersRelations" ishidden="0" type="output">
+      <name>clustersRelations</name>
+      <description><![CDATA[The relation between clusters.]]></description>
+      <position>2008</position>
+      <code/>
+      <types>
+        <type>categoriesComparisons</type>
+      </types>
+      <vdef>clustersRelations.xml</vdef>
+    </parameter>
+
+
+
+
+
+    <parameter id="messages" ishidden="0" type="output">
+      <name>messages</name>
+      <description><![CDATA[A list of messages generated by the algorithm.]]></description>
+      <position>2009</position>
+      <code/>
+      <types>
+        <type>methodMessages</type>
+      </types>
+      <vdef>messages.xml</vdef>
+    </parameter>
+
+
+
+    <parameter id="TIMEOUT" ishidden="0" type="int">
+      <name>Timeout? (0 for no timeout)</name>
+      <description>timeout</description>
+      <position>100001</position>
+      <code>-t %s </code>
+      <constraint>
+        <description>value should be a positive or null integer</description>
+        <code>(%d &gt;= 0)</code>
+      </constraint>
+      <vdef>60</vdef>
+    </parameter>
+    
+    <parameter id="VERBOSE" ishidden="0" type="enum">
+      <name>Verbose mode</name>
+      <description></description>
+      <position>100002</position>
+      <vlist>
+        <item id="T1">
+          <description>None</description>
+          <code></code>
+        </item>
+        <item id="T2">
+          <description>Moderately verbose</description>
+          <code> -v</code>
+        </item>
+        <item id="T3">
+          <description>Very verbose</description>
+          <code> -vv</code>
+        </item>
+        <item id="T4">
+          <description>Extremely verbose (include SOAP msgs)</description>
+          <code> -vvv</code>
+        </item>
+      </vlist>
+      <vdef>T2</vdef>
+    </parameter>
+
+  </parameters>
+</program_description>

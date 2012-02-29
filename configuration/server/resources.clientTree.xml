@@ -85,6 +85,7 @@
 				<resource name="J-MCDA___ElectreConcordance___0.5.1"/>
 				<resource name="J-MCDA___ElectreDiscordances___0.5.1"/>
 				<resource name="J-MCDA___ElectreOutranking___0.5.1"/>
+				<resource name="ws-Mcc___mccPreferenceRelation___1.0"/>
 				<resource name="J-MCDA___PrometheeFlows___0.5.1"/>
 				<resource name="J-MCDA___PrometheePreference___0.5.1"/>
 				<resource name="PyXMCDA___RubisConcordanceRelation___1.0"/>
@@ -106,7 +107,9 @@
 					<resource name="PyXMCDA___stableSorting___1.0"/>
 				</type>
 				<type name="Clustering" collapsed="0">
-					<resource name="PyXMCDA___MccP___1.0"/>
+					<resource name="ws-Mcc___mccClusters___1.0"/>
+					<resource name="ws-Mcc___mccClustersRelationSummary___1.0"/>
+					<resource name="ws-Mcc___mccEvaluateClusters___1.0"/>
 				</type>
 			</type>
 			
@@ -156,6 +159,7 @@
 		</type>
 		
 		<type name="Data visualisation" collapsed="0">
+			<resource name="ws-Mcc___mccPlotClusters___1.0"/>
 			<resource name="ITTB___advancedPlotAlternativesComparisons___1.0"/>
 			<resource name="RXMCDA___plotAlternativesComparisons___1.0"/>
 			<resource name="ITTB___advancedPlotAlternativesValues___1.0"/>
