@@ -5,7 +5,7 @@
     <configuration>
 	    <!-- script-init: adapt PATH if needed: setenv PATH /path/to/...:${PATH}: -->
     	<item name="script-init">setenv PYTHONUNBUFFERED 1
-set callXMCDAService="genericXMCDAService.py -U http://server-telecom-bretagne.diviz.org/soap/%s.py -n "
+set callXMCDAService="genericXMCDAService.py -U http://server-telecom-bretagne.diviz.org/soap/%s-test.py -n "
 </item>
     </configuration>
     <programs>
@@ -81,7 +81,9 @@ set callXMCDAService="genericXMCDAService.py -U http://server-telecom-bretagne.d
       <program id="URV___OWA___1.0"/>
       <program id="URV___ULOWA___1.0"/>
 
+      <!-- ws-Mcc -->
       <program id="ws-Mcc___mccClusters___1.0"/>
+      <program id="ws-Mcc___mccClustersRelationSummary___1.0"/>
       <program id="ws-Mcc___mccEvaluateClusters___1.0"/>
       <program id="ws-Mcc___mccPlotClusters___1.0"/>
       <program id="ws-Mcc___mccPreferenceRelation___1.0"/>
