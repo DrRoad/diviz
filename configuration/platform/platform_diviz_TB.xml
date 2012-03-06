@@ -93,6 +93,7 @@ set callXMCDAService="genericXMCDAService.py -U http://server-telecom-bretagne.d
       <program id="ITTB___advancedPlotNumericPerformanceTable___1.0"/>
       <program id="ITTB___transitiveReductionAlternativesComparisons___1.0"/>
       <program id="ITTB___transitiveReductionCriteriaComparisons___1.0"/>
+      <program id="ITTB___advancedCutRelation___1.0"/>
 
       <!-- ws-Mcc -->
       <program id="ws-Mcc___mccClusters___1.0"/>

@@ -23,8 +23,9 @@
 		<resource name="local___generic_program___1.1"/>
 	</type>
 	
-<!--	<type name="UNSORTED" collapsed="0">
-	</type> -->
+	<type name="UNSORTED" collapsed="0">
+      <resource name="ITTB___advancedCutRelation___1.0"/>
+	</type>
 
 	<type name="Calculation components" collapsed="0">
 		
