@@ -93,6 +93,7 @@ set callXMCDAService="genericXMCDAService.py -U http://server-telecom-bretagne.d
       <program id="ITTB___advancedPlotNumericPerformanceTable___1.0"/>
       <program id="ITTB___transitiveReductionAlternativesComparisons___1.0"/>
       <program id="ITTB___transitiveReductionCriteriaComparisons___1.0"/>
+      <program id="ITTB___advancedCutRelation___1.0"/>
 
 <!-- This program requires cplex, which is not installed at TB for the moment being -->
 <!--  <program id="PyXMCDA___weightsFromCondorcetAndPreferences___1.0"/>
