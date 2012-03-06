@@ -3,7 +3,7 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2012-02-29 12:29:02 +0000">
+<program_description export_date="2012-03-06 08:31:34 +0000">
   <program provider="ws-Mcc" name="mccPreferenceRelation" version="1.0" />
   <from desc_id="S8888" />
   <description><![CDATA[This web service allows the generation of a preference relation between a set of alternatives from any outranking relation between them. For each pair of alternatives we can have the following preference situations: indifference (i), preference in favor of the first (p+), preference in favor of the second (p-) and incomparability (j). As the outranking relation can also be bipolar, the preference relation is encoded as a 4-uple of the probabilities that the relation can be in one of the 4 preference situations.]]></description>
@@ -70,10 +70,10 @@ cat > methodParameters.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <position>301</position>
       <code><![CDATA[
                         
-			<methodParameters>
-				<parameter name="bipolar">
-					<value>
-						<boolean>]]></code>
+<methodParameters>
+<parameter name="bipolar">
+<value>
+<boolean>]]></code>
       <dep>(methodParameters-dep:value="1") AND (methodParameters-use-file-dep:value="0")</dep>
 
     </parameter>
@@ -103,11 +103,11 @@ cat > methodParameters.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <description />
       <position>303</position>
       <code><![CDATA[</boolean>
-					</value>
-				</parameter>
-				<parameter name="cutlvl">
-					<value>
-						<real>]]></code>
+</value>
+</parameter>
+<parameter name="cutlvl">
+<value>
+<real>]]></code>
       <dep>(methodParameters-dep:value="1") AND (methodParameters-use-file-dep:value="0")</dep>
 
     </parameter>
@@ -131,9 +131,9 @@ cat > methodParameters.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <description />
       <position>305</position>
       <code><![CDATA[</real>
-					</value>
-				</parameter>
-			</methodParameters>
+</value>
+</parameter>
+</methodParameters>
                      ]]></code>
       <dep>(methodParameters-dep:value="1") AND (methodParameters-use-file-dep:value="0")</dep>
 
