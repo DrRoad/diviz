@@ -26,6 +26,9 @@
 	<type name="UNSORTED" collapsed="0">
       <resource name="ITTB___advancedCutRelation___1.0"/>
       <resource name="ITTB___advancedAlternativesRankingViaQualificationDistillation___1.0"/>
+      <resource name="ITTB___csvToXMCDA-categoriesProfiles___1.0"/>
+      <resource name="ITTB___csvToXMCDA-valueFunctions___1.0"/>
+      <resource name="ITTB___computeNumericPerformanceTable___1.0"/>
 	</type>
 
 	<type name="Calculation components" collapsed="0">
