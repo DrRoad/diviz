@@ -29,6 +29,12 @@
       <resource name="ITTB___csvToXMCDA-categoriesProfiles___1.0"/>
       <resource name="ITTB___csvToXMCDA-valueFunctions___1.0"/>
       <resource name="ITTB___computeNumericPerformanceTable___1.0"/>
+      <resource name="ITTB___performanceTableTransformation___1.0"/>
+      <resource name="ITTB___starGraphPerformanceTable___1.0"/>
+      <resource name="ITTB___plotAlternativesAffectations___1.0"/>
+      <resource name="ITTB___sortAlternativesValues___1.0"/>
+      <resource name="ITTB___UTA___1.0"/>
+      <resource name="ITTB___performanceTableFilter___1.0"/>
 	</type>
 
 	<type name="Calculation components" collapsed="0">

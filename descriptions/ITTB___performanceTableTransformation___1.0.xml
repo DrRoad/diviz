@@ -1,0 +1,929 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+
+<!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
+
+<program_description export_date="2012-03-16 12:41:07 +0000">
+  <program provider="ITTB" name="performanceTableTransformation" version="1.0" />
+  <from desc_id="S8888" />
+  <description><![CDATA[This web service generates a transformed performance table. The transformation can be the same for all the criteria or a transformation can be applied per criterion. In this case a file containing methodParameters tag is provided containing the criterionId and the corresponding transformation. The available transformations are: divide the values by the max, or return values between min and max or a normalization by the mean and the standard deviation (like in the case of Gaussian distribution).]]></description>
+  <parameters>
+    <parameter id="performanceTableTransformation-cmdline" type="command" ismandatory="1">
+      <name>performanceTableTransformation</name>
+      <description></description>
+      <position>100000</position>
+      <code>$callXMCDAService performanceTableTransformation-ITTB -S </code>
+    </parameter>
+
+
+    <parameter id="options" ishidden="0" type="input">
+      <name>options</name>
+      <description><![CDATA[Generates a performance table taking into account the proposed options. The user must provide the transformation to apply per criterion and respect the proposed syntax.]]></description>
+      <position>100003</position>
+      <code/> 
+      <types>
+        <type>methodParameters</type>
+      </types>
+      <vdef>options.xml</vdef>
+      <dep>(options-use-file-dep:value="1")</dep>
+
+    </parameter>
+
+    <parameter id="options-use-file-dep" ishidden="0" type="boolean">
+      <name>Supply options as a file?</name>
+      <description>Supply options as a file?</description>
+      <position>3003</position>
+      <code/>
+      <vdef>0</vdef>
+      <dep/>
+    </parameter>
+    
+
+    <parameter id="global_transformation" ishidden="0" type="boolean">
+      <name>Apply a global transformation? </name>
+      <indent>0</indent>
+      <description> Apply a single transformation on all criteria</description>
+      <position>0</position>
+      <code />
+      <vdef>1</vdef>
+      <dep>(options-use-file-dep:value="0")</dep>
+    </parameter>
+
+
+    <parameter id="options-gui" ishidden="1" type="code">
+      <name>options</name>
+      <description><![CDATA[Generates a performance table taking into account the proposed options. The user must provide the transformation to apply per criterion and respect the proposed syntax.]]></description>
+      <position>300</position>
+      <code><![CDATA[#options: options.xml
+cat > options.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="xmcdaKappalab.xsl"?>
+<xmcda:XMCDA xmlns:xmcda="http://www.decision-deck.org/2009/XMCDA-2.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.decision-deck.org/2009/XMCDA-2.0.0 http://www.decision-deck.org/xmcda/_downloads/XMCDA-2.0.0.xsd">]]></code>
+      <dep>(options-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+
+    <parameter id="options-gui-301" ishidden="1" type="code">
+      <name />
+      <description />
+      <position>301</position>
+      <code><![CDATA[                   
+	<methodParameters>
+		<parameter id="global_transformation" name="Transformation type">
+			<value>
+				<label>]]></code>
+      <dep><![CDATA[(options-use-file-dep:value="0") && (global_transformation:value="1")]]></dep>
+    </parameter>
+
+
+    <parameter id="options-gui-value-placeholder-1" ishidden="0" type="enum">
+      <name>Transformation:</name>
+      <description>TODO</description>
+      <position>302</position>
+      <vlist>
+        <item id="max">
+          <description>Divide by max</description>
+          <code>by_max</code>
+        </item>
+        <item id="minMax">
+          <description>Between min and max</description>
+          <code>min_max</code>
+        </item>
+        <item id="meanStdv">
+          <description>Normalize by mean and stdv</description>
+          <code>mean_stdv</code>
+        </item>
+      </vlist>
+      <vdef>max</vdef>
+      <dep><![CDATA[(options-use-file-dep:value="0") && (global_transformation:value="1")]]></dep>
+
+    </parameter>
+
+    <parameter id="options-gui-303" ishidden="1" type="code">
+      <name />
+      <description />
+      <position>303</position>
+      <code><![CDATA[</label>
+			</value>
+		</parameter>
+	</methodParameters>
+               ]]></code>
+      <dep><![CDATA[(options-use-file-dep:value="0") && (global_transformation:value="1")]]></dep>
+    </parameter>
+
+     <parameter id="nbTransformations" ishidden="0" type="int">
+      <name>Number of criteria to transform</name>
+      <description>Number of criteria to transform</description>
+      <position>400</position>
+      <code/>
+      <constraint>
+        <description>The value should be a strictly positive integer, lower or equal to 20</description>
+        <code><![CDATA[%d > 1 && %d < 21]]></code>
+      </constraint>
+      <vdef>1</vdef>
+      <dep><![CDATA[(options-use-file-dep:value="0") && (global_transformation:value="0")]]></dep>
+    </parameter>
+
+    <parameter id="criteria_transformations" ishidden="1" type="code">
+      <name /><description />
+      <position>4000</position>
+      <code><![CDATA[	<methodParameters>%n	<parameter id="criteria_transformations" name="Per criteria transformations">%n]]></code>
+      <dep><![CDATA[(options-use-file-dep:value="0") && (global_transformation:value="0")]]></dep>
+    </parameter>
+
+    <!-- Transformation:  1 -->
+    <parameter id="crit-transf-01a" ishidden="0" type="string">
+             <name>1st criteria ID</name>
+      <description>1st criteria ID</description>
+       <position>4011</position>
+      <code><![CDATA[			<value id="%s">%n]]></code>
+      <vdef/>
+      <dep><![CDATA[(options-use-file-dep:value="0") && (global_transformation:value="0") && (nbTransformations:value>=1)]]></dep>
+    </parameter>
+
+    <parameter id="crit-transf-01b" ishidden="0" type="enum">
+             <name>Trasnftn</name>
+      <indent>1</indent>
+      <description>Transftn</description>
+       <position>4012</position>
+      <vlist>
+        <item id="max">
+          <description>Divide by max</description>
+          <code><![CDATA[				<label>by_max</label>%n			</value>%n]]></code>
+        </item>
+        <item id="minMax">
+          <description>Between min and max</description>
+          <code><![CDATA[				<label>min_max</label>%n			</value>%n]]></code>
+        </item>
+        <item id="meanStdv">
+          <description>Normalize by mean and stdv</description>
+          <code><![CDATA[				<label>mean_stdv</label>%n			</value>%n]]></code>
+        </item>
+      </vlist>
+      <vdef>max</vdef>
+      <dep><![CDATA[(options-use-file-dep:value="0") && (global_transformation:value="0") && (nbTransformations:value>=1)]]></dep>
+    </parameter>
+
+    <!-- Transformation:  2 -->
+    <parameter id="crit-transf-02a" ishidden="0" type="string">
+             <name>2nd criteria ID</name>
+      <description>2nd criteria ID</description>
+       <position>4021</position>
+      <code><![CDATA[			<value id="%s">%n]]></code>
+      <vdef/>
+      <dep><![CDATA[(options-use-file-dep:value="0") && (global_transformation:value="0") && (nbTransformations:value>=2)]]></dep>
+    </parameter>
+    
+    <parameter id="crit-transf-02b" ishidden="0" type="enum">
+             <name>Trasnftn</name>
+      <indent>1</indent>
+      <description>Transftn</description>
+       <position>4022</position>
+      <vlist>
+        <item id="max">
+          <description>Divide by max</description>
+          <code><![CDATA[				<label>by_max</label>%n			</value>%n]]></code>
+        </item>
+        <item id="minMax">
+          <description>Between min and max</description>
+          <code><![CDATA[				<label>min_max</label>%n			</value>%n]]></code>
+        </item>
+        <item id="meanStdv">
+          <description>Normalize by mean and stdv</description>
+          <code><![CDATA[				<label>mean_stdv</label>%n			</value>%n]]></code>
+        </item>
+      </vlist>
+      <vdef>max</vdef>
+      <dep><![CDATA[(options-use-file-dep:value="0") && (global_transformation:value="0") && (nbTransformations:value>=2)]]></dep>
+    </parameter>
+
+    <!-- Transformation:  3 -->
+    <parameter id="crit-transf-03a" ishidden="0" type="string">
+             <name>3nd criteria ID</name>
+      <description>3nd criteria ID</description>
+       <position>4031</position>
+      <code><![CDATA[			<value id="%s">%n]]></code>
+      <vdef/>
+      <dep><![CDATA[(options-use-file-dep:value="0") && (global_transformation:value="0") && (nbTransformations:value>=3)]]></dep>
+    </parameter>
+    
+    <parameter id="crit-transf-03b" ishidden="0" type="enum">
+             <name>Trasnftn</name>
+      <indent>1</indent>
+      <description>Transftn</description>
+       <position>4032</position>
+      <vlist>
+        <item id="max">
+          <description>Divide by max</description>
+          <code><![CDATA[				<label>by_max</label>%n			</value>%n]]></code>
+        </item>
+        <item id="minMax">
+          <description>Between min and max</description>
+          <code><![CDATA[				<label>min_max</label>%n			</value>%n]]></code>
+        </item>
+        <item id="meanStdv">
+          <description>Normalize by mean and stdv</description>
+          <code><![CDATA[				<label>mean_stdv</label>%n			</value>%n]]></code>
+        </item>
+      </vlist>
+      <vdef>max</vdef>
+      <dep><![CDATA[(options-use-file-dep:value="0") && (global_transformation:value="0") && (nbTransformations:value>=3)]]></dep>
+    </parameter>
+
+    <!-- Transformation:  4 -->
+    <parameter id="crit-transf-04a" ishidden="0" type="string">
+             <name>4th criteria ID</name>
+      <description>4th criteria ID</description>
+       <position>4041</position>
+      <code><![CDATA[			<value id="%s">%n]]></code>
+      <vdef/>
+      <dep><![CDATA[(options-use-file-dep:value="0") && (global_transformation:value="0") && (nbTransformations:value>=4)]]></dep>
+    </parameter>
+    
+    <parameter id="crit-transf-04b" ishidden="0" type="enum">
+             <name>Trasnftn</name>
+      <indent>1</indent>
+      <description>Transftn</description>
+       <position>4042</position>
+      <vlist>
+        <item id="max">
+          <description>Divide by max</description>
+          <code><![CDATA[				<label>by_max</label>%n			</value>%n]]></code>
+        </item>
+        <item id="minMax">
+          <description>Between min and max</description>
+          <code><![CDATA[				<label>min_max</label>%n			</value>%n]]></code>
+        </item>
+        <item id="meanStdv">
+          <description>Normalize by mean and stdv</description>
+          <code><![CDATA[				<label>mean_stdv</label>%n			</value>%n]]></code>
+        </item>
+      </vlist>
+      <vdef>max</vdef>
+      <dep><![CDATA[(options-use-file-dep:value="0") && (global_transformation:value="0") && (nbTransformations:value>=4)]]></dep>
+    </parameter>
+
+    <!-- Transformation:  5 -->
+    <parameter id="crit-transf-05a" ishidden="0" type="string">
+             <name>5th criteria ID</name>
+      <description>5th criteria ID</description>
+       <position>4051</position>
+      <code><![CDATA[			<value id="%s">%n]]></code>
+      <vdef/>
+      <dep><![CDATA[(options-use-file-dep:value="0") && (global_transformation:value="0") && (nbTransformations:value>=5)]]></dep>
+    </parameter>
+    
+    <parameter id="crit-transf-05b" ishidden="0" type="enum">
+             <name>Trasnftn</name>
+      <indent>1</indent>
+      <description>Transftn</description>
+       <position>4052</position>
+      <vlist>
+        <item id="max">
+          <description>Divide by max</description>
+          <code><![CDATA[				<label>by_max</label>%n			</value>%n]]></code>
+        </item>
+        <item id="minMax">
+          <description>Between min and max</description>
+          <code><![CDATA[				<label>min_max</label>%n			</value>%n]]></code>
+        </item>
+        <item id="meanStdv">
+          <description>Normalize by mean and stdv</description>
+          <code><![CDATA[				<label>mean_stdv</label>%n			</value>%n]]></code>
+        </item>
+      </vlist>
+      <vdef>max</vdef>
+      <dep><![CDATA[(options-use-file-dep:value="0") && (global_transformation:value="0") && (nbTransformations:value>=5)]]></dep>
+    </parameter>
+
+    <!-- Transformation:  6 -->
+    <parameter id="crit-transf-06a" ishidden="0" type="string">
+             <name>6th criteria ID</name>
+      <description>6th criteria ID</description>
+       <position>4061</position>
+      <code><![CDATA[			<value id="%s">%n]]></code>
+      <vdef/>
+      <dep><![CDATA[(options-use-file-dep:value="0") && (global_transformation:value="0") && (nbTransformations:value>=6)]]></dep>
+    </parameter>
+    
+    <parameter id="crit-transf-06b" ishidden="0" type="enum">
+             <name>Trasnftn</name>
+      <indent>1</indent>
+      <description>Transftn</description>
+       <position>4062</position>
+      <vlist>
+        <item id="max">
+          <description>Divide by max</description>
+          <code><![CDATA[				<label>by_max</label>%n			</value>%n]]></code>
+        </item>
+        <item id="minMax">
+          <description>Between min and max</description>
+          <code><![CDATA[				<label>min_max</label>%n			</value>%n]]></code>
+        </item>
+        <item id="meanStdv">
+          <description>Normalize by mean and stdv</description>
+          <code><![CDATA[				<label>mean_stdv</label>%n			</value>%n]]></code>
+        </item>
+      </vlist>
+      <vdef>max</vdef>
+      <dep><![CDATA[(options-use-file-dep:value="0") && (global_transformation:value="0") && (nbTransformations:value>=6)]]></dep>
+    </parameter>
+
+    <!-- Transformation:  7 -->
+    <parameter id="crit-transf-07a" ishidden="0" type="string">
+             <name>7th criteria ID</name>
+      <description>7th criteria ID</description>
+       <position>4071</position>
+      <code><![CDATA[			<value id="%s">%n]]></code>
+      <vdef/>
+      <dep><![CDATA[(options-use-file-dep:value="0") && (global_transformation:value="0") && (nbTransformations:value>=7)]]></dep>
+    </parameter>
+    
+    <parameter id="crit-transf-07b" ishidden="0" type="enum">
+             <name>Trasnftn</name>
+      <indent>1</indent>
+      <description>Transftn</description>
+       <position>4072</position>
+      <vlist>
+        <item id="max">
+          <description>Divide by max</description>
+          <code><![CDATA[				<label>by_max</label>%n			</value>%n]]></code>
+        </item>
+        <item id="minMax">
+          <description>Between min and max</description>
+          <code><![CDATA[				<label>min_max</label>%n			</value>%n]]></code>
+        </item>
+        <item id="meanStdv">
+          <description>Normalize by mean and stdv</description>
+          <code><![CDATA[				<label>mean_stdv</label>%n			</value>%n]]></code>
+        </item>
+      </vlist>
+      <vdef>max</vdef>
+      <dep><![CDATA[(options-use-file-dep:value="0") && (global_transformation:value="0") && (nbTransformations:value>=7)]]></dep>
+    </parameter>
+
+    <!-- Transformation:  8 -->
+    <parameter id="crit-transf-08a" ishidden="0" type="string">
+             <name>8th criteria ID</name>
+      <description>8th criteria ID</description>
+       <position>4081</position>
+      <code><![CDATA[			<value id="%s">%n]]></code>
+      <vdef/>
+      <dep><![CDATA[(options-use-file-dep:value="0") && (global_transformation:value="0") && (nbTransformations:value>=8)]]></dep>
+    </parameter>
+    
+    <parameter id="crit-transf-08b" ishidden="0" type="enum">
+             <name>Trasnftn</name>
+      <indent>1</indent>
+      <description>Transftn</description>
+       <position>4082</position>
+      <vlist>
+        <item id="max">
+          <description>Divide by max</description>
+          <code><![CDATA[				<label>by_max</label>%n			</value>%n]]></code>
+        </item>
+        <item id="minMax">
+          <description>Between min and max</description>
+          <code><![CDATA[				<label>min_max</label>%n			</value>%n]]></code>
+        </item>
+        <item id="meanStdv">
+          <description>Normalize by mean and stdv</description>
+          <code><![CDATA[				<label>mean_stdv</label>%n			</value>%n]]></code>
+        </item>
+      </vlist>
+      <vdef>max</vdef>
+      <dep><![CDATA[(options-use-file-dep:value="0") && (global_transformation:value="0") && (nbTransformations:value>=8)]]></dep>
+    </parameter>
+
+    <!-- Transformation:  9 -->
+    <parameter id="crit-transf-09a" ishidden="0" type="string">
+             <name>9th criteria ID</name>
+      <description>9th criteria ID</description>
+       <position>4091</position>
+      <code><![CDATA[			<value id="%s">%n]]></code>
+      <vdef/>
+      <dep><![CDATA[(options-use-file-dep:value="0") && (global_transformation:value="0") && (nbTransformations:value>=9)]]></dep>
+    </parameter>
+    
+    <parameter id="crit-transf-09b" ishidden="0" type="enum">
+             <name>Trasnftn</name>
+      <indent>1</indent>
+      <description>Transftn</description>
+       <position>4092</position>
+      <vlist>
+        <item id="max">
+          <description>Divide by max</description>
+          <code><![CDATA[				<label>by_max</label>%n			</value>%n]]></code>
+        </item>
+        <item id="minMax">
+          <description>Between min and max</description>
+          <code><![CDATA[				<label>min_max</label>%n			</value>%n]]></code>
+        </item>
+        <item id="meanStdv">
+          <description>Normalize by mean and stdv</description>
+          <code><![CDATA[				<label>mean_stdv</label>%n			</value>%n]]></code>
+        </item>
+      </vlist>
+      <vdef>max</vdef>
+      <dep><![CDATA[(options-use-file-dep:value="0") && (global_transformation:value="0") && (nbTransformations:value>=9)]]></dep>
+    </parameter>
+
+    <!-- Transformation:  10 -->
+    <parameter id="crit-transf-10a" ishidden="0" type="string">
+             <name>10th criteria ID</name>
+      <description>10th criteria ID</description>
+       <position>4111</position>
+      <code><![CDATA[			<value id="%s">%n]]></code>
+      <vdef/>
+      <dep><![CDATA[(options-use-file-dep:value="0") && (global_transformation:value="0") && (nbTransformations:value>=10)]]></dep>
+    </parameter>
+    
+    <parameter id="crit-transf-10b" ishidden="0" type="enum">
+             <name>Trasnftn</name>
+      <indent>1</indent>
+      <description>Transftn</description>
+       <position>4112</position>
+      <vlist>
+        <item id="max">
+          <description>Divide by max</description>
+          <code><![CDATA[				<label>by_max</label>%n			</value>%n]]></code>
+        </item>
+        <item id="minMax">
+          <description>Between min and max</description>
+          <code><![CDATA[				<label>min_max</label>%n			</value>%n]]></code>
+        </item>
+        <item id="meanStdv">
+          <description>Normalize by mean and stdv</description>
+          <code><![CDATA[				<label>mean_stdv</label>%n			</value>%n]]></code>
+        </item>
+      </vlist>
+      <vdef>max</vdef>
+      <dep><![CDATA[(options-use-file-dep:value="0") && (global_transformation:value="0") && (nbTransformations:value>=10)]]></dep>
+    </parameter>
+    
+    <!-- Transformation: 11 -->
+    <parameter id="crit-transf-11a" ishidden="0" type="string">
+             <name>11th criteria ID</name>
+      <description>11th criteria ID</description>
+       <position>4111</position>
+      <code><![CDATA[			<value id="%s">%n]]></code>
+      <vdef/>
+      <dep><![CDATA[(options-use-file-dep:value="0") && (global_transformation:value="0") && (nbTransformations:value>=11)]]></dep>
+    </parameter>
+
+    <parameter id="crit-transf-11b" ishidden="0" type="enum">
+             <name>Trasnftn</name>
+      <indent>1</indent>
+      <description>Transftn</description>
+       <position>4112</position>
+      <vlist>
+        <item id="max">
+          <description>Divide by max</description>
+          <code><![CDATA[				<label>by_max</label>%n			</value>%n]]></code>
+        </item>
+        <item id="minMax">
+          <description>Between min and max</description>
+          <code><![CDATA[				<label>min_max</label>%n			</value>%n]]></code>
+        </item>
+        <item id="meanStdv">
+          <description>Normalize by mean and stdv</description>
+          <code><![CDATA[				<label>mean_stdv</label>%n			</value>%n]]></code>
+        </item>
+      </vlist>
+      <vdef>max</vdef>
+      <dep><![CDATA[(options-use-file-dep:value="0") && (global_transformation:value="0") && (nbTransformations:value>=11)]]></dep>
+    </parameter>
+
+    <!-- Transformation: 12 -->
+    <parameter id="crit-transf-12a" ishidden="0" type="string">
+             <name>12th criteria ID</name>
+      <description>12th criteria ID</description>
+       <position>4121</position>
+      <code><![CDATA[			<value id="%s">%n]]></code>
+      <vdef/>
+      <dep><![CDATA[(options-use-file-dep:value="0") && (global_transformation:value="0") && (nbTransformations:value>=12)]]></dep>
+    </parameter>
+    
+    <parameter id="crit-transf-12b" ishidden="0" type="enum">
+             <name>Trasnftn</name>
+      <indent>1</indent>
+      <description>Transftn</description>
+       <position>4122</position>
+      <vlist>
+        <item id="max">
+          <description>Divide by max</description>
+          <code><![CDATA[				<label>by_max</label>%n			</value>%n]]></code>
+        </item>
+        <item id="minMax">
+          <description>Between min and max</description>
+          <code><![CDATA[				<label>min_max</label>%n			</value>%n]]></code>
+        </item>
+        <item id="meanStdv">
+          <description>Normalize by mean and stdv</description>
+          <code><![CDATA[				<label>mean_stdv</label>%n			</value>%n]]></code>
+        </item>
+      </vlist>
+      <vdef>max</vdef>
+      <dep><![CDATA[(options-use-file-dep:value="0") && (global_transformation:value="0") && (nbTransformations:value>=12)]]></dep>
+    </parameter>
+
+    <!-- Transformation: 13 -->
+    <parameter id="crit-transf-13a" ishidden="0" type="string">
+             <name>13th criteria ID</name>
+      <description>13th criteria ID</description>
+       <position>4131</position>
+      <code><![CDATA[			<value id="%s">%n]]></code>
+      <vdef/>
+      <dep><![CDATA[(options-use-file-dep:value="0") && (global_transformation:value="0") && (nbTransformations:value>=13)]]></dep>
+    </parameter>
+    
+    <parameter id="crit-transf-13b" ishidden="0" type="enum">
+             <name>Trasnftn</name>
+      <indent>1</indent>
+      <description>Transftn</description>
+       <position>4132</position>
+      <vlist>
+        <item id="max">
+          <description>Divide by max</description>
+          <code><![CDATA[				<label>by_max</label>%n			</value>%n]]></code>
+        </item>
+        <item id="minMax">
+          <description>Between min and max</description>
+          <code><![CDATA[				<label>min_max</label>%n			</value>%n]]></code>
+        </item>
+        <item id="meanStdv">
+          <description>Normalize by mean and stdv</description>
+          <code><![CDATA[				<label>mean_stdv</label>%n			</value>%n]]></code>
+        </item>
+      </vlist>
+      <vdef>max</vdef>
+      <dep><![CDATA[(options-use-file-dep:value="0") && (global_transformation:value="0") && (nbTransformations:value>=13)]]></dep>
+    </parameter>
+
+    <!-- Transformation: 14 -->
+    <parameter id="crit-transf-14a" ishidden="0" type="string">
+             <name>14th criteria ID</name>
+      <description>14th criteria ID</description>
+       <position>4141</position>
+      <code><![CDATA[			<value id="%s">%n]]></code>
+      <vdef/>
+      <dep><![CDATA[(options-use-file-dep:value="0") && (global_transformation:value="0") && (nbTransformations:value>=14)]]></dep>
+    </parameter>
+    
+    <parameter id="crit-transf-14b" ishidden="0" type="enum">
+             <name>Trasnftn</name>
+      <indent>1</indent>
+      <description>Transftn</description>
+       <position>4142</position>
+      <vlist>
+        <item id="max">
+          <description>Divide by max</description>
+          <code><![CDATA[				<label>by_max</label>%n			</value>%n]]></code>
+        </item>
+        <item id="minMax">
+          <description>Between min and max</description>
+          <code><![CDATA[				<label>min_max</label>%n			</value>%n]]></code>
+        </item>
+        <item id="meanStdv">
+          <description>Normalize by mean and stdv</description>
+          <code><![CDATA[				<label>mean_stdv</label>%n			</value>%n]]></code>
+        </item>
+      </vlist>
+      <vdef>max</vdef>
+      <dep><![CDATA[(options-use-file-dep:value="0") && (global_transformation:value="0") && (nbTransformations:value>=14)]]></dep>
+    </parameter>
+
+    <!-- Transformation: 15 -->
+    <parameter id="crit-transf-15a" ishidden="0" type="string">
+             <name>15th criteria ID</name>
+      <description>15th criteria ID</description>
+       <position>4151</position>
+      <code><![CDATA[			<value id="%s">%n]]></code>
+      <vdef/>
+      <dep><![CDATA[(options-use-file-dep:value="0") && (global_transformation:value="0") && (nbTransformations:value>=15)]]></dep>
+    </parameter>
+    
+    <parameter id="crit-transf-15b" ishidden="0" type="enum">
+             <name>Trasnftn</name>
+      <indent>1</indent>
+      <description>Transftn</description>
+       <position>4152</position>
+      <vlist>
+        <item id="max">
+          <description>Divide by max</description>
+          <code><![CDATA[				<label>by_max</label>%n			</value>%n]]></code>
+        </item>
+        <item id="minMax">
+          <description>Between min and max</description>
+          <code><![CDATA[				<label>min_max</label>%n			</value>%n]]></code>
+        </item>
+        <item id="meanStdv">
+          <description>Normalize by mean and stdv</description>
+          <code><![CDATA[				<label>mean_stdv</label>%n			</value>%n]]></code>
+        </item>
+      </vlist>
+      <vdef>max</vdef>
+      <dep><![CDATA[(options-use-file-dep:value="0") && (global_transformation:value="0") && (nbTransformations:value>=15)]]></dep>
+    </parameter>
+
+    <!-- Transformation: 16 -->
+    <parameter id="crit-transf-16a" ishidden="0" type="string">
+             <name>16th criteria ID</name>
+      <description>16th criteria ID</description>
+       <position>4161</position>
+      <code><![CDATA[			<value id="%s">%n]]></code>
+      <vdef/>
+      <dep><![CDATA[(options-use-file-dep:value="0") && (global_transformation:value="0") && (nbTransformations:value>=16)]]></dep>
+    </parameter>
+    
+    <parameter id="crit-transf-16b" ishidden="0" type="enum">
+             <name>Trasnftn</name>
+      <indent>1</indent>
+      <description>Transftn</description>
+       <position>4162</position>
+      <vlist>
+        <item id="max">
+          <description>Divide by max</description>
+          <code><![CDATA[				<label>by_max</label>%n			</value>%n]]></code>
+        </item>
+        <item id="minMax">
+          <description>Between min and max</description>
+          <code><![CDATA[				<label>min_max</label>%n			</value>%n]]></code>
+        </item>
+        <item id="meanStdv">
+          <description>Normalize by mean and stdv</description>
+          <code><![CDATA[				<label>mean_stdv</label>%n			</value>%n]]></code>
+        </item>
+      </vlist>
+      <vdef>max</vdef>
+      <dep><![CDATA[(options-use-file-dep:value="0") && (global_transformation:value="0") && (nbTransformations:value>=16)]]></dep>
+    </parameter>
+
+    <!-- Transformation: 17 -->
+    <parameter id="crit-transf-17a" ishidden="0" type="string">
+             <name>17th criteria ID</name>
+      <description>17th criteria ID</description>
+       <position>4171</position>
+      <code><![CDATA[			<value id="%s">%n]]></code>
+      <vdef/>
+      <dep><![CDATA[(options-use-file-dep:value="0") && (global_transformation:value="0") && (nbTransformations:value>=17)]]></dep>
+    </parameter>
+    
+    <parameter id="crit-transf-17b" ishidden="0" type="enum">
+             <name>Trasnftn</name>
+      <indent>1</indent>
+      <description>Transftn</description>
+       <position>4172</position>
+      <vlist>
+        <item id="max">
+          <description>Divide by max</description>
+          <code><![CDATA[				<label>by_max</label>%n			</value>%n]]></code>
+        </item>
+        <item id="minMax">
+          <description>Between min and max</description>
+          <code><![CDATA[				<label>min_max</label>%n			</value>%n]]></code>
+        </item>
+        <item id="meanStdv">
+          <description>Normalize by mean and stdv</description>
+          <code><![CDATA[				<label>mean_stdv</label>%n			</value>%n]]></code>
+        </item>
+      </vlist>
+      <vdef>max</vdef>
+      <dep><![CDATA[(options-use-file-dep:value="0") && (global_transformation:value="0") && (nbTransformations:value>=17)]]></dep>
+    </parameter>
+
+    <!-- Transformation: 18 -->
+    <parameter id="crit-transf-18a" ishidden="0" type="string">
+             <name>18th criteria ID</name>
+      <description>18th criteria ID</description>
+       <position>4181</position>
+      <code><![CDATA[			<value id="%s">%n]]></code>
+      <vdef/>
+      <dep><![CDATA[(options-use-file-dep:value="0") && (global_transformation:value="0") && (nbTransformations:value>=18)]]></dep>
+    </parameter>
+    
+    <parameter id="crit-transf-18b" ishidden="0" type="enum">
+             <name>Trasnftn</name>
+      <indent>1</indent>
+      <description>Transftn</description>
+       <position>4182</position>
+      <vlist>
+        <item id="max">
+          <description>Divide by max</description>
+          <code><![CDATA[				<label>by_max</label>%n			</value>%n]]></code>
+        </item>
+        <item id="minMax">
+          <description>Between min and max</description>
+          <code><![CDATA[				<label>min_max</label>%n			</value>%n]]></code>
+        </item>
+        <item id="meanStdv">
+          <description>Normalize by mean and stdv</description>
+          <code><![CDATA[				<label>mean_stdv</label>%n			</value>%n]]></code>
+        </item>
+      </vlist>
+      <vdef>max</vdef>
+      <dep><![CDATA[(options-use-file-dep:value="0") && (global_transformation:value="0") && (nbTransformations:value>=18)]]></dep>
+    </parameter>
+
+    <!-- Transformation:  19 -->
+    <parameter id="crit-transf-19a" ishidden="0" type="string">
+             <name>19th criteria ID</name>
+      <description>19th criteria ID</description>
+       <position>4191</position>
+      <code><![CDATA[			<value id="%s">%n]]></code>
+      <vdef/>
+      <dep><![CDATA[(options-use-file-dep:value="0") && (global_transformation:value="0") && (nbTransformations:value>=19)]]></dep>
+    </parameter>
+    
+    <parameter id="crit-transf-19b" ishidden="0" type="enum">
+             <name>Trasnftn</name>
+      <indent>1</indent>
+      <description>Transftn</description>
+       <position>4192</position>
+      <vlist>
+        <item id="max">
+          <description>Divide by max</description>
+          <code><![CDATA[				<label>by_max</label>%n			</value>%n]]></code>
+        </item>
+        <item id="minMax">
+          <description>Between min and max</description>
+          <code><![CDATA[				<label>min_max</label>%n			</value>%n]]></code>
+        </item>
+        <item id="meanStdv">
+          <description>Normalize by mean and stdv</description>
+          <code><![CDATA[				<label>mean_stdv</label>%n			</value>%n]]></code>
+        </item>
+      </vlist>
+      <vdef>max</vdef>
+      <dep><![CDATA[(options-use-file-dep:value="0") && (global_transformation:value="0") && (nbTransformations:value>=19)]]></dep>
+    </parameter>
+
+    <!-- Transformation:  20 -->
+    <parameter id="crit-transf-20a" ishidden="0" type="string">
+             <name>20th criteria ID</name>
+      <description>20th criteria ID</description>
+       <position>4201</position>
+      <code><![CDATA[			<value id="%s">%n]]></code>
+      <vdef/>
+      <dep><![CDATA[(options-use-file-dep:value="0") && (global_transformation:value="0") && (nbTransformations:value>=20)]]></dep>
+    </parameter>
+    
+    <parameter id="crit-transf-20b" ishidden="0" type="enum">
+             <name>Trasnftn</name>
+      <indent>1</indent>
+      <description>Transftn</description>
+       <position>4202</position>
+      <vlist>
+        <item id="max">
+          <description>Divide by max</description>
+          <code><![CDATA[				<label>by_max</label>%n			</value>%n]]></code>
+        </item>
+        <item id="minMax">
+          <description>Between min and max</description>
+          <code><![CDATA[				<label>min_max</label>%n			</value>%n]]></code>
+        </item>
+        <item id="meanStdv">
+          <description>Normalize by mean and stdv</description>
+          <code><![CDATA[				<label>mean_stdv</label>%n			</value>%n]]></code>
+        </item>
+      </vlist>
+      <vdef>max</vdef>
+      <dep><![CDATA[(options-use-file-dep:value="0") && (global_transformation:value="0") && (nbTransformations:value>=20)]]></dep>
+    </parameter>
+    
+    <parameter id="criteria-transformations-EOF" ishidden="1" type="code">
+      <name /><description />
+      <position>4999</position>
+      <code><![CDATA[		</parameter>%n	</methodParameters>%n]]></code>
+      <dep><![CDATA[(options-use-file-dep:value="0") && (global_transformation:value="0")]]></dep>
+    </parameter>
+
+    <parameter id="options-gui-EOF" ishidden="1" type="code">
+      <name>options EOF</name>
+      <description></description>
+      <position>5000</position>
+      <code><![CDATA[</xmcda:XMCDA>%nEOF%n]]></code>
+      <dep>(options-use-file-dep:value="0")</dep>
+    </parameter>
+
+    <parameter id="options-cmdline" ishidden="1" type="code">
+      <name>options insertion in cmd-line</name>
+      <description></description>
+      <position>100003</position>
+      <code> options:options.xml</code>
+      <dep/>
+    </parameter>
+
+
+    <parameter id="alternatives" ishidden="0" type="input">
+      <name>alternatives</name>
+      <description><![CDATA[A list of alternatives. Alternatives can be activated or desactivated via the <active> tag (true or false). By default (no <active> tag), alternatives are considered as active. ]]></description>
+      <position>100004</position>
+      <code> alternatives:alternatives.xml</code>
+      <types>
+        <type>alternatives</type>
+      </types>
+      <vdef>alternatives.xml</vdef>
+      <dep/>
+    </parameter>
+
+
+
+    <parameter id="criteria" ishidden="0" type="input">
+      <name>criteria</name>
+      <description><![CDATA[A list of criteria. Criteria can be activated or desactivated via the <active> tag (true or false). By default (no <active> tag), criteria are considered as active.]]></description>
+      <position>100005</position>
+      <code> criteria:criteria.xml</code>
+      <types>
+        <type>criteria</type>
+      </types>
+      <vdef>criteria.xml</vdef>
+      <dep/>
+    </parameter>
+
+
+
+    <parameter id="performanceTable" ishidden="0" type="input">
+      <name>performanceTable</name>
+      <description><![CDATA[A performance table. The evaluations should be only real or integer numeric values, i.e. <real> or <integer>.]]></description>
+      <position>100006</position>
+      <code> performanceTable:performanceTable.xml</code>
+      <types>
+        <type>performanceTable</type>
+      </types>
+      <vdef>performanceTable.xml</vdef>
+      <dep/>
+    </parameter>
+
+
+
+
+    <parameter id="transformedPerformanceTable" ishidden="0" type="output">
+      <name>transformedPerformanceTable</name>
+      <description><![CDATA[The transformed performance table.]]></description>
+      <position>2007</position>
+      <code/>
+      <types>
+        <type>performanceTable</type>
+      </types>
+      <vdef>transformedPerformanceTable.xml</vdef>
+    </parameter>
+
+
+
+
+
+    <parameter id="messages" ishidden="0" type="output">
+      <name>messages</name>
+      <description><![CDATA[A list of messages generated by the algorithm.]]></description>
+      <position>2008</position>
+      <code/>
+      <types>
+        <type>methodMessages</type>
+      </types>
+      <vdef>messages.xml</vdef>
+    </parameter>
+
+
+
+    <parameter id="TIMEOUT" ishidden="0" type="int">
+      <name>Timeout? (0 for no timeout)</name>
+      <description>timeout</description>
+      <position>100001</position>
+      <code>-t %s </code>
+      <constraint>
+        <description>value should be a positive or null integer</description>
+        <code>(%d &gt;= 0)</code>
+      </constraint>
+      <vdef>60</vdef>
+    </parameter>
+    
+    <parameter id="VERBOSE" ishidden="0" type="enum">
+      <name>Verbose mode</name>
+      <description></description>
+      <position>100002</position>
+      <vlist>
+        <item id="T1">
+          <description>None</description>
+          <code></code>
+        </item>
+        <item id="T2">
+          <description>Moderately verbose</description>
+          <code> -v</code>
+        </item>
+        <item id="T3">
+          <description>Very verbose</description>
+          <code> -vv</code>
+        </item>
+        <item id="T4">
+          <description>Extremely verbose (include SOAP msgs)</description>
+          <code> -vvv</code>
+        </item>
+      </vlist>
+      <vdef>T2</vdef>
+    </parameter>
+
+  </parameters>
+</program_description>
