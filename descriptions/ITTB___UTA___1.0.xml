@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+
+<!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
+
+<program_description export_date="2012-03-29 14:09:37 +0000">
+  <program provider="ITTB" name="UTA" version="1.0" />
+  <from desc_id="S8888" />
+  <description><![CDATA[Computes UTA method and if necessary uses post-optimality analysis.]]></description>
+  <parameters>
+    <parameter id="UTA-cmdline" type="command" ismandatory="1">
+      <name>UTA</name>
+      <description></description>
+      <position>100000</position>
+      <code>$callXMCDAService UTA-ITTB -S </code>
+    </parameter>
+
+
+    <parameter id="methodParameters" ishidden="0" type="input">
+      <name>methodParameters</name>
+      <description><![CDATA[
+					Post-optimality method : choose between "Yes" or "No".
+				]]></description>
+      <position>100003</position>
+      <code/> 
+      <types>
+        <type>methodParameters</type>
+      </types>
+      <vdef>methodParameters.xml</vdef>
+      <dep>(methodParameters-dep:value="1") AND (methodParameters-use-file-dep:value="1")</dep>
+
+    </parameter>
+    <parameter id="methodParameters-dep" ishidden="0" type="boolean">
+      <name>Use methodParameters as input?</name>
+      <description>Use methodParameters as input?</description>
+      <position>3003</position>
+      <code/>
+      <vdef>1</vdef>
+    </parameter>
+
+    <parameter id="methodParameters-use-file-dep" ishidden="0" type="boolean">
+      <name>Supply methodParameters as a file?</name>
+      <description>Supply methodParameters as a file?</description>
+      <position>3003</position>
+      <code/>
+      <vdef>0</vdef>
+      <dep>(methodParameters-dep:value="1")</dep>
+
+    </parameter>
+    
+
+
+
+    <parameter id="methodParameters-gui" ishidden="1" type="code">
+      <name>methodParameters</name>
+      <description><![CDATA[
+					Post-optimality method : choose between "Yes" or "No".
+				]]></description>
+      <position>300</position>
+      <code><![CDATA[#methodParameters: methodParameters.xml
+cat > methodParameters.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="xmcdaKappalab.xsl"?>
+<xmcda:XMCDA xmlns:xmcda="http://www.decision-deck.org/2009/XMCDA-2.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.decision-deck.org/2009/XMCDA-2.0.0 http://www.decision-deck.org/xmcda/_downloads/XMCDA-2.0.0.xsd">]]></code>
+      <dep>(methodParameters-dep:value="1") AND (methodParameters-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+
+    <parameter id="methodParameters-gui-301" ishidden="1" type="code">
+      <name />
+      <description />
+      <position>301</position>
+      <code><![CDATA[
+				
+					<methodParameters>
+					<parameter id="post_optimality" name="Post optimality analysis">
+							<value>
+            					<boolean>]]></code>
+      <dep>(methodParameters-dep:value="1") AND (methodParameters-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+
+    <parameter id="methodParameters-gui-value-placeholder-1" ishidden="0" type="enum">
+      <name>Post-optimality analysis:</name>
+      <description>TODO</description>
+      <position>302</position>
+      <vlist>
+        <item id="true">
+          <description>Yes</description>
+          <code>true</code>
+        </item>
+        <item id="false">
+          <description>No</description>
+          <code>false</code>
+        </item>
+      </vlist>
+      <vdef>false</vdef>
+      <dep>(methodParameters-dep:value="1") AND (methodParameters-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+    <parameter id="methodParameters-gui-303" ishidden="1" type="code">
+      <name />
+      <description />
+      <position>303</position>
+      <code><![CDATA[</boolean>
+       						 </value>
+						</parameter>
+					</methodParameters>
+				
+			]]></code>
+      <dep>(methodParameters-dep:value="1") AND (methodParameters-use-file-dep:value="0")</dep>
+
+    </parameter>
+    <parameter id="methodParameters-gui-EOF" ishidden="1" type="code">
+      <name>methodParameters EOF</name>
+      <description></description>
+      <position>304</position>
+      <code><![CDATA[</xmcda:XMCDA>%nEOF%n]]></code>
+      <dep>(methodParameters-dep:value="1") AND (methodParameters-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+    <parameter id="methodParameters-cmdline" ishidden="1" type="code">
+      <name>methodParameters insertion in cmd-line</name>
+      <description></description>
+      <position>100003</position>
+      <code> methodParameters:methodParameters.xml</code>
+      <dep>(methodParameters-dep:value="1")</dep>
+
+    </parameter>
+
+
+
+
+
+    <parameter id="alternatives" ishidden="0" type="input">
+      <name>alternatives</name>
+      <description><![CDATA[
+					A list of alternatives. Alternatives can be activated or desactivated via the <active> tag (true or false). By default (no <active> tag), alternatives are considered as active. 
+				]]></description>
+      <position>100004</position>
+      <code> alternatives:alternatives.xml</code>
+      <types>
+        <type>alternatives</type>
+      </types>
+      <vdef>alternatives.xml</vdef>
+      <dep/>
+    </parameter>
+
+
+
+    <parameter id="alternativesRanks" ishidden="0" type="input">
+      <name>alternativesRanks</name>
+      <description><![CDATA[
+					Ranking (preorder) of alternatives, corresponding to pariwize preference and indifference statements 
+				]]></description>
+      <position>100005</position>
+      <code> alternativesRanks:alternativesRanks.xml</code>
+      <types>
+        <type>alternativesValues</type>
+      </types>
+      <vdef>alternativesRanks.xml</vdef>
+      <dep>(alternativesRanks-dep:value="1")</dep>
+
+    </parameter>
+    <parameter id="alternativesRanks-dep" ishidden="0" type="boolean">
+      <name>Use alternativesRanks as input?</name>
+      <description>Use alternativesRanks as input?</description>
+      <position>3005</position>
+      <code/>
+      <vdef>1</vdef>
+    </parameter>
+
+
+
+    <parameter id="criteria" ishidden="0" type="input">
+      <name>criteria</name>
+      <description><![CDATA[
+					A list of criteria. Criteria can be activated or desactivated via the <active> tag (true or false). By default (no <active> tag), criteria are considered as active. Optimization direction for the selected criteria is provided (min or max).
+				]]></description>
+      <position>100006</position>
+      <code> criteria:criteria.xml</code>
+      <types>
+        <type>criteria</type>
+      </types>
+      <vdef>criteria.xml</vdef>
+      <dep/>
+    </parameter>
+
+
+
+    <parameter id="performanceTable" ishidden="0" type="input">
+      <name>performanceTable</name>
+      <description><![CDATA[
+					Values of criteria for different alternatives. It must contains IDs of both criteria and alternatives described previously.
+				]]></description>
+      <position>100007</position>
+      <code> performanceTable:performanceTable.xml</code>
+      <types>
+        <type>performanceTable</type>
+      </types>
+      <vdef>performanceTable.xml</vdef>
+      <dep/>
+    </parameter>
+
+
+
+    <parameter id="criteriaSegments" ishidden="0" type="input">
+      <name>criteriaSegments</name>
+      <description><![CDATA[
+					Number of segments in each value function to be constructed by UTA.
+				]]></description>
+      <position>100008</position>
+      <code> criteriaSegments:criteriaSegments.xml</code>
+      <types>
+        <type>criteriaValues</type>
+      </types>
+      <vdef>criteriaSegments.xml</vdef>
+      <dep/>
+    </parameter>
+
+
+
+
+    <parameter id="valueFunctions" ishidden="0" type="output">
+      <name>valueFunctions</name>
+      <description><![CDATA[
+					Constructed value functions for the selected criteria.
+				]]></description>
+      <position>2009</position>
+      <code/>
+      <types>
+        <type>criteria</type>
+      </types>
+      <vdef>valueFunctions.xml</vdef>
+    </parameter>
+
+
+
+
+
+    <parameter id="messages" ishidden="0" type="output">
+      <name>messages</name>
+      <description><![CDATA[A list of messages generated by the algorithm.]]></description>
+      <position>2010</position>
+      <code/>
+      <types>
+        <type>methodMessages</type>
+      </types>
+      <vdef>messages.xml</vdef>
+    </parameter>
+
+
+
+    <parameter id="TIMEOUT" ishidden="0" type="int">
+      <name>Timeout? (0 for no timeout)</name>
+      <description>timeout</description>
+      <position>100001</position>
+      <code>-t %s </code>
+      <constraint>
+        <description>value should be a positive or null integer</description>
+        <code>(%d &gt;= 0)</code>
+      </constraint>
+      <vdef>60</vdef>
+    </parameter>
+    
+    <parameter id="VERBOSE" ishidden="0" type="enum">
+      <name>Verbose mode</name>
+      <description></description>
+      <position>100002</position>
+      <vlist>
+        <item id="T1">
+          <description>None</description>
+          <code></code>
+        </item>
+        <item id="T2">
+          <description>Moderately verbose</description>
+          <code> -v</code>
+        </item>
+        <item id="T3">
+          <description>Very verbose</description>
+          <code> -vv</code>
+        </item>
+        <item id="T4">
+          <description>Extremely verbose (include SOAP msgs)</description>
+          <code> -vvv</code>
+        </item>
+      </vlist>
+      <vdef>T2</vdef>
+    </parameter>
+
+  </parameters>
+</program_description>

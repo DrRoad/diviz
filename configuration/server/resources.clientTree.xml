@@ -23,10 +23,10 @@
 		<resource name="local___generic_program___1.1"/>
 	</type>
 	
+<!--
 	<type name="UNSORTED" collapsed="0">
-      <resource name="ITTB___advancedCutRelation___1.0"/>
-      <resource name="ITTB___advancedAlternativesRankingViaQualificationDistillation___1.0"/>
 	</type>
+-->
 
 	<type name="Calculation components" collapsed="0">
 		
@@ -35,6 +35,7 @@
 			<type name="Parameters elicitation" collapsed="0">
 				<resource name="UTAR___ACUTA___2.0"/>
 				<resource name="RXMCDA___additiveValueFunctionsIdentification___1.1" />
+				<resource name="ITTB___UTA___1.0"/>
 				<resource name="UTAR___UTASTAR___1.1"/>
 			</type>
 			
@@ -72,6 +73,12 @@
 				
 			</type>
 			
+			<type name="Exploitation" collapsed="0">
+				<type name="Sorting" collapsed="0">
+					<resource name="ITTB___sortAlternativesValues___1.0"/>
+				</type>
+			</type>
+
 		</type>
 		
 		<type name="Outranking techniques" collapsed="0">
@@ -82,6 +89,7 @@
 			</type>
 			
 			<type name="Relation construction" collapsed="0">
+				<resource name="ITTB___advancedCutRelation___1.0"/>
 				<resource name="J-MCDA___cutRelation___0.5.1"/>
 				<resource name="PyXMCDA___CondorcetRobustnessRelation___1.0"/>
 				<resource name="J-MCDA___ElectreConcordance___0.5.1"/>
@@ -96,6 +104,7 @@
 			
 			<type name="Relation exploitation" collapsed="0">
 				<type name="Ranking" collapsed="0">
+					<resource name="ITTB___advancedAlternativesRankingViaQualificationDistillation___1.0"/>
 					<resource name="RXMCDA___alternativesRankingViaQualificationDistillation___1.0" />
 					<resource name="RXMCDA___computeAlternativesQualification___1.0" />
 					<resource name="RXMCDA___plotGaiaPlane___1.0" />
@@ -149,19 +158,25 @@
 		
 		<type name="Performance table computations" collapsed="0">
 			<resource name="UTAR___computeNormalisedPerformanceTable___1.0"/>
+			<resource name="ITTB___computeNumericPerformanceTable___1.0"/>
+			<resource name="ITTB___performanceTableFilter___1.0"/>
+			<resource name="ITTB___performanceTableTransformation___1.0"/>
 			<resource name="RXMCDA___randomNormalizedPerformanceTable___1.0" />
 			<resource name="PyXMCDA___randomPerformanceTable___1.1"/>
 		</type>
 		
 		<type name="CSV converters" collapsed = "0">
 			<resource name="PyXMCDA___csvToXMCDA-alternativesValues___1.0"/>
+			<resource name="ITTB___csvToXMCDA-categoriesProfiles___1.0"/>
 			<resource name="PyXMCDA___csvToXMCDA-criteriaThresholds___1.2"/>
 			<resource name="PyXMCDA___csvToXMCDA-criteriaValues___1.2"/>
 			<resource name="PyXMCDA___csvToXMCDA-performanceTable___1.0"/>
+			<resource name="ITTB___csvToXMCDA-valueFunctions___1.0"/>
 		</type>
 		
 		<type name="Data visualisation" collapsed="0">
 			<resource name="ws-Mcc___mccPlotClusters___1.0"/>
+			<resource name="ITTB___plotAlternativesAffectations___1.0"/>
 			<resource name="ITTB___advancedPlotAlternativesComparisons___1.0"/>
 			<resource name="RXMCDA___plotAlternativesComparisons___1.0"/>
 			<resource name="ITTB___advancedPlotAlternativesValues___1.0"/>
@@ -178,6 +193,7 @@
 			<resource name="RXMCDA___plotNumericPerformanceTable___1.0"/>
 			<resource name="ITTB___advancedPlotValueFunctions___1.0"/>
 			<resource name="UTAR___plotValueFunctions___1.0"/>
+			<resource name="ITTB___starGraphPerformanceTable___1.0"/>
 			<resource name="UTAR___XYPlotAlternativesValues___1.0"/>
 		</type>
 		
