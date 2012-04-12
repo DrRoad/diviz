@@ -3,7 +3,7 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2012-03-29 11:24:56 +0000">
+<program_description export_date="2012-04-02 09:44:40 +0000">
   <program provider="ITTB" name="starGraphPerformanceTable" version="1.0" />
   <from desc_id="S8888" />
   <description><![CDATA[This web service generates, for each alternative, a plot representing the performance table as a  star graph. Colors can be used. You can specify how to display the star graphs: by line, by column or in a grid. The star graphs can also be ordered by name or by id (of the alternatives).]]></description>
@@ -170,7 +170,6 @@ cat > options.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <code><![CDATA[</label>
        						 </value>
 						</parameter>
-						</parameter>
                         <parameter id="order" name="Order">
 							<value>
             					<label>]]></code>
@@ -318,6 +317,14 @@ cat > options.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <vdef>black</vdef>
       <dep>(options-use-file-dep:value="0") AND (options-gui-value-placeholder-6:type="true")</dep>
 
+    </parameter>
+
+    <parameter id="options-gui-value-placeholder-7-alt" ishidden="1" type="code">
+      <name />
+      <description />
+      <position>314</position>
+      <code>Black</code>
+      <dep>(options-use-file-dep:value="0") AND (options-gui-value-placeholder-6:type="false")</dep>
     </parameter>
 
     <parameter id="options-gui-315" ishidden="1" type="code">
