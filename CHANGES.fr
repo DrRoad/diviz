@@ -1,3 +1,15 @@
+diviz v1.8.2
+------------
+
+- prg_generic: ce service, qui permet d'exécuter des programmes en local sur
+  l'ordinateur de l'utilisateur, propose désormais jusqu'à 10 entrées et 10
+  sorties possibles (au lieu de 5 précédemment).
+
+- Correction d'un bug qui pouvait se produire dans certaines circonstances,
+  qui empêchait les clients diviz sous Windows de mélanger des appels à des
+  programmes distants et des appels à des programmes locaux.
+
+
 diviz v1.8.1
 ------------
 
