@@ -10,7 +10,6 @@ import eu.telecom_bretagne.praxis.common.InvalidXMLException;
 import eu.telecom_bretagne.praxis.common.Log;
 import eu.telecom_bretagne.praxis.common.RemoteComponents;
 import eu.telecom_bretagne.praxis.core.resource.ProgramDescription;
-import eu.telecom_bretagne.praxis.core.workflow.Program;
 import eu.telecom_bretagne.praxis.core.workflow.Workflow.XMLWarnings;
 
 ;
