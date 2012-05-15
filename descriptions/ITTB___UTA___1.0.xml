@@ -3,7 +3,7 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2012-03-29 14:09:37 +0000">
+<program_description export_date="2012-04-27 14:56:46 +0000">
   <program provider="ITTB" name="UTA" version="1.0" />
   <from desc_id="S8888" />
   <description><![CDATA[Computes UTA method and if necessary uses post-optimality analysis.]]></description>
@@ -19,7 +19,7 @@
     <parameter id="methodParameters" ishidden="0" type="input">
       <name>methodParameters</name>
       <description><![CDATA[
-					Post-optimality method : choose between "Yes" or "No".
+					Post-optimality method : choose between "Yes" or "No".				
 				]]></description>
       <position>100003</position>
       <code/> 
@@ -54,7 +54,7 @@
     <parameter id="methodParameters-gui" ishidden="1" type="code">
       <name>methodParameters</name>
       <description><![CDATA[
-					Post-optimality method : choose between "Yes" or "No".
+					Post-optimality method : choose between "Yes" or "No".				
 				]]></description>
       <position>300</position>
       <code><![CDATA[#methodParameters: methodParameters.xml
@@ -164,15 +164,7 @@ cat > methodParameters.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
         <type>alternativesValues</type>
       </types>
       <vdef>alternativesRanks.xml</vdef>
-      <dep>(alternativesRanks-dep:value="1")</dep>
-
-    </parameter>
-    <parameter id="alternativesRanks-dep" ishidden="0" type="boolean">
-      <name>Use alternativesRanks as input?</name>
-      <description>Use alternativesRanks as input?</description>
-      <position>3005</position>
-      <code/>
-      <vdef>1</vdef>
+      <dep/>
     </parameter>
 
 

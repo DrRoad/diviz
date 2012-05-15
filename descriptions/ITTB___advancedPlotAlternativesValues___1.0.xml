@@ -3,7 +3,7 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2012-02-23 15:55:52 +0000">
+<program_description export_date="2012-04-26 13:23:06 +0000">
   <program provider="ITTB" name="advancedPlotAlternativesValues" version="1.0" />
   <from desc_id="S8888" />
   <description><![CDATA[This web service generates a barplot or a pie plot representing a numeric quantity for each alternative, like, e.g., an importance value. Compared to the web service plotAlternativesValues, some parameters are added. Colors can be used and the title of the plot can be typed. In the case of a bar chart, the axis-labels can also be typed. The alternatives' evaluations are supposed to be real or integer numeric values.]]></description>
@@ -81,12 +81,12 @@ cat > methodPlotOptions.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <position>302</position>
       <vlist>
         <item id="bar_chart">
-          <description>Bar chart</description>
-          <code>Bar chart</code>
+          <description>bar chart</description>
+          <code>barChart</code>
         </item>
         <item id="pie_chart">
-          <description>Pie chart</description>
-          <code>Pie chart</code>
+          <description>pie chart</description>
+          <code>pieChart</code>
         </item>
       </vlist>
       <vdef>bar_chart</vdef>
@@ -101,7 +101,7 @@ cat > methodPlotOptions.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <code><![CDATA[</label>
        						 </value>
 						</parameter>
-						<parameter id="order" name="Order">
+						<parameter id="order_by" name="Order by">
 							<value>
             					<label>]]></code>
       <dep>(methodPlotOptions-use-file-dep:value="0")</dep>
@@ -110,21 +110,21 @@ cat > methodPlotOptions.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 
 
     <parameter id="methodPlotOptions-gui-value-placeholder-2" ishidden="0" type="enum">
-      <name>Order:</name>
+      <name>Order by:</name>
       <description>TODO</description>
       <position>304</position>
       <vlist>
         <item id="order_by_name">
-          <description>By name</description>
-          <code>By name</code>
+          <description>name</description>
+          <code>name</code>
         </item>
         <item id="order_by_id">
-          <description>By id</description>
-          <code>By id</code>
+          <description>id</description>
+          <code>id</code>
         </item>
         <item id="order_by_values">
-          <description>By values</description>
-          <code>By values</code>
+          <description>values</description>
+          <code>values</code>
         </item>
       </vlist>
       <vdef>order_by_values</vdef>
@@ -139,7 +139,7 @@ cat > methodPlotOptions.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <code><![CDATA[</label>
        						 </value>
 						</parameter>
-						<parameter id="maxMin" name="MaxMin">
+						<parameter id="order" name="Order">
 							<value>
             					<label>]]></code>
       <dep>(methodPlotOptions-use-file-dep:value="0")</dep>
@@ -148,20 +148,20 @@ cat > methodPlotOptions.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 
 
     <parameter id="methodPlotOptions-gui-value-placeholder-3" ishidden="0" type="enum">
-      <name>maxMin</name>
+      <name>Order:</name>
       <description>TODO</description>
       <position>306</position>
       <vlist>
-        <item id="ascending">
-          <description>Ascending order</description>
+        <item id="increasing">
+          <description>increasing</description>
           <code>increasing</code>
         </item>
-        <item id="descending">
-          <description>Descending order</description>
+        <item id="decreasing">
+          <description>decreasing</description>
           <code>decreasing</code>
         </item>
       </vlist>
-      <vdef>ascending</vdef>
+      <vdef>increasing</vdef>
       <dep>(methodPlotOptions-use-file-dep:value="0")</dep>
 
     </parameter>
@@ -187,11 +187,11 @@ cat > methodPlotOptions.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <position>308</position>
       <vlist>
         <item id="true">
-          <description>Gradient</description>
+          <description>gradient</description>
           <code>true</code>
         </item>
         <item id="false">
-          <description>Black and white</description>
+          <description>black and white</description>
           <code>false</code>
         </item>
       </vlist>
@@ -221,32 +221,32 @@ cat > methodPlotOptions.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <position>310</position>
       <vlist>
         <item id="black">
-          <description>Black</description>
-          <code>Black</code>
+          <description>black</description>
+          <code>black</code>
         </item>
         <item id="red">
-          <description>Red</description>
-          <code>Red</code>
+          <description>red</description>
+          <code>red</code>
         </item>
         <item id="blue">
-          <description>Blue</description>
-          <code>Blue</code>
+          <description>blue</description>
+          <code>blue</code>
         </item>
         <item id="green">
-          <description>Green</description>
-          <code>Green</code>
+          <description>green</description>
+          <code>green</code>
         </item>
         <item id="yellow">
-          <description>Yellow</description>
-          <code>Yellow</code>
+          <description>yellow</description>
+          <code>yellow</code>
         </item>
         <item id="magenta">
-          <description>Magenta</description>
-          <code>Magenta</code>
+          <description>magenta</description>
+          <code>magenta</code>
         </item>
         <item id="cyan">
-          <description>Cyan</description>
-          <code>Cyan</code>
+          <description>cyan</description>
+          <code>cyan</code>
         </item>
       </vlist>
       <vdef>black</vdef>
@@ -275,36 +275,32 @@ cat > methodPlotOptions.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <position>312</position>
       <vlist>
         <item id="black">
-          <description>Black</description>
-          <code>Black</code>
-        </item>
-        <item id="white">
-          <description>White</description>
-          <code>White</code>
+          <description>black</description>
+          <code>black</code>
         </item>
         <item id="red">
-          <description>Red</description>
-          <code>Red</code>
+          <description>red</description>
+          <code>red</code>
         </item>
         <item id="blue">
-          <description>Blue</description>
-          <code>Blue</code>
+          <description>blue</description>
+          <code>blue</code>
         </item>
         <item id="green">
-          <description>Green</description>
-          <code>Green</code>
+          <description>green</description>
+          <code>green</code>
         </item>
         <item id="yellow">
-          <description>Yellow</description>
-          <code>Yellow</code>
+          <description>yellow</description>
+          <code>yellow</code>
         </item>
         <item id="magenta">
-          <description>Magenta</description>
-          <code>Magenta</code>
+          <description>magenta</description>
+          <code>magenta</code>
         </item>
         <item id="cyan">
-          <description>Cyan</description>
-          <code>Cyan</code>
+          <description>cyan</description>
+          <code>cyan</code>
         </item>
       </vlist>
       <vdef>black</vdef>

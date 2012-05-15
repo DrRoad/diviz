@@ -3,16 +3,16 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2012-03-06 10:55:55 +0000">
-  <program provider="ITTB" name="advancedCutRelation" version="1.0" />
+<program_description export_date="2012-05-15 11:00:10 +0000">
+  <program provider="ITTB" name="advancedCutRelations" version="1.0" />
   <from desc_id="S8888" />
   <description><![CDATA[This web service cuts a fuzzy relation (on alternatives) at a given threshold and produces a relation. Compared to the web service cutRelation, the produced relation is not necessary binary. In fact, some parameters are added. You can choose between classical cut and bipolar cut. The cut level is specified and an output relation is generated. In the case of classical cut, the output relation can be crisp output, binary output or other binary output. When a bipolar cut is taken into account, the output relation can be a bipolar output or other bipolar output.]]></description>
   <parameters>
-    <parameter id="advancedCutRelation-cmdline" type="command" ismandatory="1">
-      <name>advancedCutRelation</name>
+    <parameter id="advancedCutRelations-cmdline" type="command" ismandatory="1">
+      <name>advancedCutRelations</name>
       <description></description>
       <position>100000</position>
-      <code>$callXMCDAService advancedCutRelation-ITTB -S </code>
+      <code>$callXMCDAService advancedCutRelations-ITTB -S </code>
     </parameter>
 
 
@@ -103,20 +103,20 @@ cat > options.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 						</parameter>
 						<parameter id= "cut_threshold" name="Cut threshold">
 							<value>
-            					<label>]]></code>
+            					<real>]]></code>
       <dep>(options-use-file-dep:value="0")</dep>
 
     </parameter>
 
 
-    <parameter id="options-gui-value-placeholder-2" ishidden="0" type="string">
+    <parameter id="options-gui-value-placeholder-2" ishidden="0" type="float">
       <name>Cut threshold:</name>
       <indent>1</indent>
       <description>TODO</description>
       <position>304</position>
 
       <code>%s</code>
-      <vdef></vdef>
+      <vdef>0</vdef>
       <dep>(options-use-file-dep:value="0")</dep>
 
     </parameter>
@@ -126,7 +126,7 @@ cat > options.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <name />
       <description />
       <position>305</position>
-      <code><![CDATA[</label>
+      <code><![CDATA[</real>
        						 </value>
 						</parameter>
 						<parameter id= "classical_output" name="Classical output">
@@ -147,12 +147,12 @@ cat > options.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
           <code>crisp</code>
         </item>
         <item id="binary">
-          <description>binary</description>
-          <code>binary</code>
+          <description>0-1 valued</description>
+          <code>classical_binary</code>
         </item>
         <item id="other_binary">
-          <description>other binary</description>
-          <code>other binary</code>
+          <description>other valued</description>
+          <code>other_binary</code>
         </item>
       </vlist>
       <vdef>binary</vdef>
@@ -181,12 +181,12 @@ cat > options.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <position>308</position>
       <vlist>
         <item id="bipolar">
-          <description>bipolar</description>
-          <code>-1,0,1 bipolar</code>
+          <description>-1-0-1 valued</description>
+          <code>classical_bipolar</code>
         </item>
         <item id="other_bipolar">
-          <description>other bipolar</description>
-          <code>other bipolar</code>
+          <description>other valued</description>
+          <code>other_bipolar</code>
         </item>
       </vlist>
       <vdef>bipolar</vdef>
@@ -209,14 +209,14 @@ cat > options.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
     </parameter>
 
 
-    <parameter id="options-gui-value-placeholder-5" ishidden="0" type="string">
+    <parameter id="options-gui-value-placeholder-5" ishidden="0" type="float">
       <name>True:</name>
       <indent>1</indent>
       <description>TODO</description>
       <position>310</position>
 
       <code>%s</code>
-      <vdef></vdef>
+      <vdef>1</vdef>
       <dep>(options-use-file-dep:value="0") AND ((options-gui-value-placeholder-3:type="other_binary") OR (options-gui-value-placeholder-4:type="other_bipolar"))</dep>
 
     </parameter>
@@ -237,15 +237,15 @@ cat > options.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
     </parameter>
 
 
-    <parameter id="options-gui-value-placeholder-6" ishidden="0" type="string">
+    <parameter id="options-gui-value-placeholder-6" ishidden="0" type="float">
       <name>False:</name>
       <indent>1</indent>
       <description>TODO</description>
       <position>312</position>
 
       <code>%s</code>
-      <vdef></vdef>
-      <dep>(options-use-file-dep:value="0") AND ((options-gui-value-placeholder-3:type="other_binary" ) OR (options-gui-value-placeholder-4:type="other_bipolar"))</dep>
+      <vdef>0</vdef>
+      <dep>(options-use-file-dep:value="0") AND ((options-gui-value-placeholder-3:type="other_binary") OR (options-gui-value-placeholder-4:type="other_bipolar"))</dep>
 
     </parameter>
 
@@ -265,14 +265,14 @@ cat > options.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
     </parameter>
 
 
-    <parameter id="options-gui-value-placeholder-7" ishidden="0" type="string">
+    <parameter id="options-gui-value-placeholder-7" ishidden="0" type="float">
       <name>Indeterminate:</name>
       <indent>1</indent>
       <description>TODO</description>
       <position>314</position>
 
       <code>%s</code>
-      <vdef></vdef>
+      <vdef>0.5</vdef>
       <dep>(options-use-file-dep:value="0") AND ((options-gui-value-placeholder-3:type="other_binary") OR (options-gui-value-placeholder-4:type="other_bipolar"))</dep>
 
     </parameter>
