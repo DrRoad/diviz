@@ -104,6 +104,7 @@ set callXMCDAService="genericXMCDAService.py -U http://server-telecom-bretagne.d
       <program id="ITTB___sortAlternativesValues___1.0"/>
       <program id="ITTB___UTA___1.0"/>
       <program id="ITTB___performanceTableFilter___1.0"/>
+      <program id="ITTB___plotStarGraphPerformanceTable___1.0" />
 
 <!-- This program requires cplex, which is not installed at TB for the moment being -->
 <!--  <program id="PyXMCDA___weightsFromCondorcetAndPreferences___1.0"/>
