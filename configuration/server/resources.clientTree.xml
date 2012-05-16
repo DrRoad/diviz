@@ -26,6 +26,7 @@
 	<type name="UNSORTED" collapsed="0">
 		<resource name="ITTB___plotStarGraphPerformanceTable___1.0"/>
 		<resource name="ITTB___plotAlternativesAssignments___1.0"/>
+		<resource name="ITTB___plotFuzzyCategoriesValues___1.0" />
 	</type>
 
 	<type name="Calculation components" collapsed="0">
