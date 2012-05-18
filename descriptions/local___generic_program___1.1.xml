@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2012-02-28 16:00" modification_date="2012-02-28 16:00" active="0">
-  <program provider="local" name="generic_program" version="1.0" />
+<program_description export_date="2012-02-28 16:00" modification_date="2012-02-28 16:00">
+  <program provider="local" name="generic_program" version="1.1" />
   <from desc_id="S9999" />
   <description>A generic box allowing to execute commands and custom scripts
   - Zero to five input files, named 'infile1', 'infile2' etc.
@@ -111,8 +111,8 @@ exported with the workflow when using "Workflow > Export with input files").
       <position>2</position>
       <code/>
       <constraint>
-        <description>The value should be a positive integer, lower or equal to 5</description>
-        <code><![CDATA[%d >= 0 && %d < 6]]></code>   
+        <description>The value should be a positive integer, lower or equal to 10</description>
+        <code><![CDATA[%d >= 0 && %d < 11]]></code>
       </constraint>
       <vdef>1</vdef>
       <dep/>
@@ -124,8 +124,8 @@ exported with the workflow when using "Workflow > Export with input files").
       <position>3</position>
       <code/>
       <constraint>
-        <description>The value should be a strictly positive integer, lower or equal to 5</description>
-        <code><![CDATA[%d > 0 && %d < 6]]></code>   
+        <description>The value should be a strictly positive integer, lower or equal to 10</description>
+        <code><![CDATA[%d > 0 && %d < 11]]></code>
       </constraint>
       <vdef>1</vdef>
       <dep/>
@@ -235,6 +235,66 @@ exported with the workflow when using "Workflow > Export with input files").
       <dep>(nbInputs:value>=5)</dep>
     </parameter>
 
+    <parameter id="infile6" ishidden="0" type="input">
+      <name>infile6</name>
+      <description>Input data file</description>
+      <position>206</position>
+      <code />
+      <types>
+        <type>all</type>
+      </types>
+      <vdef>infile6</vdef>
+      <dep>(nbInputs:value>=6)</dep>
+    </parameter>
+
+    <parameter id="infile7" ishidden="0" type="input">
+      <name>infile7</name>
+      <description>Input data file</description>
+      <position>207</position>
+      <code />
+      <types>
+        <type>all</type>
+      </types>
+      <vdef>infile7</vdef>
+      <dep>(nbInputs:value>=7)</dep>
+    </parameter>
+
+    <parameter id="infile8" ishidden="0" type="input">
+      <name>infile8</name>
+      <description>Input data file</description>
+      <position>208</position>
+      <code />
+      <types>
+        <type>all</type>
+      </types>
+      <vdef>infile8</vdef>
+      <dep>(nbInputs:value>=8)</dep>
+    </parameter>
+
+    <parameter id="infile9" ishidden="0" type="input">
+      <name>infile9</name>
+      <description>Input data file</description>
+      <position>209</position>
+      <code />
+      <types>
+        <type>all</type>
+      </types>
+      <vdef>infile9</vdef>
+      <dep>(nbInputs:value>=9)</dep>
+    </parameter>
+
+    <parameter id="infile10" ishidden="0" type="input">
+      <name>infile10</name>
+      <description>Input data file</description>
+      <position>210</position>
+      <code />
+      <types>
+        <type>all</type>
+      </types>
+      <vdef>infile10</vdef>
+      <dep>(nbInputs:value>=10)</dep>
+    </parameter>
+
 	<!-- outfiles -->
     <parameter id="outfile1" ishidden="0" type="output">
       <name>outfile1</name>
@@ -293,6 +353,66 @@ exported with the workflow when using "Workflow > Export with input files").
       </types>
       <vdef>outfile5</vdef>
       <dep>(nbOutputs:value>=5)</dep>
+    </parameter>
+
+    <parameter id="outfile6" ishidden="0" type="output">
+      <name>outfile6</name>
+      <description>Output data file</description>
+      <position>306</position>
+      <code />
+      <types>
+        <type>all</type>
+      </types>
+      <vdef>outfile6</vdef>
+      <dep>(nbOutputs:value>=6)</dep>
+    </parameter>
+
+    <parameter id="outfile7" ishidden="0" type="output">
+      <name>outfile7</name>
+      <description>Output data file</description>
+      <position>307</position>
+      <code />
+      <types>
+        <type>all</type>
+      </types>
+      <vdef>outfile7</vdef>
+      <dep>(nbOutputs:value>=7)</dep>
+    </parameter>
+
+    <parameter id="outfile8" ishidden="0" type="output">
+      <name>outfile8</name>
+      <description>Output data file</description>
+      <position>308</position>
+      <code />
+      <types>
+        <type>all</type>
+      </types>
+      <vdef>outfile8</vdef>
+      <dep>(nbOutputs:value>=8)</dep>
+    </parameter>
+
+    <parameter id="outfile9" ishidden="0" type="output">
+      <name>outfile9</name>
+      <description>Output data file</description>
+      <position>309</position>
+      <code />
+      <types>
+        <type>all</type>
+      </types>
+      <vdef>outfile9</vdef>
+      <dep>(nbOutputs:value>=9)</dep>
+    </parameter>
+
+    <parameter id="outfile10" ishidden="0" type="output">
+      <name>outfile10</name>
+      <description>Output data file</description>
+      <position>310</position>
+      <code />
+      <types>
+        <type>all</type>
+      </types>
+      <vdef>outfile10</vdef>
+      <dep>(nbOutputs:value>=10)</dep>
     </parameter>
 
   </parameters>

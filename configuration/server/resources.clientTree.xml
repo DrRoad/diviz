@@ -17,10 +17,10 @@
         icon CDATA #IMPLIED
     >
 ]>
-<resourcesTree version="9">
+<resourcesTree version="10">
 	
 	<type name="Generic" collapsed="0">
-		<resource name="local___generic_program___1.0"/>
+		<resource name="local___generic_program___1.1"/>
 	</type>
 	
 	<type name="UNSORTED" collapsed="0">
