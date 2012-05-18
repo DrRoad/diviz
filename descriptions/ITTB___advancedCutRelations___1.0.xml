@@ -65,11 +65,11 @@ cat > options.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <description />
       <position>301</position>
       <code><![CDATA[
-				
-					<methodParameters>
-						 <parameter id= "cut_type" name="Cut type">
-							<value>
-            					<label>]]></code>
+
+	<methodParameters>
+		<parameter id="cut_type" name="Cut type">
+			<value>
+				<label>]]></code>
       <dep>(options-use-file-dep:value="0")</dep>
 
     </parameter>
@@ -99,11 +99,11 @@ cat > options.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <description />
       <position>303</position>
       <code><![CDATA[</label>
-       						 </value>
-						</parameter>
-						<parameter id= "cut_threshold" name="Cut threshold">
-							<value>
-            					<real>]]></code>
+			</value>
+		</parameter>
+		<parameter id="cut_threshold" name="Cut threshold">
+			<value>
+				<real>]]></code>
       <dep>(options-use-file-dep:value="0")</dep>
 
     </parameter>
@@ -127,11 +127,11 @@ cat > options.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <description />
       <position>305</position>
       <code><![CDATA[</real>
-       						 </value>
-						</parameter>
-						<parameter id= "classical_output" name="Classical output">
-							<value>
-            					<label>]]></code>
+			</value>
+		</parameter>
+		<parameter id="classical_output" name="Classical output">
+			<value>
+				<label>]]></code>
       <dep>(options-use-file-dep:value="0")</dep>
 
     </parameter>
@@ -165,11 +165,8 @@ cat > options.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <description />
       <position>307</position>
       <code><![CDATA[</label>
-       						 </value>
-						</parameter>					
-						<parameter id= "bipolar_output" name="Bipolar output">
-							<value>
-            					<label>]]></code>
+			 </value>
+		</parameter>]]></code>
       <dep>(options-use-file-dep:value="0")</dep>
 
     </parameter>
@@ -182,11 +179,21 @@ cat > options.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <vlist>
         <item id="bipolar">
           <description>-1-0-1 valued</description>
-          <code>classical_bipolar</code>
+          <code><![CDATA[
+		<parameter id="bipolar_output" name="Bipolar output">
+			<value>
+				<label>classical_bipolar</label>
+			 </value>
+		</parameter>]]></code>
         </item>
         <item id="other_bipolar">
           <description>other valued</description>
-          <code>other_bipolar</code>
+          <code><![CDATA[
+		<parameter id="bipolar_output" name="Bipolar output">
+			<value>
+				<label>other_bipolar</label>
+			 </value>
+		</parameter>]]></code>
         </item>
       </vlist>
       <vdef>bipolar</vdef>
@@ -194,45 +201,19 @@ cat > options.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 
     </parameter>
 
-    <parameter id="options-gui-309" ishidden="1" type="code">
-      <name />
-      <description />
-      <position>309</position>
-      <code><![CDATA[</label>
-       						 </value>
-						</parameter>						
-						 <parameter id= "true" name="True">
-							<value>
-            					<real>]]></code>
-      <dep>(options-use-file-dep:value="0")</dep>
-
-    </parameter>
-
-
     <parameter id="options-gui-value-placeholder-5" ishidden="0" type="float">
       <name>True:</name>
       <indent>1</indent>
       <description>TODO</description>
       <position>310</position>
 
-      <code>%s</code>
+      <code><![CDATA[<parameter id="true" name="True">
+			<value>
+				<real>%s</real>
+			 </value>
+		</parameter>]]></code>
       <vdef>1</vdef>
       <dep>(options-use-file-dep:value="0") AND ((options-gui-value-placeholder-3:type="other_binary") OR (options-gui-value-placeholder-4:type="other_bipolar"))</dep>
-
-    </parameter>
-
-
-    <parameter id="options-gui-311" ishidden="1" type="code">
-      <name />
-      <description />
-      <position>311</position>
-      <code><![CDATA[</real>
-       						 </value>
-						</parameter>
-						 <parameter id= "false" name="False">
-							<value>
-            					<real>]]></code>
-      <dep>(options-use-file-dep:value="0")</dep>
 
     </parameter>
 
@@ -243,24 +224,14 @@ cat > options.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <description>TODO</description>
       <position>312</position>
 
-      <code>%s</code>
+      <code><![CDATA[
+		 <parameter id="false" name="False">
+			<value>
+				<real>%s</real>
+			 </value>
+		</parameter>]]></code>
       <vdef>0</vdef>
       <dep>(options-use-file-dep:value="0") AND ((options-gui-value-placeholder-3:type="other_binary") OR (options-gui-value-placeholder-4:type="other_bipolar"))</dep>
-
-    </parameter>
-
-
-    <parameter id="options-gui-313" ishidden="1" type="code">
-      <name />
-      <description />
-      <position>313</position>
-      <code><![CDATA[</real>
-       						 </value>
-						</parameter>
-						 <parameter id= "indeterminate" name="Indeterminate">
-							<value>
-            					<real>]]></code>
-      <dep>(options-use-file-dep:value="0")</dep>
 
     </parameter>
 
@@ -271,7 +242,12 @@ cat > options.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <description>TODO</description>
       <position>314</position>
 
-      <code>%s</code>
+      <code><![CDATA[
+		 <parameter id="indeterminate" name="Indeterminate">
+			<value>
+				<real>%s</real>
+			 </value>
+		</parameter>]]></code>
       <vdef>0.5</vdef>
       <dep>(options-use-file-dep:value="0") AND ((options-gui-value-placeholder-3:type="other_binary") OR (options-gui-value-placeholder-4:type="other_bipolar"))</dep>
 
@@ -282,12 +258,9 @@ cat > options.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <name />
       <description />
       <position>315</position>
-      <code><![CDATA[</real>
-       						 </value>
-						</parameter>						
-					</methodParameters>
-				
-			]]></code>
+      <code><![CDATA[
+	</methodParameters>
+]]></code>
       <dep>(options-use-file-dep:value="0")</dep>
 
     </parameter>
