@@ -24,7 +24,6 @@
 	</type>
 	
 	<type name="UNSORTED" collapsed="0">
-		<resource name="ITTB___plotStarGraphPerformanceTable___1.0"/>
 		<resource name="ITTB___plotAlternativesAssignments___1.0"/>
 		<resource name="ITTB___plotFuzzyCategoriesValues___1.0" />
 	</type>
@@ -189,8 +188,8 @@
 			<resource name="ITTB___advancedPlotNumericPerformanceTable___1.0"/>
 			<resource name="RXMCDA___plotNumericPerformanceTable___1.0"/>
 			<resource name="ITTB___advancedPlotValueFunctions___1.0"/>
+			<resource name="ITTB___plotStarGraphPerformanceTable___1.0"/>
 			<resource name="UTAR___plotValueFunctions___1.0"/>
-			<resource name="ITTB___starGraphPerformanceTable___1.0"/>
 			<resource name="UTAR___XYPlotAlternativesValues___1.0"/>
 		</type>
 		
