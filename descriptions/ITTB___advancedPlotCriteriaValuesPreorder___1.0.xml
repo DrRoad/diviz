@@ -3,7 +3,7 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2012-02-23 16:04:35 +0000">
+<program_description export_date="2012-04-25 07:43:42 +0000">
   <program provider="ITTB" name="advancedPlotCriteriaValuesPreorder" version="1.0" />
   <from desc_id="S8888" />
   <description><![CDATA[This web service generates a graph representing a preorder on the criteria, according to numerical values taken by the criteria (the "best" criteria has the highest value). Compared to the web service plotCriteriaValuesPreorder, some parameters are added. Colors can be used and the title of the graph can be typed. You can choose between an increasing or a decreasing order for the graph. It is also possible to show the name of the criteria instead of the id, etc. The criteria evaluations are supposed to be real or integer numeric values.]]></description>
@@ -189,11 +189,11 @@ cat > options.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <position>308</position>
       <vlist>
         <item id="true">
-          <description>Diaplay name</description>
+          <description>name</description>
           <code>true</code>
         </item>
         <item id="false">
-          <description>Display id</description>
+          <description>id</description>
           <code>false</code>
         </item>
       </vlist>

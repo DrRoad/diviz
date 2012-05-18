@@ -3,24 +3,22 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2012-03-06 10:55:55 +0000">
-  <program provider="ITTB" name="advancedCutRelation" version="1.0" />
+<program_description export_date="2012-04-27 12:30:04 +0000">
+  <program provider="ITTB" name="plotStarGraphPerformanceTable" version="1.0" />
   <from desc_id="S8888" />
-  <description><![CDATA[This web service cuts a fuzzy relation (on alternatives) at a given threshold and produces a relation. Compared to the web service cutRelation, the produced relation is not necessary binary. In fact, some parameters are added. You can choose between classical cut and bipolar cut. The cut level is specified and an output relation is generated. In the case of classical cut, the output relation can be crisp output, binary output or other binary output. When a bipolar cut is taken into account, the output relation can be a bipolar output or other bipolar output.]]></description>
+  <description><![CDATA[This web service generates, for each alternative, a plot representing the performance table as a  star graph. Colors can be used. You can specify how to display the star graphs: by line, by column or in a grid. The star graphs can also be ordered by name or by id (of the alternatives).]]></description>
   <parameters>
-    <parameter id="advancedCutRelation-cmdline" type="command" ismandatory="1">
-      <name>advancedCutRelation</name>
+    <parameter id="plotStarGraphPerformanceTable-cmdline" type="command" ismandatory="1">
+      <name>plotStarGraphPerformanceTable</name>
       <description></description>
       <position>100000</position>
-      <code>$callXMCDAService advancedCutRelation-ITTB -S </code>
+      <code>$callXMCDAService plotStarGraphPerformanceTable-ITTB -S </code>
     </parameter>
 
 
     <parameter id="options" ishidden="0" type="input">
       <name>options</name>
-      <description><![CDATA[
-					Generates a graph taking into account the proposed options.
-				]]></description>
+      <description></description>
       <position>100003</position>
       <code/> 
       <types>
@@ -45,9 +43,7 @@
 
     <parameter id="options-gui" ishidden="1" type="code">
       <name>options</name>
-      <description><![CDATA[
-					Generates a graph taking into account the proposed options.
-				]]></description>
+      <description></description>
       <position>300</position>
       <code><![CDATA[#options: options.xml
 cat > options.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
@@ -65,9 +61,10 @@ cat > options.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <description />
       <position>301</position>
       <code><![CDATA[
-				
-					<methodParameters>
-						 <parameter id= "cut_type" name="Cut type">
+                   
+					<methodParameters>	 
+						  
+						  <parameter id="preference_direction" name="Use preference direction">
 							<value>
             					<label>]]></code>
       <dep>(options-use-file-dep:value="0")</dep>
@@ -76,20 +73,20 @@ cat > options.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 
 
     <parameter id="options-gui-value-placeholder-1" ishidden="0" type="enum">
-      <name>Cut type:</name>
+      <name>Use preference directions?</name>
       <description>TODO</description>
       <position>302</position>
       <vlist>
-        <item id="classical">
-          <description>classical</description>
-          <code>classical</code>
+        <item id="true">
+          <description>Yes</description>
+          <code>true</code>
         </item>
-        <item id="bipolar">
-          <description>bipolar</description>
-          <code>bipolar</code>
+        <item id="false">
+          <description>No</description>
+          <code>false</code>
         </item>
       </vlist>
-      <vdef>classical</vdef>
+      <vdef>false</vdef>
       <dep>(options-use-file-dep:value="0")</dep>
 
     </parameter>
@@ -101,7 +98,7 @@ cat > options.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <code><![CDATA[</label>
        						 </value>
 						</parameter>
-						<parameter id= "cut_threshold" name="Cut threshold">
+						  <parameter id="unique_plot" name="Unique plot">
 							<value>
             					<label>]]></code>
       <dep>(options-use-file-dep:value="0")</dep>
@@ -109,18 +106,24 @@ cat > options.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
     </parameter>
 
 
-    <parameter id="options-gui-value-placeholder-2" ishidden="0" type="string">
-      <name>Cut threshold:</name>
-      <indent>1</indent>
+    <parameter id="options-gui-value-placeholder-2" ishidden="0" type="enum">
+      <name>Unique or multiple plot(s)?</name>
       <description>TODO</description>
       <position>304</position>
-
-      <code>%s</code>
-      <vdef></vdef>
+      <vlist>
+        <item id="true">
+          <description>Unique</description>
+          <code>true</code>
+        </item>
+        <item id="false">
+          <description>Multiple</description>
+          <code>false</code>
+        </item>
+      </vlist>
+      <vdef>true</vdef>
       <dep>(options-use-file-dep:value="0")</dep>
 
     </parameter>
-
 
     <parameter id="options-gui-305" ishidden="1" type="code">
       <name />
@@ -129,7 +132,7 @@ cat > options.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <code><![CDATA[</label>
        						 </value>
 						</parameter>
-						<parameter id= "classical_output" name="Classical output">
+						 <parameter id="plots_display" name="Plots' display">
 							<value>
             					<label>]]></code>
       <dep>(options-use-file-dep:value="0")</dep>
@@ -138,25 +141,25 @@ cat > options.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 
 
     <parameter id="options-gui-value-placeholder-3" ishidden="0" type="enum">
-      <name>Classical output:</name>
+      <name>Plots arrangement</name>
       <description>TODO</description>
       <position>306</position>
       <vlist>
-        <item id="crisp">
-          <description>crisp</description>
-          <code>crisp</code>
+        <item id="column">
+          <description>Column</description>
+          <code>column</code>
         </item>
-        <item id="binary">
-          <description>binary</description>
-          <code>binary</code>
+        <item id="line">
+          <description>Line</description>
+          <code>line</code>
         </item>
-        <item id="other_binary">
-          <description>other binary</description>
-          <code>other binary</code>
+        <item id="grid">
+          <description>Grid</description>
+          <code>grid</code>
         </item>
       </vlist>
-      <vdef>binary</vdef>
-      <dep>(options-use-file-dep:value="0") AND (options-gui-value-placeholder-1:type="classical")</dep>
+      <vdef>column</vdef>
+      <dep>(options-use-file-dep:value="0") AND (options-gui-value-placeholder-2:type="true")</dep>
 
     </parameter>
 
@@ -166,8 +169,8 @@ cat > options.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <position>307</position>
       <code><![CDATA[</label>
        						 </value>
-						</parameter>					
-						<parameter id= "bipolar_output" name="Bipolar output">
+						</parameter>
+                        <parameter id="order_by" name="Order by">
 							<value>
             					<label>]]></code>
       <dep>(options-use-file-dep:value="0")</dep>
@@ -176,21 +179,21 @@ cat > options.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 
 
     <parameter id="options-gui-value-placeholder-4" ishidden="0" type="enum">
-      <name>Bipolar output:</name>
+      <name>Order abscissa by:</name>
       <description>TODO</description>
       <position>308</position>
       <vlist>
-        <item id="bipolar">
-          <description>bipolar</description>
-          <code>-1,0,1 bipolar</code>
+        <item id="order_by_name">
+          <description>name</description>
+          <code>name</code>
         </item>
-        <item id="other_bipolar">
-          <description>other bipolar</description>
-          <code>other bipolar</code>
+        <item id="order_by_id">
+          <description>id</description>
+          <code>id</code>
         </item>
       </vlist>
-      <vdef>bipolar</vdef>
-      <dep>(options-use-file-dep:value="0") AND (options-gui-value-placeholder-1:type="bipolar")</dep>
+      <vdef>order_by_id</vdef>
+      <dep>(options-use-file-dep:value="0")</dep>
 
     </parameter>
 
@@ -200,94 +203,132 @@ cat > options.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <position>309</position>
       <code><![CDATA[</label>
        						 </value>
-						</parameter>						
-						 <parameter id= "true" name="True">
+						</parameter>
+                        <parameter id="order" name="order">
 							<value>
-            					<real>]]></code>
+            					<label>]]></code>
       <dep>(options-use-file-dep:value="0")</dep>
 
     </parameter>
 
 
-    <parameter id="options-gui-value-placeholder-5" ishidden="0" type="string">
-      <name>True:</name>
-      <indent>1</indent>
+    <parameter id="options-gui-value-placeholder-5" ishidden="0" type="enum">
+      <name>order</name>
       <description>TODO</description>
       <position>310</position>
-
-      <code>%s</code>
-      <vdef></vdef>
-      <dep>(options-use-file-dep:value="0") AND ((options-gui-value-placeholder-3:type="other_binary") OR (options-gui-value-placeholder-4:type="other_bipolar"))</dep>
+      <vlist>
+        <item id="increasing">
+          <description>Ascending order</description>
+          <code>increasing</code>
+        </item>
+        <item id="decreasing">
+          <description>Descending order</description>
+          <code>decreasing</code>
+        </item>
+      </vlist>
+      <vdef>increasing</vdef>
+      <dep>(options-use-file-dep:value="0")</dep>
 
     </parameter>
-
 
     <parameter id="options-gui-311" ishidden="1" type="code">
       <name />
       <description />
       <position>311</position>
-      <code><![CDATA[</real>
+      <code><![CDATA[</label>
        						 </value>
-						</parameter>
-						 <parameter id= "false" name="False">
+						</parameter>						
+						 <parameter id="use_color" name="Colors in the plots">
 							<value>
-            					<real>]]></code>
+            					<label>]]></code>
       <dep>(options-use-file-dep:value="0")</dep>
 
     </parameter>
 
 
-    <parameter id="options-gui-value-placeholder-6" ishidden="0" type="string">
-      <name>False:</name>
-      <indent>1</indent>
+    <parameter id="options-gui-value-placeholder-6" ishidden="0" type="enum">
+      <name>Use Colors?</name>
       <description>TODO</description>
       <position>312</position>
-
-      <code>%s</code>
-      <vdef></vdef>
-      <dep>(options-use-file-dep:value="0") AND ((options-gui-value-placeholder-3:type="other_binary" ) OR (options-gui-value-placeholder-4:type="other_bipolar"))</dep>
+      <vlist>
+        <item id="true">
+          <description>Yes</description>
+          <code>true</code>
+        </item>
+        <item id="false">
+          <description>No</description>
+          <code>false</code>
+        </item>
+      </vlist>
+      <vdef>false</vdef>
+      <dep>(options-use-file-dep:value="0")</dep>
 
     </parameter>
-
 
     <parameter id="options-gui-313" ishidden="1" type="code">
       <name />
       <description />
       <position>313</position>
-      <code><![CDATA[</real>
+      <code><![CDATA[</label>
        						 </value>
 						</parameter>
-						 <parameter id= "indeterminate" name="Indeterminate">
+						 <parameter id="selected_color" name="Selected color">
 							<value>
-            					<real>]]></code>
+            					<label>]]></code>
       <dep>(options-use-file-dep:value="0")</dep>
 
     </parameter>
 
 
-    <parameter id="options-gui-value-placeholder-7" ishidden="0" type="string">
-      <name>Indeterminate:</name>
-      <indent>1</indent>
+    <parameter id="options-gui-value-placeholder-7" ishidden="0" type="enum">
+      <name>Choose color:</name>
       <description>TODO</description>
       <position>314</position>
-
-      <code>%s</code>
-      <vdef></vdef>
-      <dep>(options-use-file-dep:value="0") AND ((options-gui-value-placeholder-3:type="other_binary") OR (options-gui-value-placeholder-4:type="other_bipolar"))</dep>
+      <vlist>
+        <item id="black">
+          <description>Black</description>
+          <code>black</code>
+        </item>
+        <item id="red">
+          <description>Red</description>
+          <code>red</code>
+        </item>
+        <item id="blue">
+          <description>Blue</description>
+          <code>blue</code>
+        </item>
+        <item id="green">
+          <description>Green</description>
+          <code>green</code>
+        </item>
+        <item id="yellow">
+          <description>Yellow</description>
+          <code>yellow</code>
+        </item>
+        <item id="magenta">
+          <description>Magenta</description>
+          <code>magenta</code>
+        </item>
+        <item id="cyan">
+          <description>Cyan</description>
+          <code>cyan</code>
+        </item>
+      </vlist>
+      <vdef>black</vdef>
+      <dep>(options-use-file-dep:value="0") AND (options-gui-value-placeholder-6:type="true")</dep>
 
     </parameter>
-
 
     <parameter id="options-gui-315" ishidden="1" type="code">
       <name />
       <description />
       <position>315</position>
-      <code><![CDATA[</real>
+      <code><![CDATA[</label>
        						 </value>
-						</parameter>						
+       						 </parameter>
 					</methodParameters>
 				
-			]]></code>
+               ]]></code>
       <dep>(options-use-file-dep:value="0")</dep>
 
     </parameter>
@@ -326,30 +367,44 @@ cat > options.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 
 
 
-    <parameter id="relation" ishidden="0" type="input">
-      <name>relation</name>
-      <description><![CDATA[A valued relation relative to comparisons of the alternatives. A numeric <value> indicates a the valuation for each <pair> of the relation.]]></description>
+    <parameter id="criteria" ishidden="0" type="input">
+      <name>criteria</name>
+      <description><![CDATA[A list of criteria. Criteria can be activated or desactivated via the <active> tag (true or false). By default (no <active> tag), criteria are considered as active. Preference direction for the selected criteria can be provided (min or max). In this web service, the default value is set to max.]]></description>
       <position>100005</position>
-      <code> relation:relation.xml</code>
+      <code> criteria:criteria.xml</code>
       <types>
-        <type>alternativesComparisons</type>
+        <type>criteria</type>
       </types>
-      <vdef>relation.xml</vdef>
+      <vdef>criteria.xml</vdef>
+      <dep/>
+    </parameter>
+
+
+
+    <parameter id="performanceTable" ishidden="0" type="input">
+      <name>performanceTable</name>
+      <description><![CDATA[A performance table. The evaluations should be only real or integer numeric values, i.e. <real> or <integer>.]]></description>
+      <position>100006</position>
+      <code> performanceTable:performanceTable.xml</code>
+      <types>
+        <type>performanceTable</type>
+      </types>
+      <vdef>performanceTable.xml</vdef>
       <dep/>
     </parameter>
 
 
 
 
-    <parameter id="outputRelation" ishidden="0" type="output">
-      <name>output_relation</name>
-      <description><![CDATA[The relation resulting from the cut.]]></description>
-      <position>2006</position>
+    <parameter id="starGraph" ishidden="0" type="output">
+      <name>starGraph</name>
+      <description><![CDATA[A string containing the base64 representation of the png image of the generated plot.]]></description>
+      <position>2007</position>
       <code/>
       <types>
-        <type>alternativesComparisons</type>
+        <type>alternativeValue</type>
       </types>
-      <vdef>output_relation.xml</vdef>
+      <vdef>starGraph.xml</vdef>
     </parameter>
 
 
@@ -359,7 +414,7 @@ cat > options.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
     <parameter id="messages" ishidden="0" type="output">
       <name>messages</name>
       <description><![CDATA[A list of messages generated by the algorithm.]]></description>
-      <position>2007</position>
+      <position>2008</position>
       <code/>
       <types>
         <type>methodMessages</type>

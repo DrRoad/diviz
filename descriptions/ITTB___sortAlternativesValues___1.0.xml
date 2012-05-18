@@ -3,7 +3,7 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2012-03-27 07:24:40 +0000">
+<program_description export_date="2012-04-27 14:08:26 +0000">
   <program provider="ITTB" name="sortAlternativesValues" version="1.0" />
   <from desc_id="S8888" />
   <description><![CDATA[This web service computes affectations of the alternatives from the given input data (3 inputs: alternatives, alternativesValues and categoriesLimits).]]></description>
@@ -55,15 +55,7 @@
         <type>categoriesValues</type>
       </types>
       <vdef>categoriesLimits.xml</vdef>
-      <dep>(categoriesLimits-dep:value="1")</dep>
-
-    </parameter>
-    <parameter id="categoriesLimits-dep" ishidden="0" type="boolean">
-      <name>Use categoriesLimits as input?</name>
-      <description>Use categoriesLimits as input?</description>
-      <position>3005</position>
-      <code/>
-      <vdef>1</vdef>
+      <dep/>
     </parameter>
 
 

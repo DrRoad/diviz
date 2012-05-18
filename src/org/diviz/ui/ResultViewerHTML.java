@@ -1,3 +1,4 @@
+/* License: please refer to the file README.license located at the root directory of the project */
 package org.diviz.ui;
 
 import java.awt.BorderLayout;

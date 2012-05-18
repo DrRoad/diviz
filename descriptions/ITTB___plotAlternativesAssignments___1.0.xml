@@ -3,16 +3,16 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2012-04-02 09:44:40 +0000">
-  <program provider="ITTB" name="starGraphPerformanceTable" version="1.0" />
+<program_description export_date="2012-05-16 06:13:55 +0000">
+  <program provider="ITTB" name="plotAlternativesAssignments" version="1.0" />
   <from desc_id="S8888" />
-  <description><![CDATA[This web service generates, for each alternative, a plot representing the performance table as a  star graph. Colors can be used. You can specify how to display the star graphs: by line, by column or in a grid. The star graphs can also be ordered by name or by id (of the alternatives).]]></description>
+  <description><![CDATA[This web service generates a plot representing the alternatives assignments. Colors can be used. You can specify how to display the different categories: by line, by column or in a grid. The plots can also be ordered: alphabetical order, its inverse or by categories.]]></description>
   <parameters>
-    <parameter id="starGraphPerformanceTable-cmdline" type="command" ismandatory="1">
-      <name>starGraphPerformanceTable</name>
+    <parameter id="plotAlternativesAssignments-cmdline" type="command" ismandatory="1">
+      <name>plotAlternativesAssignments</name>
       <description></description>
       <position>100000</position>
-      <code>$callXMCDAService starGraphPerformanceTable-ITTB -S </code>
+      <code>$callXMCDAService plotAlternativesAssignments-ITTB -S </code>
     </parameter>
 
 
@@ -61,52 +61,44 @@ cat > options.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <description />
       <position>301</position>
       <code><![CDATA[
-                   
-					<methodParameters>	 
-						  
-						  <parameter id="preference_direction" name="Use preference direction">
-							<value>
-            					<label>]]></code>
+                   <methodParameters>	 			
+		<parameter id="plot_title" name="Unique plot">
+			<value>
+				<label>]]></code>
       <dep>(options-use-file-dep:value="0")</dep>
 
     </parameter>
 
 
-    <parameter id="options-gui-value-placeholder-1" ishidden="0" type="enum">
-      <name>Use preference directions?</name>
+    <parameter id="options-gui-value-placeholder-2" ishidden="0" type="string">
+      <name>Plot title:</name>
+      <indent>1</indent>
       <description>TODO</description>
       <position>302</position>
-      <vlist>
-        <item id="true">
-          <description>Yes</description>
-          <code>true</code>
-        </item>
-        <item id="false">
-          <description>No</description>
-          <code>false</code>
-        </item>
-      </vlist>
-      <vdef>false</vdef>
+
+      <code>%s</code>
+      <vdef></vdef>
       <dep>(options-use-file-dep:value="0")</dep>
 
     </parameter>
+
 
     <parameter id="options-gui-303" ishidden="1" type="code">
       <name />
       <description />
       <position>303</position>
       <code><![CDATA[</label>
-       						 </value>
-						</parameter>
-						  <parameter id="unique_plot" name="Unique plot">
-							<value>
-            					<label>]]></code>
+			</value>
+		</parameter>
+		<parameter id="unique_plot" name="Unique plot">
+			<value>
+				<label>]]></code>
       <dep>(options-use-file-dep:value="0")</dep>
 
     </parameter>
 
 
-    <parameter id="options-gui-value-placeholder-2" ishidden="0" type="enum">
+    <parameter id="options-gui-value-placeholder-3" ishidden="0" type="enum">
       <name>Number of images</name>
       <description>TODO</description>
       <position>304</position>
@@ -130,17 +122,17 @@ cat > options.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <description />
       <position>305</position>
       <code><![CDATA[</label>
-       						 </value>
-						</parameter>
-						 <parameter id="plots_display" name="Plots' display">
-							<value>
-            					<label>]]></code>
+			</value>
+		</parameter>
+		<parameter id="plots_display" name="Plots' display">
+			<value>
+				<label>]]></code>
       <dep>(options-use-file-dep:value="0")</dep>
 
     </parameter>
 
 
-    <parameter id="options-gui-value-placeholder-3" ishidden="0" type="enum">
+    <parameter id="options-gui-value-placeholder-4" ishidden="0" type="enum">
       <name>Plots arrangement</name>
       <description>TODO</description>
       <position>306</position>
@@ -159,7 +151,7 @@ cat > options.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
         </item>
       </vlist>
       <vdef>column</vdef>
-      <dep>(options-use-file-dep:value="0") AND (options-gui-value-placeholder-2:type="true")</dep>
+      <dep>(options-use-file-dep:value="0") AND (options-gui-value-placeholder-3:type="true")</dep>
 
     </parameter>
 
@@ -168,31 +160,35 @@ cat > options.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <description />
       <position>307</position>
       <code><![CDATA[</label>
-       						 </value>
-						</parameter>
-                        <parameter id="order" name="Order">
-							<value>
-            					<label>]]></code>
+			</value>
+		</parameter>
+		<parameter id="order" name="Order">
+			<value>
+				<label>]]></code>
       <dep>(options-use-file-dep:value="0")</dep>
 
     </parameter>
 
 
-    <parameter id="options-gui-value-placeholder-4" ishidden="0" type="enum">
-      <name>Order abscissa:</name>
+    <parameter id="options-gui-value-placeholder-5" ishidden="0" type="enum">
+      <name>Order:</name>
       <description>TODO</description>
       <position>308</position>
       <vlist>
-        <item id="order_by_name">
-          <description>By name</description>
-          <code>By name</code>
+        <item id="increasing">
+          <description>increasing</description>
+          <code>increasing</code>
         </item>
-        <item id="order_by_id">
-          <description>By id</description>
-          <code>By id</code>
+        <item id="decreasing">
+          <description>decreasing</description>
+          <code>decreasing</code>
+        </item>
+        <item id="categories">
+          <description>categories</description>
+          <code>categories</code>
         </item>
       </vlist>
-      <vdef>order_by_id</vdef>
+      <vdef>increasing</vdef>
       <dep>(options-use-file-dep:value="0")</dep>
 
     </parameter>
@@ -202,45 +198,11 @@ cat > options.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <description />
       <position>309</position>
       <code><![CDATA[</label>
-       						 </value>
-						</parameter>
-                        <parameter id="maxMin" name="MaxMin">
-							<value>
-            					<label>]]></code>
-      <dep>(options-use-file-dep:value="0")</dep>
-
-    </parameter>
-
-
-    <parameter id="options-gui-value-placeholder-5" ishidden="0" type="enum">
-      <name>maxMin</name>
-      <description>TODO</description>
-      <position>310</position>
-      <vlist>
-        <item id="increasing">
-          <description>Ascending order</description>
-          <code>increasing</code>
-        </item>
-        <item id="decreasing">
-          <description>Descending order</description>
-          <code>decreasing</code>
-        </item>
-      </vlist>
-      <vdef>increasing</vdef>
-      <dep>(options-use-file-dep:value="0")</dep>
-
-    </parameter>
-
-    <parameter id="options-gui-311" ishidden="1" type="code">
-      <name />
-      <description />
-      <position>311</position>
-      <code><![CDATA[</label>
-       						 </value>
-						</parameter>						
-						 <parameter id="use_color" name="Colors in the plots">
-							<value>
-            					<label>]]></code>
+			</value>
+		</parameter>					
+		<parameter id="use_color" name="Colors in the plots">
+			<value>
+				<label>]]></code>
       <dep>(options-use-file-dep:value="0")</dep>
 
     </parameter>
@@ -249,7 +211,7 @@ cat > options.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
     <parameter id="options-gui-value-placeholder-6" ishidden="0" type="enum">
       <name>Use Colors?</name>
       <description>TODO</description>
-      <position>312</position>
+      <position>310</position>
       <vlist>
         <item id="true">
           <description>Yes</description>
@@ -265,16 +227,16 @@ cat > options.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 
     </parameter>
 
-    <parameter id="options-gui-313" ishidden="1" type="code">
+    <parameter id="options-gui-311" ishidden="1" type="code">
       <name />
       <description />
-      <position>313</position>
+      <position>311</position>
       <code><![CDATA[</label>
-       						 </value>
-						</parameter>
-						 <parameter id="selected_color" name="Selected color">
-							<value>
-            					<label>]]></code>
+			 </value>
+		</parameter>
+		<parameter id="selected_color" name="Selected color">
+			<value>
+				<label>]]></code>
       <dep>(options-use-file-dep:value="0")</dep>
 
     </parameter>
@@ -283,7 +245,7 @@ cat > options.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
     <parameter id="options-gui-value-placeholder-7" ishidden="0" type="enum">
       <name>Choose color:</name>
       <description>TODO</description>
-      <position>314</position>
+      <position>312</position>
       <vlist>
         <item id="black">
           <description>Black</description>
@@ -319,12 +281,42 @@ cat > options.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 
     </parameter>
 
-    <parameter id="options-gui-value-placeholder-7-alt" ishidden="1" type="code">
+    <parameter id="options-gui-313" ishidden="1" type="code">
       <name />
       <description />
+      <position>313</position>
+      <code><![CDATA[</label>
+			 </value>
+			 </parameter>
+		<parameter id="categories_shape" name="Categories shape">
+			<value>
+				<label>]]></code>
+      <dep>(options-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+
+    <parameter id="options-gui-value-placeholder-8" ishidden="0" type="enum">
+      <name>Plot alternatives in:</name>
+      <description>TODO</description>
       <position>314</position>
-      <code>Black</code>
-      <dep>(options-use-file-dep:value="0") AND (options-gui-value-placeholder-6:type="false")</dep>
+      <vlist>
+        <item id="rectangle">
+          <description>rectangle</description>
+          <code>rectangle</code>
+        </item>
+        <item id="oval">
+          <description>oval</description>
+          <code>oval</code>
+        </item>
+        <item id="diamond">
+          <description>diamond</description>
+          <code>diamond</code>
+        </item>
+      </vlist>
+      <vdef>oval</vdef>
+      <dep>(options-use-file-dep:value="0")</dep>
+
     </parameter>
 
     <parameter id="options-gui-315" ishidden="1" type="code">
@@ -332,10 +324,9 @@ cat > options.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <description />
       <position>315</position>
       <code><![CDATA[</label>
-       						 </value>
-       						 </parameter>
-					</methodParameters>
-				
+			</value>
+		</parameter>
+	</methodParameters>
                ]]></code>
       <dep>(options-use-file-dep:value="0")</dep>
 
@@ -375,44 +366,52 @@ cat > options.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 
 
 
-    <parameter id="criteria" ishidden="0" type="input">
-      <name>criteria</name>
-      <description><![CDATA[A list of criteria. Criteria can be activated or desactivated via the <active> tag (true or false). By default (no <active> tag), criteria are considered as active. Preference direction for the selected criteria can be provided (min or max). In this web service, the default value is set to max.]]></description>
+    <parameter id="categories" ishidden="0" type="input">
+      <name>categories</name>
+      <description><![CDATA[The list of categories and their rank (required!).]]></description>
       <position>100005</position>
-      <code> criteria:criteria.xml</code>
+      <code> categories:categories.xml</code>
       <types>
-        <type>criteria</type>
+        <type>categories</type>
       </types>
-      <vdef>criteria.xml</vdef>
-      <dep/>
+      <vdef>categories.xml</vdef>
+      <dep>(categories-dep:value="1")</dep>
+
+    </parameter>
+    <parameter id="categories-dep" ishidden="0" type="boolean">
+      <name>Use categories as input?</name>
+      <description>Use categories as input?</description>
+      <position>3005</position>
+      <code/>
+      <vdef>1</vdef>
     </parameter>
 
 
 
-    <parameter id="performanceTable" ishidden="0" type="input">
-      <name>performanceTable</name>
-      <description><![CDATA[A performance table. The evaluations should be only real or integer numeric values, i.e. <real> or <integer>.]]></description>
+    <parameter id="alternativesAffectations" ishidden="0" type="input">
+      <name>alternativesAffectations</name>
+      <description><![CDATA[Assignment of reference alternatives]]></description>
       <position>100006</position>
-      <code> performanceTable:performanceTable.xml</code>
+      <code> alternativesAffectations:alternativesAffectations.xml</code>
       <types>
-        <type>performanceTable</type>
+        <type>alternativesAffectations</type>
       </types>
-      <vdef>performanceTable.xml</vdef>
+      <vdef>alternativesAffectations.xml</vdef>
       <dep/>
     </parameter>
 
 
 
 
-    <parameter id="starGraph" ishidden="0" type="output">
-      <name>starGraph</name>
+    <parameter id="alternativesAffectationsPlot" ishidden="0" type="output">
+      <name>alternativesAffectationsPlot</name>
       <description><![CDATA[A string containing the base64 representation of the png image of the generated plot.]]></description>
       <position>2007</position>
       <code/>
       <types>
         <type>alternativeValue</type>
       </types>
-      <vdef>starGraph.xml</vdef>
+      <vdef>alternativesAffectationsPlot.xml</vdef>
     </parameter>
 
 

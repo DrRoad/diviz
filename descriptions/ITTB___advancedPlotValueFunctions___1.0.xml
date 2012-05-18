@@ -3,7 +3,7 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2012-02-23 16:11:10 +0000">
+<program_description export_date="2012-05-14 07:30:34 +0000">
   <program provider="ITTB" name="advancedPlotValueFunctions" version="1.0" />
   <from desc_id="S8888" />
   <description><![CDATA[This web service allows to plot utility functions. Compared to the web service plotValueFunctions, some parameters are added. Colors can be used. You can specify how to display the utility functions: by line, by column or by square. A linear interpolation can be processed in order to connect the different points in the generated utility function.]]></description>
@@ -76,16 +76,16 @@ cat > methodPlotOptions.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 
 
     <parameter id="methodPlotOptions-gui-value-placeholder-1" ishidden="0" type="enum">
-      <name>Number of images</name>
+      <name>Unique or multiple plot(s)?</name>
       <description>TODO</description>
       <position>302</position>
       <vlist>
         <item id="true">
-          <description>1 per plot</description>
+          <description>Unique</description>
           <code>true</code>
         </item>
         <item id="false">
-          <description>Multiple images</description>
+          <description>Multiple</description>
           <code>false</code>
         </item>
       </vlist>
@@ -116,15 +116,15 @@ cat > methodPlotOptions.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <vlist>
         <item id="by_column">
           <description>Column</description>
-          <code>By column</code>
+          <code>column</code>
         </item>
         <item id="by_line">
           <description>Line</description>
-          <code>By line</code>
+          <code>line</code>
         </item>
         <item id="by_square">
           <description>Grid</description>
-          <code>By square</code>
+          <code>grid</code>
         </item>
       </vlist>
       <vdef>by_column</vdef>
@@ -148,7 +148,7 @@ cat > methodPlotOptions.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 
 
     <parameter id="methodPlotOptions-gui-value-placeholder-3" ishidden="0" type="enum">
-      <name>Plot linear interpolation</name>
+      <name>Linear interpolation ?</name>
       <description>TODO</description>
       <position>306</position>
       <vlist>
@@ -182,7 +182,7 @@ cat > methodPlotOptions.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 
 
     <parameter id="methodPlotOptions-gui-value-placeholder-4" ishidden="0" type="enum">
-      <name>Add vertical bars</name>
+      <name>Add vertical bars ?</name>
       <description>TODO</description>
       <position>308</position>
       <vlist>
@@ -331,7 +331,15 @@ cat > methodPlotOptions.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
         <type>criteria</type>
       </types>
       <vdef>criteria.xml</vdef>
-      <dep/>
+      <dep>(criteria-dep:value="1")</dep>
+
+    </parameter>
+    <parameter id="criteria-dep" ishidden="0" type="boolean">
+      <name>Use criteria as input?</name>
+      <description>Use criteria as input?</description>
+      <position>3004</position>
+      <code/>
+      <vdef>1</vdef>
     </parameter>
 
 

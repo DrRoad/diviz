@@ -3,7 +3,7 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2012-02-23 16:08:52 +0000">
+<program_description export_date="2012-04-27 07:34:24 +0000">
   <program provider="ITTB" name="advancedPlotNumericPerformanceTable" version="1.0" />
   <from desc_id="S8888" />
   <description><![CDATA[This web service generates a plot representing the performance table (abscissa: alternatives). Compared to the web service plotNumericPerformanceTable, several options are added. The generated plot can be a bar plot or pie plot. Colors can be used and the title of the plot can be typed. In the case of a bar chart, the axis-labels can also be typed. It is possible to have multiple images or only one image per plot: by column, by line or a grid. In the generated plot, you can also order the alternatives by name, by id or by values in an ascending or descending order.]]></description>
@@ -82,11 +82,11 @@ cat > plotOptions.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <vlist>
         <item id="bar_chart">
           <description>Bar chart</description>
-          <code>Bar chart</code>
+          <code>barChart</code>
         </item>
         <item id="pie_chart">
           <description>Pie chart</description>
-          <code>Pie chart</code>
+          <code>pieChart</code>
         </item>
       </vlist>
       <vdef>bar_chart</vdef>
@@ -115,11 +115,11 @@ cat > plotOptions.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <position>304</position>
       <vlist>
         <item id="true">
-          <description>1 per plot</description>
+          <description>Unique</description>
           <code>true</code>
         </item>
         <item id="false">
-          <description>Multiple images</description>
+          <description>Multiple</description>
           <code>false</code>
         </item>
       </vlist>
@@ -150,15 +150,15 @@ cat > plotOptions.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <vlist>
         <item id="arrange_imgs_by_column">
           <description>Column</description>
-          <code>By column</code>
+          <code>column</code>
         </item>
         <item id="arrange_imgs_by_line">
           <description>Line</description>
-          <code>By line</code>
+          <code>line</code>
         </item>
         <item id="arrange_imgs_by_square">
           <description>Grid</description>
-          <code>By square</code>
+          <code>grid</code>
         </item>
       </vlist>
       <vdef>arrange_imgs_by_column</vdef>
@@ -174,7 +174,7 @@ cat > plotOptions.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
        						 </value>
 						</parameter>
 						
-						<parameter id="order" name="Order">
+						<parameter id="order_by" name="Order by">
 							<value>
             					<label>]]></code>
       <dep>(plotOptions-use-file-dep:value="0")</dep>
@@ -183,21 +183,21 @@ cat > plotOptions.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 
 
     <parameter id="plotOptions-gui-value-placeholder-4" ishidden="0" type="enum">
-      <name>Order abscissa:</name>
+      <name>Order abscissa by:</name>
       <description>TODO</description>
       <position>308</position>
       <vlist>
         <item id="order_abs_by_name">
-          <description>By name</description>
-          <code>By name</code>
+          <description>name</description>
+          <code>name</code>
         </item>
         <item id="order_abs_by_id">
-          <description>By id</description>
-          <code>By id</code>
+          <description>id</description>
+          <code>id</code>
         </item>
         <item id="order_abs_by_values">
-          <description>By values</description>
-          <code>By values</code>
+          <description>values</description>
+          <code>values</code>
         </item>
       </vlist>
       <vdef>order_abs_by_values</vdef>
@@ -212,7 +212,7 @@ cat > plotOptions.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <code><![CDATA[</label>
        						 </value>
 						</parameter>
-						<parameter id="maxMin" name="MaxMin">
+						<parameter id="order" name="order">
 							<value>
             					<label>]]></code>
       <dep>(plotOptions-use-file-dep:value="0")</dep>
@@ -221,16 +221,16 @@ cat > plotOptions.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 
 
     <parameter id="plotOptions-gui-value-placeholder-5" ishidden="0" type="enum">
-      <name>maxMin</name>
+      <name>Order:</name>
       <description>TODO</description>
       <position>310</position>
       <vlist>
         <item id="ascending">
-          <description>Ascending order</description>
+          <description>increasing</description>
           <code>increasing</code>
         </item>
         <item id="descending">
-          <description>Descending order</description>
+          <description>decreasing</description>
           <code>decreasing</code>
         </item>
       </vlist>
@@ -295,31 +295,31 @@ cat > plotOptions.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <vlist>
         <item id="black">
           <description>Black</description>
-          <code>Black</code>
+          <code>black</code>
         </item>
         <item id="red">
           <description>Red</description>
-          <code>Red</code>
+          <code>red</code>
         </item>
         <item id="blue">
           <description>Blue</description>
-          <code>Blue</code>
+          <code>blue</code>
         </item>
         <item id="green">
           <description>Green</description>
-          <code>Green</code>
+          <code>green</code>
         </item>
         <item id="yellow">
           <description>Yellow</description>
-          <code>Yellow</code>
+          <code>yellow</code>
         </item>
         <item id="magenta">
           <description>Magenta</description>
-          <code>Magenta</code>
+          <code>magenta</code>
         </item>
         <item id="cyan">
           <description>Cyan</description>
-          <code>Cyan</code>
+          <code>cyan</code>
         </item>
       </vlist>
       <vdef>black</vdef>
@@ -349,35 +349,31 @@ cat > plotOptions.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <vlist>
         <item id="black">
           <description>Black</description>
-          <code>Black</code>
-        </item>
-        <item id="white">
-          <description>White</description>
-          <code>White</code>
+          <code>black</code>
         </item>
         <item id="red">
           <description>Red</description>
-          <code>Red</code>
+          <code>red</code>
         </item>
         <item id="blue">
           <description>Blue</description>
-          <code>Blue</code>
+          <code>blue</code>
         </item>
         <item id="green">
           <description>Green</description>
-          <code>Green</code>
+          <code>green</code>
         </item>
         <item id="yellow">
           <description>Yellow</description>
-          <code>Yellow</code>
+          <code>yellow</code>
         </item>
         <item id="magenta">
           <description>Magenta</description>
-          <code>Magenta</code>
+          <code>magenta</code>
         </item>
         <item id="cyan">
           <description>Cyan</description>
-          <code>Cyan</code>
+          <code>cyan</code>
         </item>
       </vlist>
       <vdef>black</vdef>

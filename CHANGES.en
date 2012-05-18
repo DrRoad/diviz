@@ -1,3 +1,15 @@
+diviz v1.8.2
+------------
+
+- prg_generic: this service, which allows to execute programs locally on the
+  user's computer, now proposes up to 10 possible inputs and 10 possible
+  outputs (instead of 5, formerly).
+
+- Fixed a bug that happened under special circumstances, where diviz clients
+  running on Windows could not mix call to remote web-services withh call to
+  local programs.
+
+
 diviz v1.8.1
 ------------
 
