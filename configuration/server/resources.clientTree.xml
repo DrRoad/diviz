@@ -24,7 +24,6 @@
 	</type>
 	
 	<type name="UNSORTED" collapsed="0">
-		<resource name="ITTB___plotAlternativesAssignments___1.0"/>
 		<resource name="ITTB___plotFuzzyCategoriesValues___1.0" />
 	</type>
 
@@ -172,7 +171,7 @@
 		</type>
 		
 		<type name="Data visualisation" collapsed="0">
-			<resource name="ITTB___plotAlternativesAffectations___1.0"/>
+			<resource name="ITTB___plotAlternativesAssignments___1.0"/>
 			<resource name="ITTB___advancedPlotAlternativesComparisons___1.0"/>
 			<resource name="RXMCDA___plotAlternativesComparisons___1.0"/>
 			<resource name="ITTB___advancedPlotAlternativesValues___1.0"/>
