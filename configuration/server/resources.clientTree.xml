@@ -23,10 +23,10 @@
 		<resource name="local___generic_program___1.1"/>
 	</type>
 	
+<!--
 	<type name="UNSORTED" collapsed="0">
-		<resource name="ITTB___plotFuzzyCategoriesValues___1.0" />
 	</type>
-
+-->
 	<type name="Calculation components" collapsed="0">
 		
 		<type name="Value techniques" collapsed="0">	
@@ -184,6 +184,7 @@
 			<resource name="RXMCDA___plotCriteriaValues___1.0"/>
 			<resource name="ITTB___advancedPlotCriteriaValuesPreorder___1.0"/>
 			<resource name="RXMCDA___plotCriteriaValuesPreorder___1.0"/>
+			<resource name="ITTB___plotFuzzyCategoriesValues___1.0" />
 			<resource name="ITTB___advancedPlotNumericPerformanceTable___1.0"/>
 			<resource name="RXMCDA___plotNumericPerformanceTable___1.0"/>
 			<resource name="ITTB___advancedPlotValueFunctions___1.0"/>
@@ -201,7 +202,6 @@
 		</type>
 		
 	</type>
-	
 	<!-- <type name="Development" collapsed="1">
 		<resource name="DecisionDeck___kappalabServer___1.0"/>
 		<resource name="DecisionDeck___kappalab___1.0"/>
