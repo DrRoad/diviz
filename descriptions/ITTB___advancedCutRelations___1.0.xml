@@ -249,8 +249,7 @@ cat > options.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 			 </value>
 		</parameter>]]></code>
       <vdef>0.5</vdef>
-      <dep>(options-use-file-dep:value="0") AND ((options-gui-value-placeholder-3:type="other_binary") OR (options-gui-value-placeholder-4:type="other_bipolar"))</dep>
-
+      <dep>(options-use-file-dep:value="0") AND (options-gui-value-placeholder-4:type="other_bipolar")</dep>
     </parameter>
 
 
@@ -315,7 +314,7 @@ cat > options.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 
 
     <parameter id="outputRelation" ishidden="0" type="output">
-      <name>output_relation</name>
+      <name>cut_relation</name>
       <description><![CDATA[The relation resulting from the cut.]]></description>
       <position>2006</position>
       <code/>
