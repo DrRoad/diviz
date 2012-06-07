@@ -3,16 +3,16 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2012-03-06 13:43:15 +0000">
-  <program provider="ITTB" name="advancedAlternativesRankingViaQualificationDistillation" version="1.0" />
+<program_description export_date="2012-06-07 07:37:00 +0000">
+  <program provider="ITTB" name="alternativesRankingViaQualificationDistillation" version="1.0" />
   <from desc_id="S8888" />
   <description><![CDATA[This web service computes rankings on the alternatives by distillation of alternatives' qualification. Compared to the web service alternativesRankingViaQualificationDistillation, this web service requires a non-valued or a 0-1 valued outranking relation as input. The partial ranking (intersectionDistillation) is obtained by taking the intersection of upwards and downwards distillation preorders (which are also provided).]]></description>
   <parameters>
-    <parameter id="advancedAlternativesRankingViaQualificationDistillation-cmdline" type="command" ismandatory="1">
-      <name>advancedAlternativesRankingViaQualificationDistillation</name>
+    <parameter id="alternativesRankingViaQualificationDistillation-cmdline" type="command" ismandatory="1">
+      <name>alternativesRankingViaQualificationDistillation</name>
       <description></description>
       <position>100000</position>
-      <code>$callXMCDAService advancedAlternativesRankingViaQualificationDistillation-ITTB -S </code>
+      <code>$callXMCDAService alternativesRankingViaQualificationDistillation-ITTB -S </code>
     </parameter>
 
 

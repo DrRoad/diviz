@@ -3,24 +3,22 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2012-05-15 11:00:10 +0000">
-  <program provider="ITTB" name="advancedCutRelations" version="1.0" />
+<program_description export_date="2012-06-07 10:44:48 +0100">
+  <program provider="ITTB" name="cutRelation" version="1.0" />
   <from desc_id="S8888" />
   <description><![CDATA[This web service cuts a fuzzy relation (on alternatives) at a given threshold and produces a relation. Compared to the web service cutRelation, the produced relation is not necessary binary. In fact, some parameters are added. You can choose between classical cut and bipolar cut. The cut level is specified and an output relation is generated. In the case of classical cut, the output relation can be crisp output, binary output or other binary output. When a bipolar cut is taken into account, the output relation can be a bipolar output or other bipolar output.]]></description>
   <parameters>
-    <parameter id="advancedCutRelations-cmdline" type="command" ismandatory="1">
-      <name>advancedCutRelations</name>
+    <parameter id="cutRelation-cmdline" type="command" ismandatory="1">
+      <name>cutRelation</name>
       <description></description>
       <position>100000</position>
-      <code>$callXMCDAService advancedCutRelations-ITTB -S </code>
+      <code>$callXMCDAService cutRelation-ITTB -S </code>
     </parameter>
 
 
     <parameter id="options" ishidden="0" type="input">
       <name>options</name>
-      <description><![CDATA[
-					Generates a graph taking into account the proposed options.
-				]]></description>
+      <description><![CDATA[Generates a graph taking into account the proposed options.]]></description>
       <position>100003</position>
       <code/> 
       <types>
@@ -45,9 +43,7 @@
 
     <parameter id="options-gui" ishidden="1" type="code">
       <name>options</name>
-      <description><![CDATA[
-					Generates a graph taking into account the proposed options.
-				]]></description>
+      <description><![CDATA[Generates a graph taking into account the proposed options.]]></description>
       <position>300</position>
       <code><![CDATA[#options: options.xml
 cat > options.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
@@ -249,8 +245,7 @@ cat > options.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 			 </value>
 		</parameter>]]></code>
       <vdef>0.5</vdef>
-      <dep>(options-use-file-dep:value="0") AND ((options-gui-value-placeholder-3:type="other_binary") OR (options-gui-value-placeholder-4:type="other_bipolar"))</dep>
-
+      <dep>(options-use-file-dep:value="0") AND (options-gui-value-placeholder-4:type="other_bipolar")</dep>
     </parameter>
 
 
@@ -315,7 +310,7 @@ cat > options.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 
 
     <parameter id="outputRelation" ishidden="0" type="output">
-      <name>output_relation</name>
+      <name>cut_relation</name>
       <description><![CDATA[The relation resulting from the cut.]]></description>
       <position>2006</position>
       <code/>

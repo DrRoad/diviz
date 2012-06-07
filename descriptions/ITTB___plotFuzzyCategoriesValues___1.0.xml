@@ -3,7 +3,7 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2012-05-16 13:25:38 +0000">
+<program_description export_date="2012-06-07 07:37:00 +0000">
   <program provider="ITTB" name="plotFuzzyCategoriesValues" version="1.0" />
   <from desc_id="S8888" />
   <description><![CDATA[This web service allows to plot fuzzy sets. There are some options to take into account: title, X-axis label, Y-axis label and the use of colors.]]></description>

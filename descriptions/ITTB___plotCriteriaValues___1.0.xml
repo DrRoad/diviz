@@ -1,0 +1,524 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+
+<!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
+
+<program_description export_date="2012-06-07 07:37:00 +0000">
+  <program provider="ITTB" name="plotCriteriaValues" version="1.0" />
+  <from desc_id="S8888" />
+  <description><![CDATA[This web service generates a barplot or a pie plot representing a numeric quantity for each criterion, like, e.g., an importance value. Compared to the web service plotCriteriaValues, some parameters are added. Colors can be used and the title of the plot can be typed. In the case of a bar chart, the axis-labels can also be typed. The criteria's evaluations are supposed to be real or integer numeric values.]]></description>
+  <parameters>
+    <parameter id="plotCriteriaValues-cmdline" type="command" ismandatory="1">
+      <name>plotCriteriaValues</name>
+      <description></description>
+      <position>100000</position>
+      <code>$callXMCDAService plotCriteriaValues-ITTB -S </code>
+    </parameter>
+
+
+    <parameter id="methodPlotOptions" ishidden="0" type="input">
+      <name>methodPlotOptions</name>
+      <description><![CDATA[
+                       Plot type method: choose between "Bar chart" and "Pie chart". The default plot is a bar chart.
+                   ]]></description>
+      <position>100003</position>
+      <code/> 
+      <types>
+        <type>methodParameters</type>
+      </types>
+      <vdef>methodPlotOptions.xml</vdef>
+      <dep>(methodPlotOptions-use-file-dep:value="1")</dep>
+
+    </parameter>
+
+    <parameter id="methodPlotOptions-use-file-dep" ishidden="0" type="boolean">
+      <name>Supply methodPlotOptions as a file?</name>
+      <description>Supply methodPlotOptions as a file?</description>
+      <position>3003</position>
+      <code/>
+      <vdef>0</vdef>
+      <dep/>
+    </parameter>
+    
+
+
+
+    <parameter id="methodPlotOptions-gui" ishidden="1" type="code">
+      <name>methodPlotOptions</name>
+      <description><![CDATA[
+                       Plot type method: choose between "Bar chart" and "Pie chart". The default plot is a bar chart.
+                   ]]></description>
+      <position>300</position>
+      <code><![CDATA[#methodPlotOptions: methodPlotOptions.xml
+cat > methodPlotOptions.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="xmcdaKappalab.xsl"?>
+<xmcda:XMCDA xmlns:xmcda="http://www.decision-deck.org/2009/XMCDA-2.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.decision-deck.org/2009/XMCDA-2.0.0 http://www.decision-deck.org/xmcda/_downloads/XMCDA-2.0.0.xsd">]]></code>
+      <dep>(methodPlotOptions-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+
+    <parameter id="methodPlotOptions-gui-301" ishidden="1" type="code">
+      <name />
+      <description />
+      <position>301</position>
+      <code><![CDATA[
+                   
+					<methodParameters>
+						<parameter id="chart_type" name="Chart type">
+							<value>
+            					<label>]]></code>
+      <dep>(methodPlotOptions-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+
+    <parameter id="methodPlotOptions-gui-value-placeholder-1" ishidden="0" type="enum">
+      <name>Chart type:</name>
+      <description>TODO</description>
+      <position>302</position>
+      <vlist>
+        <item id="bar_chart">
+          <description>bar chart</description>
+          <code>barChart</code>
+        </item>
+        <item id="pie_chart">
+          <description>pie chart</description>
+          <code>pieChart</code>
+        </item>
+      </vlist>
+      <vdef>bar_chart</vdef>
+      <dep>(methodPlotOptions-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+    <parameter id="methodPlotOptions-gui-303" ishidden="1" type="code">
+      <name />
+      <description />
+      <position>303</position>
+      <code><![CDATA[</label>
+       						 </value>
+						</parameter>
+						<parameter id="order_by" name="Order by">
+							<value>
+            					<label>]]></code>
+      <dep>(methodPlotOptions-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+
+    <parameter id="methodPlotOptions-gui-value-placeholder-2" ishidden="0" type="enum">
+      <name>Order by:</name>
+      <description>TODO</description>
+      <position>304</position>
+      <vlist>
+        <item id="order_by_name">
+          <description>name</description>
+          <code>name</code>
+        </item>
+        <item id="order_by_id">
+          <description>id</description>
+          <code>id</code>
+        </item>
+        <item id="order_by_values">
+          <description>values</description>
+          <code>values</code>
+        </item>
+      </vlist>
+      <vdef>order_by_values</vdef>
+      <dep>(methodPlotOptions-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+    <parameter id="methodPlotOptions-gui-305" ishidden="1" type="code">
+      <name />
+      <description />
+      <position>305</position>
+      <code><![CDATA[</label>
+       						 </value>
+						</parameter>
+						<parameter id="order" name="Order">
+							<value>
+            					<label>]]></code>
+      <dep>(methodPlotOptions-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+
+    <parameter id="methodPlotOptions-gui-value-placeholder-3" ishidden="0" type="enum">
+      <name>Order:</name>
+      <description>TODO</description>
+      <position>306</position>
+      <vlist>
+        <item id="increasing">
+          <description>increasing</description>
+          <code>increasing</code>
+        </item>
+        <item id="decreasing">
+          <description>decreasing</description>
+          <code>decreasing</code>
+        </item>
+      </vlist>
+      <vdef>increasing</vdef>
+      <dep>(methodPlotOptions-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+    <parameter id="methodPlotOptions-gui-307" ishidden="1" type="code">
+      <name />
+      <description />
+      <position>307</position>
+      <code><![CDATA[</label>
+       						 </value>
+						</parameter>
+						<parameter id="use_color" name="Colors in the chart">
+							<value>
+            					<label>]]></code>
+      <dep>(methodPlotOptions-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+
+    <parameter id="methodPlotOptions-gui-value-placeholder-4" ishidden="0" type="enum">
+      <name>Colors:</name>
+      <description>TODO</description>
+      <position>308</position>
+      <vlist>
+        <item id="true">
+          <description>gradient</description>
+          <code>true</code>
+        </item>
+        <item id="false">
+          <description>black and white</description>
+          <code>false</code>
+        </item>
+      </vlist>
+      <vdef>false</vdef>
+      <dep>(methodPlotOptions-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+    <parameter id="methodPlotOptions-gui-309" ishidden="1" type="code">
+      <name />
+      <description />
+      <position>309</position>
+      <code><![CDATA[</label>
+       						 </value>
+						</parameter>
+						<parameter id="initial_color" name="Initial color">
+							<value>
+            					<label>]]></code>
+      <dep>(methodPlotOptions-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+
+    <parameter id="methodPlotOptions-gui-value-placeholder-5" ishidden="0" type="enum">
+      <name>Initial color:</name>
+      <description>TODO</description>
+      <position>310</position>
+      <vlist>
+        <item id="black">
+          <description>black</description>
+          <code>black</code>
+        </item>
+        <item id="red">
+          <description>red</description>
+          <code>red</code>
+        </item>
+        <item id="blue">
+          <description>blue</description>
+          <code>blue</code>
+        </item>
+        <item id="green">
+          <description>green</description>
+          <code>green</code>
+        </item>
+        <item id="yellow">
+          <description>yellow</description>
+          <code>yellow</code>
+        </item>
+        <item id="magenta">
+          <description>magenta</description>
+          <code>magenta</code>
+        </item>
+        <item id="cyan">
+          <description>cyan</description>
+          <code>cyan</code>
+        </item>
+      </vlist>
+      <vdef>black</vdef>
+      <dep>(methodPlotOptions-use-file-dep:value="0") AND (methodPlotOptions-gui-value-placeholder-4:type="true")</dep>
+
+    </parameter>
+
+    <parameter id="methodPlotOptions-gui-311" ishidden="1" type="code">
+      <name />
+      <description />
+      <position>311</position>
+      <code><![CDATA[</label>
+       						 </value>
+						</parameter>
+						<parameter id="final_color" name="Final color">
+							<value>
+            					<label>]]></code>
+      <dep>(methodPlotOptions-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+
+    <parameter id="methodPlotOptions-gui-value-placeholder-6" ishidden="0" type="enum">
+      <name>Final color:</name>
+      <description>TODO</description>
+      <position>312</position>
+      <vlist>
+        <item id="black">
+          <description>black</description>
+          <code>black</code>
+        </item>
+        <item id="red">
+          <description>red</description>
+          <code>red</code>
+        </item>
+        <item id="blue">
+          <description>blue</description>
+          <code>blue</code>
+        </item>
+        <item id="green">
+          <description>green</description>
+          <code>green</code>
+        </item>
+        <item id="yellow">
+          <description>yellow</description>
+          <code>yellow</code>
+        </item>
+        <item id="magenta">
+          <description>magenta</description>
+          <code>magenta</code>
+        </item>
+        <item id="cyan">
+          <description>cyan</description>
+          <code>cyan</code>
+        </item>
+      </vlist>
+      <vdef>black</vdef>
+      <dep>(methodPlotOptions-use-file-dep:value="0") AND (methodPlotOptions-gui-value-placeholder-4:type="true")</dep>
+
+    </parameter>
+
+    <parameter id="methodPlotOptions-gui-313" ishidden="1" type="code">
+      <name />
+      <description />
+      <position>313</position>
+      <code><![CDATA[</label>
+       						 </value>
+						</parameter>
+						<parameter id= "chart_title" name="Chart title">
+							<value>
+            					<label>]]></code>
+      <dep>(methodPlotOptions-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+
+    <parameter id="methodPlotOptions-gui-value-placeholder-7" ishidden="0" type="string">
+      <name>Chart title:</name>
+      <indent>1</indent>
+      <description>TODO</description>
+      <position>314</position>
+
+      <code>%s</code>
+      <vdef></vdef>
+      <dep>(methodPlotOptions-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+
+    <parameter id="methodPlotOptions-gui-315" ishidden="1" type="code">
+      <name />
+      <description />
+      <position>315</position>
+      <code><![CDATA[</label>
+       						 </value>
+						</parameter>
+						<parameter id="domain_axis" name="Domain axis label">
+							<value>
+            					<label>]]></code>
+      <dep>(methodPlotOptions-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+
+    <parameter id="methodPlotOptions-gui-value-placeholder-8" ishidden="0" type="string">
+      <name>X axis label:</name>
+      <indent>1</indent>
+      <description>TODO</description>
+      <position>316</position>
+
+      <code>%s</code>
+      <vdef></vdef>
+      <dep>(methodPlotOptions-use-file-dep:value="0") AND (methodPlotOptions-gui-value-placeholder-1:type="bar_chart")</dep>
+
+    </parameter>
+
+
+    <parameter id="methodPlotOptions-gui-317" ishidden="1" type="code">
+      <name />
+      <description />
+      <position>317</position>
+      <code><![CDATA[</label>
+       						 </value>
+						</parameter >
+						<parameter id="range_axis" name="Range axis label">
+							<value>
+            					<label>]]></code>
+      <dep>(methodPlotOptions-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+
+    <parameter id="methodPlotOptions-gui-value-placeholder-9" ishidden="0" type="string">
+      <name>Y axis label:</name>
+      <indent>1</indent>
+      <description>TODO</description>
+      <position>318</position>
+
+      <code>%s</code>
+      <vdef></vdef>
+      <dep>(methodPlotOptions-use-file-dep:value="0") AND (methodPlotOptions-gui-value-placeholder-1:type="bar_chart")</dep>
+
+    </parameter>
+
+
+    <parameter id="methodPlotOptions-gui-319" ishidden="1" type="code">
+      <name />
+      <description />
+      <position>319</position>
+      <code><![CDATA[</label>
+       						 </value>
+						</parameter>
+					</methodParameters>
+				
+               ]]></code>
+      <dep>(methodPlotOptions-use-file-dep:value="0")</dep>
+
+    </parameter>
+    <parameter id="methodPlotOptions-gui-EOF" ishidden="1" type="code">
+      <name>methodPlotOptions EOF</name>
+      <description></description>
+      <position>320</position>
+      <code><![CDATA[</xmcda:XMCDA>%nEOF%n]]></code>
+      <dep>(methodPlotOptions-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+    <parameter id="methodPlotOptions-cmdline" ishidden="1" type="code">
+      <name>methodPlotOptions insertion in cmd-line</name>
+      <description></description>
+      <position>100003</position>
+      <code> methodPlotOptions:methodPlotOptions.xml</code>
+      <dep/>
+    </parameter>
+
+
+
+
+
+    <parameter id="criteria" ishidden="0" type="input">
+      <name>criteria</name>
+      <description><![CDATA[A list of criteria. Criteria can be activated or desactivated via the <active> tag (true or false). By default (no <active> tag), criteria are considered as active.]]></description>
+      <position>100004</position>
+      <code> criteria:criteria.xml</code>
+      <types>
+        <type>criteria</type>
+      </types>
+      <vdef>criteria.xml</vdef>
+      <dep/>
+    </parameter>
+
+
+
+    <parameter id="criteriaValues" ishidden="0" type="input">
+      <name>criteriaValues</name>
+      <description><![CDATA[A list of <criterionValue> representing a certain numeric quantity for each criterion, like, e.g., an importance value.]]></description>
+      <position>100005</position>
+      <code> criteriaValues:criteriaValues.xml</code>
+      <types>
+        <type>criteriaValues</type>
+      </types>
+      <vdef>criteriaValues.xml</vdef>
+      <dep/>
+    </parameter>
+
+
+
+
+    <parameter id="criteriaValuesPlot" ishidden="0" type="output">
+      <name>criteriaValuesPlot</name>
+      <description><![CDATA[A string containing the base64 representation of the png image of the generated barplot or pieplot . ]]></description>
+      <position>2006</position>
+      <code/>
+      <types>
+        <type>criterionValue</type>
+      </types>
+      <vdef>criteriaValuesPlot.xml</vdef>
+    </parameter>
+
+
+
+
+
+    <parameter id="messages" ishidden="0" type="output">
+      <name>messages</name>
+      <description><![CDATA[A list of messages generated by the algorithm.]]></description>
+      <position>2007</position>
+      <code/>
+      <types>
+        <type>methodMessages</type>
+      </types>
+      <vdef>messages.xml</vdef>
+    </parameter>
+
+
+
+    <parameter id="TIMEOUT" ishidden="0" type="int">
+      <name>Timeout? (0 for no timeout)</name>
+      <description>timeout</description>
+      <position>100001</position>
+      <code>-t %s </code>
+      <constraint>
+        <description>value should be a positive or null integer</description>
+        <code>(%d &gt;= 0)</code>
+      </constraint>
+      <vdef>60</vdef>
+    </parameter>
+    
+    <parameter id="VERBOSE" ishidden="0" type="enum">
+      <name>Verbose mode</name>
+      <description></description>
+      <position>100002</position>
+      <vlist>
+        <item id="T1">
+          <description>None</description>
+          <code></code>
+        </item>
+        <item id="T2">
+          <description>Moderately verbose</description>
+          <code> -v</code>
+        </item>
+        <item id="T3">
+          <description>Very verbose</description>
+          <code> -vv</code>
+        </item>
+        <item id="T4">
+          <description>Extremely verbose (include SOAP msgs)</description>
+          <code> -vvv</code>
+        </item>
+      </vlist>
+      <vdef>T2</vdef>
+    </parameter>
+
+  </parameters>
+</program_description>

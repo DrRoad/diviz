@@ -73,8 +73,8 @@ cat > methodParameters.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 
     <!-- Transformation: 01 -->
     <parameter id="cf-id-01" ishidden="0" type="string">
-             <name>1st criteria ID</name>
-      <description>1st criteria ID</description>
+             <name>1st criterion ID</name>
+      <description>1st criterion ID</description>
        <position>4011</position>
       <code><![CDATA[			<value id="%s">%n				<interval>%n]]></code>
       <vdef>crit_id_01</vdef>
@@ -135,8 +135,8 @@ cat > methodParameters.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 
     <!-- Transformation: 02 -->
     <parameter id="cf-id-02" ishidden="0" type="string">
-             <name>2nd criteria ID</name>
-      <description>2nd criteria ID</description>
+             <name>2nd criterion ID</name>
+      <description>2nd criterion ID</description>
        <position>4021</position>
       <code><![CDATA[			<value id="%s">%n				<interval>%n]]></code>
       <vdef>crit_id_02</vdef>
@@ -198,8 +198,8 @@ cat > methodParameters.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 
     <!-- Transformation: 03 -->
     <parameter id="cf-id-03" ishidden="0" type="string">
-             <name>3rd criteria ID</name>
-      <description>3rd criteria ID</description>
+             <name>3rd criterion ID</name>
+      <description>3rd criterion ID</description>
        <position>4031</position>
       <code><![CDATA[			<value id="%s">%n				<interval>%n]]></code>
       <vdef>crit_id_03</vdef>
@@ -261,8 +261,8 @@ cat > methodParameters.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 
     <!-- Transformation: 04 -->
     <parameter id="cf-id-04" ishidden="0" type="string">
-             <name>4th criteria ID</name>
-      <description>4th criteria ID</description>
+             <name>4th criterion ID</name>
+      <description>4th criterion ID</description>
        <position>4041</position>
       <code><![CDATA[			<value id="%s">%n				<interval>%n]]></code>
       <vdef>crit_id_04</vdef>
@@ -324,8 +324,8 @@ cat > methodParameters.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 
     <!-- Transformation: 05 -->
     <parameter id="cf-id-05" ishidden="0" type="string">
-             <name>5th criteria ID</name>
-      <description>5th criteria ID</description>
+             <name>5th criterion ID</name>
+      <description>5th criterion ID</description>
        <position>4051</position>
       <code><![CDATA[			<value id="%s">%n				<interval>%n]]></code>
       <vdef>crit_id_05</vdef>
@@ -387,8 +387,8 @@ cat > methodParameters.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 
     <!-- Transformation: 06 -->
     <parameter id="cf-id-06" ishidden="0" type="string">
-             <name>6th criteria ID</name>
-      <description>6th criteria ID</description>
+             <name>6th criterion ID</name>
+      <description>6th criterion ID</description>
        <position>4061</position>
       <code><![CDATA[			<value id="%s">%n				<interval>%n]]></code>
       <vdef>crit_id_06</vdef>
@@ -450,8 +450,8 @@ cat > methodParameters.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 
     <!-- Transformation: 07 -->
     <parameter id="cf-id-07" ishidden="0" type="string">
-             <name>7th criteria ID</name>
-      <description>7th criteria ID</description>
+             <name>7th criterion ID</name>
+      <description>7th criterion ID</description>
        <position>4071</position>
       <code><![CDATA[			<value id="%s">%n				<interval>%n]]></code>
       <vdef>crit_id_07</vdef>
@@ -513,8 +513,8 @@ cat > methodParameters.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 
     <!-- Transformation: 08 -->
     <parameter id="cf-id-08" ishidden="0" type="string">
-             <name>8th criteria ID</name>
-      <description>8th criteria ID</description>
+             <name>8th criterion ID</name>
+      <description>8th criterion ID</description>
        <position>4081</position>
       <code><![CDATA[			<value id="%s">%n				<interval>%n]]></code>
       <vdef>crit_id_08</vdef>
@@ -576,8 +576,8 @@ cat > methodParameters.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 
     <!-- Transformation: 09 -->
     <parameter id="cf-id-09" ishidden="0" type="string">
-             <name>9th criteria ID</name>
-      <description>9th criteria ID</description>
+             <name>9th criterion ID</name>
+      <description>9th criterion ID</description>
        <position>4091</position>
       <code><![CDATA[			<value id="%s">%n				<interval>%n]]></code>
       <vdef>crit_id_09</vdef>
@@ -638,8 +638,8 @@ cat > methodParameters.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 
     <!-- Transformation: 10 -->
     <parameter id="cf-id-10" ishidden="0" type="string">
-             <name>10th criteria ID</name>
-      <description>10th criteria ID</description>
+             <name>10th criterion ID</name>
+      <description>10th criterion ID</description>
        <position>4101</position>
       <code><![CDATA[			<value id="%s">%n				<interval>%n]]></code>
       <vdef>crit_id_10</vdef>
@@ -700,8 +700,8 @@ cat > methodParameters.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 
     <!-- Transformation: 11 -->
     <parameter id="cf-id-11" ishidden="0" type="string">
-             <name>11th criteria ID</name>
-      <description>11th criteria ID</description>
+             <name>11th criterion ID</name>
+      <description>11th criterion ID</description>
        <position>4111</position>
       <code><![CDATA[			<value id="%s">%n				<interval>%n]]></code>
       <vdef>crit_id_11</vdef>
@@ -762,8 +762,8 @@ cat > methodParameters.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 
     <!-- Transformation: 12 -->
     <parameter id="cf-id-12" ishidden="0" type="string">
-             <name>12th criteria ID</name>
-      <description>12th criteria ID</description>
+             <name>12th criterion ID</name>
+      <description>12th criterion ID</description>
        <position>4121</position>
       <code><![CDATA[			<value id="%s">%n				<interval>%n]]></code>
       <vdef>crit_id_12</vdef>
@@ -825,8 +825,8 @@ cat > methodParameters.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 
     <!-- Transformation: 13 -->
     <parameter id="cf-id-13" ishidden="0" type="string">
-             <name>13th criteria ID</name>
-      <description>13th criteria ID</description>
+             <name>13th criterion ID</name>
+      <description>13th criterion ID</description>
        <position>4131</position>
       <code><![CDATA[			<value id="%s">%n				<interval>%n]]></code>
       <vdef>crit_id_13</vdef>
@@ -888,8 +888,8 @@ cat > methodParameters.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 
     <!-- Transformation: 14 -->
     <parameter id="cf-id-14" ishidden="0" type="string">
-             <name>14th criteria ID</name>
-      <description>14th criteria ID</description>
+             <name>14th criterion ID</name>
+      <description>14th criterion ID</description>
        <position>4141</position>
       <code><![CDATA[			<value id="%s">%n				<interval>%n]]></code>
       <vdef>crit_id_14</vdef>
@@ -951,8 +951,8 @@ cat > methodParameters.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 
     <!-- Transformation: 15 -->
     <parameter id="cf-id-15" ishidden="0" type="string">
-             <name>15th criteria ID</name>
-      <description>15th criteria ID</description>
+             <name>15th criterion ID</name>
+      <description>15th criterion ID</description>
        <position>4151</position>
       <code><![CDATA[			<value id="%s">%n				<interval>%n]]></code>
       <vdef>crit_id_15</vdef>
@@ -1014,8 +1014,8 @@ cat > methodParameters.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 
     <!-- Transformation: 16 -->
     <parameter id="cf-id-16" ishidden="0" type="string">
-             <name>16th criteria ID</name>
-      <description>16th criteria ID</description>
+             <name>16th criterion ID</name>
+      <description>16th criterion ID</description>
        <position>4161</position>
       <code><![CDATA[			<value id="%s">%n				<interval>%n]]></code>
       <vdef>crit_id_16</vdef>
@@ -1077,8 +1077,8 @@ cat > methodParameters.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 
     <!-- Transformation: 17 -->
     <parameter id="cf-id-17" ishidden="0" type="string">
-             <name>17th criteria ID</name>
-      <description>17th criteria ID</description>
+             <name>17th criterion ID</name>
+      <description>17th criterion ID</description>
        <position>4171</position>
       <code><![CDATA[			<value id="%s">%n				<interval>%n]]></code>
       <vdef>crit_id_17</vdef>
@@ -1140,8 +1140,8 @@ cat > methodParameters.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 
     <!-- Transformation: 18 -->
     <parameter id="cf-id-18" ishidden="0" type="string">
-             <name>18th criteria ID</name>
-      <description>18th criteria ID</description>
+             <name>18th criterion ID</name>
+      <description>18th criterion ID</description>
        <position>4181</position>
       <code><![CDATA[			<value id="%s">%n				<interval>%n]]></code>
       <vdef>crit_id_18</vdef>
@@ -1203,8 +1203,8 @@ cat > methodParameters.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 
     <!-- Transformation: 19 -->
     <parameter id="cf-id-19" ishidden="0" type="string">
-             <name>19th criteria ID</name>
-      <description>19th criteria ID</description>
+             <name>19th criterion ID</name>
+      <description>19th criterion ID</description>
        <position>4191</position>
       <code><![CDATA[			<value id="%s">%n				<interval>%n]]></code>
       <vdef>crit_id_19</vdef>
@@ -1265,8 +1265,8 @@ cat > methodParameters.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 
     <!-- Transformation: 20 -->
     <parameter id="cf-id-20" ishidden="0" type="string">
-             <name>20th criteria ID</name>
-      <description>20th criteria ID</description>
+             <name>20th criterion ID</name>
+      <description>20th criterion ID</description>
        <position>4201</position>
       <code><![CDATA[			<value id="%s">%n				<interval>%n]]></code>
       <vdef>crit_id_20</vdef>

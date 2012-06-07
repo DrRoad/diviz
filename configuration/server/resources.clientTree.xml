@@ -23,12 +23,6 @@
 		<resource name="local___generic_program___1.1"/>
 	</type>
 	
-	<type name="UNSORTED" collapsed="0">
-		<resource name="ITTB___plotStarGraphPerformanceTable___1.0"/>
-		<resource name="ITTB___plotAlternativesAssignments___1.0"/>
-		<resource name="ITTB___plotFuzzyCategoriesValues___1.0" />
-	</type>
-
 	<type name="Calculation components" collapsed="0">
 		
 		<type name="Value techniques" collapsed="0">	
@@ -90,8 +84,7 @@
 			</type>
 			
 			<type name="Relation construction" collapsed="0">
-				<resource name="ITTB___advancedCutRelations___1.0"/>
-				<resource name="J-MCDA___cutRelation___0.5.1"/>
+				<resource name="ITTB___cutRelation___1.0"/>
 				<resource name="PyXMCDA___CondorcetRobustnessRelation___1.0"/>
 				<resource name="J-MCDA___ElectreConcordance___0.5.1"/>
 				<resource name="J-MCDA___ElectreDiscordances___0.5.1"/>
@@ -105,8 +98,7 @@
 			
 			<type name="Relation exploitation" collapsed="0">
 				<type name="Ranking" collapsed="0">
-					<resource name="ITTB___advancedAlternativesRankingViaQualificationDistillation___1.0"/>
-					<resource name="RXMCDA___alternativesRankingViaQualificationDistillation___1.0" />
+					<resource name="ITTB___alternativesRankingViaQualificationDistillation___1.0"/>
 					<resource name="RXMCDA___computeAlternativesQualification___1.0" />
 					<resource name="RXMCDA___plotGaiaPlane___1.0" />
 					<resource name="RXMCDA___Promethee1Ranking___1.0" />
@@ -177,24 +169,18 @@
 		
 		<type name="Data visualisation" collapsed="0">
 			<resource name="ws-Mcc___mccPlotClusters___1.0"/>
-			<resource name="ITTB___plotAlternativesAffectations___1.0"/>
-			<resource name="ITTB___advancedPlotAlternativesComparisons___1.0"/>
-			<resource name="RXMCDA___plotAlternativesComparisons___1.0"/>
-			<resource name="ITTB___advancedPlotAlternativesValues___1.0"/>
-			<resource name="RXMCDA___plotAlternativesValues___1.0"/>
-			<resource name="ITTB___advancedPlotAlternativesValuesPreorder___1.0"/>
-			<resource name="RXMCDA___plotAlternativesValuesPreorder___1.0"/>
-			<resource name="ITTB___advancedPlotCriteriaComparisons___1.0"/>
-			<resource name="RXMCDA___plotCriteriaComparisons___1.0"/>
-			<resource name="ITTB___advancedPlotCriteriaValues___1.0"/>
-			<resource name="RXMCDA___plotCriteriaValues___1.0"/>
-			<resource name="ITTB___advancedPlotCriteriaValuesPreorder___1.0"/>
-			<resource name="RXMCDA___plotCriteriaValuesPreorder___1.0"/>
-			<resource name="ITTB___advancedPlotNumericPerformanceTable___1.0"/>
-			<resource name="RXMCDA___plotNumericPerformanceTable___1.0"/>
-			<resource name="ITTB___advancedPlotValueFunctions___1.0"/>
+			<resource name="ITTB___plotAlternativesAssignments___1.0"/>
+			<resource name="ITTB___plotAlternativesComparisons___1.0"/>
+			<resource name="ITTB___plotAlternativesValues___1.0"/>
+			<resource name="ITTB___plotAlternativesValuesPreorder___1.0"/>
+			<resource name="ITTB___plotCriteriaComparisons___1.0"/>
+			<resource name="ITTB___plotCriteriaValues___1.0"/>
+			<resource name="ITTB___plotCriteriaValuesPreorder___1.0"/>
+			<resource name="ITTB___plotFuzzyCategoriesValues___1.0" />
+			<resource name="ITTB___plotNumericPerformanceTable___1.0"/>
+			<resource name="ITTB___plotValueFunctions___1.0"/>
+			<resource name="ITTB___plotStarGraphPerformanceTable___1.0"/>
 			<resource name="UTAR___plotValueFunctions___1.0"/>
-			<resource name="ITTB___starGraphPerformanceTable___1.0"/>
 			<resource name="UTAR___XYPlotAlternativesValues___1.0"/>
 		</type>
 		
@@ -207,15 +193,17 @@
 		</type>
 		
 	</type>
-	
-	<!-- <type name="Development" collapsed="1">
-		<resource name="DecisionDeck___kappalabServer___1.0"/>
-		<resource name="DecisionDeck___kappalab___1.0"/>
-		<resource name="DecisionDeck___splitXMCDA___1.0"/>
-		<resource name="DecisionDeck___normalize___1.0"/>
-		<resource name="DecisionDeck___kappalab_O2I___1.0"/>
-		<resource name="DecisionDeck___kappalabComponent___1.0"/>
-		<resource name="DecisionDeck___assembleXMCDA___1.0"/>
-		</type> -->
+
+	<type name="Deprecated" collapsed="1">
+		<resource name="J-MCDA___cutRelation___0.5.1"/>
+		<resource name="RXMCDA___alternativesRankingViaQualificationDistillation___1.0" />
+		<resource name="RXMCDA___plotAlternativesComparisons___1.0"/>
+		<resource name="RXMCDA___plotAlternativesValues___1.0"/>
+		<resource name="RXMCDA___plotAlternativesValuesPreorder___1.0"/>
+		<resource name="RXMCDA___plotCriteriaComparisons___1.0"/>
+		<resource name="RXMCDA___plotCriteriaValues___1.0"/>
+		<resource name="RXMCDA___plotCriteriaValuesPreorder___1.0"/>
+		<resource name="RXMCDA___plotNumericPerformanceTable___1.0"/>
+	</type>
 	
 </resourcesTree>
