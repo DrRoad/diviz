@@ -3,16 +3,16 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2012-04-26 13:23:06 +0000">
-  <program provider="ITTB" name="advancedPlotAlternativesValues" version="1.0" />
+<program_description export_date="2012-06-07 07:37:00 +0000">
+  <program provider="ITTB" name="plotAlternativesValues" version="1.0" />
   <from desc_id="S8888" />
   <description><![CDATA[This web service generates a barplot or a pie plot representing a numeric quantity for each alternative, like, e.g., an importance value. Compared to the web service plotAlternativesValues, some parameters are added. Colors can be used and the title of the plot can be typed. In the case of a bar chart, the axis-labels can also be typed. The alternatives' evaluations are supposed to be real or integer numeric values.]]></description>
   <parameters>
-    <parameter id="advancedPlotAlternativesValues-cmdline" type="command" ismandatory="1">
-      <name>advancedPlotAlternativesValues</name>
+    <parameter id="plotAlternativesValues-cmdline" type="command" ismandatory="1">
+      <name>plotAlternativesValues</name>
       <description></description>
       <position>100000</position>
-      <code>$callXMCDAService advancedPlotAlternativesValues-ITTB -S </code>
+      <code>$callXMCDAService plotAlternativesValues-ITTB -S </code>
     </parameter>
 
 

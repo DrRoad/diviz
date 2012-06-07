@@ -3,37 +3,37 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2012-05-14 07:30:34 +0000">
-  <program provider="ITTB" name="advancedPlotValueFunctions" version="1.0" />
+<program_description export_date="2012-06-07 07:37:00 +0000">
+  <program provider="ITTB" name="plotCriteriaValuesPreorder" version="1.0" />
   <from desc_id="S8888" />
-  <description><![CDATA[This web service allows to plot utility functions. Compared to the web service plotValueFunctions, some parameters are added. Colors can be used. You can specify how to display the utility functions: by line, by column or by square. A linear interpolation can be processed in order to connect the different points in the generated utility function.]]></description>
+  <description><![CDATA[This web service generates a graph representing a preorder on the criteria, according to numerical values taken by the criteria (the "best" criteria has the highest value). Compared to the web service plotCriteriaValuesPreorder, some parameters are added. Colors can be used and the title of the graph can be typed. You can choose between an increasing or a decreasing order for the graph. It is also possible to show the name of the criteria instead of the id, etc. The criteria evaluations are supposed to be real or integer numeric values.]]></description>
   <parameters>
-    <parameter id="advancedPlotValueFunctions-cmdline" type="command" ismandatory="1">
-      <name>advancedPlotValueFunctions</name>
+    <parameter id="plotCriteriaValuesPreorder-cmdline" type="command" ismandatory="1">
+      <name>plotCriteriaValuesPreorder</name>
       <description></description>
       <position>100000</position>
-      <code>$callXMCDAService advancedPlotValueFunctions-ITTB -S </code>
+      <code>$callXMCDAService plotCriteriaValuesPreorder-ITTB -S </code>
     </parameter>
 
 
-    <parameter id="methodPlotOptions" ishidden="0" type="input">
-      <name>methodPlotOptions</name>
+    <parameter id="options" ishidden="0" type="input">
+      <name>options</name>
       <description><![CDATA[
-
+                       Generates a graph taking into account the proposed options.
                    ]]></description>
       <position>100003</position>
       <code/> 
       <types>
         <type>methodParameters</type>
       </types>
-      <vdef>methodPlotOptions.xml</vdef>
-      <dep>(methodPlotOptions-use-file-dep:value="1")</dep>
+      <vdef>options.xml</vdef>
+      <dep>(options-use-file-dep:value="1")</dep>
 
     </parameter>
 
-    <parameter id="methodPlotOptions-use-file-dep" ishidden="0" type="boolean">
-      <name>Supply methodPlotOptions as a file?</name>
-      <description>Supply methodPlotOptions as a file?</description>
+    <parameter id="options-use-file-dep" ishidden="0" type="boolean">
+      <name>Supply options as a file?</name>
+      <description>Supply options as a file?</description>
       <position>3003</position>
       <code/>
       <vdef>0</vdef>
@@ -43,180 +43,182 @@
 
 
 
-    <parameter id="methodPlotOptions-gui" ishidden="1" type="code">
-      <name>methodPlotOptions</name>
+    <parameter id="options-gui" ishidden="1" type="code">
+      <name>options</name>
       <description><![CDATA[
-
+                       Generates a graph taking into account the proposed options.
                    ]]></description>
       <position>300</position>
-      <code><![CDATA[#methodPlotOptions: methodPlotOptions.xml
-cat > methodPlotOptions.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
+      <code><![CDATA[#options: options.xml
+cat > options.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="xmcdaKappalab.xsl"?>
 <xmcda:XMCDA xmlns:xmcda="http://www.decision-deck.org/2009/XMCDA-2.0.0"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.decision-deck.org/2009/XMCDA-2.0.0 http://www.decision-deck.org/xmcda/_downloads/XMCDA-2.0.0.xsd">]]></code>
-      <dep>(methodPlotOptions-use-file-dep:value="0")</dep>
+      <dep>(options-use-file-dep:value="0")</dep>
 
     </parameter>
 
 
-    <parameter id="methodPlotOptions-gui-301" ishidden="1" type="code">
+    <parameter id="options-gui-301" ishidden="1" type="code">
       <name />
       <description />
       <position>301</position>
       <code><![CDATA[
                    
-					<methodParameters>	 
-						  <parameter id="unique_plot" name="Unique plot">
+					<methodParameters>
+						  <parameter id="plot_title" name="Plot Title">
 							<value>
             					<label>]]></code>
-      <dep>(methodPlotOptions-use-file-dep:value="0")</dep>
+      <dep>(options-use-file-dep:value="0")</dep>
 
     </parameter>
 
 
-    <parameter id="methodPlotOptions-gui-value-placeholder-1" ishidden="0" type="enum">
-      <name>Unique or multiple plot(s)?</name>
+    <parameter id="options-gui-value-placeholder-1" ishidden="0" type="string">
+      <name>Chart title:</name>
+      <indent>1</indent>
       <description>TODO</description>
       <position>302</position>
-      <vlist>
-        <item id="true">
-          <description>Unique</description>
-          <code>true</code>
-        </item>
-        <item id="false">
-          <description>Multiple</description>
-          <code>false</code>
-        </item>
-      </vlist>
-      <vdef>true</vdef>
-      <dep>(methodPlotOptions-use-file-dep:value="0")</dep>
+
+      <code>%s</code>
+      <vdef></vdef>
+      <dep>(options-use-file-dep:value="0")</dep>
 
     </parameter>
 
-    <parameter id="methodPlotOptions-gui-303" ishidden="1" type="code">
+
+    <parameter id="options-gui-303" ishidden="1" type="code">
       <name />
       <description />
       <position>303</position>
       <code><![CDATA[</label>
        						 </value>
 						</parameter>
-						 <parameter id="plots_display" name="Plots' display">
+						<parameter id="plot_order" name="Plot order">
 							<value>
             					<label>]]></code>
-      <dep>(methodPlotOptions-use-file-dep:value="0")</dep>
+      <dep>(options-use-file-dep:value="0")</dep>
 
     </parameter>
 
 
-    <parameter id="methodPlotOptions-gui-value-placeholder-2" ishidden="0" type="enum">
-      <name>Plots arrangement</name>
+    <parameter id="options-gui-value-placeholder-2" ishidden="0" type="enum">
+      <name>Order:</name>
       <description>TODO</description>
       <position>304</position>
       <vlist>
-        <item id="by_column">
-          <description>Column</description>
-          <code>column</code>
+        <item id="increasing">
+          <description>Ascending</description>
+          <code>increasing</code>
         </item>
-        <item id="by_line">
-          <description>Line</description>
-          <code>line</code>
-        </item>
-        <item id="by_square">
-          <description>Grid</description>
-          <code>grid</code>
+        <item id="decreasing">
+          <description>Descending</description>
+          <code>decreasing</code>
         </item>
       </vlist>
-      <vdef>by_column</vdef>
-      <dep>(methodPlotOptions-use-file-dep:value="0") AND (methodPlotOptions-gui-value-placeholder-1:type="true")</dep>
+      <vdef>decreasing</vdef>
+      <dep>(options-use-file-dep:value="0")</dep>
 
     </parameter>
 
-    <parameter id="methodPlotOptions-gui-305" ishidden="1" type="code">
+    <parameter id="options-gui-305" ishidden="1" type="code">
       <name />
       <description />
       <position>305</position>
       <code><![CDATA[</label>
        						 </value>
 						</parameter>
-						<parameter id="linear_interpolation" name="Linear interpolation">
+						<parameter id="node_shape" name="Node shape">
 							<value>
             					<label>]]></code>
-      <dep>(methodPlotOptions-use-file-dep:value="0")</dep>
+      <dep>(options-use-file-dep:value="0")</dep>
 
     </parameter>
 
 
-    <parameter id="methodPlotOptions-gui-value-placeholder-3" ishidden="0" type="enum">
-      <name>Linear interpolation ?</name>
+    <parameter id="options-gui-value-placeholder-3" ishidden="0" type="enum">
+      <name>Shape of the nodes?</name>
       <description>TODO</description>
       <position>306</position>
       <vlist>
-        <item id="true">
-          <description>Yes</description>
-          <code>true</code>
+        <item id="rectangle">
+          <description>Rectangle</description>
+          <code>Rectangle</code>
         </item>
-        <item id="false">
-          <description>No</description>
-          <code>false</code>
+        <item id="square">
+          <description>Square</description>
+          <code>Square</code>
+        </item>
+        <item id="ellipse">
+          <description>Ellipse</description>
+          <code>Ellipse</code>
+        </item>
+        <item id="circle">
+          <description>Circle</description>
+          <code>Circle</code>
+        </item>
+        <item id="diamond">
+          <description>Diamond</description>
+          <code>Diamond</code>
         </item>
       </vlist>
-      <vdef>true</vdef>
-      <dep>(methodPlotOptions-use-file-dep:value="0")</dep>
+      <vdef>rectangle</vdef>
+      <dep>(options-use-file-dep:value="0")</dep>
 
     </parameter>
 
-    <parameter id="methodPlotOptions-gui-307" ishidden="1" type="code">
+    <parameter id="options-gui-307" ishidden="1" type="code">
       <name />
       <description />
       <position>307</position>
       <code><![CDATA[</label>
        						 </value>
 						</parameter>
-						<parameter id="vertical_lines" name="Vertical lines">
+						 <parameter id="show_names" name="Show criteria names">
 							<value>
             					<label>]]></code>
-      <dep>(methodPlotOptions-use-file-dep:value="0")</dep>
+      <dep>(options-use-file-dep:value="0")</dep>
 
     </parameter>
 
 
-    <parameter id="methodPlotOptions-gui-value-placeholder-4" ishidden="0" type="enum">
-      <name>Add vertical bars ?</name>
+    <parameter id="options-gui-value-placeholder-4" ishidden="0" type="enum">
+      <name>Criterion name or id?</name>
       <description>TODO</description>
       <position>308</position>
       <vlist>
         <item id="true">
-          <description>Yes</description>
+          <description>name</description>
           <code>true</code>
         </item>
         <item id="false">
-          <description>No</description>
+          <description>id</description>
           <code>false</code>
         </item>
       </vlist>
       <vdef>false</vdef>
-      <dep>(methodPlotOptions-use-file-dep:value="0") AND (methodPlotOptions-gui-value-placeholder-3:type="false")</dep>
+      <dep>(options-use-file-dep:value="0")</dep>
 
     </parameter>
 
-    <parameter id="methodPlotOptions-gui-309" ishidden="1" type="code">
+    <parameter id="options-gui-309" ishidden="1" type="code">
       <name />
       <description />
       <position>309</position>
       <code><![CDATA[</label>
        						 </value>
-						</parameter>	
-						 <parameter id="use_color" name="Colors in the plots">
+						</parameter>
+						 <parameter id="use_color" name="Colors in the graph">
 							<value>
             					<label>]]></code>
-      <dep>(methodPlotOptions-use-file-dep:value="0")</dep>
+      <dep>(options-use-file-dep:value="0")</dep>
 
     </parameter>
 
 
-    <parameter id="methodPlotOptions-gui-value-placeholder-5" ishidden="0" type="enum">
-      <name>Use Colors?</name>
+    <parameter id="options-gui-value-placeholder-5" ishidden="0" type="enum">
+      <name>Use colors?</name>
       <description>TODO</description>
       <position>310</position>
       <vlist>
@@ -230,11 +232,11 @@ cat > methodPlotOptions.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
         </item>
       </vlist>
       <vdef>false</vdef>
-      <dep>(methodPlotOptions-use-file-dep:value="0")</dep>
+      <dep>(options-use-file-dep:value="0")</dep>
 
     </parameter>
 
-    <parameter id="methodPlotOptions-gui-311" ishidden="1" type="code">
+    <parameter id="options-gui-311" ishidden="1" type="code">
       <name />
       <description />
       <position>311</position>
@@ -244,12 +246,12 @@ cat > methodPlotOptions.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 						 <parameter id="selected_color" name="Selected color">
 							<value>
             					<label>]]></code>
-      <dep>(methodPlotOptions-use-file-dep:value="0")</dep>
+      <dep>(options-use-file-dep:value="0")</dep>
 
     </parameter>
 
 
-    <parameter id="methodPlotOptions-gui-value-placeholder-6" ishidden="0" type="enum">
+    <parameter id="options-gui-value-placeholder-6" ishidden="0" type="enum">
       <name>Choose color:</name>
       <description>TODO</description>
       <position>312</position>
@@ -284,37 +286,37 @@ cat > methodPlotOptions.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
         </item>
       </vlist>
       <vdef>black</vdef>
-      <dep>(methodPlotOptions-use-file-dep:value="0") AND (methodPlotOptions-gui-value-placeholder-5:type="true")</dep>
+      <dep>(options-use-file-dep:value="0") AND (options-gui-value-placeholder-5:type="true")</dep>
 
     </parameter>
 
-    <parameter id="methodPlotOptions-gui-313" ishidden="1" type="code">
+    <parameter id="options-gui-313" ishidden="1" type="code">
       <name />
       <description />
       <position>313</position>
       <code><![CDATA[</label>
        						 </value>
-       						 </parameter>
+						</parameter >
 					</methodParameters>
 				
                ]]></code>
-      <dep>(methodPlotOptions-use-file-dep:value="0")</dep>
+      <dep>(options-use-file-dep:value="0")</dep>
 
     </parameter>
-    <parameter id="methodPlotOptions-gui-EOF" ishidden="1" type="code">
-      <name>methodPlotOptions EOF</name>
+    <parameter id="options-gui-EOF" ishidden="1" type="code">
+      <name>options EOF</name>
       <description></description>
       <position>314</position>
       <code><![CDATA[</xmcda:XMCDA>%nEOF%n]]></code>
-      <dep>(methodPlotOptions-use-file-dep:value="0")</dep>
+      <dep>(options-use-file-dep:value="0")</dep>
 
     </parameter>
 
-    <parameter id="methodPlotOptions-cmdline" ishidden="1" type="code">
-      <name>methodPlotOptions insertion in cmd-line</name>
+    <parameter id="options-cmdline" ishidden="1" type="code">
+      <name>options insertion in cmd-line</name>
       <description></description>
       <position>100003</position>
-      <code> methodPlotOptions:methodPlotOptions.xml</code>
+      <code> options:options.xml</code>
       <dep/>
     </parameter>
 
@@ -331,47 +333,35 @@ cat > methodPlotOptions.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
         <type>criteria</type>
       </types>
       <vdef>criteria.xml</vdef>
-      <dep>(criteria-dep:value="1")</dep>
-
-    </parameter>
-    <parameter id="criteria-dep" ishidden="0" type="boolean">
-      <name>Use criteria as input?</name>
-      <description>Use criteria as input?</description>
-      <position>3004</position>
-      <code/>
-      <vdef>1</vdef>
+      <dep/>
     </parameter>
 
 
 
-    <parameter id="valueFunctions" ishidden="0" type="input">
-      <name>valueFunctions</name>
-      <description><![CDATA[
-                       Values of utilities of chosen criteria abscissa - Utility functions
-                   ]]></description>
+    <parameter id="criteriaValues" ishidden="0" type="input">
+      <name>criteriaValues</name>
+      <description><![CDATA[A list of <criterionValue> representing a certain numeric quantity for each criterion, like, e.g., an importance value.]]></description>
       <position>100005</position>
-      <code> valueFunctions:valueFunctions.xml</code>
+      <code> criteriaValues:criteriaValues.xml</code>
       <types>
-        <type>criteria</type>
+        <type>criteriaValues</type>
       </types>
-      <vdef>valueFunctions.xml</vdef>
+      <vdef>criteriaValues.xml</vdef>
       <dep/>
     </parameter>
 
 
 
 
-    <parameter id="valueFunctionsPlot" ishidden="0" type="output">
-      <name>valueFunctionsPlot</name>
-      <description><![CDATA[
-                       A string containing the base64 representation of the png image of the generated multi-subplot.
-                   ]]></description>
+    <parameter id="criteriaValuesPlot" ishidden="0" type="output">
+      <name>criteriaValuesPlot</name>
+      <description><![CDATA[A string containing the base64 representation of the png image of the generated graph. ]]></description>
       <position>2006</position>
       <code/>
       <types>
         <type>criterionValue</type>
       </types>
-      <vdef>valueFunctionsPlot.xml</vdef>
+      <vdef>criteriaValuesPlot.xml</vdef>
     </parameter>
 
 

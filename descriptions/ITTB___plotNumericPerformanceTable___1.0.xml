@@ -3,16 +3,16 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2012-04-27 07:34:24 +0000">
-  <program provider="ITTB" name="advancedPlotNumericPerformanceTable" version="1.0" />
+<program_description export_date="2012-06-07 07:37:00 +0000">
+  <program provider="ITTB" name="plotNumericPerformanceTable" version="1.0" />
   <from desc_id="S8888" />
   <description><![CDATA[This web service generates a plot representing the performance table (abscissa: alternatives). Compared to the web service plotNumericPerformanceTable, several options are added. The generated plot can be a bar plot or pie plot. Colors can be used and the title of the plot can be typed. In the case of a bar chart, the axis-labels can also be typed. It is possible to have multiple images or only one image per plot: by column, by line or a grid. In the generated plot, you can also order the alternatives by name, by id or by values in an ascending or descending order.]]></description>
   <parameters>
-    <parameter id="advancedPlotNumericPerformanceTable-cmdline" type="command" ismandatory="1">
-      <name>advancedPlotNumericPerformanceTable</name>
+    <parameter id="plotNumericPerformanceTable-cmdline" type="command" ismandatory="1">
+      <name>plotNumericPerformanceTable</name>
       <description></description>
       <position>100000</position>
-      <code>$callXMCDAService advancedPlotNumericPerformanceTable-ITTB -S </code>
+      <code>$callXMCDAService plotNumericPerformanceTable-ITTB -S </code>
     </parameter>
 
 

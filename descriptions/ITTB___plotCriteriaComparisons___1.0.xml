@@ -3,16 +3,16 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2012-02-23 15:59:08 +0000">
-  <program provider="ITTB" name="advancedPlotCriteriaComparisons" version="1.0" />
+<program_description export_date="2012-06-07 07:37:00 +0000">
+  <program provider="ITTB" name="plotCriteriaComparisons" version="1.0" />
   <from desc_id="S8888" />
   <description><![CDATA[This web service generates a graph representing a partial preorder on the criteria. Compared to the web service plotCriteriaComparisons, some parameters are added. The generated graph can be valued. It can also be transitive. Several shapes for the nodes are proposed and colors can be used.]]></description>
   <parameters>
-    <parameter id="advancedPlotCriteriaComparisons-cmdline" type="command" ismandatory="1">
-      <name>advancedPlotCriteriaComparisons</name>
+    <parameter id="plotCriteriaComparisons-cmdline" type="command" ismandatory="1">
+      <name>plotCriteriaComparisons</name>
       <description></description>
       <position>100000</position>
-      <code>$callXMCDAService advancedPlotCriteriaComparisons-ITTB -S </code>
+      <code>$callXMCDAService plotCriteriaComparisons-ITTB -S </code>
     </parameter>
 
 

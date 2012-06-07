@@ -88,7 +88,7 @@
 			</type>
 			
 			<type name="Relation construction" collapsed="0">
-				<resource name="ITTB___cutRelations___1.0"/>
+				<resource name="ITTB___cutRelation___1.0"/>
 				<resource name="PyXMCDA___CondorcetRobustnessRelation___1.0"/>
 				<resource name="J-MCDA___ElectreConcordance___0.5.1"/>
 				<resource name="J-MCDA___ElectreDiscordances___0.5.1"/>

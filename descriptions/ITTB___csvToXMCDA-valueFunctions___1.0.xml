@@ -3,7 +3,7 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2012-03-16 08:04:50 +0000">
+<program_description export_date="2012-06-07 07:37:00 +0000">
   <program provider="ITTB" name="csvToXMCDA-valueFunctions" version="1.0" />
   <from desc_id="S8888" />
   <description><![CDATA[Transforms a file containing value functions from a comma-separated values (CSV) file to XMCDA compliant file, containing the criteria ids with their names and criterion functions (points).]]></description>

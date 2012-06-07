@@ -3,23 +3,23 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2012-04-26 13:40:04 +0000">
-  <program provider="ITTB" name="advancedPlotCriteriaValues" version="1.0" />
+<program_description export_date="2012-06-07 07:37:00 +0000">
+  <program provider="ITTB" name="plotValueFunctions" version="1.0" />
   <from desc_id="S8888" />
-  <description><![CDATA[This web service generates a barplot or a pie plot representing a numeric quantity for each criterion, like, e.g., an importance value. Compared to the web service plotCriteriaValues, some parameters are added. Colors can be used and the title of the plot can be typed. In the case of a bar chart, the axis-labels can also be typed. The criteria's evaluations are supposed to be real or integer numeric values.]]></description>
+  <description><![CDATA[This web service allows to plot utility functions. Compared to the web service plotValueFunctions, some parameters are added. Colors can be used. You can specify how to display the utility functions: by line, by column or by square. A linear interpolation can be processed in order to connect the different points in the generated utility function.]]></description>
   <parameters>
-    <parameter id="advancedPlotCriteriaValues-cmdline" type="command" ismandatory="1">
-      <name>advancedPlotCriteriaValues</name>
+    <parameter id="plotValueFunctions-cmdline" type="command" ismandatory="1">
+      <name>plotValueFunctions</name>
       <description></description>
       <position>100000</position>
-      <code>$callXMCDAService advancedPlotCriteriaValues-ITTB -S </code>
+      <code>$callXMCDAService plotValueFunctions-ITTB -S </code>
     </parameter>
 
 
     <parameter id="methodPlotOptions" ishidden="0" type="input">
       <name>methodPlotOptions</name>
       <description><![CDATA[
-                       Plot type method: choose between "Bar chart" and "Pie chart". The default plot is a bar chart.
+
                    ]]></description>
       <position>100003</position>
       <code/> 
@@ -46,7 +46,7 @@
     <parameter id="methodPlotOptions-gui" ishidden="1" type="code">
       <name>methodPlotOptions</name>
       <description><![CDATA[
-                       Plot type method: choose between "Bar chart" and "Pie chart". The default plot is a bar chart.
+
                    ]]></description>
       <position>300</position>
       <code><![CDATA[#methodPlotOptions: methodPlotOptions.xml
@@ -66,8 +66,8 @@ cat > methodPlotOptions.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <position>301</position>
       <code><![CDATA[
                    
-					<methodParameters>
-						<parameter id="chart_type" name="Chart type">
+					<methodParameters>	 
+						  <parameter id="unique_plot" name="Unique plot">
 							<value>
             					<label>]]></code>
       <dep>(methodPlotOptions-use-file-dep:value="0")</dep>
@@ -76,20 +76,20 @@ cat > methodPlotOptions.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 
 
     <parameter id="methodPlotOptions-gui-value-placeholder-1" ishidden="0" type="enum">
-      <name>Chart type:</name>
+      <name>Unique or multiple plot(s)?</name>
       <description>TODO</description>
       <position>302</position>
       <vlist>
-        <item id="bar_chart">
-          <description>bar chart</description>
-          <code>barChart</code>
+        <item id="true">
+          <description>Unique</description>
+          <code>true</code>
         </item>
-        <item id="pie_chart">
-          <description>pie chart</description>
-          <code>pieChart</code>
+        <item id="false">
+          <description>Multiple</description>
+          <code>false</code>
         </item>
       </vlist>
-      <vdef>bar_chart</vdef>
+      <vdef>true</vdef>
       <dep>(methodPlotOptions-use-file-dep:value="0")</dep>
 
     </parameter>
@@ -101,7 +101,7 @@ cat > methodPlotOptions.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <code><![CDATA[</label>
        						 </value>
 						</parameter>
-						<parameter id="order_by" name="Order by">
+						 <parameter id="plots_display" name="Plots' display">
 							<value>
             					<label>]]></code>
       <dep>(methodPlotOptions-use-file-dep:value="0")</dep>
@@ -110,25 +110,25 @@ cat > methodPlotOptions.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 
 
     <parameter id="methodPlotOptions-gui-value-placeholder-2" ishidden="0" type="enum">
-      <name>Order by:</name>
+      <name>Plots arrangement</name>
       <description>TODO</description>
       <position>304</position>
       <vlist>
-        <item id="order_by_name">
-          <description>name</description>
-          <code>name</code>
+        <item id="by_column">
+          <description>Column</description>
+          <code>column</code>
         </item>
-        <item id="order_by_id">
-          <description>id</description>
-          <code>id</code>
+        <item id="by_line">
+          <description>Line</description>
+          <code>line</code>
         </item>
-        <item id="order_by_values">
-          <description>values</description>
-          <code>values</code>
+        <item id="by_square">
+          <description>Grid</description>
+          <code>grid</code>
         </item>
       </vlist>
-      <vdef>order_by_values</vdef>
-      <dep>(methodPlotOptions-use-file-dep:value="0")</dep>
+      <vdef>by_column</vdef>
+      <dep>(methodPlotOptions-use-file-dep:value="0") AND (methodPlotOptions-gui-value-placeholder-1:type="true")</dep>
 
     </parameter>
 
@@ -139,7 +139,7 @@ cat > methodPlotOptions.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <code><![CDATA[</label>
        						 </value>
 						</parameter>
-						<parameter id="order" name="Order">
+						<parameter id="linear_interpolation" name="Linear interpolation">
 							<value>
             					<label>]]></code>
       <dep>(methodPlotOptions-use-file-dep:value="0")</dep>
@@ -148,20 +148,20 @@ cat > methodPlotOptions.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 
 
     <parameter id="methodPlotOptions-gui-value-placeholder-3" ishidden="0" type="enum">
-      <name>Order:</name>
+      <name>Linear interpolation ?</name>
       <description>TODO</description>
       <position>306</position>
       <vlist>
-        <item id="increasing">
-          <description>increasing</description>
-          <code>increasing</code>
+        <item id="true">
+          <description>Yes</description>
+          <code>true</code>
         </item>
-        <item id="decreasing">
-          <description>decreasing</description>
-          <code>decreasing</code>
+        <item id="false">
+          <description>No</description>
+          <code>false</code>
         </item>
       </vlist>
-      <vdef>increasing</vdef>
+      <vdef>true</vdef>
       <dep>(methodPlotOptions-use-file-dep:value="0")</dep>
 
     </parameter>
@@ -173,7 +173,7 @@ cat > methodPlotOptions.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <code><![CDATA[</label>
        						 </value>
 						</parameter>
-						<parameter id="use_color" name="Colors in the chart">
+						<parameter id="vertical_lines" name="Vertical lines">
 							<value>
             					<label>]]></code>
       <dep>(methodPlotOptions-use-file-dep:value="0")</dep>
@@ -182,21 +182,21 @@ cat > methodPlotOptions.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 
 
     <parameter id="methodPlotOptions-gui-value-placeholder-4" ishidden="0" type="enum">
-      <name>Colors:</name>
+      <name>Add vertical bars ?</name>
       <description>TODO</description>
       <position>308</position>
       <vlist>
         <item id="true">
-          <description>gradient</description>
+          <description>Yes</description>
           <code>true</code>
         </item>
         <item id="false">
-          <description>black and white</description>
+          <description>No</description>
           <code>false</code>
         </item>
       </vlist>
       <vdef>false</vdef>
-      <dep>(methodPlotOptions-use-file-dep:value="0")</dep>
+      <dep>(methodPlotOptions-use-file-dep:value="0") AND (methodPlotOptions-gui-value-placeholder-3:type="false")</dep>
 
     </parameter>
 
@@ -206,8 +206,8 @@ cat > methodPlotOptions.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <position>309</position>
       <code><![CDATA[</label>
        						 </value>
-						</parameter>
-						<parameter id="initial_color" name="Initial color">
+						</parameter>	
+						 <parameter id="use_color" name="Colors in the plots">
 							<value>
             					<label>]]></code>
       <dep>(methodPlotOptions-use-file-dep:value="0")</dep>
@@ -216,41 +216,21 @@ cat > methodPlotOptions.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 
 
     <parameter id="methodPlotOptions-gui-value-placeholder-5" ishidden="0" type="enum">
-      <name>Initial color:</name>
+      <name>Use Colors?</name>
       <description>TODO</description>
       <position>310</position>
       <vlist>
-        <item id="black">
-          <description>black</description>
-          <code>black</code>
+        <item id="true">
+          <description>Yes</description>
+          <code>true</code>
         </item>
-        <item id="red">
-          <description>red</description>
-          <code>red</code>
-        </item>
-        <item id="blue">
-          <description>blue</description>
-          <code>blue</code>
-        </item>
-        <item id="green">
-          <description>green</description>
-          <code>green</code>
-        </item>
-        <item id="yellow">
-          <description>yellow</description>
-          <code>yellow</code>
-        </item>
-        <item id="magenta">
-          <description>magenta</description>
-          <code>magenta</code>
-        </item>
-        <item id="cyan">
-          <description>cyan</description>
-          <code>cyan</code>
+        <item id="false">
+          <description>No</description>
+          <code>false</code>
         </item>
       </vlist>
-      <vdef>black</vdef>
-      <dep>(methodPlotOptions-use-file-dep:value="0") AND (methodPlotOptions-gui-value-placeholder-4:type="true")</dep>
+      <vdef>false</vdef>
+      <dep>(methodPlotOptions-use-file-dep:value="0")</dep>
 
     </parameter>
 
@@ -261,7 +241,7 @@ cat > methodPlotOptions.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <code><![CDATA[</label>
        						 </value>
 						</parameter>
-						<parameter id="final_color" name="Final color">
+						 <parameter id="selected_color" name="Selected color">
 							<value>
             					<label>]]></code>
       <dep>(methodPlotOptions-use-file-dep:value="0")</dep>
@@ -270,41 +250,41 @@ cat > methodPlotOptions.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
 
 
     <parameter id="methodPlotOptions-gui-value-placeholder-6" ishidden="0" type="enum">
-      <name>Final color:</name>
+      <name>Choose color:</name>
       <description>TODO</description>
       <position>312</position>
       <vlist>
         <item id="black">
-          <description>black</description>
-          <code>black</code>
+          <description>Black</description>
+          <code>Black</code>
         </item>
         <item id="red">
-          <description>red</description>
-          <code>red</code>
+          <description>Red</description>
+          <code>Red</code>
         </item>
         <item id="blue">
-          <description>blue</description>
-          <code>blue</code>
+          <description>Blue</description>
+          <code>Blue</code>
         </item>
         <item id="green">
-          <description>green</description>
-          <code>green</code>
+          <description>Green</description>
+          <code>Green</code>
         </item>
         <item id="yellow">
-          <description>yellow</description>
-          <code>yellow</code>
+          <description>Yellow</description>
+          <code>Yellow</code>
         </item>
         <item id="magenta">
-          <description>magenta</description>
-          <code>magenta</code>
+          <description>Magenta</description>
+          <code>Magenta</code>
         </item>
         <item id="cyan">
-          <description>cyan</description>
-          <code>cyan</code>
+          <description>Cyan</description>
+          <code>Cyan</code>
         </item>
       </vlist>
       <vdef>black</vdef>
-      <dep>(methodPlotOptions-use-file-dep:value="0") AND (methodPlotOptions-gui-value-placeholder-4:type="true")</dep>
+      <dep>(methodPlotOptions-use-file-dep:value="0") AND (methodPlotOptions-gui-value-placeholder-5:type="true")</dep>
 
     </parameter>
 
@@ -314,91 +294,7 @@ cat > methodPlotOptions.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <position>313</position>
       <code><![CDATA[</label>
        						 </value>
-						</parameter>
-						<parameter id= "chart_title" name="Chart title">
-							<value>
-            					<label>]]></code>
-      <dep>(methodPlotOptions-use-file-dep:value="0")</dep>
-
-    </parameter>
-
-
-    <parameter id="methodPlotOptions-gui-value-placeholder-7" ishidden="0" type="string">
-      <name>Chart title:</name>
-      <indent>1</indent>
-      <description>TODO</description>
-      <position>314</position>
-
-      <code>%s</code>
-      <vdef></vdef>
-      <dep>(methodPlotOptions-use-file-dep:value="0")</dep>
-
-    </parameter>
-
-
-    <parameter id="methodPlotOptions-gui-315" ishidden="1" type="code">
-      <name />
-      <description />
-      <position>315</position>
-      <code><![CDATA[</label>
-       						 </value>
-						</parameter>
-						<parameter id="domain_axis" name="Domain axis label">
-							<value>
-            					<label>]]></code>
-      <dep>(methodPlotOptions-use-file-dep:value="0")</dep>
-
-    </parameter>
-
-
-    <parameter id="methodPlotOptions-gui-value-placeholder-8" ishidden="0" type="string">
-      <name>X axis label:</name>
-      <indent>1</indent>
-      <description>TODO</description>
-      <position>316</position>
-
-      <code>%s</code>
-      <vdef></vdef>
-      <dep>(methodPlotOptions-use-file-dep:value="0") AND (methodPlotOptions-gui-value-placeholder-1:type="bar_chart")</dep>
-
-    </parameter>
-
-
-    <parameter id="methodPlotOptions-gui-317" ishidden="1" type="code">
-      <name />
-      <description />
-      <position>317</position>
-      <code><![CDATA[</label>
-       						 </value>
-						</parameter >
-						<parameter id="range_axis" name="Range axis label">
-							<value>
-            					<label>]]></code>
-      <dep>(methodPlotOptions-use-file-dep:value="0")</dep>
-
-    </parameter>
-
-
-    <parameter id="methodPlotOptions-gui-value-placeholder-9" ishidden="0" type="string">
-      <name>Y axis label:</name>
-      <indent>1</indent>
-      <description>TODO</description>
-      <position>318</position>
-
-      <code>%s</code>
-      <vdef></vdef>
-      <dep>(methodPlotOptions-use-file-dep:value="0") AND (methodPlotOptions-gui-value-placeholder-1:type="bar_chart")</dep>
-
-    </parameter>
-
-
-    <parameter id="methodPlotOptions-gui-319" ishidden="1" type="code">
-      <name />
-      <description />
-      <position>319</position>
-      <code><![CDATA[</label>
-       						 </value>
-						</parameter>
+       						 </parameter>
 					</methodParameters>
 				
                ]]></code>
@@ -408,7 +304,7 @@ cat > methodPlotOptions.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
     <parameter id="methodPlotOptions-gui-EOF" ishidden="1" type="code">
       <name>methodPlotOptions EOF</name>
       <description></description>
-      <position>320</position>
+      <position>314</position>
       <code><![CDATA[</xmcda:XMCDA>%nEOF%n]]></code>
       <dep>(methodPlotOptions-use-file-dep:value="0")</dep>
 
@@ -435,35 +331,47 @@ cat > methodPlotOptions.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
         <type>criteria</type>
       </types>
       <vdef>criteria.xml</vdef>
-      <dep/>
+      <dep>(criteria-dep:value="1")</dep>
+
+    </parameter>
+    <parameter id="criteria-dep" ishidden="0" type="boolean">
+      <name>Use criteria as input?</name>
+      <description>Use criteria as input?</description>
+      <position>3004</position>
+      <code/>
+      <vdef>1</vdef>
     </parameter>
 
 
 
-    <parameter id="criteriaValues" ishidden="0" type="input">
-      <name>criteriaValues</name>
-      <description><![CDATA[A list of <criterionValue> representing a certain numeric quantity for each criterion, like, e.g., an importance value.]]></description>
+    <parameter id="valueFunctions" ishidden="0" type="input">
+      <name>valueFunctions</name>
+      <description><![CDATA[
+                       Values of utilities of chosen criteria abscissa - Utility functions
+                   ]]></description>
       <position>100005</position>
-      <code> criteriaValues:criteriaValues.xml</code>
+      <code> valueFunctions:valueFunctions.xml</code>
       <types>
-        <type>criteriaValues</type>
+        <type>criteria</type>
       </types>
-      <vdef>criteriaValues.xml</vdef>
+      <vdef>valueFunctions.xml</vdef>
       <dep/>
     </parameter>
 
 
 
 
-    <parameter id="criteriaValuesPlot" ishidden="0" type="output">
-      <name>criteriaValuesPlot</name>
-      <description><![CDATA[A string containing the base64 representation of the png image of the generated barplot or pieplot . ]]></description>
+    <parameter id="valueFunctionsPlot" ishidden="0" type="output">
+      <name>valueFunctionsPlot</name>
+      <description><![CDATA[
+                       A string containing the base64 representation of the png image of the generated multi-subplot.
+                   ]]></description>
       <position>2006</position>
       <code/>
       <types>
         <type>criterionValue</type>
       </types>
-      <vdef>criteriaValuesPlot.xml</vdef>
+      <vdef>valueFunctionsPlot.xml</vdef>
     </parameter>
 
 
