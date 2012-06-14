@@ -3,8 +3,8 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2012-06-07 07:37:00 +0000">
-  <program provider="ITTB" name="csvToXMCDA-categoriesProfiles" version="1.0" />
+<program_description export_date="2012-06-14 11:07:53 +0000">
+  <program provider="PyXMCDA" name="csvToXMCDA-categoriesProfiles" version="1.0" />
   <from desc_id="S8888" />
   <description><![CDATA[Transforms a file containing categories profiles from a comma-separated values (CSV) file to XMCDA compliant file, containing the alternatives ids with their limits (lowerCategory and upperCategory).]]></description>
   <parameters>
@@ -12,17 +12,20 @@
       <name>csvToXMCDA-categoriesProfiles</name>
       <description></description>
       <position>100000</position>
-      <code>$callXMCDAService csvToXMCDA-categoriesProfiles-ITTB -S </code>
+      <code>$callXMCDAService csvToXMCDA-categoriesProfiles-PyXMCDA -S </code>
     </parameter>
 
 
     <parameter id="categoriesProfiles_csv" ishidden="0" type="input">
       <name>categoriesProfiles (csv)</name>
       <description><![CDATA[The categories profiles as a CSV file.
- Example:
-    pMG,Medium,Good
-    pBM,Bad,Medium
-                ]]></description>
+
+Example::
+
+  pMG,Medium,Good
+  pMB,Bad,Medium
+
+]]></description>
       <position>100003</position>
       <code> categoriesProfiles.csv:categoriesProfiles.csv.xml</code>
       <types>
@@ -35,15 +38,15 @@
 
 
 
-    <parameter id="categories_profiles" ishidden="0" type="output">
-      <name>categories_profiles</name>
+    <parameter id="categoriesProfiles" ishidden="0" type="output">
+      <name>categoriesProfiles</name>
       <description><![CDATA[The equivalent categories profiles.]]></description>
       <position>2004</position>
       <code/>
       <types>
-        <type>projectReference</type>
+        <type>categoriesProfiles</type>
       </types>
-      <vdef>categories_profiles.xml</vdef>
+      <vdef>categoriesProfiles.xml</vdef>
     </parameter>
 
 

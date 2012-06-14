@@ -1,11 +1,10 @@
 
 - Integrated new Decision Deck XMCDA web-services:
 
-  ITTB: 23 new WS by Dhouha Kbaier, Télécom Bretagne
+  ITTB: 22 new WS by Dhouha Kbaier, Télécom Bretagne
     - alternativesRankingViaQualificationDistillation
     - computeNumericPerformanceTable
     - criteriaDescriptiveStatistics
-    - csvToXMCDA-categoriesProfiles
     - cutRelation
     - performanceTableFilter
     - performanceTableTransformation
@@ -34,7 +33,8 @@
     - mccPlotClusters
     - mccPreferenceRelation
 
-  PyXMCDA: 1 new WS by Sébastien Bigaret, Télécom Bretagne
+  PyXMCDA: 2 new WS by Sébastien Bigaret, Télécom Bretagne
+    - csvToXMCDA-categoriesProfiles
     - csvToXMCDA-valueFunctions
 
   PyXMCDA MccP has been removed (replaced by the programs supplied by ws-Mcc)

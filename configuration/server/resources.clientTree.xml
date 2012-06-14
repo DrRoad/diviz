@@ -160,7 +160,7 @@
 		
 		<type name="CSV converters" collapsed = "0">
 			<resource name="PyXMCDA___csvToXMCDA-alternativesValues___1.0"/>
-			<resource name="ITTB___csvToXMCDA-categoriesProfiles___1.0"/>
+			<resource name="PyXMCDA___csvToXMCDA-categoriesProfiles___1.0"/>
 			<resource name="PyXMCDA___csvToXMCDA-criteriaThresholds___1.2"/>
 			<resource name="PyXMCDA___csvToXMCDA-criteriaValues___1.2"/>
 			<resource name="PyXMCDA___csvToXMCDA-performanceTable___1.0"/>
