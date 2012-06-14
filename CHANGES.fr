@@ -1,3 +1,5 @@
+diviz v1.9
+----------
 
 - Nouveaux web-services XMCDA Decision Deck disponibles:
 
