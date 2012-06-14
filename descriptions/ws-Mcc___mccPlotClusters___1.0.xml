@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+
+<!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
+
+<program_description export_date="2012-03-06 08:31:34 +0000">
+  <program provider="ws-Mcc" name="mccPlotClusters" version="1.0" />
+  <from desc_id="S8888" />
+  <description><![CDATA[This web service gives 4 different representations for a set of clusters of alternatives. There are two types of representations: detailed and summary. The first show all alternatives and the relations between them while the second represent each cluster as an element and contain the relations inside and between them. Each of these two types of representations are divided in two, one showing the ideal case where the current clustering result would be fully validated by the underlying relations between the alternatives, while the second showing the actual relations between alternatives. This is done in order to show the differences between the structure that we try to propose and the one that is really there. In order to the plots to be well represented, the names of the alternatives should be encoded in at most 3 characters.]]></description>
+  <parameters>
+    <parameter id="mccPlotClusters-cmdline" type="command" ismandatory="1">
+      <name>mccPlotClusters</name>
+      <description></description>
+      <position>100000</position>
+      <code>$callXMCDAService mccPlotClusters-ws-Mcc -S </code>
+    </parameter>
+
+
+    <parameter id="alternatives" ishidden="0" type="input">
+      <name>alternatives</name>
+      <description><![CDATA[A list of alternatives. Alternatives can be activated or deactivated via the <active> tag (true or false). By default (no <active> tag), alternatives are considered as active. ]]></description>
+      <position>100003</position>
+      <code> alternatives:alternatives.xml</code>
+      <types>
+        <type>alternatives</type>
+      </types>
+      <vdef>alternatives.xml</vdef>
+      <dep/>
+    </parameter>
+
+
+
+    <parameter id="preferenceRelation" ishidden="0" type="input">
+      <name>preferenceRelation</name>
+      <description><![CDATA[The preference relation between alternatives.]]></description>
+      <position>100004</position>
+      <code> preferenceRelation:preferenceRelation.xml</code>
+      <types>
+        <type>alternativesComparisons</type>
+      </types>
+      <vdef>preferenceRelation.xml</vdef>
+      <dep/>
+    </parameter>
+
+
+
+    <parameter id="alternativesAffectations" ishidden="0" type="input">
+      <name>alternativesAffectations</name>
+      <description><![CDATA[The alternatives affectations to the clusters.]]></description>
+      <position>100005</position>
+      <code> alternativesAffectations:alternativesAffectations.xml</code>
+      <types>
+        <type>alternativesAffectations</type>
+      </types>
+      <vdef>alternativesAffectations.xml</vdef>
+      <dep/>
+    </parameter>
+
+
+
+    <parameter id="clustersRelations" ishidden="0" type="input">
+      <name>clustersRelations</name>
+      <description><![CDATA[The relation between clusters.]]></description>
+      <position>100006</position>
+      <code> clustersRelations:clustersRelations.xml</code>
+      <types>
+        <type>categoriesComparisons</type>
+      </types>
+      <vdef>clustersRelations.xml</vdef>
+      <dep/>
+    </parameter>
+
+
+
+    <parameter id="clustersRelationsDetailed" ishidden="0" type="input">
+      <name>clustersRelationsDetailed</name>
+      <description><![CDATA[The detailed relation between clusters.]]></description>
+      <position>100007</position>
+      <code> clustersRelationsDetailed:clustersRelationsDetailed.xml</code>
+      <types>
+        <type>categoriesComparisons</type>
+      </types>
+      <vdef>clustersRelationsDetailed.xml</vdef>
+      <dep/>
+    </parameter>
+
+
+
+
+    <parameter id="Kideal" ishidden="0" type="output">
+      <name>Kideal</name>
+      <description><![CDATA[Visualization of the ideal preference relation between alternatives, with respect to the current clusters.]]></description>
+      <position>2008</position>
+      <code/>
+      <types>
+        <type>alternativeValue</type>
+      </types>
+      <vdef>Kideal.xml</vdef>
+    </parameter>
+
+
+
+
+
+    <parameter id="Kreal" ishidden="0" type="output">
+      <name>Kreal</name>
+      <description><![CDATA[Visualization of the real preference relation between alternatives, with respect to the current clusters.]]></description>
+      <position>2009</position>
+      <code/>
+      <types>
+        <type>alternativeValue</type>
+      </types>
+      <vdef>Kreal.xml</vdef>
+    </parameter>
+
+
+
+
+
+    <parameter id="Kidealsum" ishidden="0" type="output">
+      <name>Kidealsummary</name>
+      <description><![CDATA[Visualization of the summary of the ideal preference relation between alternatives, with respect to the current clusters.]]></description>
+      <position>2010</position>
+      <code/>
+      <types>
+        <type>alternativeValue</type>
+      </types>
+      <vdef>Kidealsum.xml</vdef>
+    </parameter>
+
+
+
+
+
+    <parameter id="Krealsum" ishidden="0" type="output">
+      <name>Krealsummary</name>
+      <description><![CDATA[Visualization of the summary of the real preference relation between alternatives, with respect to the current clusters.]]></description>
+      <position>2011</position>
+      <code/>
+      <types>
+        <type>alternativeValue</type>
+      </types>
+      <vdef>Krealsum.xml</vdef>
+    </parameter>
+
+
+
+
+
+    <parameter id="messages" ishidden="0" type="output">
+      <name>messages</name>
+      <description><![CDATA[A list of messages generated by the algorithm.]]></description>
+      <position>2012</position>
+      <code/>
+      <types>
+        <type>methodMessages</type>
+      </types>
+      <vdef>messages.xml</vdef>
+    </parameter>
+
+
+
+    <parameter id="TIMEOUT" ishidden="0" type="int">
+      <name>Timeout? (0 for no timeout)</name>
+      <description>timeout</description>
+      <position>100001</position>
+      <code>-t %s </code>
+      <constraint>
+        <description>value should be a positive or null integer</description>
+        <code>(%d &gt;= 0)</code>
+      </constraint>
+      <vdef>60</vdef>
+    </parameter>
+    
+    <parameter id="VERBOSE" ishidden="0" type="enum">
+      <name>Verbose mode</name>
+      <description></description>
+      <position>100002</position>
+      <vlist>
+        <item id="T1">
+          <description>None</description>
+          <code></code>
+        </item>
+        <item id="T2">
+          <description>Moderately verbose</description>
+          <code> -v</code>
+        </item>
+        <item id="T3">
+          <description>Very verbose</description>
+          <code> -vv</code>
+        </item>
+        <item id="T4">
+          <description>Extremely verbose (include SOAP msgs)</description>
+          <code> -vvv</code>
+        </item>
+      </vlist>
+      <vdef>T2</vdef>
+    </parameter>
+
+  </parameters>
+</program_description>

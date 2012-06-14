@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+
+<!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
+
+<program_description export_date="2012-06-07 07:37:00 +0000">
+  <program provider="ITTB" name="plotAlternativesComparisons" version="1.0" />
+  <from desc_id="S8888" />
+  <description><![CDATA[This web service generates a graph representing a partial preorder on the alternatives. Compared to the web service plotAlternativesComparisons, some parameters are added. The generated graph can be valued. It can also be transitive. Several shapes for the nodes are proposed and colors can be used.]]></description>
+  <parameters>
+    <parameter id="plotAlternativesComparisons-cmdline" type="command" ismandatory="1">
+      <name>plotAlternativesComparisons</name>
+      <description></description>
+      <position>100000</position>
+      <code>$callXMCDAService plotAlternativesComparisons-ITTB -S </code>
+    </parameter>
+
+
+    <parameter id="methodGraphOptions" ishidden="0" type="input">
+      <name>methodGraphOptions</name>
+      <description><![CDATA[
+                       Generates a graph taking into account the proposed options.
+                   ]]></description>
+      <position>100003</position>
+      <code/> 
+      <types>
+        <type>methodParameters</type>
+      </types>
+      <vdef>methodGraphOptions.xml</vdef>
+      <dep>(methodGraphOptions-use-file-dep:value="1")</dep>
+
+    </parameter>
+
+    <parameter id="methodGraphOptions-use-file-dep" ishidden="0" type="boolean">
+      <name>Supply methodGraphOptions as a file?</name>
+      <description>Supply methodGraphOptions as a file?</description>
+      <position>3003</position>
+      <code/>
+      <vdef>0</vdef>
+      <dep/>
+    </parameter>
+    
+
+
+
+    <parameter id="methodGraphOptions-gui" ishidden="1" type="code">
+      <name>methodGraphOptions</name>
+      <description><![CDATA[
+                       Generates a graph taking into account the proposed options.
+                   ]]></description>
+      <position>300</position>
+      <code><![CDATA[#methodGraphOptions: methodGraphOptions.xml
+cat > methodGraphOptions.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="xmcdaKappalab.xsl"?>
+<xmcda:XMCDA xmlns:xmcda="http://www.decision-deck.org/2009/XMCDA-2.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.decision-deck.org/2009/XMCDA-2.0.0 http://www.decision-deck.org/xmcda/_downloads/XMCDA-2.0.0.xsd">]]></code>
+      <dep>(methodGraphOptions-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+
+    <parameter id="methodGraphOptions-gui-301" ishidden="1" type="code">
+      <name />
+      <description />
+      <position>301</position>
+      <code><![CDATA[
+                   
+					<methodParameters>
+						<parameter id="valued_graph" name="Valued graph">
+							<value>
+            					<label>]]></code>
+      <dep>(methodGraphOptions-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+
+    <parameter id="methodGraphOptions-gui-value-placeholder-1" ishidden="0" type="enum">
+      <name>Graph type:</name>
+      <description>TODO</description>
+      <position>302</position>
+      <vlist>
+        <item id="true">
+          <description>Arcs and values</description>
+          <code>true</code>
+        </item>
+        <item id="false">
+          <description>Arcs only</description>
+          <code>false</code>
+        </item>
+      </vlist>
+      <vdef>false</vdef>
+      <dep>(methodGraphOptions-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+    <parameter id="methodGraphOptions-gui-303" ishidden="1" type="code">
+      <name />
+      <description />
+      <position>303</position>
+      <code><![CDATA[</label>
+       						 </value>
+						</parameter>
+						<parameter id="transitive_reduction" name="Transitive reduction">
+							<value>
+            					<label>]]></code>
+      <dep>(methodGraphOptions-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+
+    <parameter id="methodGraphOptions-gui-value-placeholder-2" ishidden="0" type="enum">
+      <name>With transitive reduction?</name>
+      <description>TODO</description>
+      <position>304</position>
+      <vlist>
+        <item id="true">
+          <description>Yes</description>
+          <code>true</code>
+        </item>
+        <item id="false">
+          <description>No</description>
+          <code>false</code>
+        </item>
+      </vlist>
+      <vdef>false</vdef>
+      <dep>(methodGraphOptions-use-file-dep:value="0") AND (methodGraphOptions-gui-value-placeholder-1:type="false")</dep>
+
+    </parameter>
+
+    <parameter id="methodGraphOptions-gui-305" ishidden="1" type="code">
+      <name />
+      <description />
+      <position>305</position>
+      <code><![CDATA[</label>
+       						 </value>
+						</parameter>
+						<parameter id="node_shape" name="Node shape">
+							<value>
+            					<label>]]></code>
+      <dep>(methodGraphOptions-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+
+    <parameter id="methodGraphOptions-gui-value-placeholder-3" ishidden="0" type="enum">
+      <name>Shape of the nodes?</name>
+      <description>TODO</description>
+      <position>306</position>
+      <vlist>
+        <item id="rectangle">
+          <description>Rectangle</description>
+          <code>Rectangle</code>
+        </item>
+        <item id="square">
+          <description>Square</description>
+          <code>Square</code>
+        </item>
+        <item id="ellipse">
+          <description>Ellipse</description>
+          <code>Ellipse</code>
+        </item>
+        <item id="circle">
+          <description>Circle</description>
+          <code>Circle</code>
+        </item>
+        <item id="diamond">
+          <description>Diamond</description>
+          <code>Diamond</code>
+        </item>
+      </vlist>
+      <vdef>rectangle</vdef>
+      <dep>(methodGraphOptions-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+    <parameter id="methodGraphOptions-gui-307" ishidden="1" type="code">
+      <name />
+      <description />
+      <position>307</position>
+      <code><![CDATA[</label>
+       						 </value>
+						</parameter>
+
+						<parameter id="use_color" name="Colors in the graph">
+							<value>
+            					<label>]]></code>
+      <dep>(methodGraphOptions-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+
+    <parameter id="methodGraphOptions-gui-value-placeholder-4" ishidden="0" type="enum">
+      <name> Use colors?</name>
+      <description>TODO</description>
+      <position>308</position>
+      <vlist>
+        <item id="true">
+          <description>Yes</description>
+          <code>true</code>
+        </item>
+        <item id="false">
+          <description>No</description>
+          <code>false</code>
+        </item>
+      </vlist>
+      <vdef>false</vdef>
+      <dep>(methodGraphOptions-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+    <parameter id="methodGraphOptions-gui-309" ishidden="1" type="code">
+      <name />
+      <description />
+      <position>309</position>
+      <code><![CDATA[</label>
+       						 </value>
+						</parameter>
+						
+						<parameter id="selected_color" name="Selected color">
+							<value>
+            					<label>]]></code>
+      <dep>(methodGraphOptions-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+
+    <parameter id="methodGraphOptions-gui-value-placeholder-5" ishidden="0" type="enum">
+      <name>Choose color:</name>
+      <description>TODO</description>
+      <position>310</position>
+      <vlist>
+        <item id="Black">
+          <description>Black</description>
+          <code>Black</code>
+        </item>
+        <item id="Red">
+          <description>Red</description>
+          <code>Red</code>
+        </item>
+        <item id="Blue">
+          <description>Blue</description>
+          <code>Blue</code>
+        </item>
+        <item id="Green">
+          <description>Green</description>
+          <code>Green</code>
+        </item>
+        <item id="Yellow">
+          <description>Yellow</description>
+          <code>Yellow</code>
+        </item>
+        <item id="Magenta">
+          <description>Magenta</description>
+          <code>Magenta</code>
+        </item>
+        <item id="Cyan">
+          <description>Cyan</description>
+          <code>Cyan</code>
+        </item>
+      </vlist>
+      <vdef>Black</vdef>
+      <dep>(methodGraphOptions-use-file-dep:value="0") AND (methodGraphOptions-gui-value-placeholder-4:type="true")</dep>
+
+    </parameter>
+
+    <parameter id="methodGraphOptions-gui-311" ishidden="1" type="code">
+      <name />
+      <description />
+      <position>311</position>
+      <code><![CDATA[</label>
+       						 </value>
+						</parameter>
+						
+					</methodParameters>
+				
+               ]]></code>
+      <dep>(methodGraphOptions-use-file-dep:value="0")</dep>
+
+    </parameter>
+    <parameter id="methodGraphOptions-gui-EOF" ishidden="1" type="code">
+      <name>methodGraphOptions EOF</name>
+      <description></description>
+      <position>312</position>
+      <code><![CDATA[</xmcda:XMCDA>%nEOF%n]]></code>
+      <dep>(methodGraphOptions-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+    <parameter id="methodGraphOptions-cmdline" ishidden="1" type="code">
+      <name>methodGraphOptions insertion in cmd-line</name>
+      <description></description>
+      <position>100003</position>
+      <code> methodGraphOptions:methodGraphOptions.xml</code>
+      <dep/>
+    </parameter>
+
+
+
+
+
+    <parameter id="alternatives" ishidden="0" type="input">
+      <name>alternatives</name>
+      <description><![CDATA[A list of alternatives. Alternatives can be activated or desactivated via the <active> tag (true or false). By default (no <active> tag), alternatives are considered as active. ]]></description>
+      <position>100004</position>
+      <code> alternatives:alternatives.xml</code>
+      <types>
+        <type>alternatives</type>
+      </types>
+      <vdef>alternatives.xml</vdef>
+      <dep/>
+    </parameter>
+
+
+
+    <parameter id="alternativesComparisons" ishidden="0" type="input">
+      <name>alternativesComparisons</name>
+      <description><![CDATA[A valued relation relative to comparisons of the alternatives. A numeric <value> indicates a the valuation for each <pair> of the relation.]]></description>
+      <position>100005</position>
+      <code> alternativesComparisons:alternativesComparisons.xml</code>
+      <types>
+        <type>alternativesComparisons</type>
+      </types>
+      <vdef>alternativesComparisons.xml</vdef>
+      <dep/>
+    </parameter>
+
+
+
+
+    <parameter id="alternativesComparisonsPlot" ishidden="0" type="output">
+      <name>alternativesComparisonsPlot</name>
+      <description><![CDATA[A string containing the base64 representation of the png image of the generated graph. ]]></description>
+      <position>2006</position>
+      <code/>
+      <types>
+        <type>alternativeValue</type>
+      </types>
+      <vdef>alternativesComparisonsPlot.xml</vdef>
+    </parameter>
+
+
+
+
+
+    <parameter id="messages" ishidden="0" type="output">
+      <name>messages</name>
+      <description><![CDATA[A list of messages generated by the algorithm.]]></description>
+      <position>2007</position>
+      <code/>
+      <types>
+        <type>methodMessages</type>
+      </types>
+      <vdef>messages.xml</vdef>
+    </parameter>
+
+
+
+    <parameter id="TIMEOUT" ishidden="0" type="int">
+      <name>Timeout? (0 for no timeout)</name>
+      <description>timeout</description>
+      <position>100001</position>
+      <code>-t %s </code>
+      <constraint>
+        <description>value should be a positive or null integer</description>
+        <code>(%d &gt;= 0)</code>
+      </constraint>
+      <vdef>60</vdef>
+    </parameter>
+    
+    <parameter id="VERBOSE" ishidden="0" type="enum">
+      <name>Verbose mode</name>
+      <description></description>
+      <position>100002</position>
+      <vlist>
+        <item id="T1">
+          <description>None</description>
+          <code></code>
+        </item>
+        <item id="T2">
+          <description>Moderately verbose</description>
+          <code> -v</code>
+        </item>
+        <item id="T3">
+          <description>Very verbose</description>
+          <code> -vv</code>
+        </item>
+        <item id="T4">
+          <description>Extremely verbose (include SOAP msgs)</description>
+          <code> -vvv</code>
+        </item>
+      </vlist>
+      <vdef>T2</vdef>
+    </parameter>
+
+  </parameters>
+</program_description>

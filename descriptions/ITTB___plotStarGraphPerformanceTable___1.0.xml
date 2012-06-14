@@ -1,0 +1,465 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+
+<!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
+
+<program_description export_date="2012-06-07 07:37:00 +0000">
+  <program provider="ITTB" name="plotStarGraphPerformanceTable" version="1.0" />
+  <from desc_id="S8888" />
+  <description><![CDATA[This web service generates, for each alternative, a plot representing the performance table as a  star graph. Colors can be used. You can specify how to display the star graphs: by line, by column or in a grid. The star graphs can also be ordered by name or by id (of the alternatives).]]></description>
+  <parameters>
+    <parameter id="plotStarGraphPerformanceTable-cmdline" type="command" ismandatory="1">
+      <name>plotStarGraphPerformanceTable</name>
+      <description></description>
+      <position>100000</position>
+      <code>$callXMCDAService plotStarGraphPerformanceTable-ITTB -S </code>
+    </parameter>
+
+
+    <parameter id="options" ishidden="0" type="input">
+      <name>options</name>
+      <description></description>
+      <position>100003</position>
+      <code/> 
+      <types>
+        <type>methodParameters</type>
+      </types>
+      <vdef>options.xml</vdef>
+      <dep>(options-use-file-dep:value="1")</dep>
+
+    </parameter>
+
+    <parameter id="options-use-file-dep" ishidden="0" type="boolean">
+      <name>Supply options as a file?</name>
+      <description>Supply options as a file?</description>
+      <position>3003</position>
+      <code/>
+      <vdef>0</vdef>
+      <dep/>
+    </parameter>
+    
+
+
+
+    <parameter id="options-gui" ishidden="1" type="code">
+      <name>options</name>
+      <description></description>
+      <position>300</position>
+      <code><![CDATA[#options: options.xml
+cat > options.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="xmcdaKappalab.xsl"?>
+<xmcda:XMCDA xmlns:xmcda="http://www.decision-deck.org/2009/XMCDA-2.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.decision-deck.org/2009/XMCDA-2.0.0 http://www.decision-deck.org/xmcda/_downloads/XMCDA-2.0.0.xsd">]]></code>
+      <dep>(options-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+
+    <parameter id="options-gui-301" ishidden="1" type="code">
+      <name />
+      <description />
+      <position>301</position>
+      <code><![CDATA[
+                   
+					<methodParameters>	 
+						  
+						  <parameter id="preference_direction" name="Use preference direction">
+							<value>
+            					<label>]]></code>
+      <dep>(options-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+
+    <parameter id="options-gui-value-placeholder-1" ishidden="0" type="enum">
+      <name>Use preference directions?</name>
+      <description>TODO</description>
+      <position>302</position>
+      <vlist>
+        <item id="true">
+          <description>Yes</description>
+          <code>true</code>
+        </item>
+        <item id="false">
+          <description>No</description>
+          <code>false</code>
+        </item>
+      </vlist>
+      <vdef>false</vdef>
+      <dep>(options-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+    <parameter id="options-gui-303" ishidden="1" type="code">
+      <name />
+      <description />
+      <position>303</position>
+      <code><![CDATA[</label>
+       						 </value>
+						</parameter>
+						  <parameter id="unique_plot" name="Unique plot">
+							<value>
+            					<label>]]></code>
+      <dep>(options-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+
+    <parameter id="options-gui-value-placeholder-2" ishidden="0" type="enum">
+      <name>Unique or multiple plot(s)?</name>
+      <description>TODO</description>
+      <position>304</position>
+      <vlist>
+        <item id="true">
+          <description>Unique</description>
+          <code>true</code>
+        </item>
+        <item id="false">
+          <description>Multiple</description>
+          <code>false</code>
+        </item>
+      </vlist>
+      <vdef>true</vdef>
+      <dep>(options-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+    <parameter id="options-gui-305" ishidden="1" type="code">
+      <name />
+      <description />
+      <position>305</position>
+      <code><![CDATA[</label>
+       						 </value>
+						</parameter>
+						 <parameter id="plots_display" name="Plots' display">
+							<value>
+            					<label>]]></code>
+      <dep>(options-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+
+    <parameter id="options-gui-value-placeholder-3" ishidden="0" type="enum">
+      <name>Plots arrangement</name>
+      <description>TODO</description>
+      <position>306</position>
+      <vlist>
+        <item id="column">
+          <description>Column</description>
+          <code>column</code>
+        </item>
+        <item id="line">
+          <description>Line</description>
+          <code>line</code>
+        </item>
+        <item id="grid">
+          <description>Grid</description>
+          <code>grid</code>
+        </item>
+      </vlist>
+      <vdef>column</vdef>
+      <dep>(options-use-file-dep:value="0") AND (options-gui-value-placeholder-2:type="true")</dep>
+
+    </parameter>
+
+    <parameter id="options-gui-307" ishidden="1" type="code">
+      <name />
+      <description />
+      <position>307</position>
+      <code><![CDATA[</label>
+       						 </value>
+						</parameter>
+                        <parameter id="order_by" name="Order by">
+							<value>
+            					<label>]]></code>
+      <dep>(options-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+
+    <parameter id="options-gui-value-placeholder-4" ishidden="0" type="enum">
+      <name>Order abscissa by:</name>
+      <description>TODO</description>
+      <position>308</position>
+      <vlist>
+        <item id="order_by_name">
+          <description>name</description>
+          <code>name</code>
+        </item>
+        <item id="order_by_id">
+          <description>id</description>
+          <code>id</code>
+        </item>
+      </vlist>
+      <vdef>order_by_id</vdef>
+      <dep>(options-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+    <parameter id="options-gui-309" ishidden="1" type="code">
+      <name />
+      <description />
+      <position>309</position>
+      <code><![CDATA[</label>
+       						 </value>
+						</parameter>
+                        <parameter id="order" name="order">
+							<value>
+            					<label>]]></code>
+      <dep>(options-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+
+    <parameter id="options-gui-value-placeholder-5" ishidden="0" type="enum">
+      <name>order</name>
+      <description>TODO</description>
+      <position>310</position>
+      <vlist>
+        <item id="increasing">
+          <description>Ascending order</description>
+          <code>increasing</code>
+        </item>
+        <item id="decreasing">
+          <description>Descending order</description>
+          <code>decreasing</code>
+        </item>
+      </vlist>
+      <vdef>increasing</vdef>
+      <dep>(options-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+    <parameter id="options-gui-311" ishidden="1" type="code">
+      <name />
+      <description />
+      <position>311</position>
+      <code><![CDATA[</label>
+       						 </value>
+						</parameter>						
+						 <parameter id="use_color" name="Colors in the plots">
+							<value>
+            					<label>]]></code>
+      <dep>(options-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+
+    <parameter id="options-gui-value-placeholder-6" ishidden="0" type="enum">
+      <name>Use Colors?</name>
+      <description>TODO</description>
+      <position>312</position>
+      <vlist>
+        <item id="true">
+          <description>Yes</description>
+          <code>true</code>
+        </item>
+        <item id="false">
+          <description>No</description>
+          <code>false</code>
+        </item>
+      </vlist>
+      <vdef>false</vdef>
+      <dep>(options-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+    <parameter id="options-gui-313" ishidden="1" type="code">
+      <name />
+      <description />
+      <position>313</position>
+      <code><![CDATA[</label>
+       						 </value>
+						</parameter>
+						 <parameter id="selected_color" name="Selected color">
+							<value>
+            					<label>]]></code>
+      <dep>(options-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+
+    <parameter id="options-gui-value-placeholder-7" ishidden="0" type="enum">
+      <name>Choose color:</name>
+      <description>TODO</description>
+      <position>314</position>
+      <vlist>
+        <item id="black">
+          <description>Black</description>
+          <code>black</code>
+        </item>
+        <item id="red">
+          <description>Red</description>
+          <code>red</code>
+        </item>
+        <item id="blue">
+          <description>Blue</description>
+          <code>blue</code>
+        </item>
+        <item id="green">
+          <description>Green</description>
+          <code>green</code>
+        </item>
+        <item id="yellow">
+          <description>Yellow</description>
+          <code>yellow</code>
+        </item>
+        <item id="magenta">
+          <description>Magenta</description>
+          <code>magenta</code>
+        </item>
+        <item id="cyan">
+          <description>Cyan</description>
+          <code>cyan</code>
+        </item>
+      </vlist>
+      <vdef>black</vdef>
+      <dep>(options-use-file-dep:value="0") AND (options-gui-value-placeholder-6:type="true")</dep>
+
+    </parameter>
+
+    <parameter id="options-gui-315" ishidden="1" type="code">
+      <name />
+      <description />
+      <position>315</position>
+      <code><![CDATA[</label>
+       						 </value>
+       						 </parameter>
+					</methodParameters>
+				
+               ]]></code>
+      <dep>(options-use-file-dep:value="0")</dep>
+
+    </parameter>
+    <parameter id="options-gui-EOF" ishidden="1" type="code">
+      <name>options EOF</name>
+      <description></description>
+      <position>316</position>
+      <code><![CDATA[</xmcda:XMCDA>%nEOF%n]]></code>
+      <dep>(options-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+    <parameter id="options-cmdline" ishidden="1" type="code">
+      <name>options insertion in cmd-line</name>
+      <description></description>
+      <position>100003</position>
+      <code> options:options.xml</code>
+      <dep/>
+    </parameter>
+
+
+
+
+
+    <parameter id="alternatives" ishidden="0" type="input">
+      <name>alternatives</name>
+      <description><![CDATA[A list of alternatives. Alternatives can be activated or desactivated via the <active> tag (true or false). By default (no <active> tag), alternatives are considered as active. ]]></description>
+      <position>100004</position>
+      <code> alternatives:alternatives.xml</code>
+      <types>
+        <type>alternatives</type>
+      </types>
+      <vdef>alternatives.xml</vdef>
+      <dep/>
+    </parameter>
+
+
+
+    <parameter id="criteria" ishidden="0" type="input">
+      <name>criteria</name>
+      <description><![CDATA[A list of criteria. Criteria can be activated or desactivated via the <active> tag (true or false). By default (no <active> tag), criteria are considered as active. Preference direction for the selected criteria can be provided (min or max). In this web service, the default value is set to max.]]></description>
+      <position>100005</position>
+      <code> criteria:criteria.xml</code>
+      <types>
+        <type>criteria</type>
+      </types>
+      <vdef>criteria.xml</vdef>
+      <dep/>
+    </parameter>
+
+
+
+    <parameter id="performanceTable" ishidden="0" type="input">
+      <name>performanceTable</name>
+      <description><![CDATA[A performance table. The evaluations should be only real or integer numeric values, i.e. <real> or <integer>.]]></description>
+      <position>100006</position>
+      <code> performanceTable:performanceTable.xml</code>
+      <types>
+        <type>performanceTable</type>
+      </types>
+      <vdef>performanceTable.xml</vdef>
+      <dep/>
+    </parameter>
+
+
+
+
+    <parameter id="starGraph" ishidden="0" type="output">
+      <name>starGraph</name>
+      <description><![CDATA[A string containing the base64 representation of the png image of the generated plot.]]></description>
+      <position>2007</position>
+      <code/>
+      <types>
+        <type>alternativeValue</type>
+      </types>
+      <vdef>starGraph.xml</vdef>
+    </parameter>
+
+
+
+
+
+    <parameter id="messages" ishidden="0" type="output">
+      <name>messages</name>
+      <description><![CDATA[A list of messages generated by the algorithm.]]></description>
+      <position>2008</position>
+      <code/>
+      <types>
+        <type>methodMessages</type>
+      </types>
+      <vdef>messages.xml</vdef>
+    </parameter>
+
+
+
+    <parameter id="TIMEOUT" ishidden="0" type="int">
+      <name>Timeout? (0 for no timeout)</name>
+      <description>timeout</description>
+      <position>100001</position>
+      <code>-t %s </code>
+      <constraint>
+        <description>value should be a positive or null integer</description>
+        <code>(%d &gt;= 0)</code>
+      </constraint>
+      <vdef>60</vdef>
+    </parameter>
+    
+    <parameter id="VERBOSE" ishidden="0" type="enum">
+      <name>Verbose mode</name>
+      <description></description>
+      <position>100002</position>
+      <vlist>
+        <item id="T1">
+          <description>None</description>
+          <code></code>
+        </item>
+        <item id="T2">
+          <description>Moderately verbose</description>
+          <code> -v</code>
+        </item>
+        <item id="T3">
+          <description>Very verbose</description>
+          <code> -vv</code>
+        </item>
+        <item id="T4">
+          <description>Extremely verbose (include SOAP msgs)</description>
+          <code> -vvv</code>
+        </item>
+      </vlist>
+      <vdef>T2</vdef>
+    </parameter>
+
+  </parameters>
+</program_description>

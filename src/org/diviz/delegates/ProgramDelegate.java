@@ -31,6 +31,8 @@ public class ProgramDelegate
 
 		// It's time to find the corresponding ones
 		
+		boolean find_exact_match = false;
+
 		// 1st, adapt those whose name has changed
 		final String[] provider_service_version = prgDescriptionId.split(ProgramDescription.ID_SEPARATOR);
 		if (provider_service_version.length != 3)
@@ -40,6 +42,7 @@ public class ProgramDelegate
 		}
 		String provider = provider_service_version[0];
 		String name = provider_service_version[1];
+
 		if ("DecisionDeck".equals(provider))
 		{	
 			if ( "ACUTAR".equals(name) )
@@ -57,17 +60,27 @@ public class ProgramDelegate
 			warnings.add(XMLWarnings.PRG_DESC_REPLACED_BY_ALTERNATIVE,
 			             new String[] { "J-MCDA csvToXMCDA-performanceTable", "PyXMCDA csvToXMCDA-performanceTable" });
 		}
+		else if ( "ITTB".equals(provider) && name.startsWith("advanced") && name.length()>"advanced".length())
+		{
+			name = name.substring("advanced".length());
+			name = Character.toLowerCase(name.charAt(0)) + name.substring(1);
+			if ( "cutRelations".equals(name) )
+				name = "cutRelation";
+			find_exact_match = true;
+		}
 		else
 			return null;
 
-		// 2nd, let's find the corresponding description, i.e. simply one that as the same name:
-		// when the services'providers are renamed from DecisionDeck, none of them had the same name; hopefully all
-		// the users' workflows will be migrated before this happens.
+		// 2nd, let's find the corresponding description, i.e.
+		// - if find_exact_match is false, simply one that as the same name:
+        //   when the services'providers are renamed from DecisionDeck, none of them had the same name; hopefully all
+		//   the users' workflows will be migrated before this happens.
+		// - if find_exact_match is true, one that has the same name & provider, as transformed above
 		String[] declaredResources = RemoteComponents.resourceRepository().getResources();
 		for (String declaredResource: declaredResources)
 		{
 			final String[] dR_p_s_v = declaredResource.split(ProgramDescription.ID_SEPARATOR);
-			if (name.equals(dR_p_s_v[1]))
+			if (name.equals(dR_p_s_v[1]) && (!find_exact_match || provider.equals(dR_p_s_v[0])))
 			{
 				/*
 				warnings.add(XMLWarnings.PRG_DESC_REPLACED_BY_ALTERNATIVE, new String[] {

@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+
+<!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
+
+<program_description export_date="2012-06-07 10:44:48 +0100">
+  <program provider="ITTB" name="cutRelation" version="1.0" />
+  <from desc_id="S8888" />
+  <description><![CDATA[This web service cuts a fuzzy relation (on alternatives) at a given threshold and produces a relation. Compared to the web service cutRelation, the produced relation is not necessary binary. In fact, some parameters are added. You can choose between classical cut and bipolar cut. The cut level is specified and an output relation is generated. In the case of classical cut, the output relation can be crisp output, binary output or other binary output. When a bipolar cut is taken into account, the output relation can be a bipolar output or other bipolar output.]]></description>
+  <parameters>
+    <parameter id="cutRelation-cmdline" type="command" ismandatory="1">
+      <name>cutRelation</name>
+      <description></description>
+      <position>100000</position>
+      <code>$callXMCDAService cutRelation-ITTB -S </code>
+    </parameter>
+
+
+    <parameter id="options" ishidden="0" type="input">
+      <name>options</name>
+      <description><![CDATA[Generates a graph taking into account the proposed options.]]></description>
+      <position>100003</position>
+      <code/> 
+      <types>
+        <type>methodParameters</type>
+      </types>
+      <vdef>options.xml</vdef>
+      <dep>(options-use-file-dep:value="1")</dep>
+
+    </parameter>
+
+    <parameter id="options-use-file-dep" ishidden="0" type="boolean">
+      <name>Supply options as a file?</name>
+      <description>Supply options as a file?</description>
+      <position>3003</position>
+      <code/>
+      <vdef>0</vdef>
+      <dep/>
+    </parameter>
+    
+
+
+
+    <parameter id="options-gui" ishidden="1" type="code">
+      <name>options</name>
+      <description><![CDATA[Generates a graph taking into account the proposed options.]]></description>
+      <position>300</position>
+      <code><![CDATA[#options: options.xml
+cat > options.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="xmcdaKappalab.xsl"?>
+<xmcda:XMCDA xmlns:xmcda="http://www.decision-deck.org/2009/XMCDA-2.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.decision-deck.org/2009/XMCDA-2.0.0 http://www.decision-deck.org/xmcda/_downloads/XMCDA-2.0.0.xsd">]]></code>
+      <dep>(options-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+
+    <parameter id="options-gui-301" ishidden="1" type="code">
+      <name />
+      <description />
+      <position>301</position>
+      <code><![CDATA[
+
+	<methodParameters>
+		<parameter id="cut_type" name="Cut type">
+			<value>
+				<label>]]></code>
+      <dep>(options-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+
+    <parameter id="options-gui-value-placeholder-1" ishidden="0" type="enum">
+      <name>Cut type:</name>
+      <description>TODO</description>
+      <position>302</position>
+      <vlist>
+        <item id="classical">
+          <description>classical</description>
+          <code>classical</code>
+        </item>
+        <item id="bipolar">
+          <description>bipolar</description>
+          <code>bipolar</code>
+        </item>
+      </vlist>
+      <vdef>classical</vdef>
+      <dep>(options-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+    <parameter id="options-gui-303" ishidden="1" type="code">
+      <name />
+      <description />
+      <position>303</position>
+      <code><![CDATA[</label>
+			</value>
+		</parameter>
+		<parameter id="cut_threshold" name="Cut threshold">
+			<value>
+				<real>]]></code>
+      <dep>(options-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+
+    <parameter id="options-gui-value-placeholder-2" ishidden="0" type="float">
+      <name>Cut threshold:</name>
+      <indent>1</indent>
+      <description>TODO</description>
+      <position>304</position>
+
+      <code>%s</code>
+      <vdef>0</vdef>
+      <dep>(options-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+
+    <parameter id="options-gui-305" ishidden="1" type="code">
+      <name />
+      <description />
+      <position>305</position>
+      <code><![CDATA[</real>
+			</value>
+		</parameter>
+		<parameter id="classical_output" name="Classical output">
+			<value>
+				<label>]]></code>
+      <dep>(options-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+
+    <parameter id="options-gui-value-placeholder-3" ishidden="0" type="enum">
+      <name>Classical output:</name>
+      <description>TODO</description>
+      <position>306</position>
+      <vlist>
+        <item id="crisp">
+          <description>crisp</description>
+          <code>crisp</code>
+        </item>
+        <item id="binary">
+          <description>0-1 valued</description>
+          <code>classical_binary</code>
+        </item>
+        <item id="other_binary">
+          <description>other valued</description>
+          <code>other_binary</code>
+        </item>
+      </vlist>
+      <vdef>binary</vdef>
+      <dep>(options-use-file-dep:value="0") AND (options-gui-value-placeholder-1:type="classical")</dep>
+
+    </parameter>
+
+    <parameter id="options-gui-307" ishidden="1" type="code">
+      <name />
+      <description />
+      <position>307</position>
+      <code><![CDATA[</label>
+			 </value>
+		</parameter>]]></code>
+      <dep>(options-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+
+    <parameter id="options-gui-value-placeholder-4" ishidden="0" type="enum">
+      <name>Bipolar output:</name>
+      <description>TODO</description>
+      <position>308</position>
+      <vlist>
+        <item id="bipolar">
+          <description>-1-0-1 valued</description>
+          <code><![CDATA[
+		<parameter id="bipolar_output" name="Bipolar output">
+			<value>
+				<label>classical_bipolar</label>
+			 </value>
+		</parameter>]]></code>
+        </item>
+        <item id="other_bipolar">
+          <description>other valued</description>
+          <code><![CDATA[
+		<parameter id="bipolar_output" name="Bipolar output">
+			<value>
+				<label>other_bipolar</label>
+			 </value>
+		</parameter>]]></code>
+        </item>
+      </vlist>
+      <vdef>bipolar</vdef>
+      <dep>(options-use-file-dep:value="0") AND (options-gui-value-placeholder-1:type="bipolar")</dep>
+
+    </parameter>
+
+    <parameter id="options-gui-value-placeholder-5" ishidden="0" type="float">
+      <name>True:</name>
+      <indent>1</indent>
+      <description>TODO</description>
+      <position>310</position>
+
+      <code><![CDATA[<parameter id="true" name="True">
+			<value>
+				<real>%s</real>
+			 </value>
+		</parameter>]]></code>
+      <vdef>1</vdef>
+      <dep>(options-use-file-dep:value="0") AND ((options-gui-value-placeholder-3:type="other_binary") OR (options-gui-value-placeholder-4:type="other_bipolar"))</dep>
+
+    </parameter>
+
+
+    <parameter id="options-gui-value-placeholder-6" ishidden="0" type="float">
+      <name>False:</name>
+      <indent>1</indent>
+      <description>TODO</description>
+      <position>312</position>
+
+      <code><![CDATA[
+		 <parameter id="false" name="False">
+			<value>
+				<real>%s</real>
+			 </value>
+		</parameter>]]></code>
+      <vdef>0</vdef>
+      <dep>(options-use-file-dep:value="0") AND ((options-gui-value-placeholder-3:type="other_binary") OR (options-gui-value-placeholder-4:type="other_bipolar"))</dep>
+
+    </parameter>
+
+
+    <parameter id="options-gui-value-placeholder-7" ishidden="0" type="float">
+      <name>Indeterminate:</name>
+      <indent>1</indent>
+      <description>TODO</description>
+      <position>314</position>
+
+      <code><![CDATA[
+		 <parameter id="indeterminate" name="Indeterminate">
+			<value>
+				<real>%s</real>
+			 </value>
+		</parameter>]]></code>
+      <vdef>0.5</vdef>
+      <dep>(options-use-file-dep:value="0") AND (options-gui-value-placeholder-4:type="other_bipolar")</dep>
+    </parameter>
+
+
+    <parameter id="options-gui-315" ishidden="1" type="code">
+      <name />
+      <description />
+      <position>315</position>
+      <code><![CDATA[
+	</methodParameters>
+]]></code>
+      <dep>(options-use-file-dep:value="0")</dep>
+
+    </parameter>
+    <parameter id="options-gui-EOF" ishidden="1" type="code">
+      <name>options EOF</name>
+      <description></description>
+      <position>316</position>
+      <code><![CDATA[</xmcda:XMCDA>%nEOF%n]]></code>
+      <dep>(options-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+    <parameter id="options-cmdline" ishidden="1" type="code">
+      <name>options insertion in cmd-line</name>
+      <description></description>
+      <position>100003</position>
+      <code> options:options.xml</code>
+      <dep/>
+    </parameter>
+
+
+
+
+
+    <parameter id="alternatives" ishidden="0" type="input">
+      <name>alternatives</name>
+      <description><![CDATA[A list of alternatives. Alternatives can be activated or desactivated via the <active> tag (true or false). By default (no <active> tag), alternatives are considered as active. ]]></description>
+      <position>100004</position>
+      <code> alternatives:alternatives.xml</code>
+      <types>
+        <type>alternatives</type>
+      </types>
+      <vdef>alternatives.xml</vdef>
+      <dep/>
+    </parameter>
+
+
+
+    <parameter id="relation" ishidden="0" type="input">
+      <name>relation</name>
+      <description><![CDATA[A valued relation relative to comparisons of the alternatives. A numeric <value> indicates a the valuation for each <pair> of the relation.]]></description>
+      <position>100005</position>
+      <code> relation:relation.xml</code>
+      <types>
+        <type>alternativesComparisons</type>
+      </types>
+      <vdef>relation.xml</vdef>
+      <dep/>
+    </parameter>
+
+
+
+
+    <parameter id="outputRelation" ishidden="0" type="output">
+      <name>cut_relation</name>
+      <description><![CDATA[The relation resulting from the cut.]]></description>
+      <position>2006</position>
+      <code/>
+      <types>
+        <type>alternativesComparisons</type>
+      </types>
+      <vdef>output_relation.xml</vdef>
+    </parameter>
+
+
+
+
+
+    <parameter id="messages" ishidden="0" type="output">
+      <name>messages</name>
+      <description><![CDATA[A list of messages generated by the algorithm.]]></description>
+      <position>2007</position>
+      <code/>
+      <types>
+        <type>methodMessages</type>
+      </types>
+      <vdef>messages.xml</vdef>
+    </parameter>
+
+
+
+    <parameter id="TIMEOUT" ishidden="0" type="int">
+      <name>Timeout? (0 for no timeout)</name>
+      <description>timeout</description>
+      <position>100001</position>
+      <code>-t %s </code>
+      <constraint>
+        <description>value should be a positive or null integer</description>
+        <code>(%d &gt;= 0)</code>
+      </constraint>
+      <vdef>60</vdef>
+    </parameter>
+    
+    <parameter id="VERBOSE" ishidden="0" type="enum">
+      <name>Verbose mode</name>
+      <description></description>
+      <position>100002</position>
+      <vlist>
+        <item id="T1">
+          <description>None</description>
+          <code></code>
+        </item>
+        <item id="T2">
+          <description>Moderately verbose</description>
+          <code> -v</code>
+        </item>
+        <item id="T3">
+          <description>Very verbose</description>
+          <code> -vv</code>
+        </item>
+        <item id="T4">
+          <description>Extremely verbose (include SOAP msgs)</description>
+          <code> -vvv</code>
+        </item>
+      </vlist>
+      <vdef>T2</vdef>
+    </parameter>
+
+  </parameters>
+</program_description>

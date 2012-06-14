@@ -30,6 +30,7 @@
 			<type name="Parameters elicitation" collapsed="0">
 				<resource name="UTAR___ACUTA___2.0"/>
 				<resource name="RXMCDA___additiveValueFunctionsIdentification___1.1" />
+				<resource name="ITTB___UTA___1.0"/>
 				<resource name="UTAR___UTASTAR___1.1"/>
 			</type>
 			
@@ -67,6 +68,12 @@
 				
 			</type>
 			
+			<type name="Exploitation" collapsed="0">
+				<type name="Sorting" collapsed="0">
+					<resource name="ITTB___sortAlternativesValues___1.0"/>
+				</type>
+			</type>
+
 		</type>
 		
 		<type name="Outranking techniques" collapsed="0">
@@ -77,11 +84,12 @@
 			</type>
 			
 			<type name="Relation construction" collapsed="0">
-				<resource name="J-MCDA___cutRelation___0.5.1"/>
+				<resource name="ITTB___cutRelation___1.0"/>
 				<resource name="PyXMCDA___CondorcetRobustnessRelation___1.0"/>
 				<resource name="J-MCDA___ElectreConcordance___0.5.1"/>
 				<resource name="J-MCDA___ElectreDiscordances___0.5.1"/>
 				<resource name="J-MCDA___ElectreOutranking___0.5.1"/>
+				<resource name="ws-Mcc___mccPreferenceRelation___1.0"/>
 				<resource name="J-MCDA___PrometheeFlows___0.5.1"/>
 				<resource name="J-MCDA___PrometheePreference___0.5.1"/>
 				<resource name="PyXMCDA___RubisConcordanceRelation___1.0"/>
@@ -90,7 +98,7 @@
 			
 			<type name="Relation exploitation" collapsed="0">
 				<type name="Ranking" collapsed="0">
-					<resource name="RXMCDA___alternativesRankingViaQualificationDistillation___1.0" />
+					<resource name="ITTB___alternativesRankingViaQualificationDistillation___1.0"/>
 					<resource name="RXMCDA___computeAlternativesQualification___1.0" />
 					<resource name="RXMCDA___plotGaiaPlane___1.0" />
 					<resource name="RXMCDA___Promethee1Ranking___1.0" />
@@ -103,7 +111,9 @@
 					<resource name="PyXMCDA___stableSorting___1.0"/>
 				</type>
 				<type name="Clustering" collapsed="0">
-					<resource name="PyXMCDA___MccP___1.0"/>
+					<resource name="ws-Mcc___mccClusters___1.0"/>
+					<resource name="ws-Mcc___mccClustersRelationSummary___1.0"/>
+					<resource name="ws-Mcc___mccEvaluateClusters___1.0"/>
 				</type>
 			</type>
 			
@@ -129,35 +139,47 @@
 			<resource name="PyXMCDA___randomAlternatives___1.0"/>
 			<resource name="RXMCDA___randomAlternativesRanks___1.0" />
 			<resource name="RXMCDA___rankAlternativesValues___1.1"/>
+			<resource name="ITTB___transitiveReductionAlternativesComparisons___1.0"/>
 		</type>
 		
 		<type name="Criteria computations" collapsed="0">
+            <resource name="ITTB___criteriaDescriptiveStatistics___1.0"/>
 			<resource name="PyXMCDA___randomCriteria___1.1"/>
 			<resource name="RXMCDA___randomCriteriaWeights___1.0" />
+			<resource name="ITTB___transitiveReductionCriteriaComparisons___1.0"/>
 		</type>
 		
 		<type name="Performance table computations" collapsed="0">
 			<resource name="UTAR___computeNormalisedPerformanceTable___1.0"/>
+			<resource name="ITTB___computeNumericPerformanceTable___1.0"/>
+			<resource name="ITTB___performanceTableFilter___1.0"/>
+			<resource name="ITTB___performanceTableTransformation___1.0"/>
 			<resource name="RXMCDA___randomNormalizedPerformanceTable___1.0" />
 			<resource name="PyXMCDA___randomPerformanceTable___1.1"/>
-			
 		</type>
 		
 		<type name="CSV converters" collapsed = "0">
 			<resource name="PyXMCDA___csvToXMCDA-alternativesValues___1.0"/>
+			<resource name="ITTB___csvToXMCDA-categoriesProfiles___1.0"/>
 			<resource name="PyXMCDA___csvToXMCDA-criteriaThresholds___1.2"/>
 			<resource name="PyXMCDA___csvToXMCDA-criteriaValues___1.2"/>
 			<resource name="PyXMCDA___csvToXMCDA-performanceTable___1.0"/>
+			<resource name="ITTB___csvToXMCDA-valueFunctions___1.0"/>
 		</type>
 		
 		<type name="Data visualisation" collapsed="0">
-			<resource name="RXMCDA___plotAlternativesComparisons___1.0"/>
-			<resource name="RXMCDA___plotAlternativesValues___1.0"/>
-			<resource name="RXMCDA___plotAlternativesValuesPreorder___1.0"/>
-			<resource name="RXMCDA___plotCriteriaComparisons___1.0"/>
-			<resource name="RXMCDA___plotCriteriaValues___1.0"/>
-			<resource name="RXMCDA___plotCriteriaValuesPreorder___1.0"/>
-			<resource name="RXMCDA___plotNumericPerformanceTable___1.0"/>
+			<resource name="ws-Mcc___mccPlotClusters___1.0"/>
+			<resource name="ITTB___plotAlternativesAssignments___1.0"/>
+			<resource name="ITTB___plotAlternativesComparisons___1.0"/>
+			<resource name="ITTB___plotAlternativesValues___1.0"/>
+			<resource name="ITTB___plotAlternativesValuesPreorder___1.0"/>
+			<resource name="ITTB___plotCriteriaComparisons___1.0"/>
+			<resource name="ITTB___plotCriteriaValues___1.0"/>
+			<resource name="ITTB___plotCriteriaValuesPreorder___1.0"/>
+			<resource name="ITTB___plotFuzzyCategoriesValues___1.0" />
+			<resource name="ITTB___plotNumericPerformanceTable___1.0"/>
+			<resource name="ITTB___plotValueFunctions___1.0"/>
+			<resource name="ITTB___plotStarGraphPerformanceTable___1.0"/>
 			<resource name="UTAR___plotValueFunctions___1.0"/>
 			<resource name="UTAR___XYPlotAlternativesValues___1.0"/>
 		</type>
@@ -171,15 +193,17 @@
 		</type>
 		
 	</type>
-	
-	<!-- <type name="Development" collapsed="1">
-		<resource name="DecisionDeck___kappalabServer___1.0"/>
-		<resource name="DecisionDeck___kappalab___1.0"/>
-		<resource name="DecisionDeck___splitXMCDA___1.0"/>
-		<resource name="DecisionDeck___normalize___1.0"/>
-		<resource name="DecisionDeck___kappalab_O2I___1.0"/>
-		<resource name="DecisionDeck___kappalabComponent___1.0"/>
-		<resource name="DecisionDeck___assembleXMCDA___1.0"/>
-		</type> -->
+
+	<type name="Deprecated" collapsed="1">
+		<resource name="J-MCDA___cutRelation___0.5.1"/>
+		<resource name="RXMCDA___alternativesRankingViaQualificationDistillation___1.0" />
+		<resource name="RXMCDA___plotAlternativesComparisons___1.0"/>
+		<resource name="RXMCDA___plotAlternativesValues___1.0"/>
+		<resource name="RXMCDA___plotAlternativesValuesPreorder___1.0"/>
+		<resource name="RXMCDA___plotCriteriaComparisons___1.0"/>
+		<resource name="RXMCDA___plotCriteriaValues___1.0"/>
+		<resource name="RXMCDA___plotCriteriaValuesPreorder___1.0"/>
+		<resource name="RXMCDA___plotNumericPerformanceTable___1.0"/>
+	</type>
 	
 </resourcesTree>

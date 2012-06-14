@@ -1,0 +1,1459 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+
+<!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
+
+<program_description export_date="2012-03-30 09:20:00 +0000">
+  <program provider="ITTB" name="performanceTableFilter" version="1.0" />
+  <from desc_id="S8888" />
+  <description><![CDATA[This web service generates a filtered performance table. A file containing methodParameters tag is provided. It contains preferences that allow to discarding some alternatives and making the decision easier.]]></description>
+  <parameters>
+    <parameter id="performanceTableFilter-cmdline" type="command" ismandatory="1">
+      <name>performanceTableFilter</name>
+      <description></description>
+      <position>100000</position>
+      <code>$callXMCDAService performanceTableFilter-ITTB -S </code>
+    </parameter>
+
+
+    <parameter id="methodParameters" ishidden="0" type="input">
+      <name>methodParameters</name>
+      <description><![CDATA[Provides a specific filter to apply for the corresponding criterion. Put criterionID in the attribute id of parameter tag. Put the preference in the interval tag: a lower bound, an upper bound or both if needed.]]></description>
+      <position>100003</position>
+      <code/> 
+      <types>
+        <type>methodParameters</type>
+      </types>
+      <vdef>methodParameters.xml</vdef>
+      <dep>(methodParameters-use-file-dep:value="1")</dep>
+
+    </parameter>
+
+    <parameter id="methodParameters-use-file-dep" ishidden="0" type="boolean">
+      <name>Supply methodParameters as a file?</name>
+      <description>Supply methodParameters as a file?</description>
+      <position>3003</position>
+      <code/>
+      <vdef>0</vdef>
+      <dep/>
+    </parameter>
+    
+
+
+
+    <parameter id="methodParameters-gui" ishidden="1" type="code">
+      <name>methodParameters</name>
+      <description><![CDATA[Provides a specific filter to apply for the corresponding criterion. Put criterionID in the attribute id of parameter tag. Put the preference in the interval tag: a lower bound, an upper bound or both if needed.]]></description>
+      <position>300</position>
+      <code><![CDATA[#methodParameters: methodParameters.xml
+cat > methodParameters.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="xmcdaKappalab.xsl"?>
+<xmcda:XMCDA xmlns:xmcda="http://www.decision-deck.org/2009/XMCDA-2.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.decision-deck.org/2009/XMCDA-2.0.0 http://www.decision-deck.org/xmcda/_downloads/XMCDA-2.0.0.xsd">
+	<methodParameters>
+		<parameter id="criteria_filter" name="Criteria filter" >
+]]></code>
+      <dep>(methodParameters-use-file-dep:value="0")</dep>
+    </parameter>
+
+
+     <parameter id="nbTransformations" ishidden="0" type="int">
+      <name>Number of criteria to filter</name>
+      <description>Number of criteria to filter</description>
+      <position>400</position>
+      <code/>
+      <constraint>
+        <description>The value should be a strictly positive integer, lower or equal to 20</description>
+        <code><![CDATA[%d >= 1 && %d < 21]]></code>
+      </constraint>
+      <vdef>1</vdef>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0")]]></dep>
+    </parameter>
+
+    <!-- Transformation: 01 -->
+    <parameter id="cf-id-01" ishidden="0" type="string">
+             <name>1st criterion ID</name>
+      <description>1st criterion ID</description>
+       <position>4011</position>
+      <code><![CDATA[			<value id="%s">%n				<interval>%n]]></code>
+      <vdef>crit_id_01</vdef>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=1)]]></dep>
+    </parameter>
+
+    <parameter id="cf-interval-01" ishidden="0" type="enum">
+	  <name>Type of filtering:</name>
+      <indent>1</indent>
+      <description>Type of filtering</description>
+       <position>4012</position>
+      <vlist>
+        <item id="lower_bound">
+          <description>Lower bound</description>
+          <code/>
+        </item>
+        <item id="upper_bound">
+          <description>Upper bound</description>
+          <code/>
+        </item>
+        <item id="lower_n_upper_bounds">
+          <description>Lower and upper bounds</description>
+          <code/>
+        </item>
+      </vlist>
+      <vdef>lower_bound</vdef>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=1)]]></dep>
+    </parameter>
+
+    <parameter id="cf-lower-01" ishidden="0" type="float">
+      <name>Lower bound</name>
+      <indent>1</indent>
+      <description>Lower bound</description>
+       <position>4013</position>
+      <code><![CDATA[					<lowerBound><real>%s</real></lowerBound>%n]]></code>
+      <vdef>0</vdef>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=1) && (cf-interval-01:type!="upper_bound")]]></dep>
+    </parameter>
+
+    <parameter id="cf-upper-01" ishidden="0" type="float">
+      <name>Upper bound</name>
+      <indent>1</indent>
+      <description>Upper bound</description>
+       <position>4014</position>
+      <code><![CDATA[					<upperBound><real>%s</real></upperBound>%n]]></code>
+      <vdef>0</vdef>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=1) && (cf-interval-01:type!="lower_bound")]]></dep>
+    </parameter>
+
+
+    <parameter id="cf-01-end" ishidden="1" type="code">
+	  <name />
+      <description />
+	  <position>4015</position>
+      <code><![CDATA[				</interval>%n			</value>%n]]></code>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=1)]]></dep>
+    </parameter>
+
+    <!-- Transformation: 02 -->
+    <parameter id="cf-id-02" ishidden="0" type="string">
+             <name>2nd criterion ID</name>
+      <description>2nd criterion ID</description>
+       <position>4021</position>
+      <code><![CDATA[			<value id="%s">%n				<interval>%n]]></code>
+      <vdef>crit_id_02</vdef>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=2)]]></dep>
+    </parameter>
+
+    <parameter id="cf-interval-02" ishidden="0" type="enum">
+             <name>Type of filtering:</name>
+      <indent>1</indent>
+      <description>Type of filtering</description>
+       <position>4022</position>
+      <vlist>
+        <item id="lower_bound">
+          <description>Lower bound</description>
+          <code/>
+        </item>
+        <item id="upper_bound">
+          <description>Upper bound</description>
+          <code/>
+        </item>
+        <item id="lower_n_upper_bounds">
+          <description>Lower and upper bounds</description>
+          <code/>
+        </item>
+      </vlist>
+      <vdef>lower_bound</vdef>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=2)]]></dep>
+    </parameter>
+
+    <parameter id="cf-lower-02" ishidden="0" type="float">
+      <name>Lower bound</name>
+      <indent>1</indent>
+      <description>Lower bound</description>
+       <position>4023</position>
+      <code><![CDATA[					<lowerBound><real>%s</real></lowerBound>%n]]></code>
+      <vdef>0</vdef>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=2) && (cf-interval-02:type!="upper_bound")]]></dep>
+    </parameter>
+
+    <parameter id="cf-upper-02" ishidden="0" type="float">
+      <name>Upper bound</name>
+      <indent>1</indent>
+      <description>Upper bound</description>
+       <position>4024</position>
+      <code><![CDATA[					<upperBound><real>%s</real></upperBound>%n]]></code>
+      <vdef>0</vdef>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=2) && (cf-interval-02:type!="lower_bound")]]></dep>
+    </parameter>
+
+
+    <parameter id="cf-02-end" ishidden="1" type="code">
+	  <name />
+      <description />
+	  <position>4025</position>
+      <code><![CDATA[				</interval>%n			</value>%n]]></code>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=2)]]></dep>
+    </parameter>
+
+
+    <!-- Transformation: 03 -->
+    <parameter id="cf-id-03" ishidden="0" type="string">
+             <name>3rd criterion ID</name>
+      <description>3rd criterion ID</description>
+       <position>4031</position>
+      <code><![CDATA[			<value id="%s">%n				<interval>%n]]></code>
+      <vdef>crit_id_03</vdef>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=3)]]></dep>
+    </parameter>
+
+    <parameter id="cf-interval-03" ishidden="0" type="enum">
+             <name>Type of filtering:</name>
+      <indent>1</indent>
+      <description>Type of filtering</description>
+       <position>4032</position>
+      <vlist>
+        <item id="lower_bound">
+          <description>Lower bound</description>
+          <code/>
+        </item>
+        <item id="upper_bound">
+          <description>Upper bound</description>
+          <code/>
+        </item>
+        <item id="lower_n_upper_bounds">
+          <description>Lower and upper bounds</description>
+          <code/>
+        </item>
+      </vlist>
+      <vdef>lower_bound</vdef>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=3)]]></dep>
+    </parameter>
+
+    <parameter id="cf-lower-03" ishidden="0" type="float">
+      <name>Lower bound</name>
+      <indent>1</indent>
+      <description>Lower bound</description>
+       <position>4033</position>
+      <code><![CDATA[					<lowerBound><real>%s</real></lowerBound>%n]]></code>
+      <vdef>0</vdef>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=3) && (cf-interval-03:type!="upper_bound")]]></dep>
+    </parameter>
+
+    <parameter id="cf-upper-03" ishidden="0" type="float">
+      <name>Upper bound</name>
+      <indent>1</indent>
+      <description>Upper bound</description>
+       <position>4034</position>
+      <code><![CDATA[					<upperBound><real>%s</real></upperBound>%n]]></code>
+      <vdef>0</vdef>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=3) && (cf-interval-03:type!="lower_bound")]]></dep>
+    </parameter>
+
+
+    <parameter id="cf-03-end" ishidden="1" type="code">
+	  <name />
+      <description />
+	  <position>4035</position>
+      <code><![CDATA[				</interval>%n			</value>%n]]></code>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=3)]]></dep>
+    </parameter>
+
+
+    <!-- Transformation: 04 -->
+    <parameter id="cf-id-04" ishidden="0" type="string">
+             <name>4th criterion ID</name>
+      <description>4th criterion ID</description>
+       <position>4041</position>
+      <code><![CDATA[			<value id="%s">%n				<interval>%n]]></code>
+      <vdef>crit_id_04</vdef>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=4)]]></dep>
+    </parameter>
+
+    <parameter id="cf-interval-04" ishidden="0" type="enum">
+             <name>Type of filtering:</name>
+      <indent>1</indent>
+      <description>Type of filtering</description>
+       <position>4042</position>
+      <vlist>
+        <item id="lower_bound">
+          <description>Lower bound</description>
+          <code/>
+        </item>
+        <item id="upper_bound">
+          <description>Upper bound</description>
+          <code/>
+        </item>
+        <item id="lower_n_upper_bounds">
+          <description>Lower and upper bounds</description>
+          <code/>
+        </item>
+      </vlist>
+      <vdef>lower_bound</vdef>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=4)]]></dep>
+    </parameter>
+
+    <parameter id="cf-lower-04" ishidden="0" type="float">
+      <name>Lower bound</name>
+      <indent>1</indent>
+      <description>Lower bound</description>
+       <position>4043</position>
+      <code><![CDATA[					<lowerBound><real>%s</real></lowerBound>%n]]></code>
+      <vdef>0</vdef>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=4) && (cf-interval-04:type!="upper_bound")]]></dep>
+    </parameter>
+
+    <parameter id="cf-upper-04" ishidden="0" type="float">
+      <name>Upper bound</name>
+      <indent>1</indent>
+      <description>Upper bound</description>
+       <position>4044</position>
+      <code><![CDATA[					<upperBound><real>%s</real></upperBound>%n]]></code>
+      <vdef>0</vdef>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=4) && (cf-interval-04:type!="lower_bound")]]></dep>
+    </parameter>
+
+
+    <parameter id="cf-04-end" ishidden="1" type="code">
+	  <name />
+      <description />
+	  <position>4045</position>
+      <code><![CDATA[				</interval>%n			</value>%n]]></code>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=4)]]></dep>
+    </parameter>
+
+
+    <!-- Transformation: 05 -->
+    <parameter id="cf-id-05" ishidden="0" type="string">
+             <name>5th criterion ID</name>
+      <description>5th criterion ID</description>
+       <position>4051</position>
+      <code><![CDATA[			<value id="%s">%n				<interval>%n]]></code>
+      <vdef>crit_id_05</vdef>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=5)]]></dep>
+    </parameter>
+
+    <parameter id="cf-interval-05" ishidden="0" type="enum">
+             <name>Type of filtering:</name>
+      <indent>1</indent>
+      <description>Type of filtering</description>
+       <position>4052</position>
+      <vlist>
+        <item id="lower_bound">
+          <description>Lower bound</description>
+          <code/>
+        </item>
+        <item id="upper_bound">
+          <description>Upper bound</description>
+          <code/>
+        </item>
+        <item id="lower_n_upper_bounds">
+          <description>Lower and upper bounds</description>
+          <code/>
+        </item>
+      </vlist>
+      <vdef>lower_bound</vdef>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=5)]]></dep>
+    </parameter>
+
+    <parameter id="cf-lower-05" ishidden="0" type="float">
+      <name>Lower bound</name>
+      <indent>1</indent>
+      <description>Lower bound</description>
+       <position>4053</position>
+      <code><![CDATA[					<lowerBound><real>%s</real></lowerBound>%n]]></code>
+      <vdef>0</vdef>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=5) && (cf-interval-05:type!="upper_bound")]]></dep>
+    </parameter>
+
+    <parameter id="cf-upper-05" ishidden="0" type="float">
+      <name>Upper bound</name>
+      <indent>1</indent>
+      <description>Upper bound</description>
+       <position>4054</position>
+      <code><![CDATA[					<upperBound><real>%s</real></upperBound>%n]]></code>
+      <vdef>0</vdef>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=5) && (cf-interval-05:type!="lower_bound")]]></dep>
+    </parameter>
+
+
+    <parameter id="cf-05-end" ishidden="1" type="code">
+	  <name />
+      <description />
+	  <position>4055</position>
+      <code><![CDATA[				</interval>%n			</value>%n]]></code>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=5)]]></dep>
+    </parameter>
+
+
+    <!-- Transformation: 06 -->
+    <parameter id="cf-id-06" ishidden="0" type="string">
+             <name>6th criterion ID</name>
+      <description>6th criterion ID</description>
+       <position>4061</position>
+      <code><![CDATA[			<value id="%s">%n				<interval>%n]]></code>
+      <vdef>crit_id_06</vdef>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=6)]]></dep>
+    </parameter>
+
+    <parameter id="cf-interval-06" ishidden="0" type="enum">
+             <name>Type of filtering:</name>
+      <indent>1</indent>
+      <description>Type of filtering</description>
+       <position>4062</position>
+      <vlist>
+        <item id="lower_bound">
+          <description>Lower bound</description>
+          <code/>
+        </item>
+        <item id="upper_bound">
+          <description>Upper bound</description>
+          <code/>
+        </item>
+        <item id="lower_n_upper_bounds">
+          <description>Lower and upper bounds</description>
+          <code/>
+        </item>
+      </vlist>
+      <vdef>lower_bound</vdef>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=6)]]></dep>
+    </parameter>
+
+    <parameter id="cf-lower-06" ishidden="0" type="float">
+      <name>Lower bound</name>
+      <indent>1</indent>
+      <description>Lower bound</description>
+       <position>4063</position>
+      <code><![CDATA[					<lowerBound><real>%s</real></lowerBound>%n]]></code>
+      <vdef>0</vdef>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=6) && (cf-interval-06:type!="upper_bound")]]></dep>
+    </parameter>
+
+    <parameter id="cf-upper-06" ishidden="0" type="float">
+      <name>Upper bound</name>
+      <indent>1</indent>
+      <description>Upper bound</description>
+       <position>4064</position>
+      <code><![CDATA[					<upperBound><real>%s</real></upperBound>%n]]></code>
+      <vdef>0</vdef>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=6) && (cf-interval-06:type!="lower_bound")]]></dep>
+    </parameter>
+
+
+    <parameter id="cf-06-end" ishidden="1" type="code">
+	  <name />
+      <description />
+	  <position>4065</position>
+      <code><![CDATA[				</interval>%n			</value>%n]]></code>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=6)]]></dep>
+    </parameter>
+
+
+    <!-- Transformation: 07 -->
+    <parameter id="cf-id-07" ishidden="0" type="string">
+             <name>7th criterion ID</name>
+      <description>7th criterion ID</description>
+       <position>4071</position>
+      <code><![CDATA[			<value id="%s">%n				<interval>%n]]></code>
+      <vdef>crit_id_07</vdef>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=7)]]></dep>
+    </parameter>
+
+    <parameter id="cf-interval-07" ishidden="0" type="enum">
+             <name>Type of filtering:</name>
+      <indent>1</indent>
+      <description>Type of filtering</description>
+       <position>4072</position>
+      <vlist>
+        <item id="lower_bound">
+          <description>Lower bound</description>
+          <code/>
+        </item>
+        <item id="upper_bound">
+          <description>Upper bound</description>
+          <code/>
+        </item>
+        <item id="lower_n_upper_bounds">
+          <description>Lower and upper bounds</description>
+          <code/>
+        </item>
+      </vlist>
+      <vdef>lower_bound</vdef>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=7)]]></dep>
+    </parameter>
+
+    <parameter id="cf-lower-07" ishidden="0" type="float">
+      <name>Lower bound</name>
+      <indent>1</indent>
+      <description>Lower bound</description>
+       <position>4073</position>
+      <code><![CDATA[					<lowerBound><real>%s</real></lowerBound>%n]]></code>
+      <vdef>0</vdef>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=7) && (cf-interval-07:type!="upper_bound")]]></dep>
+    </parameter>
+
+    <parameter id="cf-upper-07" ishidden="0" type="float">
+      <name>Upper bound</name>
+      <indent>1</indent>
+      <description>Upper bound</description>
+       <position>4074</position>
+      <code><![CDATA[					<upperBound><real>%s</real></upperBound>%n]]></code>
+      <vdef>0</vdef>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=7) && (cf-interval-07:type!="lower_bound")]]></dep>
+    </parameter>
+
+
+    <parameter id="cf-07-end" ishidden="1" type="code">
+	  <name />
+      <description />
+	  <position>4075</position>
+      <code><![CDATA[				</interval>%n			</value>%n]]></code>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=7)]]></dep>
+    </parameter>
+
+
+    <!-- Transformation: 08 -->
+    <parameter id="cf-id-08" ishidden="0" type="string">
+             <name>8th criterion ID</name>
+      <description>8th criterion ID</description>
+       <position>4081</position>
+      <code><![CDATA[			<value id="%s">%n				<interval>%n]]></code>
+      <vdef>crit_id_08</vdef>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=8)]]></dep>
+    </parameter>
+
+    <parameter id="cf-interval-08" ishidden="0" type="enum">
+             <name>Type of filtering:</name>
+      <indent>1</indent>
+      <description>Type of filtering</description>
+       <position>4082</position>
+      <vlist>
+        <item id="lower_bound">
+          <description>Lower bound</description>
+          <code/>
+        </item>
+        <item id="upper_bound">
+          <description>Upper bound</description>
+          <code/>
+        </item>
+        <item id="lower_n_upper_bounds">
+          <description>Lower and upper bounds</description>
+          <code/>
+        </item>
+      </vlist>
+      <vdef>lower_bound</vdef>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=8)]]></dep>
+    </parameter>
+
+    <parameter id="cf-lower-08" ishidden="0" type="float">
+      <name>Lower bound</name>
+      <indent>1</indent>
+      <description>Lower bound</description>
+       <position>4083</position>
+      <code><![CDATA[					<lowerBound><real>%s</real></lowerBound>%n]]></code>
+      <vdef>0</vdef>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=8) && (cf-interval-08:type!="upper_bound")]]></dep>
+    </parameter>
+
+    <parameter id="cf-upper-08" ishidden="0" type="float">
+      <name>Upper bound</name>
+      <indent>1</indent>
+      <description>Upper bound</description>
+       <position>4084</position>
+      <code><![CDATA[					<upperBound><real>%s</real></upperBound>%n]]></code>
+      <vdef>0</vdef>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=8) && (cf-interval-08:type!="lower_bound")]]></dep>
+    </parameter>
+
+
+    <parameter id="cf-08-end" ishidden="1" type="code">
+	  <name />
+      <description />
+	  <position>4085</position>
+      <code><![CDATA[				</interval>%n			</value>%n]]></code>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=8)]]></dep>
+    </parameter>
+
+
+    <!-- Transformation: 09 -->
+    <parameter id="cf-id-09" ishidden="0" type="string">
+             <name>9th criterion ID</name>
+      <description>9th criterion ID</description>
+       <position>4091</position>
+      <code><![CDATA[			<value id="%s">%n				<interval>%n]]></code>
+      <vdef>crit_id_09</vdef>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=9)]]></dep>
+    </parameter>
+
+    <parameter id="cf-interval-09" ishidden="0" type="enum">
+             <name>Type of filtering:</name>
+      <indent>1</indent>
+      <description>Type of filtering</description>
+       <position>4092</position>
+      <vlist>
+        <item id="lower_bound">
+          <description>Lower bound</description>
+          <code/>
+        </item>
+        <item id="upper_bound">
+          <description>Upper bound</description>
+          <code/>
+        </item>
+        <item id="lower_n_upper_bounds">
+          <description>Lower and upper bounds</description>
+          <code/>
+        </item>
+      </vlist>
+      <vdef>lower_bound</vdef>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=9)]]></dep>
+    </parameter>
+
+    <parameter id="cf-lower-09" ishidden="0" type="float">
+      <name>Lower bound</name>
+      <indent>1</indent>
+      <description>Lower bound</description>
+       <position>4093</position>
+      <code><![CDATA[					<lowerBound><real>%s</real></lowerBound>%n]]></code>
+      <vdef>0</vdef>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=9) && (cf-interval-09:type!="upper_bound")]]></dep>
+    </parameter>
+
+    <parameter id="cf-upper-09" ishidden="0" type="float">
+      <name>Upper bound</name>
+      <indent>1</indent>
+      <description>Upper bound</description>
+       <position>4094</position>
+      <code><![CDATA[					<upperBound><real>%s</real></upperBound>%n]]></code>
+      <vdef>0</vdef>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=9) && (cf-interval-09:type!="lower_bound")]]></dep>
+    </parameter>
+
+
+    <parameter id="cf-09-end" ishidden="1" type="code">
+	  <name />
+      <description />
+	  <position>4095</position>
+      <code><![CDATA[				</interval>%n			</value>%n]]></code>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=9)]]></dep>
+    </parameter>
+
+    <!-- Transformation: 10 -->
+    <parameter id="cf-id-10" ishidden="0" type="string">
+             <name>10th criterion ID</name>
+      <description>10th criterion ID</description>
+       <position>4101</position>
+      <code><![CDATA[			<value id="%s">%n				<interval>%n]]></code>
+      <vdef>crit_id_10</vdef>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=10)]]></dep>
+    </parameter>
+
+    <parameter id="cf-interval-10" ishidden="0" type="enum">
+	  <name>Type of filtering:</name>
+      <indent>1</indent>
+      <description>Type of filtering</description>
+       <position>4102</position>
+      <vlist>
+        <item id="lower_bound">
+          <description>Lower bound</description>
+          <code/>
+        </item>
+        <item id="upper_bound">
+          <description>Upper bound</description>
+          <code/>
+        </item>
+        <item id="lower_n_upper_bounds">
+          <description>Lower and upper bounds</description>
+          <code/>
+        </item>
+      </vlist>
+      <vdef>lower_bound</vdef>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=10)]]></dep>
+    </parameter>
+
+    <parameter id="cf-lower-10" ishidden="0" type="float">
+      <name>Lower bound</name>
+      <indent>1</indent>
+      <description>Lower bound</description>
+       <position>4103</position>
+      <code><![CDATA[					<lowerBound><real>%s</real></lowerBound>%n]]></code>
+      <vdef>0</vdef>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=10) && (cf-interval-10:type!="upper_bound")]]></dep>
+    </parameter>
+
+    <parameter id="cf-upper-10" ishidden="0" type="float">
+      <name>Upper bound</name>
+      <indent>1</indent>
+      <description>Upper bound</description>
+       <position>4104</position>
+      <code><![CDATA[					<upperBound><real>%s</real></upperBound>%n]]></code>
+      <vdef>0</vdef>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=10) && (cf-interval-10:type!="lower_bound")]]></dep>
+    </parameter>
+
+
+    <parameter id="cf-10-end" ishidden="1" type="code">
+	  <name />
+      <description />
+	  <position>4105</position>
+      <code><![CDATA[				</interval>%n			</value>%n]]></code>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=10)]]></dep>
+    </parameter>
+
+    <!-- Transformation: 11 -->
+    <parameter id="cf-id-11" ishidden="0" type="string">
+             <name>11th criterion ID</name>
+      <description>11th criterion ID</description>
+       <position>4111</position>
+      <code><![CDATA[			<value id="%s">%n				<interval>%n]]></code>
+      <vdef>crit_id_11</vdef>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=11)]]></dep>
+    </parameter>
+
+    <parameter id="cf-interval-11" ishidden="0" type="enum">
+	  <name>Type of filtering:</name>
+      <indent>1</indent>
+      <description>Type of filtering</description>
+       <position>4112</position>
+      <vlist>
+        <item id="lower_bound">
+          <description>Lower bound</description>
+          <code/>
+        </item>
+        <item id="upper_bound">
+          <description>Upper bound</description>
+          <code/>
+        </item>
+        <item id="lower_n_upper_bounds">
+          <description>Lower and upper bounds</description>
+          <code/>
+        </item>
+      </vlist>
+      <vdef>lower_bound</vdef>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=11)]]></dep>
+    </parameter>
+
+    <parameter id="cf-lower-11" ishidden="0" type="float">
+      <name>Lower bound</name>
+      <indent>1</indent>
+      <description>Lower bound</description>
+       <position>4113</position>
+      <code><![CDATA[					<lowerBound><real>%s</real></lowerBound>%n]]></code>
+      <vdef>0</vdef>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=11) && (cf-interval-11:type!="upper_bound")]]></dep>
+    </parameter>
+
+    <parameter id="cf-upper-11" ishidden="0" type="float">
+      <name>Upper bound</name>
+      <indent>1</indent>
+      <description>Upper bound</description>
+       <position>4114</position>
+      <code><![CDATA[					<upperBound><real>%s</real></upperBound>%n]]></code>
+      <vdef>0</vdef>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=11) && (cf-interval-11:type!="lower_bound")]]></dep>
+    </parameter>
+
+
+    <parameter id="cf-11-end" ishidden="1" type="code">
+	  <name />
+      <description />
+	  <position>4115</position>
+      <code><![CDATA[				</interval>%n			</value>%n]]></code>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=11)]]></dep>
+    </parameter>
+
+    <!-- Transformation: 12 -->
+    <parameter id="cf-id-12" ishidden="0" type="string">
+             <name>12th criterion ID</name>
+      <description>12th criterion ID</description>
+       <position>4121</position>
+      <code><![CDATA[			<value id="%s">%n				<interval>%n]]></code>
+      <vdef>crit_id_12</vdef>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=12)]]></dep>
+    </parameter>
+
+    <parameter id="cf-interval-12" ishidden="0" type="enum">
+             <name>Type of filtering:</name>
+      <indent>1</indent>
+      <description>Type of filtering</description>
+       <position>4122</position>
+      <vlist>
+        <item id="lower_bound">
+          <description>Lower bound</description>
+          <code/>
+        </item>
+        <item id="upper_bound">
+          <description>Upper bound</description>
+          <code/>
+        </item>
+        <item id="lower_n_upper_bounds">
+          <description>Lower and upper bounds</description>
+          <code/>
+        </item>
+      </vlist>
+      <vdef>lower_bound</vdef>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=12)]]></dep>
+    </parameter>
+
+    <parameter id="cf-lower-12" ishidden="0" type="float">
+      <name>Lower bound</name>
+      <indent>1</indent>
+      <description>Lower bound</description>
+       <position>4123</position>
+      <code><![CDATA[					<lowerBound><real>%s</real></lowerBound>%n]]></code>
+      <vdef>0</vdef>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=12) && (cf-interval-12:type!="upper_bound")]]></dep>
+    </parameter>
+
+    <parameter id="cf-upper-12" ishidden="0" type="float">
+      <name>Upper bound</name>
+      <indent>1</indent>
+      <description>Upper bound</description>
+       <position>4124</position>
+      <code><![CDATA[					<upperBound><real>%s</real></upperBound>%n]]></code>
+      <vdef>0</vdef>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=12) && (cf-interval-12:type!="lower_bound")]]></dep>
+    </parameter>
+
+
+    <parameter id="cf-12-end" ishidden="1" type="code">
+	  <name />
+      <description />
+	  <position>4125</position>
+      <code><![CDATA[				</interval>%n			</value>%n]]></code>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=12)]]></dep>
+    </parameter>
+
+
+    <!-- Transformation: 13 -->
+    <parameter id="cf-id-13" ishidden="0" type="string">
+             <name>13th criterion ID</name>
+      <description>13th criterion ID</description>
+       <position>4131</position>
+      <code><![CDATA[			<value id="%s">%n				<interval>%n]]></code>
+      <vdef>crit_id_13</vdef>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=13)]]></dep>
+    </parameter>
+
+    <parameter id="cf-interval-13" ishidden="0" type="enum">
+             <name>Type of filtering:</name>
+      <indent>1</indent>
+      <description>Type of filtering</description>
+       <position>4132</position>
+      <vlist>
+        <item id="lower_bound">
+          <description>Lower bound</description>
+          <code/>
+        </item>
+        <item id="upper_bound">
+          <description>Upper bound</description>
+          <code/>
+        </item>
+        <item id="lower_n_upper_bounds">
+          <description>Lower and upper bounds</description>
+          <code/>
+        </item>
+      </vlist>
+      <vdef>lower_bound</vdef>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=13)]]></dep>
+    </parameter>
+
+    <parameter id="cf-lower-13" ishidden="0" type="float">
+      <name>Lower bound</name>
+      <indent>1</indent>
+      <description>Lower bound</description>
+       <position>4133</position>
+      <code><![CDATA[					<lowerBound><real>%s</real></lowerBound>%n]]></code>
+      <vdef>0</vdef>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=13) && (cf-interval-13:type!="upper_bound")]]></dep>
+    </parameter>
+
+    <parameter id="cf-upper-13" ishidden="0" type="float">
+      <name>Upper bound</name>
+      <indent>1</indent>
+      <description>Upper bound</description>
+       <position>4134</position>
+      <code><![CDATA[					<upperBound><real>%s</real></upperBound>%n]]></code>
+      <vdef>0</vdef>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=13) && (cf-interval-13:type!="lower_bound")]]></dep>
+    </parameter>
+
+
+    <parameter id="cf-13-end" ishidden="1" type="code">
+	  <name />
+      <description />
+	  <position>4135</position>
+      <code><![CDATA[				</interval>%n			</value>%n]]></code>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=13)]]></dep>
+    </parameter>
+
+
+    <!-- Transformation: 14 -->
+    <parameter id="cf-id-14" ishidden="0" type="string">
+             <name>14th criterion ID</name>
+      <description>14th criterion ID</description>
+       <position>4141</position>
+      <code><![CDATA[			<value id="%s">%n				<interval>%n]]></code>
+      <vdef>crit_id_14</vdef>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=14)]]></dep>
+    </parameter>
+
+    <parameter id="cf-interval-14" ishidden="0" type="enum">
+             <name>Type of filtering:</name>
+      <indent>1</indent>
+      <description>Type of filtering</description>
+       <position>4142</position>
+      <vlist>
+        <item id="lower_bound">
+          <description>Lower bound</description>
+          <code/>
+        </item>
+        <item id="upper_bound">
+          <description>Upper bound</description>
+          <code/>
+        </item>
+        <item id="lower_n_upper_bounds">
+          <description>Lower and upper bounds</description>
+          <code/>
+        </item>
+      </vlist>
+      <vdef>lower_bound</vdef>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=14)]]></dep>
+    </parameter>
+
+    <parameter id="cf-lower-14" ishidden="0" type="float">
+      <name>Lower bound</name>
+      <indent>1</indent>
+      <description>Lower bound</description>
+       <position>4143</position>
+      <code><![CDATA[					<lowerBound><real>%s</real></lowerBound>%n]]></code>
+      <vdef>0</vdef>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=14) && (cf-interval-14:type!="upper_bound")]]></dep>
+    </parameter>
+
+    <parameter id="cf-upper-14" ishidden="0" type="float">
+      <name>Upper bound</name>
+      <indent>1</indent>
+      <description>Upper bound</description>
+       <position>4144</position>
+      <code><![CDATA[					<upperBound><real>%s</real></upperBound>%n]]></code>
+      <vdef>0</vdef>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=14) && (cf-interval-14:type!="lower_bound")]]></dep>
+    </parameter>
+
+
+    <parameter id="cf-14-end" ishidden="1" type="code">
+	  <name />
+      <description />
+	  <position>4145</position>
+      <code><![CDATA[				</interval>%n			</value>%n]]></code>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=14)]]></dep>
+    </parameter>
+
+
+    <!-- Transformation: 15 -->
+    <parameter id="cf-id-15" ishidden="0" type="string">
+             <name>15th criterion ID</name>
+      <description>15th criterion ID</description>
+       <position>4151</position>
+      <code><![CDATA[			<value id="%s">%n				<interval>%n]]></code>
+      <vdef>crit_id_15</vdef>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=15)]]></dep>
+    </parameter>
+
+    <parameter id="cf-interval-15" ishidden="0" type="enum">
+             <name>Type of filtering:</name>
+      <indent>1</indent>
+      <description>Type of filtering</description>
+       <position>4152</position>
+      <vlist>
+        <item id="lower_bound">
+          <description>Lower bound</description>
+          <code/>
+        </item>
+        <item id="upper_bound">
+          <description>Upper bound</description>
+          <code/>
+        </item>
+        <item id="lower_n_upper_bounds">
+          <description>Lower and upper bounds</description>
+          <code/>
+        </item>
+      </vlist>
+      <vdef>lower_bound</vdef>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=15)]]></dep>
+    </parameter>
+
+    <parameter id="cf-lower-15" ishidden="0" type="float">
+      <name>Lower bound</name>
+      <indent>1</indent>
+      <description>Lower bound</description>
+       <position>4153</position>
+      <code><![CDATA[					<lowerBound><real>%s</real></lowerBound>%n]]></code>
+      <vdef>0</vdef>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=15) && (cf-interval-15:type!="upper_bound")]]></dep>
+    </parameter>
+
+    <parameter id="cf-upper-15" ishidden="0" type="float">
+      <name>Upper bound</name>
+      <indent>1</indent>
+      <description>Upper bound</description>
+       <position>4154</position>
+      <code><![CDATA[					<upperBound><real>%s</real></upperBound>%n]]></code>
+      <vdef>0</vdef>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=15) && (cf-interval-15:type!="lower_bound")]]></dep>
+    </parameter>
+
+
+    <parameter id="cf-15-end" ishidden="1" type="code">
+	  <name />
+      <description />
+	  <position>4155</position>
+      <code><![CDATA[				</interval>%n			</value>%n]]></code>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=15)]]></dep>
+    </parameter>
+
+
+    <!-- Transformation: 16 -->
+    <parameter id="cf-id-16" ishidden="0" type="string">
+             <name>16th criterion ID</name>
+      <description>16th criterion ID</description>
+       <position>4161</position>
+      <code><![CDATA[			<value id="%s">%n				<interval>%n]]></code>
+      <vdef>crit_id_16</vdef>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=16)]]></dep>
+    </parameter>
+
+    <parameter id="cf-interval-16" ishidden="0" type="enum">
+             <name>Type of filtering:</name>
+      <indent>1</indent>
+      <description>Type of filtering</description>
+       <position>4162</position>
+      <vlist>
+        <item id="lower_bound">
+          <description>Lower bound</description>
+          <code/>
+        </item>
+        <item id="upper_bound">
+          <description>Upper bound</description>
+          <code/>
+        </item>
+        <item id="lower_n_upper_bounds">
+          <description>Lower and upper bounds</description>
+          <code/>
+        </item>
+      </vlist>
+      <vdef>lower_bound</vdef>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=16)]]></dep>
+    </parameter>
+
+    <parameter id="cf-lower-16" ishidden="0" type="float">
+      <name>Lower bound</name>
+      <indent>1</indent>
+      <description>Lower bound</description>
+       <position>4163</position>
+      <code><![CDATA[					<lowerBound><real>%s</real></lowerBound>%n]]></code>
+      <vdef>0</vdef>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=16) && (cf-interval-16:type!="upper_bound")]]></dep>
+    </parameter>
+
+    <parameter id="cf-upper-16" ishidden="0" type="float">
+      <name>Upper bound</name>
+      <indent>1</indent>
+      <description>Upper bound</description>
+       <position>4164</position>
+      <code><![CDATA[					<upperBound><real>%s</real></upperBound>%n]]></code>
+      <vdef>0</vdef>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=16) && (cf-interval-16:type!="lower_bound")]]></dep>
+    </parameter>
+
+
+    <parameter id="cf-16-end" ishidden="1" type="code">
+	  <name />
+      <description />
+	  <position>4165</position>
+      <code><![CDATA[				</interval>%n			</value>%n]]></code>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=16)]]></dep>
+    </parameter>
+
+
+    <!-- Transformation: 17 -->
+    <parameter id="cf-id-17" ishidden="0" type="string">
+             <name>17th criterion ID</name>
+      <description>17th criterion ID</description>
+       <position>4171</position>
+      <code><![CDATA[			<value id="%s">%n				<interval>%n]]></code>
+      <vdef>crit_id_17</vdef>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=17)]]></dep>
+    </parameter>
+
+    <parameter id="cf-interval-17" ishidden="0" type="enum">
+             <name>Type of filtering:</name>
+      <indent>1</indent>
+      <description>Type of filtering</description>
+       <position>4172</position>
+      <vlist>
+        <item id="lower_bound">
+          <description>Lower bound</description>
+          <code/>
+        </item>
+        <item id="upper_bound">
+          <description>Upper bound</description>
+          <code/>
+        </item>
+        <item id="lower_n_upper_bounds">
+          <description>Lower and upper bounds</description>
+          <code/>
+        </item>
+      </vlist>
+      <vdef>lower_bound</vdef>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=17)]]></dep>
+    </parameter>
+
+    <parameter id="cf-lower-17" ishidden="0" type="float">
+      <name>Lower bound</name>
+      <indent>1</indent>
+      <description>Lower bound</description>
+       <position>4173</position>
+      <code><![CDATA[					<lowerBound><real>%s</real></lowerBound>%n]]></code>
+      <vdef>0</vdef>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=17) && (cf-interval-17:type!="upper_bound")]]></dep>
+    </parameter>
+
+    <parameter id="cf-upper-17" ishidden="0" type="float">
+      <name>Upper bound</name>
+      <indent>1</indent>
+      <description>Upper bound</description>
+       <position>4174</position>
+      <code><![CDATA[					<upperBound><real>%s</real></upperBound>%n]]></code>
+      <vdef>0</vdef>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=17) && (cf-interval-17:type!="lower_bound")]]></dep>
+    </parameter>
+
+
+    <parameter id="cf-17-end" ishidden="1" type="code">
+	  <name />
+      <description />
+	  <position>4175</position>
+      <code><![CDATA[				</interval>%n			</value>%n]]></code>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=17)]]></dep>
+    </parameter>
+
+
+    <!-- Transformation: 18 -->
+    <parameter id="cf-id-18" ishidden="0" type="string">
+             <name>18th criterion ID</name>
+      <description>18th criterion ID</description>
+       <position>4181</position>
+      <code><![CDATA[			<value id="%s">%n				<interval>%n]]></code>
+      <vdef>crit_id_18</vdef>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=18)]]></dep>
+    </parameter>
+
+    <parameter id="cf-interval-18" ishidden="0" type="enum">
+             <name>Type of filtering:</name>
+      <indent>1</indent>
+      <description>Type of filtering</description>
+       <position>4182</position>
+      <vlist>
+        <item id="lower_bound">
+          <description>Lower bound</description>
+          <code/>
+        </item>
+        <item id="upper_bound">
+          <description>Upper bound</description>
+          <code/>
+        </item>
+        <item id="lower_n_upper_bounds">
+          <description>Lower and upper bounds</description>
+          <code/>
+        </item>
+      </vlist>
+      <vdef>lower_bound</vdef>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=18)]]></dep>
+    </parameter>
+
+    <parameter id="cf-lower-18" ishidden="0" type="float">
+      <name>Lower bound</name>
+      <indent>1</indent>
+      <description>Lower bound</description>
+       <position>4183</position>
+      <code><![CDATA[					<lowerBound><real>%s</real></lowerBound>%n]]></code>
+      <vdef>0</vdef>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=18) && (cf-interval-18:type!="upper_bound")]]></dep>
+    </parameter>
+
+    <parameter id="cf-upper-18" ishidden="0" type="float">
+      <name>Upper bound</name>
+      <indent>1</indent>
+      <description>Upper bound</description>
+       <position>4184</position>
+      <code><![CDATA[					<upperBound><real>%s</real></upperBound>%n]]></code>
+      <vdef>0</vdef>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=18) && (cf-interval-18:type!="lower_bound")]]></dep>
+    </parameter>
+
+
+    <parameter id="cf-18-end" ishidden="1" type="code">
+	  <name />
+      <description />
+	  <position>4185</position>
+      <code><![CDATA[				</interval>%n			</value>%n]]></code>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=18)]]></dep>
+    </parameter>
+
+
+    <!-- Transformation: 19 -->
+    <parameter id="cf-id-19" ishidden="0" type="string">
+             <name>19th criterion ID</name>
+      <description>19th criterion ID</description>
+       <position>4191</position>
+      <code><![CDATA[			<value id="%s">%n				<interval>%n]]></code>
+      <vdef>crit_id_19</vdef>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=19)]]></dep>
+    </parameter>
+
+    <parameter id="cf-interval-19" ishidden="0" type="enum">
+             <name>Type of filtering:</name>
+      <indent>1</indent>
+      <description>Type of filtering</description>
+       <position>4192</position>
+      <vlist>
+        <item id="lower_bound">
+          <description>Lower bound</description>
+          <code/>
+        </item>
+        <item id="upper_bound">
+          <description>Upper bound</description>
+          <code/>
+        </item>
+        <item id="lower_n_upper_bounds">
+          <description>Lower and upper bounds</description>
+          <code/>
+        </item>
+      </vlist>
+      <vdef>lower_bound</vdef>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=19)]]></dep>
+    </parameter>
+
+    <parameter id="cf-lower-19" ishidden="0" type="float">
+      <name>Lower bound</name>
+      <indent>1</indent>
+      <description>Lower bound</description>
+       <position>4193</position>
+      <code><![CDATA[					<lowerBound><real>%s</real></lowerBound>%n]]></code>
+      <vdef>0</vdef>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=19) && (cf-interval-19:type!="upper_bound")]]></dep>
+    </parameter>
+
+    <parameter id="cf-upper-19" ishidden="0" type="float">
+      <name>Upper bound</name>
+      <indent>1</indent>
+      <description>Upper bound</description>
+       <position>4194</position>
+      <code><![CDATA[					<upperBound><real>%s</real></upperBound>%n]]></code>
+      <vdef>0</vdef>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=19) && (cf-interval-19:type!="lower_bound")]]></dep>
+    </parameter>
+
+
+    <parameter id="cf-19-end" ishidden="1" type="code">
+	  <name />
+      <description />
+	  <position>4195</position>
+      <code><![CDATA[				</interval>%n			</value>%n]]></code>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=19)]]></dep>
+    </parameter>
+
+    <!-- Transformation: 20 -->
+    <parameter id="cf-id-20" ishidden="0" type="string">
+             <name>20th criterion ID</name>
+      <description>20th criterion ID</description>
+       <position>4201</position>
+      <code><![CDATA[			<value id="%s">%n				<interval>%n]]></code>
+      <vdef>crit_id_20</vdef>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=20)]]></dep>
+    </parameter>
+
+    <parameter id="cf-interval-20" ishidden="0" type="enum">
+	  <name>Type of filtering:</name>
+      <indent>1</indent>
+      <description>Type of filtering</description>
+       <position>4202</position>
+      <vlist>
+        <item id="lower_bound">
+          <description>Lower bound</description>
+          <code/>
+        </item>
+        <item id="upper_bound">
+          <description>Upper bound</description>
+          <code/>
+        </item>
+        <item id="lower_n_upper_bounds">
+          <description>Lower and upper bounds</description>
+          <code/>
+        </item>
+      </vlist>
+      <vdef>lower_bound</vdef>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=20)]]></dep>
+    </parameter>
+
+    <parameter id="cf-lower-20" ishidden="0" type="float">
+      <name>Lower bound</name>
+      <indent>1</indent>
+      <description>Lower bound</description>
+       <position>4203</position>
+      <code><![CDATA[					<lowerBound><real>%s</real></lowerBound>%n]]></code>
+      <vdef>0</vdef>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=20) && (cf-interval-20:type!="upper_bound")]]></dep>
+    </parameter>
+
+    <parameter id="cf-upper-20" ishidden="0" type="float">
+      <name>Upper bound</name>
+      <indent>1</indent>
+      <description>Upper bound</description>
+       <position>4204</position>
+      <code><![CDATA[					<upperBound><real>%s</real></upperBound>%n]]></code>
+      <vdef>0</vdef>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=20) && (cf-interval-20:type!="lower_bound")]]></dep>
+    </parameter>
+
+
+    <parameter id="cf-20-end" ishidden="1" type="code">
+	  <name />
+      <description />
+	  <position>4205</position>
+      <code><![CDATA[				</interval>%n			</value>%n]]></code>
+      <dep><![CDATA[(methodParameters-use-file-dep:value="0") && (nbTransformations:value>=20)]]></dep>
+    </parameter>
+
+    <!--  -->
+    <parameter id="methodParameters-gui-EOF" ishidden="1" type="code">
+      <name>methodParameters EOF</name>
+      <description></description>
+      <position>4999</position>
+      <code><![CDATA[		</parameter>%n	</methodParameters>%n</xmcda:XMCDA>%nEOF%n]]></code>
+      <dep>(methodParameters-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+    <parameter id="methodParameters-cmdline" ishidden="1" type="code">
+      <name>methodParameters insertion in cmd-line</name>
+      <description></description>
+      <position>100003</position>
+      <code> methodParameters:methodParameters.xml</code>
+      <dep/>
+    </parameter>
+
+    <!-- methodParameters ends here -->
+
+
+
+    <parameter id="alternatives" ishidden="0" type="input">
+      <name>alternatives</name>
+      <description><![CDATA[A list of alternatives. Alternatives can be activated or desactivated via the <active> tag (true or false). By default (no <active> tag), alternatives are considered as active. ]]></description>
+      <position>100004</position>
+      <code> alternatives:alternatives.xml</code>
+      <types>
+        <type>alternatives</type>
+      </types>
+      <vdef>alternatives.xml</vdef>
+      <dep/>
+    </parameter>
+
+
+
+    <parameter id="criteria" ishidden="0" type="input">
+      <name>criteria</name>
+      <description><![CDATA[A list of criteria. Criteria can be activated or desactivated via the <active> tag (true or false). By default (no <active> tag), criteria are considered as active.]]></description>
+      <position>100005</position>
+      <code> criteria:criteria.xml</code>
+      <types>
+        <type>criteria</type>
+      </types>
+      <vdef>criteria.xml</vdef>
+      <dep/>
+    </parameter>
+
+
+
+    <parameter id="performanceTable" ishidden="0" type="input">
+      <name>performanceTable</name>
+      <description><![CDATA[A performance table. The evaluations should be only real or integer numeric values, i.e. <real> or <integer>.]]></description>
+      <position>100006</position>
+      <code> performanceTable:performanceTable.xml</code>
+      <types>
+        <type>performanceTable</type>
+      </types>
+      <vdef>performanceTable.xml</vdef>
+      <dep/>
+    </parameter>
+
+
+
+
+    <parameter id="filteredPerformanceTable" ishidden="0" type="output">
+      <name>filteredPerformanceTable</name>
+      <description><![CDATA[The filtered performance table.]]></description>
+      <position>2007</position>
+      <code/>
+      <types>
+        <type>performanceTable</type>
+      </types>
+      <vdef>filteredPerformanceTable.xml</vdef>
+    </parameter>
+
+
+
+
+
+    <parameter id="messages" ishidden="0" type="output">
+      <name>messages</name>
+      <description><![CDATA[A list of messages generated by the algorithm.]]></description>
+      <position>2008</position>
+      <code/>
+      <types>
+        <type>methodMessages</type>
+      </types>
+      <vdef>messages.xml</vdef>
+    </parameter>
+
+
+
+    <parameter id="TIMEOUT" ishidden="0" type="int">
+      <name>Timeout? (0 for no timeout)</name>
+      <description>timeout</description>
+      <position>100001</position>
+      <code>-t %s </code>
+      <constraint>
+        <description>value should be a positive or null integer</description>
+        <code>(%d &gt;= 0)</code>
+      </constraint>
+      <vdef>60</vdef>
+    </parameter>
+    
+    <parameter id="VERBOSE" ishidden="0" type="enum">
+      <name>Verbose mode</name>
+      <description></description>
+      <position>100002</position>
+      <vlist>
+        <item id="T1">
+          <description>None</description>
+          <code></code>
+        </item>
+        <item id="T2">
+          <description>Moderately verbose</description>
+          <code> -v</code>
+        </item>
+        <item id="T3">
+          <description>Very verbose</description>
+          <code> -vv</code>
+        </item>
+        <item id="T4">
+          <description>Extremely verbose (include SOAP msgs)</description>
+          <code> -vvv</code>
+        </item>
+      </vlist>
+      <vdef>T2</vdef>
+    </parameter>
+
+  </parameters>
+</program_description>

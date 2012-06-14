@@ -1,3 +1,42 @@
+
+- Nouveaux web-services XMCDA Decision Deck disponibles:
+
+  ITTB: 24 nouveaux WS par Dhouha Kbaier, Télécom Bretagne
+    - alternativesRankingViaQualificationDistillation
+    - computeNumericPerformanceTable
+    - criteriaDescriptiveStatistics
+    - csvToXMCDA-categoriesProfiles
+    - csvToXMCDA-valueFunctions
+    - cutRelation
+    - performanceTableFilter
+    - performanceTableTransformation
+    - plotAlternativesAffectations
+    - plotAlternativesAssignments
+    - plotAlternativesComparisons
+    - plotAlternativesValuesPreorder
+    - plotAlternativesValues
+    - plotCriteriaComparisons
+    - plotCriteriaValuesPreorder
+    - plotCriteriaValues
+    - plotFuzzyCategoriesValues
+    - plotNumericPerformanceTable
+    - plotStarGraphPerformanceTable
+    - plotValueFunctions
+    - sortAlternativesValues
+    - transitiveReductionAlternativesComparisons
+    - transitiveReductionCriteriaComparisons
+    - UTA
+
+  ws-Mcc: 5 nouveaux WS par Alexandru Olteanu,
+                            Université du Luxembourg / Télécom Bretagne
+    - mccClustersRelationSummary
+    - mccClusters
+    - mccEvaluateClusters
+    - mccPlotClusters
+    - mccPreferenceRelation
+
+  PyXMCDA MccP a été supprimé (remplacé par les programmes fournis par ws-Mcc)
+
 diviz v1.8.2
 ------------
 
