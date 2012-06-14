@@ -3,34 +3,37 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2012-06-07 07:37:00 +0000">
-  <program provider="ITTB" name="csvToXMCDA-valueFunctions" version="1.0" />
+<program_description export_date="2012-06-14 08:00:38 +0000">
+  <program provider="PyXMCDA" name="csvToXMCDA-valueFunctions" version="1.0" />
   <from desc_id="S8888" />
-  <description><![CDATA[Transforms a file containing value functions from a comma-separated values (CSV) file to XMCDA compliant file, containing the criteria ids with their names and criterion functions (points).]]></description>
+  <description><![CDATA[Transforms a file containing value functions from a comma-separated values (CSV) file to a XMCDA compliant file, containing the criteria ids with their names and criterion functions (points).]]></description>
   <parameters>
     <parameter id="csvToXMCDA-valueFunctions-cmdline" type="command" ismandatory="1">
       <name>csvToXMCDA-valueFunctions</name>
       <description></description>
       <position>100000</position>
-      <code>$callXMCDAService csvToXMCDA-valueFunctions-ITTB -S </code>
+      <code>$callXMCDAService csvToXMCDA-valueFunctions-PyXMCDA -S </code>
     </parameter>
 
 
     <parameter id="valueFunctions_csv" ishidden="0" type="input">
       <name>valueFunctions (csv)</name>
       <description><![CDATA[The value functions as a CSV file.
- Example:
-g1,cost,0,0
-,,21334,1
-g2,Acceleration,0,0
-,,30.8,1
-g3,PickUp,0,0
-,,41.6,1
-g4,Brakes,0,0
-,,2.66,1
-g5,RoadHold,0,0
-,,3.25,1
-                ]]></description>
+
+Example:
+
+  g1,cost,0,0
+  ,,21334,1
+  g2,Acceleration,0,0
+  ,,30.8,1
+  g3,PickUp,0,0
+  ,,41.6,1
+  g4,Brakes,0,0
+  ,,2.66,1
+  g5,RoadHold,0,0
+  ,,3.25,1
+
+]]></description>
       <position>100003</position>
       <code> valueFunctions.csv:valueFunctions.csv.xml</code>
       <types>

@@ -164,7 +164,7 @@
 			<resource name="PyXMCDA___csvToXMCDA-criteriaThresholds___1.2"/>
 			<resource name="PyXMCDA___csvToXMCDA-criteriaValues___1.2"/>
 			<resource name="PyXMCDA___csvToXMCDA-performanceTable___1.0"/>
-			<resource name="ITTB___csvToXMCDA-valueFunctions___1.0"/>
+			<resource name="PyXMCDA___csvToXMCDA-valueFunctions___1.0"/>
 		</type>
 		
 		<type name="Data visualisation" collapsed="0">
