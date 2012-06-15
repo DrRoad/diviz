@@ -22,10 +22,13 @@ public class InitialisationDelegate
 	 * <ul>
 	 */
 	@Override
-	public void initialize()
+	public void initialize(boolean client, boolean server, boolean platform)
 	{
 		Program.delegate = new ProgramDelegate();
-		UI.setDelegate(new UIDelegate());
-		Client.uiClient.setDelegate(new ClientDelegate());
+		if (client)
+		{
+			UI.setDelegate(new UIDelegate());
+			Client.uiClient.setDelegate(new ClientDelegate());
+		}
 	}
 }
