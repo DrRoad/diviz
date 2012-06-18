@@ -3,7 +3,7 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2012-06-07 07:37:00 +0000">
+<program_description export_date="2012-06-14 11:49:54 +0000">
   <program provider="ITTB" name="plotFuzzyCategoriesValues" version="1.0" />
   <from desc_id="S8888" />
   <description><![CDATA[This web service allows to plot fuzzy sets. There are some options to take into account: title, X-axis label, Y-axis label and the use of colors.]]></description>
@@ -51,10 +51,9 @@
       <position>300</position>
       <code><![CDATA[#options: options.xml
 cat > options.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="xmcdaKappalab.xsl"?>
-<xmcda:XMCDA xmlns:xmcda="http://www.decision-deck.org/2009/XMCDA-2.0.0"
+<xmcda:XMCDA xmlns:xmcda="http://www.decision-deck.org/2012/XMCDA-2.2.0"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.decision-deck.org/2009/XMCDA-2.0.0 http://www.decision-deck.org/xmcda/_downloads/XMCDA-2.0.0.xsd">]]></code>
+        xsi:schemaLocation="http://www.decision-deck.org/2012/XMCDA-2.2.0 http://www.decision-deck.org/xmcda/_downloads/XMCDA-2.2.0.xsd">]]></code>
       <dep>(options-use-file-dep:value="0")</dep>
 
     </parameter>

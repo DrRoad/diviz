@@ -3,7 +3,7 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2010-03-10 14:49:17 +0000">
+<program_description export_date="2011-09-26 07:53:52 +0000">
   <program provider="kappalab" name="miniVarCapaIdent" version="1.0" />
   <from desc_id="S8888" />
   <description><![CDATA[Identifies a Mobius capacity by means of an approach using a maximum like quadratic entropy principle, which is equivalent to the minimization of the variance. More precisely, this function determines, if it exists, the minimum variance capacity compatible with a set of linear constraints. The problem is solved using strictly convex quadratic programming.

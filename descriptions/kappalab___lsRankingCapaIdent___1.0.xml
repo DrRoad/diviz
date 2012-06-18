@@ -3,7 +3,7 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2010-03-10 14:49:18 +0000">
+<program_description export_date="2011-09-26 07:53:52 +0000">
   <program provider="kappalab" name="lsRankingCapaIdent" version="1.0" />
   <from desc_id="S8888" />
   <description><![CDATA[Identifies a Mobius capacity by means of an approach called TOMASO in the particular ranking framework. More precisely, given a preorder on the alternatives, and possibly additional linear constraints expressing preferences, importance of criteria, etc., this algorithm determines, if it exists, a capacity minimising the  "gap" between the given ranking and the one derived from the Choquet integral, and compatible with the additional linear constraints. The problem is solved by quadratic programming. ]]></description>

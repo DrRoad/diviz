@@ -3,7 +3,7 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2010-09-27 12:13:21 +0000">
+<program_description export_date="2011-09-26 07:53:52 +0000">
   <program provider="PyXMCDA" name="randomAlternatives" version="1.0" />
   <from desc_id="S8888" />
   <description><![CDATA[This web service allows to create a simple list of alternative by simply providing the desired number of alternatives, or a list of alternatives names.]]></description>
