@@ -3,10 +3,13 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2010-03-10 14:49:20 +0000">
+<program_description export_date="2012-06-18 06:02:15 +0000">
   <program provider="RXMCDA" name="plotAlternativesComparisons" version="1.0" />
   <from desc_id="S8888" />
-  <description><![CDATA[Generates a graph representing a partial preorder on the alternatives.]]></description>
+  <description><![CDATA[Generates a graph representing a partial preorder on the alternatives.
+
+Please note: this program is deprecated and it is replaced by plotAlternativesComparisons in package ITTB.
+]]></description>
   <parameters>
     <parameter id="plotAlternativesComparisons-cmdline" type="command" ismandatory="1">
       <name>plotAlternativesComparisons</name>
