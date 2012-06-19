@@ -1,3 +1,55 @@
+diviz v1.9
+----------
+
+- Integrated new Decision Deck XMCDA web-services:
+
+  ITTB: 21 new WS by Dhouha Kbaier, Télécom Bretagne
+    - alternativesRankingViaQualificationDistillation
+    - computeNumericPerformanceTable
+    - criteriaDescriptiveStatistics
+    - cutRelation
+    - performanceTableFilter
+    - performanceTableTransformation
+    - plotAlternativesAssignments
+    - plotAlternativesComparisons
+    - plotAlternativesValues
+    - plotAlternativesValuesPreorder
+    - plotCriteriaComparisons
+    - plotCriteriaValues
+    - plotCriteriaValuesPreorder
+    - plotFuzzyCategoriesValues
+    - plotNumericPerformanceTable
+    - plotStarGraphPerformanceTable
+    - plotValueFunctions
+    - sortAlternativesValues
+    - transitiveReductionAlternativesComparisons
+    - transitiveReductionCriteriaComparisons
+    - UTA
+
+  ws-Mcc: 5 new WS by Alexandru Olteanu,
+                      Université du Luxembourg / Télécom Bretagne
+    - mccClustersRelationSummary
+    - mccClusters
+    - mccEvaluateClusters
+    - mccPlotClusters
+    - mccPreferenceRelation
+
+  PyXMCDA:
+    - ElectreTriBMInference: now v1.2 by Olivier Sobrie:
+        Fix category profiles inversion. In the category input, the
+        ranks were inverted, i.e. the worst category had the smallest
+        rank and the best one the highest rank. Now this is fixed.
+
+    2 new WS by Sébastien Bigaret, Télécom Bretagne
+    - csvToXMCDA-categoriesProfiles
+    - csvToXMCDA-valueFunctions
+
+    - all csvToXMCDA-* web-services now indicate in most cases the
+      faulty line number when an invalid csv is supplied.
+
+    - MccP has been removed (replaced by the programs supplied by ws-Mcc)
+
+
 diviz v1.8.2
 ------------
 

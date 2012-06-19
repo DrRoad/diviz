@@ -3,7 +3,7 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2010-11-29 13:57:46 +0000">
+<program_description export_date="2011-09-26 07:53:52 +0000">
   <program provider="RXMCDA" name="computeAlternativesQualification" version="1.0" />
   <from desc_id="S8888" />
   <description><![CDATA[Computes the strength, weakness and qualification of the alternatives. Requires a 0-1 valued outranking relation as input.]]></description>

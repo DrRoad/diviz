@@ -3,7 +3,7 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2010-03-10 14:49:20 +0000">
+<program_description export_date="2011-09-26 07:53:52 +0000">
   <program provider="RXMCDA" name="alternativesValuesKendall" version="1.0" />
   <from desc_id="S8888" />
   <description><![CDATA[Calculates the correlation index between two rankings of alternatives (represented by lists of ranks).]]></description>
