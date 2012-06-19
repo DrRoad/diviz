@@ -1,21 +1,22 @@
+diviz v1.9
+----------
 
 - Nouveaux web-services XMCDA Decision Deck disponibles:
 
-  ITTB: 22 nouveaux WS par Dhouha Kbaier, Télécom Bretagne
+  ITTB: 21 nouveaux WS par Dhouha Kbaier, Télécom Bretagne
     - alternativesRankingViaQualificationDistillation
     - computeNumericPerformanceTable
     - criteriaDescriptiveStatistics
     - cutRelation
     - performanceTableFilter
     - performanceTableTransformation
-    - plotAlternativesAffectations
     - plotAlternativesAssignments
     - plotAlternativesComparisons
-    - plotAlternativesValuesPreorder
     - plotAlternativesValues
+    - plotAlternativesValuesPreorder
     - plotCriteriaComparisons
-    - plotCriteriaValuesPreorder
     - plotCriteriaValues
+    - plotCriteriaValuesPreorder
     - plotFuzzyCategoriesValues
     - plotNumericPerformanceTable
     - plotStarGraphPerformanceTable
@@ -33,6 +34,25 @@
     - mccPlotClusters
     - mccPreferenceRelation
 
+  PyXMCDA:
+    - ElectreTriBMInference: passage en v1.2 par Olivier Sobrie:
+        Correction de l'inversion des profils de catégorie.  Dans
+        l'entrée catégorie, les rangs étaient inversés, c'est à dire que
+        la catégorie la pire avait le rang le plus petit, et la meilleure
+        catégorie avait le plus haut rang.  C'est désormais corrigé.
+
+        Fix category profiles inversion. In the category input, the
+        ranks were inverted, i.e. the worst category had the smallest
+        rank and the best one the highest rank. Now this is fixed.
+
+    2 new WS by Sébastien Bigaret, Télécom Bretagne
+    - csvToXMCDA-categoriesProfiles
+    - csvToXMCDA-valueFunctions
+
+    - all csvToXMCDA-* web-services now indicate in most cases the
+      faulty line number when an invalid csv is supplied.
+
+    - MccP has been removed (replaced by the programs supplied by ws-Mcc)
   PyXMCDA: 2 nouveaux WS par Sébastien Bigaret, Télécom Bretagne
     - csvToXMCDA-categoriesProfiles
     - csvToXMCDA-valueFunctions

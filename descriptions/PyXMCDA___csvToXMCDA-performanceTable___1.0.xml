@@ -3,7 +3,7 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2012-01-23 09:46:37 +0000">
+<program_description export_date="2012-01-23 13:56:06 +0000">
   <program provider="PyXMCDA" name="csvToXMCDA-performanceTable" version="1.0" />
   <from desc_id="S8888" />
   <description><![CDATA[Transforms a file containing a performance table from a comma-separated values (CSV) file to three XMCDA compliant files, containing the corresponding criteria ids, alternatives' ids and the performance table.]]></description>

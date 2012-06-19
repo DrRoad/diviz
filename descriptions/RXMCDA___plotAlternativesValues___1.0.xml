@@ -3,10 +3,13 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2010-03-10 14:49:18 +0000">
+<program_description export_date="2012-06-18 06:03:04 +0000">
   <program provider="RXMCDA" name="plotAlternativesValues" version="1.0" />
   <from desc_id="S8888" />
-  <description><![CDATA[Generates a barplot representing a numeric quantity for each alternative, like, e.g., the overall value.]]></description>
+  <description><![CDATA[Generates a barplot representing a numeric quantity for each alternative, like, e.g., the overall value.
+
+Please note: this program is deprecated and it is replaced by plotAlternativesValues in package ITTB.
+]]></description>
   <parameters>
     <parameter id="plotAlternativesValues-cmdline" type="command" ismandatory="1">
       <name>plotAlternativesValues</name>
