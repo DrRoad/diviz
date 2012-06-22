@@ -3,7 +3,7 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2011-12-09 08:21:35 +0000">
+<program_description export_date="2011-12-09 08:21:35 +0000" active="0">
   <program provider="PyXMCDA" name="MccP" version="1.0" />
   <from desc_id="S8888" />
   <description><![CDATA[This web service allows to compute ordered clusters of alternatives from an outranking relation with the aim of maximizing the indifference between the alternatives inside the same cluster, and maximizing the preference relations in one direction or another between different clusters.]]></description>

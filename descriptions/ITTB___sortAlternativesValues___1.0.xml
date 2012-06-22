@@ -3,7 +3,7 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2012-06-07 07:37:00 +0000">
+<program_description export_date="2012-06-14 11:49:54 +0000">
   <program provider="ITTB" name="sortAlternativesValues" version="1.0" />
   <from desc_id="S8888" />
   <description><![CDATA[This web service computes affectations of the alternatives from the given input data (3 inputs: alternatives, alternativesValues and categoriesLimits).]]></description>

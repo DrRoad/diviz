@@ -3,7 +3,7 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2010-03-10 14:49:18 +0000">
+<program_description export_date="2011-09-26 07:53:52 +0000">
   <program provider="kappalab" name="capacityShapley" version="1.0" />
   <from desc_id="S8888" />
   <description><![CDATA[Computes the Shapley value (n indices) of the Mobius transform of a capacity.]]></description>
@@ -47,7 +47,7 @@
       <position>300</position>
       <code><![CDATA[#kAdditivity: kAdditivity.xml
 cat > kAdditivity.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="xmcdaKappalab.xsl"?>
+
 <xmcda:XMCDA xmlns:xmcda="http://www.decision-deck.org/2009/XMCDA-2.0.0"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.decision-deck.org/2009/XMCDA-2.0.0 http://www.decision-deck.org/xmcda/_downloads/XMCDA-2.0.0.xsd">]]></code>

@@ -5,7 +5,7 @@
     <configuration>
 	    <!-- script-init: adapt PATH if needed: setenv PATH /path/to/...:${PATH}: -->
     	<item name="script-init">setenv PYTHONUNBUFFERED 1
-set callXMCDAService="genericXMCDAService.py -U http://server-telecom-bretagne.diviz.org/soap/%s-test.py -n "
+set callXMCDAService="genericXMCDAService.py -U http://server-telecom-bretagne.diviz.org/soap/%s.py -n "
 </item>
     </configuration>
     <programs>
@@ -54,11 +54,12 @@ set callXMCDAService="genericXMCDAService.py -U http://server-telecom-bretagne.d
       <program id="PyXMCDA___ElectreTriBMInference___1.1"/>
       <program id="PyXMCDA___thresholdsSensitivityAnalysis___1.0.0"/>
       <program id="PyXMCDA___RubisOutrankingRelation___1.1"/>
-      <program id="PyXMCDA___MccP___1.0"/>
       <program id="PyXMCDA___csvToXMCDA-alternativesValues___1.0"/>
+      <program id="PyXMCDA___csvToXMCDA-categoriesProfiles___1.0"/>
       <program id="PyXMCDA___csvToXMCDA-criteriaValues___1.2"/>
       <program id="PyXMCDA___csvToXMCDA-criteriaThresholds___1.2"/>
 	  <program id="PyXMCDA___csvToXMCDA-performanceTable___1.0"/>
+      <program id="PyXMCDA___csvToXMCDA-valueFunctions___1.0"/>
       <program id="PyXMCDA___stableSorting___1.0"/>
 
       <program id="jsmaa___smaa2___0.2"/>
@@ -95,8 +96,6 @@ set callXMCDAService="genericXMCDAService.py -U http://server-telecom-bretagne.d
       <program id="ITTB___transitiveReductionCriteriaComparisons___1.0"/>
       <program id="ITTB___cutRelation___1.0"/>
       <program id="ITTB___alternativesRankingViaQualificationDistillation___1.0"/>
-      <program id="ITTB___csvToXMCDA-categoriesProfiles___1.0"/>
-      <program id="ITTB___csvToXMCDA-valueFunctions___1.0"/>
       <program id="ITTB___computeNumericPerformanceTable___1.0"/>
       <program id="ITTB___performanceTableTransformation___1.0"/>
       <program id="ITTB___sortAlternativesValues___1.0"/>

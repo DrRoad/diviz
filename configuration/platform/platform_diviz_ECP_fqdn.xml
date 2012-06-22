@@ -12,7 +12,7 @@
     <configuration>
 	    <!-- script-init: adapt PATH if needed: setenv PATH /path/to/...:${PATH}: -->
     	<item name="script-init">setenv PYTHONUNBUFFERED 1
-set callXMCDAService="genericXMCDAService.py -U http://webservices.decision-deck.org/soap/%s-test.py -n "
+set callXMCDAService="genericXMCDAService.py -U http://webservices.decision-deck.org/soap/%s.py -n "
 </item>
     </configuration>
     <programs>
@@ -60,12 +60,14 @@ set callXMCDAService="genericXMCDAService.py -U http://webservices.decision-deck
       <program id="PyXMCDA___randomCriteria___1.1"/>
       <program id="PyXMCDA___randomPerformanceTable___1.1"/>
       <program id="PyXMCDA___ElectreTriBMInference___1.1"/>
+      <program id="PyXMCDA___thresholdsSensitivityAnalysis___1.0.0"/>
       <program id="PyXMCDA___RubisOutrankingRelation___1.1"/>
-      <program id="PyXMCDA___MccP___1.0"/>
       <program id="PyXMCDA___csvToXMCDA-alternativesValues___1.0"/>
+      <program id="PyXMCDA___csvToXMCDA-categoriesProfiles___1.0"/>
       <program id="PyXMCDA___csvToXMCDA-criteriaValues___1.2"/>
       <program id="PyXMCDA___csvToXMCDA-criteriaThresholds___1.2"/>
       <program id="PyXMCDA___csvToXMCDA-performanceTable___1.0"/>
+      <program id="PyXMCDA___csvToXMCDA-valueFunctions___1.0"/>
       <program id="PyXMCDA___stableSorting___1.0"/>
       
       <program id="jsmaa___smaa2___0.2"/>
@@ -84,6 +86,10 @@ set callXMCDAService="genericXMCDAService.py -U http://webservices.decision-deck
       <program id="J-MCDA___PrometheeProfiles___0.5.1"/>
       <program id="J-MCDA___ElectreTriExploitation___0.5.1"/>
 
+      <!-- URV -->
+      <program id="URV___OWA___1.0"/>
+      <program id="URV___ULOWA___1.0"/>
+
       <!-- Institut Télécom / Télécom Bretagne -->
       <program id="ITTB___criteriaDescriptiveStatistics___1.0"/>
       <program id="ITTB___plotValueFunctions___1.0"/>
@@ -96,10 +102,23 @@ set callXMCDAService="genericXMCDAService.py -U http://webservices.decision-deck
       <program id="ITTB___plotNumericPerformanceTable___1.0"/>
       <program id="ITTB___transitiveReductionAlternativesComparisons___1.0"/>
       <program id="ITTB___transitiveReductionCriteriaComparisons___1.0"/>
+      <program id="ITTB___cutRelation___1.0"/>
+      <program id="ITTB___alternativesRankingViaQualificationDistillation___1.0"/>
+      <program id="ITTB___computeNumericPerformanceTable___1.0"/>
+      <program id="ITTB___performanceTableTransformation___1.0"/>
+      <program id="ITTB___sortAlternativesValues___1.0"/>
+      <program id="ITTB___UTA___1.0"/>
+      <program id="ITTB___performanceTableFilter___1.0"/>
+      <program id="ITTB___plotStarGraphPerformanceTable___1.0" />
+      <program id="ITTB___plotAlternativesAssignments___1.0" />
+      <program id="ITTB___plotFuzzyCategoriesValues___1.0" />
 
-      <!-- URV -->
-      <program id="URV___OWA___1.0"/>
-      <program id="URV___ULOWA___1.0"/>
+      <!-- ws-Mcc -->
+      <program id="ws-Mcc___mccClusters___1.0"/>
+      <program id="ws-Mcc___mccClustersRelationSummary___1.0"/>
+      <program id="ws-Mcc___mccEvaluateClusters___1.0"/>
+      <program id="ws-Mcc___mccPlotClusters___1.0"/>
+      <program id="ws-Mcc___mccPreferenceRelation___1.0"/>
 
 <!-- This program requires cplex, which is not installed at ecp for the moment being -->
 <!--  <program id="PyXMCDA___weightsFromCondorcetAndPreferences___1.0"/>
