@@ -19,6 +19,9 @@
 ]>
 <resourcesTree version="11">
 	
+	<type name="Unsorted" collapsed="0">
+		<resource name="J-MCDA___ElectreTri1GroupDisaggregationSharedProfiles___0.5.2"/>
+	</type>
 	<type name="Generic" collapsed="0">
 		<resource name="local___generic_program___1.1"/>
 	</type>

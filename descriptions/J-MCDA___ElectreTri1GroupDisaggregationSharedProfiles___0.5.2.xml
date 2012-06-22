@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+
+<!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
+
+<program_description export_date="2012-06-22 07:41:25 +0000">
+  <program provider="J-MCDA" name="ElectreTri1GroupDisaggregationSharedProfiles" version="0.5.2" />
+  <from desc_id="S8888" />
+  <description><![CDATA[Finds electre tri like models with shared profiles and individual weights that matches given group assignments.]]></description>
+  <parameters>
+    <parameter id="ElectreTri1GroupDisaggregationSharedProfiles-cmdline" type="command" ismandatory="1">
+      <name>ElectreTri1GroupDisaggregationSharedProfiles</name>
+      <description></description>
+      <position>100000</position>
+      <code>$callXMCDAService ElectreTri1GroupDisaggregationSharedProfiles-J-MCDA -S </code>
+    </parameter>
+
+
+    <parameter id="alternatives" ishidden="0" type="input">
+      <name>alternatives</name>
+      <description><![CDATA[The alternatives to consider. Set some alternatives as inactive (or remove them) to ignore them.]]></description>
+      <position>100003</position>
+      <code> alternatives:alternatives.xml</code>
+      <types>
+        <type>alternatives</type>
+      </types>
+      <vdef>alternatives.xml</vdef>
+      <dep>(alternatives-dep:value="1")</dep>
+
+    </parameter>
+    <parameter id="alternatives-dep" ishidden="0" type="boolean">
+      <name>Use alternatives as input?</name>
+      <description>Use alternatives as input?</description>
+      <position>3003</position>
+      <code/>
+      <vdef>1</vdef>
+    </parameter>
+
+
+
+    <parameter id="criteria" ishidden="0" type="input">
+      <name>criteria</name>
+      <description><![CDATA[The criteria to consider. Each one must have a preference direction. The thresholds are not used. Set some criteria as inactive (or remove them) to ignore them.
+				]]></description>
+      <position>100004</position>
+      <code> criteria:criteria.xml</code>
+      <types>
+        <type>criteria</type>
+      </types>
+      <vdef>criteria.xml</vdef>
+      <dep/>
+    </parameter>
+
+
+
+    <parameter id="categories_profile" ishidden="0" type="input">
+      <name>categories_profiles</name>
+      <description><![CDATA[The profiles and the categories names in which alternatives are to be sorted.]]></description>
+      <position>100005</position>
+      <code> categories_profiles:categories_profiles.xml</code>
+      <types>
+        <type>categoriesProfiles</type>
+      </types>
+      <vdef>categories_profiles.xml</vdef>
+      <dep/>
+    </parameter>
+
+
+
+    <parameter id="performances_alternatives" ishidden="0" type="input">
+      <name>alternatives performances</name>
+      <description><![CDATA[The performances of the example alternatives.]]></description>
+      <position>100006</position>
+      <code> performances_alternatives:performances_alternatives.xml</code>
+      <types>
+        <type>performanceTable</type>
+      </types>
+      <vdef>performances_alternatives.xml</vdef>
+      <dep/>
+    </parameter>
+
+
+
+    <parameter id="examples" ishidden="0" type="input">
+      <name>group example assignments</name>
+      <description><![CDATA[The example assignments. Use one tag per decision maker. Use the name attribute to indicate the corresponding decision maker.]]></description>
+      <position>100007</position>
+      <code> examples:examples.xml</code>
+      <types>
+        <type>alternativesAffectations</type>
+      </types>
+      <vdef>examples.xml</vdef>
+      <dep/>
+    </parameter>
+
+
+
+
+    <parameter id="messages" ishidden="0" type="output">
+      <name>messages</name>
+      <description><![CDATA[A status message to indicate if everything went correctly or if an error happened during the execution. Note that if the service finds that the problem is infeasible, this is not considered as an error.]]></description>
+      <position>2008</position>
+      <code/>
+      <types>
+        <type>methodMessages</type>
+      </types>
+      <vdef>messages.xml</vdef>
+    </parameter>
+
+
+
+
+
+    <parameter id="result_status" ishidden="0" type="output">
+      <name>result status</name>
+      <description><![CDATA[The result status: if feasible, then one solution was found, otherwise the status indicates what happened (e.g. the program is infeasible).]]></description>
+      <position>2009</position>
+      <code/>
+      <types>
+        <type>methodMessages</type>
+      </types>
+      <vdef>result_status.xml</vdef>
+    </parameter>
+
+
+
+
+
+    <parameter id="performances_profiles" ishidden="0" type="output">
+      <name>profiles performances</name>
+      <description><![CDATA[The performances of the shared profiles.]]></description>
+      <position>2010</position>
+      <code/>
+      <types>
+        <type>performanceTable</type>
+      </types>
+      <vdef>performances_profiles.xml</vdef>
+      <dep>(performances_profiles-dep:value="1")</dep>
+    </parameter>
+
+    <parameter id="performances_profiles-dep" ishidden="0" type="boolean">
+      <name>Use profiles performances as output?</name>
+      <description>Use profiles performances as output?</description>
+      <position>4010</position>
+      <code/>
+      <vdef>1</vdef>
+    </parameter>
+
+
+
+
+    <parameter id="coalitions" ishidden="0" type="output">
+      <name>group coalitions</name>
+      <description><![CDATA[The resulting group coalitions.]]></description>
+      <position>2011</position>
+      <code/>
+      <types>
+        <type>criteriaSets</type>
+      </types>
+      <vdef>coalitions.xml</vdef>
+      <dep>(coalitions-dep:value="1")</dep>
+    </parameter>
+
+    <parameter id="coalitions-dep" ishidden="0" type="boolean">
+      <name>Use group coalitions as output?</name>
+      <description>Use group coalitions as output?</description>
+      <position>4011</position>
+      <code/>
+      <vdef>1</vdef>
+    </parameter>
+
+
+    <parameter id="TIMEOUT" ishidden="0" type="int">
+      <name>Timeout? (0 for no timeout)</name>
+      <description>timeout</description>
+      <position>100001</position>
+      <code>-t %s </code>
+      <constraint>
+        <description>value should be a positive or null integer</description>
+        <code>(%d &gt;= 0)</code>
+      </constraint>
+      <vdef>60</vdef>
+    </parameter>
+    
+    <parameter id="VERBOSE" ishidden="0" type="enum">
+      <name>Verbose mode</name>
+      <description></description>
+      <position>100002</position>
+      <vlist>
+        <item id="T1">
+          <description>None</description>
+          <code></code>
+        </item>
+        <item id="T2">
+          <description>Moderately verbose</description>
+          <code> -v</code>
+        </item>
+        <item id="T3">
+          <description>Very verbose</description>
+          <code> -vv</code>
+        </item>
+        <item id="T4">
+          <description>Extremely verbose (include SOAP msgs)</description>
+          <code> -vvv</code>
+        </item>
+      </vlist>
+      <vdef>T2</vdef>
+    </parameter>
+
+  </parameters>
+</program_description>
