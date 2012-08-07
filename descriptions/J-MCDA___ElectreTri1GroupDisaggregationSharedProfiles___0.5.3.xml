@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 
 
-<!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
+<!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.1//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.v3.1.dtd">
 
 <program_description export_date="2012-07-05 14:19:45 +0000">
   <program provider="J-MCDA" name="ElectreTri1GroupDisaggregationSharedProfiles" version="0.5.3" />
@@ -15,6 +15,13 @@
       <code>$callXMCDAService ElectreTri1GroupDisaggregationSharedProfiles-J-MCDA -S </code>
     </parameter>
 
+    <parameter id="cplex_license" ishidden="0" type="boolean" do-not-export="1">
+      <name>Do you certify that you have an academic license for cplex?</name>
+      <description></description>
+      <position>3000</position>
+      <code/>
+      <vdef>0</vdef>
+    </parameter>
 
     <parameter id="alternatives" ishidden="0" type="input">
       <name>alternatives</name>
