@@ -1,3 +1,23 @@
+- Application language can now be changed, see the menu Preferences > Language
+  settings...
+  Currently available languages: English, French.
+
+- Changes relative to Decision Deck XMCDA web-services, in J-MCDA by Olivier
+  Cailloux:
+
+    - new service ElectreTri1GroupDisaggregationSharedProfiles,
+    - ElectreTriExploitation updated to v0.5.3
+
+- It is now possible to save a program's parameters set even when some of its
+  parameters have invalid values.  This makes it possible to start
+  parametrizing a program and save it in the middle of the process, so that it
+  can be resumed later, or to share it with someone who can help in choosing
+  the parameters' values, etc.
+
+- Fixed: since v1.9 it was possible to overwrite an existing workflow by
+  creating a new one with the same name.  This is not possible anymore.
+
+
 diviz v1.9
 ----------
 
