@@ -3,7 +3,7 @@
 
 <!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.dtd">
 
-<program_description export_date="2012-01-24 11:32:31 +0000">
+<program_description export_date="2012-06-18 13:48:19 +0000">
   <program provider="PyXMCDA" name="csvToXMCDA-alternativesValues" version="1.0" />
   <from desc_id="S8888" />
   <description><![CDATA[Transforms a file containing alternatives values from a comma-separated values (CSV) file to two XMCDA compliant files, containing the corresponding alternatives ids and their alternativesValues.]]></description>
@@ -17,7 +17,7 @@
 
 
     <parameter id="csv" ishidden="0" type="input">
-      <name>alternativesValues</name>
+      <name>alternativesValues (csv)</name>
       <description><![CDATA[The alternatives and their alternatives values as a CSV file.  The first line is made of two cells, the first one being empty, and the second one will be the content of the attribute "mcdaConcept" in the tag "<alternativesValues>", if supplied.
 
 Example:

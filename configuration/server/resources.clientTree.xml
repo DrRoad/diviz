@@ -17,8 +17,12 @@
         icon CDATA #IMPLIED
     >
 ]>
-<resourcesTree version="11">
+<resourcesTree version="12">
 	
+    <!--
+	<type name="Unsorted" collapsed="0">
+	</type>
+	-->
 	<type name="Generic" collapsed="0">
 		<resource name="local___generic_program___1.1"/>
 	</type>
@@ -35,6 +39,8 @@
 			</type>
 			
 			<type name="Aggregation operators" collapsed="0">
+				<resource name="URV___OWA___1.0"/>
+				<resource name="URV___ULOWA___1.0"/>
 				<type name="Weighted Sum" collapsed="0">
 					<resource name="UTAR___generalWeightedSum___1.0"/>
 					<resource name="PyXMCDA___weightedSum___1.0"/>
@@ -52,8 +58,6 @@
 				
 				<type name="Aggregation" collapsed="0">
 					<resource name="kappalab___choquetIntegral___1.0"/>
-					<resource name="URV___OWA___1.0"/>
-					<resource name="URV___ULOWA___1.0"/>
 				</type>
 				
 				<type name="Capacity analysis" collapsed="0">
@@ -79,6 +83,7 @@
 		<type name="Outranking techniques" collapsed="0">
 			
 			<type name="Parameters elicitation" collapsed="0">
+				<resource name="J-MCDA___ElectreTri1GroupDisaggregationSharedProfiles___0.5.3"/>
 				<resource name="PyXMCDA___ElectreTriBMInference___1.1"/>
 				<resource name="PyXMCDA___weightsFromCondorcetAndPreferences___1.0"/>
 			</type>
@@ -105,7 +110,7 @@
 					<resource name="J-MCDA___PrometheeProfiles___0.5.1"/>
 				</type>
 				<type name="Sorting" collapsed="0">
-					<resource name="J-MCDA___ElectreTriExploitation___0.5.1"/>
+					<resource name="J-MCDA___ElectreTriExploitation___0.5.3"/>
 					<resource name="CppXMCDA___IRIS___1.0"/>
 					<resource name="CppXMCDA___IRIS-testInconsistency___1.0"/>
 					<resource name="PyXMCDA___stableSorting___1.0"/>

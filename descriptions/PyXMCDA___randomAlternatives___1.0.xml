@@ -107,7 +107,7 @@ cat > nbAlternatives.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
         <description>The value should be a positive integer.</description>
         <code><![CDATA[%d > 0]]></code>   
       </constraint>
-      <vdef>2</vdef>
+      <vdef></vdef>
       <dep>(nbAlternatives-use-file-dep:value="0") AND (alternativesNames-dep:value="0")</dep>
 
     </parameter>

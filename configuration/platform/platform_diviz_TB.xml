@@ -76,7 +76,8 @@ set callXMCDAService="genericXMCDAService.py -U http://server-telecom-bretagne.d
       <program id="J-MCDA___PrometheePreference___0.5.1"/>
       <program id="J-MCDA___PrometheeFlows___0.5.1"/>
       <program id="J-MCDA___PrometheeProfiles___0.5.1"/>
-      <program id="J-MCDA___ElectreTriExploitation___0.5.1"/>
+      <program id="J-MCDA___ElectreTriExploitation___0.5.3"/>
+      <program id="J-MCDA___ElectreTri1GroupDisaggregationSharedProfiles___0.5.3"/>
 
       <!-- URV -->
       <program id="URV___OWA___1.0"/>
