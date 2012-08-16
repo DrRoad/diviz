@@ -84,7 +84,7 @@ cat > nbCriteria.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
         <description>The value should be a strict positive integer.</description>
         <code><![CDATA[%d > 0]]></code>   
       </constraint>
-      <vdef>2</vdef>
+      <vdef></vdef>
       <dep>(nbCriteria-use-file-dep:value="0")</dep>
 
     </parameter>

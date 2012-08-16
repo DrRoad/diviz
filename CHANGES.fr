@@ -1,4 +1,31 @@
-diviz v1.9
+diviz v1.9.99 «Gyrrus»
+-------------
+
+- Il est maintenant possible de changer la langue de l'application, menu
+  Préférences > Changer la langue...
+  Les langues actuellement disponibles sont: français, anglais.
+
+- Changements relatifs aux services web XMCDA de Decision Deck: dans J-MCDA,
+  par Olivier Cailloux:
+
+  - ElectreTri1GroupDisaggregationSharedProfiles: nouveau service
+  - ElectreTriExploitation: mis à jour en version 0.5.3
+
+- Il est maintenant possible de sauvegarder le paramétrage d'un programme même
+  lorsque certains de ses paramètres ont des valeurs non valides.  Cela permet
+  de commencer le paramétrage et de le sauvegarder pour le reprendre plus
+  tard, ou de le partager avec quelqu'un qui peut aider à le compléter, etc.
+
+  Lorsqu'un programme a des valeurs de paramètres incorrectes, un point
+  d'exclamation rouge apparait dans le coin en haut à droite de la boîte qui
+  le représente.  Cela se produit également lorsqu'un programme a au moins une
+  entrée qui n'est pas connectée.
+
+- Correction: depuis la version 1.9, il était possible d'écraser le contenu
+  d'un workflow en en créant un autre avec un nom identique.  Ce n'est plus
+  possible.
+
+diviz v1.9 «Zaxxon»
 ----------
 
 - Nouveaux web-services XMCDA Decision Deck disponibles:

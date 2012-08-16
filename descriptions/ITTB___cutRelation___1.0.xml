@@ -112,7 +112,7 @@ cat > options.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
       <position>304</position>
 
       <code>%s</code>
-      <vdef>0</vdef>
+      <vdef></vdef>
       <dep>(options-use-file-dep:value="0")</dep>
 
     </parameter>
