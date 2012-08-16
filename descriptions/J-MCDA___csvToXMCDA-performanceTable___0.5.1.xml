@@ -17,7 +17,7 @@
 
 
     <parameter id="input0" ishidden="0" type="input">
-      <name>performances</name>
+      <name>performances (csv)</name>
       <description><![CDATA[The alternatives, criteria, performances as a CSV file.]]></description>
       <position>100003</position>
       <code> performances.csv:performances.csv</code>
