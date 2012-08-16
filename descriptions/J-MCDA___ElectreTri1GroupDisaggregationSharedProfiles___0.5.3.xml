@@ -1,0 +1,521 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+
+<!DOCTYPE program_description PUBLIC "-//Telecom Bretagne/DTD XML Praxis Program Description 3.1//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/program_description.v3.1.dtd">
+
+<program_description export_date="2012-07-05 14:19:45 +0000">
+  <program provider="J-MCDA" name="ElectreTri1GroupDisaggregationSharedProfiles" version="0.5.3" />
+  <from desc_id="S8888" />
+  <description><![CDATA[Finds electre tri like models with shared profiles and individual weights that matches given group assignments.]]></description>
+  <parameters>
+    <parameter id="ElectreTri1GroupDisaggregationSharedProfiles-cmdline" type="command" ismandatory="1">
+      <name>ElectreTri1GroupDisaggregationSharedProfiles</name>
+      <description></description>
+      <position>100000</position>
+      <code>$callXMCDAService ElectreTri1GroupDisaggregationSharedProfiles-J-MCDA -S </code>
+    </parameter>
+<!--
+    <parameter id="cplex_license" ishidden="0" type="boolean" do-not-export="1">
+      <name>Do you certify that you have an academic license for cplex from IBM?</name>
+      <description></description>
+      <position>3000</position>
+      <code/>
+      <constraint>
+        <description>You cannot use this web-service if you do not qualify for an academic license for cplex</description>
+        <code><![CDATA[("1".equals(%s))]]></code>
+      </constraint>
+      <vdef>0</vdef>
+    </parameter>
+-->    
+    <parameter id="cplex-gui" ishidden="1" type="code">
+      <name></name>
+      <description></description>
+      <position>700</position>
+      <code><![CDATA[# cplex_licence.xml
+cat > cplex_licence.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
+<xmcda:XMCDA xmlns:xmcda="http://www.decision-deck.org/2009/XMCDA-2.1.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.decision-deck.org/2009/XMCDA-2.1.0 http://www.decision-deck.org/xmcda/_downloads/XMCDA-2.1.0.xsd">
+<xmcda:XMCDA xmlns:xmcda="http://www.decision-deck.org/2009/XMCDA-2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.decision-deck.org/2009/XMCDA-2.0.0 ">
+    <methodParameters>
+        <parameter id="I-certify-that-I-have-a-valid-academic-licence-for-the-cplex-software-obtained-from-IBM">
+            <value>
+                <boolean>]]></code>
+      <dep/>
+    </parameter>
+    
+    <parameter id="cplex-gui-value-placeholder-1" ishidden="0" type="boolean" is-user-bound="1">
+      <name>Do you certify that you have an academic license for cplex from IBM?</name>
+      <description></description>
+      <position>701</position>
+      <code>%b</code>
+      <constraint>
+        <description>You cannot use this web-service if you do not qualify for an academic license for cplex</description>
+        <code><![CDATA[("1".equals(%s))]]></code>
+      </constraint>
+      <vdef>0</vdef>
+    </parameter>
+    
+    <parameter id="cplex-gui-end" ishidden="1" type="code">
+      <name></name>
+      <description></description>
+      <position>702</position>
+      <code><![CDATA[</boolean>
+            </value>
+        </parameter>
+    </methodParameters>    
+</xmcda:XMCDA>
+EOF%n]]></code>
+      <dep/>
+    </parameter>
+    
+    <parameter id="cplex_licence-cmdline" ishidden="1" type="code">
+      <name/>
+      <description/>
+      <position>100012</position>
+      <code> cplex_licence:cplex_licence.xml</code>
+      <dep/>
+    </parameter>
+
+    <parameter id="alternatives" ishidden="0" type="input">
+      <name>alternatives</name>
+      <description><![CDATA[The alternatives to consider. Set some alternatives as inactive (or remove them) to ignore them.]]></description>
+      <position>100003</position>
+      <code> alternatives:alternatives.xml</code>
+      <types>
+        <type>alternatives</type>
+      </types>
+      <vdef>alternatives.xml</vdef>
+      <dep>(alternatives-dep:value="1")</dep>
+
+    </parameter>
+    <parameter id="alternatives-dep" ishidden="0" type="boolean">
+      <name>Use alternatives as input?</name>
+      <description>Use alternatives as input?</description>
+      <position>3003</position>
+      <code/>
+      <vdef>1</vdef>
+    </parameter>
+
+
+
+    <parameter id="criteria" ishidden="0" type="input">
+      <name>criteria</name>
+      <description><![CDATA[The criteria to consider. Each one must have a preference direction. No preference or indifference thresholds may be included. Set some criteria as inactive (or remove them) to ignore them. Veto thresholds may be included: these will be considered as constraints on the preference model.
+				]]></description>
+      <position>100004</position>
+      <code> criteria:criteria.xml</code>
+      <types>
+        <type>criteria</type>
+      </types>
+      <vdef>criteria.xml</vdef>
+      <dep/>
+    </parameter>
+
+
+
+    <parameter id="categories_profiles" ishidden="0" type="input">
+      <name>categories_profiles</name>
+      <description><![CDATA[The profiles and the categories names in which alternatives are to be sorted.]]></description>
+      <position>100005</position>
+      <code> categories_profiles:categories_profiles.xml</code>
+      <types>
+        <type>categoriesProfiles</type>
+      </types>
+      <vdef>categories_profiles.xml</vdef>
+      <dep/>
+    </parameter>
+
+
+
+    <parameter id="performances_alternatives" ishidden="0" type="input">
+      <name>alternatives performances</name>
+      <description><![CDATA[The performances of the example alternatives.]]></description>
+      <position>100006</position>
+      <code> performances_alternatives:performances_alternatives.xml</code>
+      <types>
+        <type>performanceTable</type>
+      </types>
+      <vdef>performances_alternatives.xml</vdef>
+      <dep/>
+    </parameter>
+
+
+
+    <parameter id="examples" ishidden="0" type="input">
+      <name>group example assignments</name>
+      <description><![CDATA[The example assignments. Use one tag per decision maker. Use the name attribute to indicate the corresponding decision maker.]]></description>
+      <position>100007</position>
+      <code> examples:examples.xml</code>
+      <types>
+        <type>alternativesAffectations</type>
+      </types>
+      <vdef>examples.xml</vdef>
+      <dep/>
+    </parameter>
+
+
+
+    <parameter id="use_vetoes" ishidden="0" type="input">
+      <name>use vetoes</name>
+      <description><![CDATA[Whether to accept using veto thresholds in the resulting preference model. Must be true when veto threshold values are set as input.]]></description>
+      <position>100008</position>
+      <code/> 
+      <types>
+        <type>methodParameters</type>
+      </types>
+      <vdef>use_vetoes.xml</vdef>
+      <dep>(use_vetoes-dep:value="1") AND (use_vetoes-use-file-dep:value="1")</dep>
+
+    </parameter>
+    <parameter id="use_vetoes-dep" ishidden="0" type="boolean">
+      <name>Use use vetoes as input?</name>
+      <description>Use use vetoes as input?</description>
+      <position>3008</position>
+      <code/>
+      <vdef>1</vdef>
+    </parameter>
+
+    <parameter id="use_vetoes-use-file-dep" ishidden="0" type="boolean">
+      <name>Supply use vetoes as a file?</name>
+      <description>Supply use vetoes as a file?</description>
+      <position>3008</position>
+      <code/>
+      <vdef>0</vdef>
+      <dep>(use_vetoes-dep:value="1")</dep>
+
+    </parameter>
+    
+
+
+
+    <parameter id="use_vetoes-gui" ishidden="1" type="code">
+      <name>use vetoes</name>
+      <description><![CDATA[Whether to accept using veto thresholds in the resulting preference model. Must be true when veto threshold values are set as input.]]></description>
+      <position>800</position>
+      <code><![CDATA[#use_vetoes: use_vetoes.xml
+cat > use_vetoes.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
+<xmcda:XMCDA xmlns:xmcda="http://www.decision-deck.org/2009/XMCDA-2.1.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.decision-deck.org/2009/XMCDA-2.1.0 http://www.decision-deck.org/xmcda/_downloads/XMCDA-2.1.0.xsd">]]></code>
+      <dep>(use_vetoes-dep:value="1") AND (use_vetoes-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+
+    <parameter id="use_vetoes-gui-801" ishidden="1" type="code">
+      <name />
+      <description />
+      <position>801</position>
+      <code><![CDATA[
+
+      <methodParameters>
+         <parameter>
+               <value>
+                  <boolean>]]></code>
+      <dep>(use_vetoes-dep:value="1") AND (use_vetoes-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+
+    <parameter id="use_vetoes-gui-value-placeholder-1" ishidden="0" type="boolean">
+      <name>use vetoes</name>
+      <indent>1</indent>
+      <description>TODO</description>
+      <position>802</position>
+
+      <code>%b</code>
+      <vdef></vdef>
+      <dep>(use_vetoes-dep:value="1") AND (use_vetoes-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+
+    <parameter id="use_vetoes-gui-803" ishidden="1" type="code">
+      <name />
+      <description />
+      <position>803</position>
+      <code><![CDATA[</boolean>
+               </value>
+         </parameter>
+      </methodParameters>
+
+			]]></code>
+      <dep>(use_vetoes-dep:value="1") AND (use_vetoes-use-file-dep:value="0")</dep>
+
+    </parameter>
+    <parameter id="use_vetoes-gui-EOF" ishidden="1" type="code">
+      <name>use vetoes EOF</name>
+      <description></description>
+      <position>804</position>
+      <code><![CDATA[</xmcda:XMCDA>%nEOF%n]]></code>
+      <dep>(use_vetoes-dep:value="1") AND (use_vetoes-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+    <parameter id="use_vetoes-cmdline" ishidden="1" type="code">
+      <name>use vetoes insertion in cmd-line</name>
+      <description></description>
+      <position>100008</position>
+      <code> use_vetoes:use_vetoes.xml</code>
+      <dep>(use_vetoes-dep:value="1")</dep>
+
+    </parameter>
+
+
+
+
+
+    <parameter id="set_profiles" ishidden="0" type="input">
+      <name>set profiles</name>
+      <description><![CDATA[Some performances for the profiles of the resulting model may be constrained here. The values will not necessarily be considered as is but the resulting model will satisfy the ordering implied by the constraints.]]></description>
+      <position>100009</position>
+      <code> set_profiles:set_profiles.xml</code>
+      <types>
+        <type>performanceTable</type>
+      </types>
+      <vdef>set_profiles.xml</vdef>
+      <dep>(set_profiles-dep:value="1")</dep>
+
+    </parameter>
+    <parameter id="set_profiles-dep" ishidden="0" type="boolean">
+      <name>Use set profiles as input?</name>
+      <description>Use set profiles as input?</description>
+      <position>3009</position>
+      <code/>
+      <vdef>1</vdef>
+    </parameter>
+
+
+
+    <parameter id="min_weights" ishidden="0" type="input">
+      <name>minimum weights</name>
+      <description><![CDATA[The minimum value accepted for a weight. Default is zero.]]></description>
+      <position>100010</position>
+      <code/> 
+      <types>
+        <type>methodParameters</type>
+      </types>
+      <vdef>min_weights.xml</vdef>
+      <dep>(min_weights-dep:value="1") AND (min_weights-use-file-dep:value="1")</dep>
+
+    </parameter>
+    <parameter id="min_weights-dep" ishidden="0" type="boolean">
+      <name>Use minimum weights as input?</name>
+      <description>Use minimum weights as input?</description>
+      <position>3010</position>
+      <code/>
+      <vdef>1</vdef>
+    </parameter>
+
+    <parameter id="min_weights-use-file-dep" ishidden="0" type="boolean">
+      <name>Supply minimum weights as a file?</name>
+      <description>Supply minimum weights as a file?</description>
+      <position>3010</position>
+      <code/>
+      <vdef>0</vdef>
+      <dep>(min_weights-dep:value="1")</dep>
+
+    </parameter>
+    
+
+
+
+    <parameter id="min_weights-gui" ishidden="1" type="code">
+      <name>minimum weights</name>
+      <description><![CDATA[The minimum value accepted for a weight. Default is zero.]]></description>
+      <position>1000</position>
+      <code><![CDATA[#min_weights: min_weights.xml
+cat > min_weights.xml <<EOF%n<?xml version="1.0" encoding="UTF-8"?>
+<xmcda:XMCDA xmlns:xmcda="http://www.decision-deck.org/2009/XMCDA-2.1.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.decision-deck.org/2009/XMCDA-2.1.0 http://www.decision-deck.org/xmcda/_downloads/XMCDA-2.1.0.xsd">]]></code>
+      <dep>(min_weights-dep:value="1") AND (min_weights-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+
+    <parameter id="min_weights-gui-1001" ishidden="1" type="code">
+      <name />
+      <description />
+      <position>1001</position>
+      <code><![CDATA[
+
+      <methodParameters>
+         <parameter>
+               <value>
+                  <real>]]></code>
+      <dep>(min_weights-dep:value="1") AND (min_weights-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+
+    <parameter id="min_weights-gui-value-placeholder-1" ishidden="0" type="float">
+      <name>minimum weights</name>
+      <indent>1</indent>
+      <description>TODO</description>
+      <position>1002</position>
+
+      <code>%s</code>
+      <vdef></vdef>
+      <dep>(min_weights-dep:value="1") AND (min_weights-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+
+    <parameter id="min_weights-gui-1003" ishidden="1" type="code">
+      <name />
+      <description />
+      <position>1003</position>
+      <code><![CDATA[</real>
+               </value>
+         </parameter>
+      </methodParameters>
+
+			]]></code>
+      <dep>(min_weights-dep:value="1") AND (min_weights-use-file-dep:value="0")</dep>
+
+    </parameter>
+    <parameter id="min_weights-gui-EOF" ishidden="1" type="code">
+      <name>minimum weights EOF</name>
+      <description></description>
+      <position>1004</position>
+      <code><![CDATA[</xmcda:XMCDA>%nEOF%n]]></code>
+      <dep>(min_weights-dep:value="1") AND (min_weights-use-file-dep:value="0")</dep>
+
+    </parameter>
+
+    <parameter id="min_weights-cmdline" ishidden="1" type="code">
+      <name>minimum weights insertion in cmd-line</name>
+      <description></description>
+      <position>100010</position>
+      <code> min_weights:min_weights.xml</code>
+      <dep>(min_weights-dep:value="1")</dep>
+
+    </parameter>
+
+
+
+
+
+
+    <parameter id="messages" ishidden="0" type="output">
+      <name>messages</name>
+      <description><![CDATA[A status message to indicate if everything went correctly or if an error happened during the execution. Note that if the service finds that the problem is infeasible, this is not considered as an error.]]></description>
+      <position>2011</position>
+      <code/>
+      <types>
+        <type>methodMessages</type>
+      </types>
+      <vdef>messages.xml</vdef>
+    </parameter>
+
+
+
+
+
+    <parameter id="result_status" ishidden="0" type="output">
+      <name>result status</name>
+      <description><![CDATA[The result status: if feasible, then one solution was found, otherwise the status indicates what happened (e.g. the program is infeasible).]]></description>
+      <position>2012</position>
+      <code/>
+      <types>
+        <type>methodMessages</type>
+      </types>
+      <vdef>result_status.xml</vdef>
+    </parameter>
+
+
+
+
+
+    <parameter id="performances_profiles" ishidden="0" type="output">
+      <name>profiles performances</name>
+      <description><![CDATA[The performances of the shared profiles.]]></description>
+      <position>2013</position>
+      <code/>
+      <types>
+        <type>performanceTable</type>
+      </types>
+      <vdef>performances_profiles.xml</vdef>
+    </parameter>
+
+
+
+
+
+    <parameter id="coalitions" ishidden="0" type="output">
+      <name>group coalitions</name>
+      <description><![CDATA[The resulting group coalitions.]]></description>
+      <position>2014</position>
+      <code/>
+      <types>
+        <type>criteriaSets</type>
+      </types>
+      <vdef>coalitions.xml</vdef>
+    </parameter>
+
+
+
+
+
+    <parameter id="veto_thresholds" ishidden="0" type="output">
+      <name>veto thresholds</name>
+      <description><![CDATA[The resulting veto thresholds.]]></description>
+      <position>2015</position>
+      <code/>
+      <types>
+        <type>criteria</type>
+      </types>
+      <vdef>veto_thresholds.xml</vdef>
+      <dep>(veto_thresholds-dep:value="1")</dep>
+    </parameter>
+
+    <parameter id="veto_thresholds-dep" ishidden="0" type="boolean">
+      <name>Use veto thresholds as output?</name>
+      <description>Use veto thresholds as output?</description>
+      <position>4015</position>
+      <code/>
+      <vdef>1</vdef>
+    </parameter>
+
+
+    <parameter id="TIMEOUT" ishidden="0" type="int">
+      <name>Timeout? (0 for no timeout)</name>
+      <description>timeout</description>
+      <position>100001</position>
+      <code>-t %s </code>
+      <constraint>
+        <description>value should be a positive or null integer</description>
+        <code>(%d &gt;= 0)</code>
+      </constraint>
+      <vdef>60</vdef>
+    </parameter>
+    
+    <parameter id="VERBOSE" ishidden="0" type="enum">
+      <name>Verbose mode</name>
+      <description></description>
+      <position>100002</position>
+      <vlist>
+        <item id="T1">
+          <description>None</description>
+          <code></code>
+        </item>
+        <item id="T2">
+          <description>Moderately verbose</description>
+          <code> -v</code>
+        </item>
+        <item id="T3">
+          <description>Very verbose</description>
+          <code> -vv</code>
+        </item>
+        <item id="T4">
+          <description>Extremely verbose (include SOAP msgs)</description>
+          <code> -vvv</code>
+        </item>
+      </vlist>
+      <vdef>T2</vdef>
+    </parameter>
+
+  </parameters>
+</program_description>
