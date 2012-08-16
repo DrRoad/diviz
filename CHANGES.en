@@ -1,3 +1,6 @@
+diviz v1.9.99 «Gyrrus»
+-------------
+
 - Application language can now be changed, see the menu Preferences > Language
   settings...
   Currently available languages: English, French.
@@ -10,15 +13,19 @@
 
 - It is now possible to save a program's parameters set even when some of its
   parameters have invalid values.  This makes it possible to start
-  parametrizing a program and save it in the middle of the process, so that it
-  can be resumed later, or to share it with someone who can help in choosing
-  the parameters' values, etc.
+  parameterizing a program and save it in the middle of the process, so that
+  it can be resumed later, or to share it with someone who can help in
+  choosing the parameters' values, etc.
+
+  Please note: When a program has some parameters that have incorrect values,
+  a red exclamation mark is shown in the top-right corner of its box.  This
+  also happens if a program has at least one input that is not connected.
 
 - Fixed: since v1.9 it was possible to overwrite an existing workflow by
   creating a new one with the same name.  This is not possible anymore.
 
 
-diviz v1.9
+diviz v1.9 «Zaxxon»
 ----------
 
 - Integrated new Decision Deck XMCDA web-services:
